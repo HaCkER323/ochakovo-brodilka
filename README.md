@@ -74,6 +74,18 @@ node serve.js
 
 Для игры хватит статического хостинга с HTTPS. Для сбора откликов и админки нужен Node-процесс с постоянным диском: Railway, Render, VPS или похожий хостинг. Подробности и варианты внешней отправки в [docs/hosting.md](docs/hosting.md).
 
+### Деплой на Render
+
+В репозитории есть `render.yaml`: web-сервис, Node, регион Frankfurt, постоянный диск на `/opt/render/project/src/data`, `HOST=0.0.0.0`, генерируемый `SESSION_SECRET` и пароль `ADMIN_PASSWORD`, который Render спросит при создании.
+
+1. Открой Render Dashboard → Blueprints → New Blueprint Instance.
+2. Подключи GitHub-репозиторий `HaCkER323/ochakovo-brodilka`, ветку `main`.
+3. Render прочитает `render.yaml` и попросит `ADMIN_PASSWORD`.
+4. Выбери план Starter: на Free нет постоянного диска, отклики будут пропадать после рестарта.
+5. После деплоя проверь `/` и `/admin`, отправь тестовую заявку и выгрузи Excel.
+
+Если Blueprint не используется, создай Web Service вручную: runtime Node, build `npm install --omit=dev`, start `node serve.js`, добавь диск на `data`, задай `HOST=0.0.0.0` и `ADMIN_PASSWORD`.
+
 ## Из чего собрано
 
 HTML, CSS и JS без фреймворков и сборки. Зависимостей нет.
@@ -95,6 +107,8 @@ ochakovo-brodilka/
 ├── manifest.webmanifest
 ├── sw.js
 ├── serve.js
+├── package.json
+├── render.yaml
 ├── server/          # HTTP API, хранилище, auth и XLSX
 ├── data/            # отклики, создаётся сервером, в git не попадает
 ├── css/

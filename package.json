@@ -1,0 +1,12 @@
+{
+  "name": "ochakovo-brodilka",
+  "version": "1.0.0",
+  "private": true,
+  "description": "БРОДИЛКА: промо-квест Очаково с приёмом откликов и скрытой админкой",
+  "scripts": {
+    "start": "node serve.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
