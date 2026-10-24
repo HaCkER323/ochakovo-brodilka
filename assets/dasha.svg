@@ -1,0 +1,117 @@
+<svg width="480" height="560" viewBox="0 0 480 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dashaBg" x1="0" y1="0" x2="480" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFA476"/>
+      <stop offset="1" stop-color="#EF5128"/>
+    </linearGradient>
+    <clipPath id="dashaClip"><rect width="480" height="560" rx="24"/></clipPath>
+    <clipPath id="dashaVest">
+      <path d="M54 560c4-56 20-96 56-120 26-18 56-26 86-30l10 2 34 66 34-66 10-2c30 4 60 12 86 30 36 24 52 64 56 120H54Z"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#dashaClip)">
+    <rect width="480" height="560" fill="url(#dashaBg)"/>
+    <circle cx="396" cy="106" r="118" fill="#F6C94C"/>
+    <circle cx="396" cy="106" r="146" fill="none" stroke="#F3EEDF" stroke-width="4" opacity="0.5"/>
+    <path d="M0 468c92-26 196-27 292-2 68 18 128 20 188 6v88H0v-92Z" fill="#0C3B28" opacity="0.14"/>
+    <circle cx="60" cy="196" r="13" fill="none" stroke="#0C3B28" stroke-width="3" opacity="0.4"/>
+    <circle cx="88" cy="132" r="6" fill="#F3EEDF"/>
+    <circle cx="66" cy="92" r="18" fill="#F3EEDF" opacity="0.55"/>
+
+    <!-- neck -->
+    <path d="M212 326h56v58c0 14-13 22-28 22s-28-8-28-22v-58Z" fill="#EDB88C" stroke="#10251A" stroke-width="5"/>
+    <path d="M214 374c9 9 18 13 26 13s17-4 26-13" stroke="#CC9466" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+
+    <!-- body / green tee -->
+    <path d="M30 560c4-92 52-140 136-152 24-4 48-6 74-6s50 2 74 6c84 12 132 60 136 152H30Z" fill="#1B7A4E" stroke="#10251A" stroke-width="6"/>
+
+    <!-- hi-vis vest -->
+    <path d="M54 560c4-56 20-96 56-120 26-18 56-26 86-30l10 2 34 66 34-66 10-2c30 4 60 12 86 30 36 24 52 64 56 120H54Z" fill="#FF6B3D" stroke="#10251A" stroke-width="6"/>
+    <!-- reflective bands clipped to vest -->
+    <g clip-path="url(#dashaVest)">
+      <rect x="24" y="486" width="432" height="18" fill="#F3EEDF" stroke="#10251A" stroke-width="4"/>
+      <rect x="24" y="522" width="432" height="15" fill="#F3EEDF" stroke="#10251A" stroke-width="4"/>
+      <path d="M54 560c2-22 7-40 15-56" stroke="#10251A" stroke-width="0"/>
+    </g>
+    <!-- vest zip -->
+    <path d="M240 478v82" stroke="#10251A" stroke-width="3.5"/>
+    <rect x="234" y="486" width="12" height="17" rx="3" fill="#D7F35B" stroke="#10251A" stroke-width="3"/>
+
+    <!-- tee collar -->
+    <path d="M200 394c8 32 72 32 80 0l-14 0c-6 24-46 24-52 0Z" fill="#12603D" stroke="#10251A" stroke-width="4"/>
+    <path d="M216 454h48" stroke="#D7F35B" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
+
+    <!-- name tag -->
+    <g transform="rotate(-4 344 452)">
+      <rect x="314" y="438" width="62" height="24" rx="3" fill="#F3EEDF" stroke="#10251A" stroke-width="4"/>
+      <text x="345" y="455" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="9" font-weight="700">ОПЕРАТОР</text>
+    </g>
+
+    <!-- hair behind / side locks + bun -->
+    <path d="M148 200c-12 54-12 102 0 132 10 22 26 32 44 34-10-34-14-76-10-116-18-14-28-32-34-50Z" fill="#2B211C" stroke="#10251A" stroke-width="6"/>
+    <path d="M332 200c12 54 12 102 0 132-10 22-26 32-44 34 10-34 14-76 10-116 18-14 28-32 34-50Z" fill="#2B211C" stroke="#10251A" stroke-width="6"/>
+    <circle cx="240" cy="96" r="39" fill="#2B211C" stroke="#10251A" stroke-width="6"/>
+    <path d="M216 86c8-16 24-26 42-26" stroke="#4A3931" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+
+    <!-- ears -->
+    <ellipse cx="153" cy="266" rx="15" ry="25" fill="#E3A97E" stroke="#10251A" stroke-width="5"/>
+    <ellipse cx="327" cy="266" rx="15" ry="25" fill="#E3A97E" stroke="#10251A" stroke-width="5"/>
+    <circle cx="154" cy="299" r="6" fill="#D7F35B" stroke="#10251A" stroke-width="3"/>
+    <circle cx="326" cy="299" r="6" fill="#D7F35B" stroke="#10251A" stroke-width="3"/>
+
+    <!-- face -->
+    <path d="M240 142c54 0 88 38 88 92 0 62-14 110-46 124-14 6-28 8-42 8s-28-2-42-8c-32-14-46-62-46-124 0-54 34-92 88-92Z" fill="#EDB88C" stroke="#10251A" stroke-width="6"/>
+
+    <!-- hair top -->
+    <path d="M240 114c66 0 102 40 98 122-2 10-8 12-12 6-4-28-14-46-28-56-16 10-38 14-58 14s-42-4-58-14c-14 10-24 28-28 56-4 6-10 4-12-6-4-82 32-122 98-122Z" fill="#2B211C" stroke="#10251A" stroke-width="6"/>
+    <path d="M240 120v70" stroke="#4A3931" stroke-width="3.5" stroke-linecap="round" opacity="0.75"/>
+    <path d="M182 176c14-14 32-22 52-24M298 176c-8-12-20-19-33-22" stroke="#4A3931" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+    <path d="M158 236c-2-18 0-34 5-48M322 236c2-18 0-34-5-48" stroke="#4A3931" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+
+    <!-- brows -->
+    <path d="M181 224c11-8 25-8 37 0M299 224c-11-8-25-8-37 0" stroke="#3A2C25" stroke-width="6.5" stroke-linecap="round"/>
+
+    <!-- eyes -->
+    <path d="M193 250c5-9 18-10 26-1-7 9-20 10-26 1Z" fill="#FFFDF5" stroke="#10251A" stroke-width="3"/>
+    <path d="M287 250c-5-9-18-10-26-1 7 9 20 10 26 1Z" fill="#FFFDF5" stroke="#10251A" stroke-width="3"/>
+    <path d="M193 250c5-9 18-10 26-1M287 250c-5-9-18-10-26-1" stroke="#10251A" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="206" cy="251" r="6.6" fill="#4A2A1C"/>
+    <circle cx="274" cy="251" r="6.6" fill="#4A2A1C"/>
+    <circle cx="206" cy="251" r="3" fill="#10251A"/>
+    <circle cx="274" cy="251" r="3" fill="#10251A"/>
+    <circle cx="203.6" cy="248.4" r="2.1" fill="#FFFDF5"/>
+    <circle cx="271.6" cy="248.4" r="2.1" fill="#FFFDF5"/>
+    <path d="M190 247l-5-4M290 247l5-4" stroke="#10251A" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- nose -->
+    <path d="M240 252c-1 14-3 26-7 33 4 5 10 5 14 0-4-7-6-19-7-33Z" fill="none" stroke="#C68A5E" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- smile -->
+    <path d="M212 300c12 4 44 4 56 0-6 22-50 22-56 0Z" fill="#7A3A2C" stroke="#10251A" stroke-width="4.5" stroke-linejoin="round"/>
+    <path d="M218 303c10 3 32 3 42 0l-2 7c-10 3-28 3-38 0l-2-7Z" fill="#FFFDF5"/>
+    <path d="M224 317c6 2 12 3 18 3s11-1 16-3" stroke="#5E2A20" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+
+    <!-- blush -->
+    <ellipse cx="176" cy="273" rx="17" ry="9" fill="#FF8C64" opacity="0.5"/>
+    <ellipse cx="304" cy="273" rx="17" ry="9" fill="#FF8C64" opacity="0.5"/>
+
+    <!-- bottle in hand -->
+    <g transform="rotate(11 420 460)">
+      <rect x="396" y="372" width="52" height="178" rx="17" fill="#136B43" stroke="#10251A" stroke-width="5"/>
+      <path d="M414 372v-32c0-7 5-12 8-12s8 5 8 12v32" fill="#136B43" stroke="#10251A" stroke-width="5"/>
+      <rect x="408" y="312" width="28" height="20" rx="5" fill="#D7F35B" stroke="#10251A" stroke-width="4"/>
+      <rect x="402" y="424" width="40" height="66" rx="4" fill="#F3EEDF" stroke="#10251A" stroke-width="4"/>
+      <text x="422" y="441" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="7" font-weight="700">ОЧАКОВО</text>
+      <text x="422" y="457" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="9" font-weight="800">КВАС</text>
+      <text x="422" y="471" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="5.5" font-weight="600">ДВОЙНОЕ БРОЖЕНИЕ</text>
+      <path d="M412 481h20" stroke="#FF6B3D" stroke-width="3"/>
+      <path d="M402 390v140" stroke="#FFFDF2" stroke-width="4" opacity="0.28" stroke-linecap="round"/>
+    </g>
+    <!-- arm -->
+    <path d="M368 430c38 8 62 38 60 68-2 22-16 36-34 38l-22 2c10-32 12-70-4-108Z" fill="#1B7A4E" stroke="#10251A" stroke-width="6"/>
+    <path d="M378 522c10 8 24 8 34 0l-2 14c-10 8-22 8-32 0l0-14Z" fill="#0F4E33" stroke="#10251A" stroke-width="4"/>
+    <!-- hand -->
+    <path d="M394 506c14-8 32-3 37 12 5 16-4 30-21 32-15 2-25-8-26-22-1-8 4-17 10-22Z" fill="#EDB88C" stroke="#10251A" stroke-width="5"/>
+    <path d="M392 514c9-4 18-4 24 0M390 524c9-4 19-4 25 0" stroke="#C68A5E" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+</svg>

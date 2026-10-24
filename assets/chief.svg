@@ -1,0 +1,89 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="chiefBg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8D983"/>
+      <stop offset="1" stop-color="#E2A62E"/>
+    </linearGradient>
+    <clipPath id="chiefClip"><rect width="512" height="512"/></clipPath>
+  </defs>
+  <g clip-path="url(#chiefClip)">
+    <rect width="512" height="512" fill="url(#chiefBg)"/>
+    <circle cx="432" cy="86" r="128" fill="#0C3B28"/>
+    <circle cx="432" cy="86" r="158" fill="none" stroke="#F3EEDF" stroke-width="5" opacity="0.45"/>
+    <path d="M0 424c104-24 220-25 330 0 70 16 132 17 182 4v84H0v-88Z" fill="#0C3B28" opacity="0.12"/>
+    <circle cx="74" cy="452" r="10" fill="none" stroke="#0C3B28" stroke-width="3" opacity="0.4"/>
+    <circle cx="52" cy="404" r="18" fill="#D7F35B" stroke="#0C3B28" stroke-width="3"/>
+
+    <!-- work jacket -->
+    <path d="M26 512c6-76 56-112 136-124h188c80 12 130 48 136 124H26Z" fill="#14563B" stroke="#10251A" stroke-width="8"/>
+    <path d="M88 470c10-32 32-52 62-60M424 470c-10-32-32-52-62-60" stroke="#D7F35B" stroke-width="5" stroke-linecap="round" opacity="0.65"/>
+    <!-- shirt -->
+    <path d="M222 400c10 26 58 26 68 0 8 14 10 22 10 26-27 15-61 15-88 0 0-4 2-12 10-26Z" fill="#F3EEDF" stroke="#10251A" stroke-width="7"/>
+    <!-- jacket lapels -->
+    <path d="M222 400 256 448 240 456 200 414Z" fill="#0C3B28" stroke="#10251A" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M290 400 256 448 272 456 312 414Z" fill="#0C3B28" stroke="#10251A" stroke-width="6" stroke-linejoin="round"/>
+    <!-- zip -->
+    <path d="M256 448v64" stroke="#10251A" stroke-width="5"/>
+    <rect x="248" y="464" width="16" height="22" rx="4" fill="#D7F35B" stroke="#10251A" stroke-width="4"/>
+    <!-- badge -->
+    <g transform="rotate(-3 166 470)">
+      <rect x="136" y="456" width="60" height="28" rx="4" fill="#F3EEDF" stroke="#10251A" stroke-width="5"/>
+      <text x="166" y="476" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="13" font-weight="800" letter-spacing="0.5">ШЕФ</text>
+    </g>
+
+    <!-- neck -->
+    <path d="M220 328h72v72c0 16-16 26-36 26s-36-10-36-26v-72Z" fill="#E1A77A" stroke="#10251A" stroke-width="7"/>
+    <path d="M228 382c9 11 19 15 28 15s19-4 28-15" stroke="#BF8359" stroke-width="7" stroke-linecap="round" opacity="0.45"/>
+    <path d="M232 392c-2 10-2 20 0 28M280 392c2 10 2 20 0 28" stroke="#BF8359" stroke-width="4" stroke-linecap="round" opacity="0.35"/>
+    <path d="M214 410c11 8 73 8 84 0" stroke="#10251A" stroke-width="5" stroke-linecap="round" opacity="0.22"/>
+
+    <!-- ears -->
+    <ellipse cx="140" cy="254" rx="18" ry="31" fill="#D79B70" stroke="#10251A" stroke-width="7"/>
+    <ellipse cx="372" cy="254" rx="18" ry="31" fill="#D79B70" stroke="#10251A" stroke-width="7"/>
+    <path d="M136 244c-4 7-4 15 2 21M376 244c4 7 4 15-2 21" stroke="#B6744E" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- face -->
+    <path d="M256 116c70 0 112 48 112 130 0 68-22 126-62 144-16 8-34 12-50 12s-34-4-50-12c-40-18-62-76-62-144 0-82 42-130 112-130Z" fill="#E1A77A" stroke="#10251A" stroke-width="8"/>
+
+    <!-- grey side hair -->
+    <path d="M146 194c-8 20-10 42-4 60-14-12-18-40-12-62l16 2Z" fill="#B7B3A3" stroke="#10251A" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M366 194c8 20 10 42 4 60 14-12 18-40 12-62l-16 2Z" fill="#B7B3A3" stroke="#10251A" stroke-width="5" stroke-linejoin="round"/>
+
+    <!-- cap -->
+    <path d="M140 182c-2-62 46-98 116-98s118 36 116 98c-38 12-194 12-232 0Z" fill="#F3EEDF" stroke="#10251A" stroke-width="8"/>
+    <path d="M140 182c38 12 194 12 232 0l0 18c-38 14-194 14-232 0v-18Z" fill="#0C3B28" stroke="#10251A" stroke-width="6"/>
+    <path d="M156 184c32 26 168 26 200 0-14 34-186 34-200 0Z" fill="#0C3B28" stroke="#10251A" stroke-width="5"/>
+    <path d="M176 196c24 6 136 6 160 0" stroke="#D7F35B" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+    <circle cx="256" cy="94" r="11" fill="#0C3B28" stroke="#10251A" stroke-width="5"/>
+    <path d="M166 132c18-18 46-28 78-28" stroke="#D7F35B" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+
+    <!-- brows -->
+    <path d="M176 238c18-10 40-10 56-2M336 238c-18-10-40-10-56-2" stroke="#8F8B7C" stroke-width="11" stroke-linecap="round"/>
+
+    <!-- eyes -->
+    <path d="M173 264c8-14 28-16 42-3-12 14-32 16-42 3Z" fill="#FFFDF5" stroke="#10251A" stroke-width="4"/>
+    <path d="M339 264c-8-14-28-16-42-3 12 14 32 16 42 3Z" fill="#FFFDF5" stroke="#10251A" stroke-width="4"/>
+    <path d="M173 264c8-14 28-16 42-3M339 264c-8-14-28-16-42-3" stroke="#10251A" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="194" cy="264" r="9.5" fill="#4A3524"/>
+    <circle cx="318" cy="264" r="9.5" fill="#4A3524"/>
+    <circle cx="194" cy="264" r="4.5" fill="#10251A"/>
+    <circle cx="318" cy="264" r="4.5" fill="#10251A"/>
+    <circle cx="190.5" cy="260" r="3" fill="#FFFDF5"/>
+    <circle cx="314.5" cy="260" r="3" fill="#FFFDF5"/>
+
+    <!-- nose -->
+    <path d="M256 268c-1 19-4 34-9 42 5 6 13 6 18 0-5-8-8-23-9-42Z" fill="none" stroke="#B6744E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- moustache -->
+    <path d="M256 328c-16-16-50-22-74-10-8 4-10 12-6 18 24 12 62 8 80-2 18 10 56 14 80 2 4-6 2-14-6-18-24-12-58-6-74 10Z" fill="#B7B3A3" stroke="#10251A" stroke-width="5" stroke-linejoin="round"/>
+
+    <!-- smile -->
+    <path d="M222 356c11 9 56 9 68 0" stroke="#10251A" stroke-width="6" stroke-linecap="round"/>
+    <path d="M234 372c7 3 14 4 22 4s15-1 22-4" stroke="#BF8359" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+
+    <!-- wrinkles -->
+    <path d="M212 214c14-6 30-8 44-8M300 214c-14-6-30-8-44-8" stroke="#BF8359" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+    <path d="M160 266l-14-8M352 266l14-8" stroke="#BF8359" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+    <path d="M196 336c-6 12-5 24 2 34M316 336c6 12 5 24-2 34" stroke="#BF8359" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+  </g>
+</svg>

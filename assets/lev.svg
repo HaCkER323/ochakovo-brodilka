@@ -1,0 +1,116 @@
+﻿<svg width="480" height="560" viewBox="0 0 480 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="levBg" x1="0" y1="0" x2="480" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DAF1E1"/>
+      <stop offset="1" stop-color="#7FC9A3"/>
+    </linearGradient>
+    <clipPath id="levClip"><rect width="480" height="560" rx="24"/></clipPath>
+    <linearGradient id="levLiquid" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#F7C96B"/>
+      <stop offset="1" stop-color="#D98A2C"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#levClip)">
+    <rect width="480" height="560" fill="url(#levBg)"/>
+    <circle cx="396" cy="106" r="118" fill="#0C3B28"/>
+    <circle cx="396" cy="106" r="146" fill="none" stroke="#F3EEDF" stroke-width="4" opacity="0.5"/>
+    <path d="M0 468c92-26 196-27 292-2 68 18 128 20 188 6v88H0v-92Z" fill="#0C3B28" opacity="0.12"/>
+    <circle cx="58" cy="190" r="13" fill="none" stroke="#0C3B28" stroke-width="3" opacity="0.4"/>
+    <circle cx="86" cy="130" r="6" fill="#F3EEDF" opacity="0.9"/>
+    <circle cx="70" cy="90" r="18" fill="#D7F35B" stroke="#0C3B28" stroke-width="3"/>
+
+    <!-- neck -->
+    <path d="M212 326h56v58c0 14-13 22-28 22s-28-8-28-22v-58Z" fill="#E6B486" stroke="#10251A" stroke-width="5"/>
+    <path d="M214 374c9 9 18 13 26 13s17-4 26-13" stroke="#C49064" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+
+    <!-- green shirt base -->
+    <path d="M30 560c4-92 52-140 136-152 24-4 48-6 74-6s50 2 74 6c84 12 132 60 136 152H30Z" fill="#0C3B28" stroke="#10251A" stroke-width="6"/>
+
+    <!-- lab coat -->
+    <path d="M30 560c4-96 50-146 134-158 18-2 34-2 46-2l30 66 30-66c12 0 28 0 46 2 84 12 130 62 134 158H30Z" fill="#F6F1E4" stroke="#10251A" stroke-width="6"/>
+    <!-- coat lapels -->
+    <path d="M206 400 240 468 224 482 178 420Z" fill="#FFFDF5" stroke="#10251A" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M274 400 240 468 256 482 302 420Z" fill="#FFFDF5" stroke="#10251A" stroke-width="5" stroke-linejoin="round"/>
+    <!-- shirt neck rib -->
+    <path d="M212 400c6 22 50 22 56 0l-12 0c-5 14-27 14-32 0Z" fill="#0A3222" stroke="#10251A" stroke-width="3.5"/>
+    <!-- coat placket + seams -->
+    <path d="M240 474v86" stroke="#10251A" stroke-width="3.5"/>
+    <path d="M163 440c-8 34-12 76-11 120M317 440c8 34 12 76 11 120" stroke="#D8D2BF" stroke-width="3" stroke-linecap="round"/>
+    <!-- chest pocket + pen -->
+    <path d="M96 470h72v58H96z" fill="#F6F1E4" stroke="#10251A" stroke-width="4"/>
+    <path d="M104 478h56" stroke="#10251A" stroke-width="3" opacity="0.35"/>
+    <rect x="144" y="446" width="9" height="48" rx="4" fill="#FF6B3D" stroke="#10251A" stroke-width="3" transform="rotate(6 144 446)"/>
+    <!-- QA badge -->
+    <rect x="310" y="466" width="58" height="30" rx="4" fill="#D7F35B" stroke="#10251A" stroke-width="4" transform="rotate(-3 310 466)"/>
+    <text x="339" y="486" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="11" font-weight="800" transform="rotate(-3 339 486)">QA · ЛЕВ</text>
+
+    <!-- ears -->
+    <ellipse cx="153" cy="266" rx="15" ry="25" fill="#DCA778" stroke="#10251A" stroke-width="5"/>
+    <ellipse cx="327" cy="266" rx="15" ry="25" fill="#DCA778" stroke="#10251A" stroke-width="5"/>
+    <path d="M150 258c-3 5-3 12 2 17M330 258c3 5 3 12-2 17" stroke="#B98157" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- face -->
+    <path d="M240 142c54 0 88 38 88 92 0 62-14 110-46 124-14 6-28 8-42 8s-28-2-42-8c-32-14-46-62-46-124 0-54 34-92 88-92Z" fill="#E6B486" stroke="#10251A" stroke-width="6"/>
+
+    <!-- hair -->
+    <path d="M240 122c63 0 99 42 96 110-1 10-6 14-11 10-4-24-12-38-23-47-18 10-40 15-62 15s-44-5-62-15c-11 9-19 23-23 47-5 4-10 0-11-10-3-68 33-110 96-110Z" fill="#6B4E35" stroke="#10251A" stroke-width="6"/>
+    <path d="M196 138c-8 14-12 32-12 52M222 130c-4 12-6 26-6 38M268 130c4 12 6 26 6 40M294 138c8 14 12 30 13 50" stroke="#8D6C4D" stroke-width="4.5" stroke-linecap="round" opacity="0.75"/>
+    <path d="M240 132v18" stroke="#8D6C4D" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- brows -->
+    <path d="M181 224c11-7 25-7 37 0M299 224c-11-7-25-7-37 0" stroke="#5B4430" stroke-width="6.5" stroke-linecap="round"/>
+
+    <!-- eyes -->
+    <path d="M193 250c5-9 18-10 26-1-7 9-20 10-26 1Z" fill="#FFFDF5" stroke="#10251A" stroke-width="3"/>
+    <path d="M287 250c-5-9-18-10-26-1 7 9 20 10 26 1Z" fill="#FFFDF5" stroke="#10251A" stroke-width="3"/>
+    <path d="M193 250c5-9 18-10 26-1M287 250c-5-9-18-10-26-1" stroke="#10251A" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="206" cy="251" r="6.6" fill="#5E6B3B"/>
+    <circle cx="274" cy="251" r="6.6" fill="#5E6B3B"/>
+    <circle cx="206" cy="251" r="3" fill="#10251A"/>
+    <circle cx="274" cy="251" r="3" fill="#10251A"/>
+    <circle cx="203.6" cy="248.4" r="2" fill="#FFFDF5"/>
+    <circle cx="271.6" cy="248.4" r="2" fill="#FFFDF5"/>
+
+    <!-- nose -->
+    <path d="M240 252c-1 14-3 26-7 33 4 5 10 5 14 0-4-7-6-19-7-33Z" fill="none" stroke="#B98157" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- smile -->
+    <path d="M214 302c9 8 43 8 52 0" stroke="#10251A" stroke-width="5" stroke-linecap="round"/>
+    <path d="M226 318c5 2 10 3 14 3s9-1 14-3" stroke="#B98157" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- stubble -->
+    <path d="M158 250c2 50 18 84 44 98 12 6 25 8 38 8s26-2 38-8c26-14 42-48 44-98-6 36-16 56-30 66-12 10-30 14-52 14s-40-4-52-14c-14-10-24-30-30-66Z" fill="#6B4E35" opacity="0.11"/>
+    <g fill="#6B4E35" opacity="0.28">
+      <circle cx="190" cy="308" r="2.2"/><circle cx="202" cy="320" r="2.2"/><circle cx="216" cy="330" r="2.2"/>
+      <circle cx="290" cy="308" r="2.2"/><circle cx="278" cy="320" r="2.2"/><circle cx="264" cy="330" r="2.2"/>
+      <circle cx="228" cy="342" r="2.2"/><circle cx="240" cy="346" r="2.2"/><circle cx="252" cy="342" r="2.2"/>
+    </g>
+
+    <!-- glasses -->
+    <g stroke="#10251A" stroke-width="5">
+      <rect x="179" y="228" width="54" height="40" rx="13" fill="#D7F35B" fill-opacity="0.14"/>
+      <rect x="247" y="228" width="54" height="40" rx="13" fill="#D7F35B" fill-opacity="0.14"/>
+      <path d="M233 244h14M179 242l-18-6M301 242l18-6"/>
+      <path d="M188 240c4-5 10-6 16-4" stroke="#FFFDF2" stroke-width="3" opacity="0.85"/>
+      <path d="M292 240c-4-5-10-6-16-4" stroke="#FFFDF2" stroke-width="3" opacity="0.85"/>
+    </g>
+
+    <!-- arm holding flask -->
+    <path d="M348 424c38 4 64 20 72 40 4 10 0 18-8 22l-12 4c-6-26-24-46-52-66Z" fill="#F6F1E4" stroke="#10251A" stroke-width="6"/>
+    <path d="M396 462c8 6 18 6 26 0l4 12c-8 8-20 8-28 0l-2-12Z" fill="#E4DECA" stroke="#10251A" stroke-width="4"/>
+    <!-- conical flask -->
+    <g transform="rotate(5 428 470)">
+      <path d="M414 396h26v46l30 82c5 15-5 28-21 28h-44c-16 0-26-13-21-28l30-82v-46Z" fill="#FFFDF2" fill-opacity="0.5" stroke="#10251A" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M397 488c14-8 44-8 58 0l19 50c3 9-3 16-12 16h-72c-9 0-15-7-12-16l19-50Z" fill="url(#levLiquid)" stroke="#10251A" stroke-width="3"/>
+      <path d="M399 499c16-7 36-7 52 0" stroke="#FFFDF2" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
+      <path d="M417 400h20" stroke="#B4C1BA" stroke-width="4"/>
+      <circle cx="410" cy="514" r="4" fill="#FFFDF2" opacity="0.8"/>
+      <circle cx="438" cy="526" r="3" fill="#FFFDF2" opacity="0.8"/>
+      <circle cx="420" cy="536" r="2.5" fill="#FFFDF2" opacity="0.65"/>
+    </g>
+    <!-- hand gripping neck -->
+    <path d="M408 452c14-8 32-3 37 12 5 16-4 30-21 32-15 2-25-8-26-22-1-8 4-17 10-22Z" fill="#E6B486" stroke="#10251A" stroke-width="5"/>
+    <path d="M406 460c9-4 18-4 24 0M404 470c9-4 19-4 25 0" stroke="#B98157" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+</svg>
+

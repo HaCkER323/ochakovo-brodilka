@@ -1,0 +1,12 @@
+﻿# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+
+# QA machine artifacts
+qa-report/screens/
+qa-report/artifacts/downloads/
+qa-report/artifacts/run-*.json
+
+# Local logs
+*.log

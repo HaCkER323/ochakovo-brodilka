@@ -1,0 +1,45 @@
+{
+  "id": "./",
+  "name": "БРОДИЛКА — квест Очаково",
+  "short_name": "БРОДИЛКА",
+  "description": "Интерактивный квест о первой смене на заводе кваса, лимонадов и воды. Три героя, три маршрута, приз за смену.",
+  "lang": "ru",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "background_color": "#F3EEDF",
+  "theme_color": "#0C3B28",
+  "categories": ["games", "education"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Начать смену",
+      "short_name": "Смена",
+      "url": "./index.html",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}

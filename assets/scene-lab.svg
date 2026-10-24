@@ -1,0 +1,236 @@
+﻿<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lbWall" x1="800" y1="0" x2="800" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EDF8F3"/>
+      <stop offset="0.55" stop-color="#D3ECE4"/>
+      <stop offset="1" stop-color="#B4DCD2"/>
+    </linearGradient>
+    <linearGradient id="lbWindow" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#E6F6FF"/>
+      <stop offset="0.55" stop-color="#CBE9E2"/>
+      <stop offset="1" stop-color="#A8D8C0"/>
+    </linearGradient>
+    <linearGradient id="lbBench" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#FBF7EB"/>
+      <stop offset="1" stop-color="#E3DCC8"/>
+    </linearGradient>
+    <linearGradient id="lbFloor" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#9CCCC2"/>
+      <stop offset="1" stop-color="#6FA99E"/>
+    </linearGradient>
+    <linearGradient id="lbSteel" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#71877E"/>
+      <stop offset="0.24" stop-color="#EAF1EC"/>
+      <stop offset="0.56" stop-color="#B3C4BA"/>
+      <stop offset="0.82" stop-color="#F4F8F4"/>
+      <stop offset="1" stop-color="#667B72"/>
+    </linearGradient>
+    <linearGradient id="lbAmber" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#F7CD78"/>
+      <stop offset="1" stop-color="#D98A2C"/>
+    </linearGradient>
+    <linearGradient id="lbLime" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#EAF9A6"/>
+      <stop offset="1" stop-color="#A9C631"/>
+    </linearGradient>
+    <filter id="lbGlow"><feGaussianBlur stdDeviation="26"/></filter>
+    <filter id="lbShadow"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#lbWall)"/>
+  <!-- wall tiles -->
+  <g opacity="0.16" stroke="#0C3B28" stroke-width="2">
+    <path d="M0 120h1600M0 240h1600M0 360h1600M0 480h1600M0 600h1600"/>
+    <path d="M160 0v900M320 0v900M480 0v900M640 0v900M800 0v900M960 0v900M1120 0v900M1280 0v900M1440 0v900"/>
+  </g>
+  <!-- ceiling -->
+  <path d="M0 0h1600v88H0V0Z" fill="#F7F2E3"/>
+  <path d="M0 88h1600" stroke="#0C3B28" stroke-width="4" opacity="0.55"/>
+  <g>
+    <path d="M340 88v52M336 140h96" stroke="#10251A" stroke-width="5"/>
+    <rect x="308" y="140" width="152" height="20" rx="7" fill="#F6C94C" stroke="#10251A" stroke-width="4"/>
+    <path d="M1160 88v52M1156 140h96" stroke="#10251A" stroke-width="5"/>
+    <rect x="1128" y="140" width="152" height="20" rx="7" fill="#F6C94C" stroke="#10251A" stroke-width="4"/>
+  </g>
+  <g fill="#FFFDF2" opacity="0.5" filter="url(#lbGlow)">
+    <ellipse cx="800" cy="350" rx="380" ry="300"/>
+  </g>
+
+  <!-- central window -->
+  <rect x="608" y="108" width="384" height="326" rx="6" fill="url(#lbWindow)" stroke="#10251A" stroke-width="8"/>
+  <path d="M800 108v326M608 270h384" stroke="#10251A" stroke-width="8"/>
+  <path d="M611 434c58-56 112-60 178-10 54-52 108-54 178-8v18H611Z" fill="#8FC4A8" opacity="0.75"/>
+  <circle cx="702" cy="176" r="30" fill="#FFF9E0" opacity="0.9"/>
+  <!-- clouds -->
+  <path d="M650 202c14-14 34-14 48 0 16-10 34-6 42 8-22 8-68 8-90 0Z" fill="#FFFFFF" opacity="0.55"/>
+  <path d="M862 156c12-12 30-12 42 0 14-8 30-5 37 7-20 8-60 8-79 0Z" fill="#FFFFFF" opacity="0.5"/>
+
+  <!-- sign under window -->
+  <g>
+    <rect x="586" y="458" width="428" height="88" rx="5" fill="#F3EEDF" stroke="#10251A" stroke-width="6"/>
+    <text x="800" y="492" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="25" font-weight="800" letter-spacing="0.5">ЛАБОРАТОРИЯ КАЧЕСТВА</text>
+    <text x="800" y="516" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="12" font-weight="600">КВАС · ЛИМОНАДЫ · ВОДА</text>
+    <path d="M776 530h48" stroke="#FF6B3D" stroke-width="4"/>
+  </g>
+
+  <!-- wall shelves left -->
+  <g transform="translate(34 0)">
+    <rect x="52" y="214" width="288" height="16" rx="3" fill="#0C3B28" stroke="#10251A" stroke-width="4"/>
+    <rect x="52" y="384" width="288" height="16" rx="3" fill="#0C3B28" stroke="#10251A" stroke-width="4"/>
+    <rect x="58" y="230" width="8" height="154" fill="#0C3B28"/>
+    <rect x="326" y="230" width="8" height="154" fill="#0C3B28"/>
+    <g>
+      <rect x="92" y="150" width="30" height="64" rx="7" fill="#EAF1EC" stroke="#10251A" stroke-width="3"/>
+      <rect x="99" y="136" width="16" height="18" rx="3" fill="#F6C94C" stroke="#10251A" stroke-width="3"/>
+      <rect x="92" y="190" width="30" height="24" fill="#D7F35B" opacity="0.7"/>
+      <rect x="148" y="158" width="28" height="56" rx="6" fill="#EAF1EC" stroke="#10251A" stroke-width="3"/>
+      <rect x="155" y="144" width="14" height="17" rx="3" fill="#FF6B3D" stroke="#10251A" stroke-width="3"/>
+      <rect x="194" y="140" width="32" height="74" rx="7" fill="#D7F35B" fill-opacity="0.55" stroke="#10251A" stroke-width="3"/>
+      <rect x="202" y="127" width="16" height="16" rx="3" fill="#10251A"/>
+      <rect x="248" y="162" width="26" height="52" rx="6" fill="#EAF1EC" stroke="#10251A" stroke-width="3"/>
+      <rect x="254" y="148" width="13" height="17" rx="3" fill="#F6C94C" stroke="#10251A" stroke-width="3"/>
+      <rect x="292" y="152" width="27" height="62" rx="6" fill="#C7E3D0" stroke="#10251A" stroke-width="3"/>
+    </g>
+    <g>
+      <rect x="82" y="330" width="66" height="54" rx="4" fill="#FBF7EB" stroke="#10251A" stroke-width="3"/>
+      <text x="115" y="352" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="10" font-weight="700">ПРОБА</text>
+      <text x="115" y="370" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="14" font-weight="800">КВАС № 114</text>
+      <rect x="170" y="318" width="58" height="66" rx="4" fill="#0C3B28" stroke="#10251A" stroke-width="3"/>
+      <path d="M184 334h30M184 350h20M184 366h30" stroke="#D7F35B" stroke-width="3" stroke-linecap="round"/>
+      <rect x="246" y="334" width="72" height="50" rx="4" fill="#FFFDF2" stroke="#10251A" stroke-width="3"/>
+      <path d="M258 348h48M258 362h32M258 376h42" stroke="#10251A" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- wall shelves right -->
+  <g transform="translate(-34 0)">
+    <rect x="1260" y="206" width="288" height="16" rx="3" fill="#0C3B28" stroke="#10251A" stroke-width="4"/>
+    <rect x="1260" y="376" width="288" height="16" rx="3" fill="#0C3B28" stroke="#10251A" stroke-width="4"/>
+    <rect x="1266" y="222" width="8" height="154" fill="#0C3B28"/>
+    <rect x="1534" y="222" width="8" height="154" fill="#0C3B28"/>
+    <g>
+      <rect x="1300" y="138" width="46" height="68" rx="5" fill="#F3EEDF" stroke="#10251A" stroke-width="3"/>
+      <text x="1323" y="158" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="8" font-weight="700">ЖУРНАЛ</text>
+      <path d="M1310 168h26M1310 180h20M1310 192h26" stroke="#10251A" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
+      <rect x="1372" y="150" width="30" height="56" rx="7" fill="#EAF1EC" stroke="#10251A" stroke-width="3"/>
+      <rect x="1379" y="137" width="16" height="17" rx="3" fill="#FF6B3D" stroke="#10251A" stroke-width="3"/>
+      <rect x="1418" y="142" width="34" height="64" rx="7" fill="#D7F35B" fill-opacity="0.6" stroke="#10251A" stroke-width="3"/>
+      <rect x="1470" y="158" width="26" height="48" rx="6" fill="#EAF1EC" stroke="#10251A" stroke-width="3"/>
+    </g>
+    <g>
+      <rect x="1288" y="302" width="80" height="74" rx="4" fill="#FBF7EB" stroke="#10251A" stroke-width="3"/>
+      <text x="1328" y="324" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="9" font-weight="700">ПАРТИЯ</text>
+      <text x="1328" y="344" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="15" font-weight="800">114-A</text>
+      <text x="1328" y="362" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="8" font-weight="600">НОРМА</text>
+      <rect x="1392" y="300" width="120" height="76" rx="4" fill="#0C3B28" stroke="#10251A" stroke-width="3"/>
+      <path d="M1406 320h92M1406 336h64M1406 352h84" stroke="#D7F35B" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+    </g>
+  </g>
+
+  <!-- light beam from window -->
+  <path d="M640 434h320l140 282H500L640 434Z" fill="#FFFDF2" opacity="0.18" filter="url(#lbGlow)"/>
+
+  <!-- bench -->
+  <g>
+    <rect x="0" y="714" width="1600" height="58" fill="url(#lbBench)" stroke="#10251A" stroke-width="7"/>
+    <path d="M0 772h1600v22H0z" fill="#CFC7B2" stroke="#10251A" stroke-width="5"/>
+    <g fill="#0C3B28">
+      <rect x="130" y="794" width="26" height="106"/>
+      <rect x="510" y="794" width="26" height="106"/>
+      <rect x="1064" y="794" width="26" height="106"/>
+      <rect x="1444" y="794" width="26" height="106"/>
+    </g>
+  </g>
+
+  <!-- laptop -->
+  <g transform="translate(0 -16)">
+    <rect x="524" y="596" width="204" height="120" rx="8" fill="#1B3228" stroke="#10251A" stroke-width="6"/>
+    <rect x="538" y="610" width="176" height="92" rx="3" fill="#D7F35B"/>
+    <path d="M552 628h64M552 642h112M552 656h90" stroke="#0C3B28" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M552 674h32v18h-32zM590 674h42v18h-42zM638 674h60v18h-60z" fill="none" stroke="#0C3B28" stroke-width="2.5"/>
+    <path d="M506 716h240l20 14H486l20-14Z" fill="#E7E1CE" stroke="#10251A" stroke-width="5"/>
+    <path d="M578 730h96" stroke="#10251A" stroke-width="3.5"/>
+    <ellipse cx="626" cy="716" rx="170" ry="10" fill="#10251A" opacity="0.12" filter="url(#lbShadow)"/>
+  </g>
+
+  <!-- central pH meter -->
+  <g>
+    <rect x="756" y="580" width="150" height="134" rx="10" fill="#FBF7EB" stroke="#10251A" stroke-width="6"/>
+    <rect x="770" y="594" width="122" height="56" rx="4" fill="#0C3B28"/>
+    <text x="831" y="636" text-anchor="middle" fill="#D7F35B" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="32" font-weight="800">4,4</text>
+    <circle cx="782" cy="676" r="8" fill="#9FC62D" stroke="#10251A" stroke-width="2.5"/>
+    <circle cx="808" cy="676" r="8" fill="#F6C94C" stroke="#10251A" stroke-width="2.5"/>
+    <circle cx="834" cy="676" r="8" fill="#FF6B3D" stroke="#10251A" stroke-width="2.5"/>
+    <path d="M874 714c8 30 2 52-10 72" stroke="#10251A" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M860 782h20" stroke="#10251A" stroke-width="4"/>
+    <path d="M892 660c14 6 18 18 10 30" stroke="#10251A" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- flasks (amber + lime) -->
+  <g transform="translate(0 -18)">
+    <path d="M958 622h44v40l30 46c6 10-2 22-14 22h-76c-12 0-20-12-14-22l30-46v-40Z" fill="#FFFDF2" fill-opacity="0.6" stroke="#10251A" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M950 656c16-8 44-8 60 0l16 26c4 8-2 16-11 16h-70c-9 0-15-8-11-16l16-26Z" fill="url(#lbAmber)" stroke="#10251A" stroke-width="3"/>
+    <path d="M952 666c14-6 32-6 46 0" stroke="#FFFDF2" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+    <path d="M966 626h32" stroke="#B4C1BA" stroke-width="4"/>
+    <path d="M1046 646h38v34l26 36c6 8-1 18-11 18h-68c-10 0-17-10-11-18l26-36v-34Z" fill="#FFFDF2" fill-opacity="0.6" stroke="#10251A" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M1038 674c14-6 40-6 54 0l12 20c3 6-2 12-9 12h-60c-7 0-12-6-9-12l12-20Z" fill="url(#lbLime)" stroke="#10251A" stroke-width="3"/>
+    <path d="M1040 684c12-5 30-5 42 0" stroke="#FFFDF2" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+    <path d="M1054 650h22" stroke="#B4C1BA" stroke-width="4"/>
+  </g>
+
+  <!-- microscope (desktop left) -->
+  <g transform="translate(0 4)">
+    <ellipse cx="248" cy="716" rx="96" ry="14" fill="#10251A" opacity="0.14" filter="url(#lbShadow)"/>
+    <path d="M186 710h118M200 710v-18h76v18" fill="#E4ECE6" stroke="#10251A" stroke-width="4"/>
+    <path d="M254 692c-6-28-2-50 12-70" stroke="#10251A" stroke-width="13" stroke-linecap="round"/>
+    <path d="M268 612l20-30" stroke="#10251A" stroke-width="17" stroke-linecap="round"/>
+    <circle cx="292" cy="578" r="12" fill="#F6C94C" stroke="#10251A" stroke-width="4"/>
+    <rect x="200" y="656" width="50" height="13" rx="3" fill="#B4C1BA" stroke="#10251A" stroke-width="3"/>
+    <circle cx="264" cy="684" r="13" fill="#D7F35B" stroke="#10251A" stroke-width="4"/>
+  </g>
+
+  <!-- beakers (desktop left-mid) -->
+  <g transform="translate(0 -20)">
+    <path d="M356 662h56M366 662v22l-20 34c-4 8 2 16 12 16h52c10 0 16-8 12-16l-20-34v-22" fill="#FFFDF2" fill-opacity="0.6" stroke="#10251A" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M352 700c18-6 38-6 56 0l10 16c2 5-1 10-7 10h-62c-6 0-9-5-7-10l10-16Z" fill="url(#lbLime)" stroke="#10251A" stroke-width="3"/>
+  </g>
+
+  <!-- sample rack (desktop right) -->
+  <g transform="translate(1250 594)">
+    <rect x="0" y="78" width="250" height="42" rx="5" fill="#0C3B28" stroke="#10251A" stroke-width="4"/>
+    <g>
+      <rect x="16" y="8" width="34" height="90" rx="7" fill="#D7F35B" fill-opacity="0.5" stroke="#10251A" stroke-width="3"/>
+      <rect x="24" y="2" width="18" height="8" rx="2" fill="#10251A"/>
+      <rect x="72" y="22" width="32" height="76" rx="7" fill="#FFFDF2" fill-opacity="0.7" stroke="#10251A" stroke-width="3"/>
+      <rect x="80" y="16" width="16" height="8" rx="2" fill="#FF6B3D"/>
+      <rect x="126" y="12" width="36" height="86" rx="7" fill="#C7E3D0" stroke="#10251A" stroke-width="3"/>
+      <rect x="135" y="6" width="18" height="8" rx="2" fill="#10251A"/>
+      <rect x="182" y="26" width="30" height="72" rx="7" fill="#FFFDF2" fill-opacity="0.7" stroke="#10251A" stroke-width="3"/>
+      <rect x="189" y="20" width="16" height="8" rx="2" fill="#F6C94C"/>
+    </g>
+    <text x="20" y="158" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="12" font-weight="700" letter-spacing="0.5">ПРОБЫ · СМЕНА 02</text>
+  </g>
+
+  <!-- floor -->
+  <path d="M0 900h1600v100H0V900Z" fill="url(#lbFloor)"/>
+  <path d="M0 900h1600" stroke="#10251A" stroke-width="4" opacity="0.3"/>
+  <g stroke="#0C3B28" stroke-width="3" opacity="0.16">
+    <path d="M0 952h1600"/>
+    <path d="M240 900l-22 100M760 900l-8 100M1180 900l12 100M1500 900l20 100"/>
+  </g>
+
+  <!-- foreground counter -->
+  <g>
+    <rect x="0" y="880" width="1600" height="120" fill="#E9F3EE"/>
+    <rect x="0" y="880" width="1600" height="14" fill="#FBF7EB" stroke="#10251A" stroke-width="4"/>
+    <g stroke="#0C3B28" stroke-width="3" opacity="0.2">
+      <path d="M0 936h1600M0 984h1600"/>
+      <path d="M300 894v106M760 894v106M1220 894v106"/>
+    </g>
+  </g>
+
+  <path d="M0 0h1600v1000H0z" fill="#0C3B28" opacity="0.02"/>
+</svg>
+
+
+

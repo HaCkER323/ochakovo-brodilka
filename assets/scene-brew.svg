@@ -1,0 +1,227 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bwWall" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E4F37"/>
+      <stop offset="0.55" stop-color="#123B28"/>
+      <stop offset="1" stop-color="#0A2418"/>
+    </linearGradient>
+    <linearGradient id="bwSteel" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#6E5F46"/>
+      <stop offset="0.16" stop-color="#F3E4C2"/>
+      <stop offset="0.42" stop-color="#C9B48C"/>
+      <stop offset="0.7" stop-color="#FBF3DE"/>
+      <stop offset="1" stop-color="#6E5F46"/>
+    </linearGradient>
+    <linearGradient id="bwSteelDark" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#4E4433"/>
+      <stop offset="0.26" stop-color="#CBB896"/>
+      <stop offset="0.62" stop-color="#8C7B5E"/>
+      <stop offset="1" stop-color="#3E3527"/>
+    </linearGradient>
+    <linearGradient id="bwWindow" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#FFF3C8"/>
+      <stop offset="0.55" stop-color="#F8D98F"/>
+      <stop offset="1" stop-color="#C9CE8C"/>
+    </linearGradient>
+    <linearGradient id="bwFloor" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#3B3226"/>
+      <stop offset="1" stop-color="#191510"/>
+    </linearGradient>
+    <linearGradient id="bwSack" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#E6CB94"/>
+      <stop offset="1" stop-color="#C6A66E"/>
+    </linearGradient>
+    <radialGradient id="bwGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(800 390) scale(520 430)">
+      <stop stop-color="#F6C94C" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#F6C94C" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="bwSteam"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="bwSoft"><feGaussianBlur stdDeviation="30"/></filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bwWall)"/>
+  <rect width="1600" height="1000" fill="url(#bwGlow)"/>
+  <!-- wall tiles -->
+  <g opacity="0.08" stroke="#F6C94C" stroke-width="2">
+    <path d="M0 130h1600M0 260h1600M0 390h1600M0 520h1600M0 650h1600"/>
+    <path d="M160 0v740M320 0v740M480 0v740M640 0v740M800 0v740M960 0v740M1120 0v740M1280 0v740M1440 0v740"/>
+  </g>
+
+  <!-- ceiling -->
+  <path d="M0 0h1600v94H0V0Z" fill="#061C12"/>
+  <path d="M0 94h1600" stroke="#F6C94C" stroke-width="3" opacity="0.3"/>
+  <g fill="#F6C94C">
+    <rect x="238" y="38" width="200" height="13" rx="6"/>
+    <rect x="700" y="38" width="200" height="13" rx="6"/>
+    <rect x="1162" y="38" width="200" height="13" rx="6"/>
+  </g>
+  <g fill="#FFE9B0" opacity="0.22" filter="url(#bwSoft)">
+    <ellipse cx="338" cy="220" rx="190" ry="150"/>
+    <ellipse cx="800" cy="220" rx="210" ry="160"/>
+    <ellipse cx="1262" cy="220" rx="190" ry="150"/>
+  </g>
+
+  <!-- side windows -->
+  <g>
+    <rect x="96" y="180" width="286" height="300" rx="6" fill="url(#bwWindow)" stroke="#10251A" stroke-width="8"/>
+    <path d="M239 180v300M96 330h286" stroke="#10251A" stroke-width="8"/>
+    <path d="M99 470c52-50 100-54 158-8 48-48 96-50 161-6v24H99Z" fill="#A7B47C" opacity="0.55"/>
+    <circle cx="178" cy="248" r="32" fill="#FFF9E4" opacity="0.85"/>
+    <path d="M93 480h292" stroke="#10251A" stroke-width="8"/>
+  </g>
+  <g>
+    <rect x="1218" y="180" width="286" height="300" rx="6" fill="url(#bwWindow)" stroke="#10251A" stroke-width="8"/>
+    <path d="M1361 180v300M1218 330h286" stroke="#10251A" stroke-width="8"/>
+    <path d="M1221 470c52-50 100-54 158-8 48-48 96-50 161-6v24h-319Z" fill="#A7B47C" opacity="0.55"/>
+    <circle cx="1300" cy="248" r="32" fill="#FFF9E4" opacity="0.85"/>
+    <path d="M1215 480h292" stroke="#10251A" stroke-width="8"/>
+  </g>
+
+  <!-- pipes -->
+  <g>
+    <path d="M0 158h1600" stroke="#10251A" stroke-width="40"/>
+    <path d="M0 158h1600" stroke="url(#bwSteel)" stroke-width="24"/>
+    <path d="M400 158v150M1200 158v140M800 158v114" stroke="#10251A" stroke-width="34"/>
+    <path d="M400 158v150M1200 158v140M800 158v114" stroke="url(#bwSteel)" stroke-width="19"/>
+    <circle cx="400" cy="318" r="23" fill="#FF6B3D" stroke="#10251A" stroke-width="6"/>
+    <path d="M400 296v26" stroke="#10251A" stroke-width="4"/>
+    <circle cx="1200" cy="308" r="23" fill="#FF6B3D" stroke="#10251A" stroke-width="6"/>
+    <path d="M1200 286v26" stroke="#10251A" stroke-width="4"/>
+  </g>
+
+  <!-- sign -->
+  <g transform="rotate(-1 800 165)">
+    <rect x="604" y="116" width="392" height="98" rx="5" fill="#F3EEDF" stroke="#10251A" stroke-width="6"/>
+    <text x="800" y="154" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="34" font-weight="800" letter-spacing="1">КВАСНОЙ ЦЕХ</text>
+    <text x="800" y="180" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="14" font-weight="600">ДВОЙНОЕ БРОЖЕНИЕ · СМЕНА 07:40–16:10</text>
+    <path d="M760 196h80" stroke="#F6C94C" stroke-width="5"/>
+  </g>
+
+  <!-- side tank left -->
+  <g opacity="0.92">
+    <ellipse cx="400" cy="812" rx="132" ry="20" fill="#10251A" opacity="0.4"/>
+    <path d="M316 384c0-14 38-24 84-24s84 10 84 24v14H316v-14Z" fill="url(#bwSteel)" stroke="#10251A" stroke-width="7"/>
+    <path d="M316 398h168v226c0 38-38 66-84 66s-84-28-84-66V398Z" fill="url(#bwSteel)" stroke="#10251A" stroke-width="7"/>
+    <path d="M316 624h168c-12 52-42 84-84 84s-72-32-84-84Z" fill="url(#bwSteelDark)" stroke="#10251A" stroke-width="7"/>
+    <path d="M352 624h16v112h-16zM432 624h16v112h-16z" fill="#4E4433" stroke="#10251A" stroke-width="5"/>
+    <circle cx="400" cy="480" r="30" fill="#D8C7A6" stroke="#10251A" stroke-width="5"/>
+    <circle cx="400" cy="480" r="19" fill="#A8977A" stroke="#10251A" stroke-width="3"/>
+    <path d="M400 464v32M384 480h32" stroke="#10251A" stroke-width="3" opacity="0.6"/>
+  </g>
+
+  <!-- side tank right -->
+  <g opacity="0.92">
+    <ellipse cx="1200" cy="806" rx="132" ry="20" fill="#10251A" opacity="0.4"/>
+    <path d="M1116 364c0-14 38-24 84-24s84 10 84 24v14h-168v-14Z" fill="url(#bwSteel)" stroke="#10251A" stroke-width="7"/>
+    <path d="M1116 378h168v230c0 38-38 68-84 68s-84-30-84-68V378Z" fill="url(#bwSteel)" stroke="#10251A" stroke-width="7"/>
+    <path d="M1116 608h168c-12 54-42 86-84 86s-72-32-84-86Z" fill="url(#bwSteelDark)" stroke="#10251A" stroke-width="7"/>
+    <path d="M1152 608h16v112h-16zM1232 608h16v112h-16z" fill="#4E4433" stroke="#10251A" stroke-width="5"/>
+    <circle cx="1200" cy="470" r="30" fill="#D8C7A6" stroke="#10251A" stroke-width="5"/>
+    <circle cx="1200" cy="470" r="19" fill="#A8977A" stroke="#10251A" stroke-width="3"/>
+    <path d="M1200 454v32M1184 470h32" stroke="#10251A" stroke-width="3" opacity="0.6"/>
+  </g>
+
+  <!-- central CCT tank -->
+  <g>
+    <ellipse cx="800" cy="842" rx="196" ry="28" fill="#10251A" opacity="0.45"/>
+    <path d="M676 306c0-18 54-34 124-34s124 16 124 34v16H676v-16Z" fill="url(#bwSteel)" stroke="#10251A" stroke-width="8"/>
+    <path d="M676 322h248v306c0 46-54 80-124 80s-124-34-124-80V322Z" fill="url(#bwSteel)" stroke="#10251A" stroke-width="8"/>
+    <path d="M706 338v268c0 36 22 62 54 74" stroke="#FFFDF2" stroke-width="12" opacity="0.5" stroke-linecap="round"/>
+    <path d="M894 338v268c0 36-22 62-54 74" stroke="#10251A" stroke-width="8" opacity="0.22" stroke-linecap="round"/>
+    <!-- cone bottom -->
+    <path d="M676 628h248c-18 74-62 118-124 118s-106-44-124-118Z" fill="url(#bwSteelDark)" stroke="#10251A" stroke-width="8"/>
+    <path d="M790 746h20v30h-20z" fill="#8C7B5E" stroke="#10251A" stroke-width="5"/>
+    <!-- legs -->
+    <g fill="#4E4433" stroke="#10251A" stroke-width="7">
+      <path d="M708 660h24l-5 168h-16l-3-168Z"/>
+      <path d="M868 660h24l-3 168h-16l-5-168Z"/>
+      <path d="M708 810h24v22h-24zM868 810h24v22h-24z"/>
+    </g>
+    <!-- manway + label -->
+    <circle cx="800" cy="500" r="46" fill="#10251A" opacity="0.18"/>
+    <circle cx="800" cy="492" r="44" fill="#E7D8B8" stroke="#10251A" stroke-width="6"/>
+    <circle cx="800" cy="492" r="29" fill="#B4A382" stroke="#10251A" stroke-width="4"/>
+    <path d="M783 492h34M800 475v34" stroke="#10251A" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="800" cy="492" r="5" fill="#F6C94C"/>
+    <rect x="742" y="382" width="116" height="46" rx="5" fill="#F3EEDF" stroke="#10251A" stroke-width="5"/>
+    <text x="800" y="415" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="24" font-weight="800" letter-spacing="1">КВАС</text>
+    <!-- gauge -->
+    <circle cx="902" cy="352" r="30" fill="#F3EEDF" stroke="#10251A" stroke-width="5"/>
+    <circle cx="902" cy="352" r="4" fill="#10251A"/>
+    <path d="M902 328v9M878 352h-8M926 352h8" stroke="#10251A" stroke-width="3"/>
+    <path d="M902 352l13-12" stroke="#FF6B3D" stroke-width="4" stroke-linecap="round"/>
+    <!-- top vent -->
+    <rect x="786" y="272" width="28" height="34" rx="5" fill="#B4A382" stroke="#10251A" stroke-width="5"/>
+    <path d="M800 272v-26c0-12 16-16 26-8" stroke="#10251A" stroke-width="6" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- steam -->
+  <g fill="#FFF3C8" opacity="0.22" filter="url(#bwSteam)">
+    <ellipse cx="748" cy="218" rx="62" ry="104"/>
+    <ellipse cx="858" cy="176" rx="46" ry="82"/>
+    <ellipse cx="1180" cy="300" rx="44" ry="66"/>
+    <ellipse cx="420" cy="300" rx="40" ry="62"/>
+  </g>
+  <g stroke="#FFF3C8" stroke-width="4" stroke-linecap="round" opacity="0.34">
+    <path d="M736 236c-20-38 14-58-3-94M838 206c14-32-14-52 2-84M1178 322c-14-26 10-42-2-66"/>
+  </g>
+
+  <!-- floor -->
+  <path d="M0 740h1600v260H0V740Z" fill="url(#bwFloor)"/>
+  <path d="M0 740h1600" stroke="#F6C94C" stroke-width="3" opacity="0.34"/>
+  <g stroke="#8E7B5C" stroke-width="3" opacity="0.24">
+    <path d="M0 840h1600M0 930h1600"/>
+    <path d="M220 740l-80 260M520 740l-38 260M880 740l38 260M1220 740l80 260"/>
+  </g>
+  <path d="M560 740h480l60 260H500l60-260Z" fill="#F6C94C" opacity="0.06"/>
+
+  <!-- malt sacks (center safe) -->
+  <g>
+    <path d="M596 806c8-40 52-66 104-58 44 7 70 39 62 80l-22 134H618L596 806Z" fill="url(#bwSack)" stroke="#10251A" stroke-width="8"/>
+    <path d="M630 772c15 19 52 20 70 1" stroke="#10251A" stroke-width="5"/>
+    <text x="680" y="900" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="28" font-weight="800">СОЛОД</text>
+    <text x="680" y="924" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="14" font-weight="700">РЖАНОЙ</text>
+    <g transform="translate(640 816)">
+      <path d="M0 36C6 22 7 10 4-2" stroke="#10251A" stroke-width="3" stroke-linecap="round"/>
+      <g fill="#F6C94C" stroke="#10251A" stroke-width="2">
+        <path d="M7 2C2-2 0-7 2-12c5 2 7 7 5 14Z"/>
+        <path d="M6 12C1 8-1 3 1-2c5 2 7 7 5 14Z"/>
+        <path d="M3 21C-1 17-2 12 0 7c5 2 6 7 3 14Z"/>
+      </g>
+    </g>
+    <path d="M824 838c6-30 40-50 80-44 34 5 54 30 48 60l-16 100H836l-12-116Z" fill="#D6B87F" stroke="#10251A" stroke-width="7"/>
+    <path d="M850 812c12 14 40 16 56 2" stroke="#10251A" stroke-width="4"/>
+    <text x="888" y="906" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="20" font-weight="800">СОЛОД</text>
+  </g>
+
+  <!-- control panel (desktop side) -->
+  <g>
+    <rect x="1030" y="590" width="240" height="150" rx="8" fill="#1B3226" stroke="#10251A" stroke-width="7"/>
+    <rect x="1048" y="608" width="204" height="70" rx="4" fill="#F6C94C" stroke="#10251A" stroke-width="4"/>
+    <path d="M1062 660l22-22 20 12 24-32 22 26 24-16 20 18 22-24 16 18" stroke="#10251A" stroke-width="4" stroke-linejoin="round" fill="none"/>
+    <path d="M1062 626h48M1062 640h74" stroke="#10251A" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+    <circle cx="1078" cy="706" r="14" fill="#FF6B3D" stroke="#10251A" stroke-width="4"/>
+    <circle cx="1120" cy="706" r="14" fill="#F6C94C" stroke="#10251A" stroke-width="4"/>
+    <rect x="1152" y="692" width="76" height="28" rx="5" fill="#D7F35B" stroke="#10251A" stroke-width="4"/>
+    <text x="1190" y="711" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="12" font-weight="800">СТАРТ</text>
+  </g>
+
+  <!-- foreground kegs (desktop sides) -->
+  <g>
+    <ellipse cx="228" cy="944" rx="80" ry="16" fill="#10251A" opacity="0.35"/>
+    <rect x="150" y="846" width="156" height="92" rx="16" fill="url(#bwSteelDark)" stroke="#10251A" stroke-width="7"/>
+    <ellipse cx="228" cy="846" rx="78" ry="18" fill="#E7D8B8" stroke="#10251A" stroke-width="6"/>
+    <path d="M166 876h124M166 906h124" stroke="#10251A" stroke-width="4" opacity="0.35"/>
+    <circle cx="228" cy="876" r="7" fill="#F6C94C" stroke="#10251A" stroke-width="3"/>
+  </g>
+  <g>
+    <ellipse cx="1372" cy="944" rx="80" ry="16" fill="#10251A" opacity="0.35"/>
+    <rect x="1294" y="846" width="156" height="92" rx="16" fill="url(#bwSteelDark)" stroke="#10251A" stroke-width="7"/>
+    <ellipse cx="1372" cy="846" rx="78" ry="18" fill="#E7D8B8" stroke="#10251A" stroke-width="6"/>
+    <path d="M1310 876h124M1310 906h124" stroke="#10251A" stroke-width="4" opacity="0.35"/>
+    <circle cx="1372" cy="876" r="7" fill="#F6C94C" stroke="#10251A" stroke-width="3"/>
+  </g>
+
+  <path d="M0 0h1600v1000H0z" fill="#0A2418" opacity="0.05"/>
+</svg>
+

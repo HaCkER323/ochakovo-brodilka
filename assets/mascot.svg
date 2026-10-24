@@ -1,0 +1,48 @@
+<svg width="420" height="420" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bubbleBody" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(172 162) rotate(53) scale(216)">
+      <stop stop-color="#F3FFB4"/>
+      <stop offset="0.42" stop-color="#D7F35B"/>
+      <stop offset="1" stop-color="#9DBE28"/>
+    </radialGradient>
+    <filter id="bubbleShadow" x="-40" y="-40" width="500" height="500" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <ellipse cx="208" cy="354" rx="83" ry="16" fill="#10251A" opacity="0.16" filter="url(#bubbleShadow)"/>
+
+  <!-- arms -->
+  <path d="M126 251c-31-4-52 8-63 35" stroke="#10251A" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="59" cy="292" r="16" fill="#F4EEDF" stroke="#10251A" stroke-width="7"/>
+  <path d="M294 251c30-6 51 5 64 31" stroke="#10251A" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="362" cy="288" r="16" fill="#F4EEDF" stroke="#10251A" stroke-width="7"/>
+
+  <!-- body -->
+  <path d="M210 48c84 0 143 63 143 145 0 84-57 143-143 143S67 277 67 193C67 111 126 48 210 48Z" fill="url(#bubbleBody)" stroke="#10251A" stroke-width="8"/>
+  <path d="M120 108c18-27 53-43 82-45" stroke="#FFFDF2" stroke-width="12" stroke-linecap="round" opacity="0.8"/>
+  <circle cx="104" cy="160" r="8" fill="#FFFDF2" opacity="0.58"/>
+
+  <!-- face -->
+  <ellipse cx="166" cy="190" rx="13" ry="18" fill="#10251A"/>
+  <ellipse cx="253" cy="190" rx="13" ry="18" fill="#10251A"/>
+  <circle cx="170" cy="184" r="4" fill="#FFFDF2"/>
+  <circle cx="257" cy="184" r="4" fill="#FFFDF2"/>
+  <path d="M131 162c15-7 29-6 41 2M240 164c13-8 27-9 40-2" stroke="#10251A" stroke-width="6" stroke-linecap="round"/>
+  <path d="M176 237c18 17 50 18 70 0" stroke="#10251A" stroke-width="7" stroke-linecap="round"/>
+  <path d="M189 255c13 4 27 4 40-1" stroke="#10251A" stroke-width="4" stroke-linecap="round" opacity="0.45"/>
+
+  <!-- cheeks -->
+  <ellipse cx="126" cy="221" rx="18" ry="9" fill="#FF8B65" opacity="0.5"/>
+  <ellipse cx="292" cy="221" rx="18" ry="9" fill="#FF8B65" opacity="0.5"/>
+
+  <!-- cap -->
+  <path d="M153 78c8-31 39-48 71-43 30 4 51 27 54 55-43 6-84 2-125-12Z" fill="#FF6B3D" stroke="#10251A" stroke-width="7"/>
+  <path d="M154 79c43 11 83 12 123 8" stroke="#10251A" stroke-width="5"/>
+  <circle cx="216" cy="55" r="7" fill="#D7F35B" stroke="#10251A" stroke-width="4"/>
+
+  <!-- fizz ticks -->
+  <path d="M77 75c-5-12-4-22 3-31M98 55c-4-9-3-17 2-24M331 70c6-11 6-20 1-28M353 90c7-7 10-15 8-23" stroke="#FF6B3D" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="348" cy="50" r="7" fill="#FF6B3D"/>
+  <circle cx="59" cy="129" r="5" fill="#FF6B3D"/>
+</svg>

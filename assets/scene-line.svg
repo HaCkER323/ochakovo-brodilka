@@ -1,0 +1,255 @@
+﻿<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lnWall" x1="800" y1="0" x2="800" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#123B2D"/>
+      <stop offset="0.55" stop-color="#0A261C"/>
+      <stop offset="1" stop-color="#051710"/>
+    </linearGradient>
+    <linearGradient id="lnSteel" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#4E6259"/>
+      <stop offset="0.18" stop-color="#DCE6E0"/>
+      <stop offset="0.46" stop-color="#93A79C"/>
+      <stop offset="0.74" stop-color="#F0F5F1"/>
+      <stop offset="1" stop-color="#4A5D54"/>
+    </linearGradient>
+    <linearGradient id="lnSteelDark" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#3A4A42"/>
+      <stop offset="0.3" stop-color="#A9BAB0"/>
+      <stop offset="0.65" stop-color="#6E8277"/>
+      <stop offset="1" stop-color="#314139"/>
+    </linearGradient>
+    <linearGradient id="lnOrange" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#C63F16"/>
+      <stop offset="0.26" stop-color="#FF9B6D"/>
+      <stop offset="0.55" stop-color="#FF6B3D"/>
+      <stop offset="0.82" stop-color="#E0521F"/>
+      <stop offset="1" stop-color="#B33B14"/>
+    </linearGradient>
+    <linearGradient id="lnFloor" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#2F3D35"/>
+      <stop offset="1" stop-color="#111B15"/>
+    </linearGradient>
+    <linearGradient id="lnGlass" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#0B2A1C"/>
+      <stop offset="0.24" stop-color="#2E7C52"/>
+      <stop offset="0.55" stop-color="#145034"/>
+      <stop offset="0.8" stop-color="#3C9666"/>
+      <stop offset="1" stop-color="#082418"/>
+    </linearGradient>
+    <linearGradient id="lnCanGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#C63F16"/>
+      <stop offset="0.24" stop-color="#FF9B6D"/>
+      <stop offset="0.52" stop-color="#FF6B3D"/>
+      <stop offset="0.8" stop-color="#E0521F"/>
+      <stop offset="1" stop-color="#B33B14"/>
+    </linearGradient>
+    <filter id="lnGlow"><feGaussianBlur stdDeviation="30"/></filter>
+    <filter id="lnSoft"><feGaussianBlur stdDeviation="14"/></filter>
+
+    <g id="lnBottle">
+      <rect x="-24" y="-232" width="48" height="22" rx="5" fill="#D7F35B" stroke="#10251A" stroke-width="4"/>
+      <path d="M-17-210h34v26c0 9 12 17 20 26 7 9 9 20 9 33v91c0 12-10 22-22 22h-48c-12 0-22-10-22-22v-91c0-13 2-24 9-33 8-9 20-17 20-26v-26Z" fill="url(#lnGlass)" stroke="#10251A" stroke-width="5"/>
+      <rect x="-36" y="-130" width="72" height="66" rx="3" fill="#F3EEDF" stroke="#10251A" stroke-width="4"/>
+      <rect x="-36" y="-130" width="72" height="7" fill="#FF6B3D"/>
+      <text x="0" y="-108" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="11" font-weight="700">ОЧАКОВО</text>
+      <text x="0" y="-88" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="18" font-weight="800">КВАС</text>
+      <path d="M-24-78h48" stroke="#0C3B28" stroke-width="2.5"/>
+      <path d="M-25-176v142" stroke="#FFFDF2" stroke-width="5" opacity="0.3" stroke-linecap="round"/>
+    </g>
+    <g id="lnCan">
+      <rect x="-38" y="-182" width="76" height="182" rx="16" fill="url(#lnCanGrad)" stroke="#10251A" stroke-width="5"/>
+      <rect x="-38" y="-182" width="76" height="14" rx="7" fill="#E8EEE7" stroke="#10251A" stroke-width="3.5"/>
+      <ellipse cx="0" cy="-182" rx="34" ry="7" fill="#CFD9D1" stroke="#10251A" stroke-width="3.5"/>
+      <rect x="-38" y="-100" width="76" height="76" rx="3" fill="#F3EEDF" stroke="#10251A" stroke-width="3.5"/>
+      <text x="0" y="-82" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="8" font-weight="700">ОЧАКОВО</text>
+      <text x="0" y="-62" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="11" font-weight="800">ЛИМОНАД</text>
+      <circle cx="0" cy="-42" r="12" fill="#F6C94C" stroke="#10251A" stroke-width="3"/>
+      <path d="M0-54v24M-12-42h24M-8-50 8-34M8-50-8-34" stroke="#E9A82E" stroke-width="2"/>
+      <path d="M-25-160v132" stroke="#FFFDF2" stroke-width="4.5" opacity="0.26" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#lnWall)"/>
+  <!-- wall panels -->
+  <g opacity="0.1" stroke="#D7F35B" stroke-width="2">
+    <path d="M0 130h1600M0 260h1600M0 390h1600M0 520h1600M0 650h1600"/>
+    <path d="M160 0v780M320 0v780M480 0v780M640 0v780M800 0v780M960 0v780M1120 0v780M1280 0v780M1440 0v780"/>
+  </g>
+  <!-- cool light wash -->
+  <g fill="#BFE3DC" opacity="0.12" filter="url(#lnGlow)">
+    <ellipse cx="1250" cy="240" rx="380" ry="300"/>
+    <ellipse cx="800" cy="420" rx="420" ry="330"/>
+  </g>
+
+  <!-- ceiling + trusses -->
+  <path d="M0 0h1600v86H0V0Z" fill="#04150F"/>
+  <g stroke="#6E8277" stroke-width="7" opacity="0.5">
+    <path d="M0 86h1600M0 86l270 170M1600 86l-270 170M320 86v170M1280 86v170"/>
+  </g>
+  <g>
+    <path d="M270 86v110M266 196h118" stroke="#10251A" stroke-width="5"/>
+    <rect x="240" y="196" width="148" height="24" rx="8" fill="#F6C94C" stroke="#10251A" stroke-width="4"/>
+    <path d="M1040 86v110M1036 196h118" stroke="#10251A" stroke-width="5"/>
+    <rect x="1010" y="196" width="148" height="24" rx="8" fill="#F6C94C" stroke="#10251A" stroke-width="4"/>
+  </g>
+  <g fill="#FFF3C9" opacity="0.2" filter="url(#lnGlow)">
+    <ellipse cx="314" cy="300" rx="230" ry="200"/>
+    <ellipse cx="1100" cy="300" rx="240" ry="200"/>
+  </g>
+
+  <!-- carousel feed pipe (behind sign) -->
+  <path d="M800 86v114" stroke="#10251A" stroke-width="30"/>
+  <path d="M800 86v114" stroke="#C7D4CC" stroke-width="16"/>
+
+  <!-- hanging sign -->
+  <g>
+    <path d="M660 86v20M940 86v20" stroke="#10251A" stroke-width="6"/>
+    <rect x="610" y="102" width="380" height="82" rx="5" fill="#F3EEDF" stroke="#10251A" stroke-width="6"/>
+    <text x="800" y="136" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="30" font-weight="800" letter-spacing="1">ЛИНИЯ РОЗЛИВА</text>
+    <text x="800" y="160" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="13" font-weight="600">КВАС · ЛИМОНАДЫ · 12 000 БУТ/Ч</text>
+    <path d="M764 172h72" stroke="#FF6B3D" stroke-width="5"/>
+  </g>
+
+  <!-- background depth: distant machines + pipes -->
+  <g opacity="0.28">
+    <path d="M0 200h1600" stroke="#9FB1A7" stroke-width="18"/>
+    <path d="M150 200v260M1450 200v240" stroke="#9FB1A7" stroke-width="16"/>
+    <rect x="80" y="420" width="260" height="330" rx="16" fill="#5E7167"/>
+    <rect x="1260" y="440" width="260" height="310" rx="16" fill="#5E7167"/>
+    <path d="M700 200v70M900 200v70" stroke="#9FB1A7" stroke-width="16"/>
+  </g>
+
+  <!-- filling machine (desktop left) -->
+  <g>
+    <path d="M78 330h300c18 0 32 14 32 32v380H78a18 18 0 0 1-18-18V348c0-10 8-18 18-18Z" fill="url(#lnSteel)" stroke="#10251A" stroke-width="8"/>
+    <rect x="96" y="356" width="272" height="132" rx="8" fill="#0C3B28" stroke="#10251A" stroke-width="6"/>
+    <path d="M120 388h104M120 410h180M120 432h124M120 454h96" stroke="#D7F35B" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+    <rect x="96" y="512" width="128" height="150" rx="6" fill="url(#lnOrange)" stroke="#10251A" stroke-width="6"/>
+    <circle cx="260" cy="540" r="26" fill="#FF6B3D" stroke="#10251A" stroke-width="5"/>
+    <circle cx="260" cy="618" r="26" fill="#F6C94C" stroke="#10251A" stroke-width="5"/>
+    <rect x="292" y="566" width="80" height="34" rx="6" fill="#10251A"/>
+    <text x="332" y="590" text-anchor="middle" fill="#D7F35B" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="14" font-weight="800">СТОП</text>
+    <path d="M120 690h252M120 708h180" stroke="#10251A" stroke-width="4" opacity="0.35"/>
+    <rect x="244" y="470" width="124" height="26" rx="6" fill="#F3EEDF" stroke="#10251A" stroke-width="4"/>
+    <text x="306" y="488" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="12" font-weight="700">НАПОЛНЕНИЕ</text>
+  </g>
+
+  <!-- labeler (desktop right) -->
+  <g>
+    <rect x="1188" y="354" width="330" height="386" rx="16" fill="url(#lnSteel)" stroke="#10251A" stroke-width="8"/>
+    <rect x="1210" y="380" width="160" height="104" rx="6" fill="#0C3B28" stroke="#10251A" stroke-width="5"/>
+    <path d="M1228 406h124M1228 428h92M1228 450h112" stroke="#D7F35B" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+    <circle cx="1404" cy="436" r="44" fill="#F3EEDF" stroke="#10251A" stroke-width="5"/>
+    <circle cx="1404" cy="436" r="11" fill="#B4C1BA" stroke="#10251A" stroke-width="4"/>
+    <circle cx="1480" cy="486" r="32" fill="#FF6B3D" stroke="#10251A" stroke-width="5"/>
+    <circle cx="1480" cy="486" r="9" fill="#F3EEDF"/>
+    <path d="M1404 480v38M1448 436h16M1480 518v34" stroke="#10251A" stroke-width="5"/>
+    <path d="M1392 512c14 14 30 20 48 20" stroke="#F3EEDF" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+    <rect x="1210" y="516" width="150" height="130" rx="6" fill="url(#lnOrange)" stroke="#10251A" stroke-width="5"/>
+    <text x="1285" y="560" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="15" font-weight="800">ЭТИКЕТКА</text>
+    <path d="M1236 584h98M1236 606h72M1236 628h86" stroke="#10251A" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+    <path d="M1200 700h298" stroke="#10251A" stroke-width="5" opacity="0.3"/>
+  </g>
+
+  <!-- outer filler carousel: central hero (safe crop) -->
+  <g>
+    <circle cx="800" cy="390" r="178" fill="none" stroke="url(#lnSteel)" stroke-width="46"/>
+    <circle cx="800" cy="390" r="201" fill="none" stroke="#10251A" stroke-width="9"/>
+    <circle cx="800" cy="390" r="155" fill="none" stroke="#10251A" stroke-width="5"/>
+    <circle cx="800" cy="390" r="178" fill="none" stroke="#9DB0A6" stroke-width="3" opacity="0.5"/>
+    <!-- hub + three support arms -->
+    <path d="M800 390V212M800 390 646 476M800 390l154 86" stroke="#10251A" stroke-width="30"/>
+    <path d="M800 390V212M800 390 646 476M800 390l154 86" stroke="url(#lnSteel)" stroke-width="17"/>
+    <circle cx="800" cy="390" r="92" fill="url(#lnSteel)" stroke="#10251A" stroke-width="7"/>
+    <circle cx="800" cy="390" r="66" fill="#0C3B28" stroke="#10251A" stroke-width="5"/>
+    <circle cx="800" cy="390" r="34" fill="url(#lnOrange)" stroke="#10251A" stroke-width="5"/>
+    <circle cx="800" cy="390" r="10" fill="#F3EEDF"/>
+    <rect x="740" y="470" width="120" height="32" rx="5" fill="#F3EEDF" stroke="#10251A" stroke-width="4"/>
+    <text x="800" y="492" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="14" font-weight="800" letter-spacing="1">РОЗЛИВ</text>
+    <!-- filler heads on the ring -->
+    <g fill="url(#lnSteel)" stroke="#10251A" stroke-width="6">
+      <circle cx="800" cy="212" r="28"/><circle cx="926" cy="264" r="28"/><circle cx="978" cy="390" r="28"/>
+      <circle cx="926" cy="516" r="28"/><circle cx="800" cy="568" r="28"/><circle cx="674" cy="516" r="28"/>
+      <circle cx="622" cy="390" r="28"/><circle cx="674" cy="264" r="28"/>
+    </g>
+    <g fill="#FF6B3D" stroke="#10251A" stroke-width="4">
+      <circle cx="800" cy="212" r="11"/><circle cx="926" cy="264" r="11"/><circle cx="978" cy="390" r="11"/>
+      <circle cx="926" cy="516" r="11"/><circle cx="800" cy="568" r="11"/><circle cx="674" cy="516" r="11"/>
+      <circle cx="622" cy="390" r="11"/><circle cx="674" cy="264" r="11"/>
+    </g>
+    <!-- nozzles under the two lower heads -->
+    <g fill="#9DB0A6" stroke="#10251A" stroke-width="4">
+      <rect x="786" y="566" width="28" height="26" rx="5"/>
+      <rect x="660" y="514" width="28" height="22" rx="5"/>
+      <rect x="912" y="514" width="28" height="22" rx="5"/>
+    </g>
+  </g>
+  <!-- conveyor -->
+  <g>
+    <path d="M0 770h1600" stroke="#10251A" stroke-width="48"/>
+    <path d="M0 758h1600" stroke="url(#lnSteel)" stroke-width="16"/>
+    <path d="M0 778h1600" stroke="#FF6B3D" stroke-width="4" opacity="0.65"/>
+    <g stroke="#10251A" stroke-width="6" fill="#22332B">
+      <circle cx="220" cy="806" r="28"/><circle cx="480" cy="806" r="28"/><circle cx="740" cy="806" r="28"/>
+      <circle cx="1000" cy="806" r="28"/><circle cx="1260" cy="806" r="28"/>
+    </g>
+    <g stroke="#6F8B7B" stroke-width="3">
+      <circle cx="220" cy="806" r="10"/><circle cx="480" cy="806" r="10"/><circle cx="740" cy="806" r="10"/>
+      <circle cx="1000" cy="806" r="10"/><circle cx="1260" cy="806" r="10"/>
+    </g>
+    <g fill="#3A4A42" stroke="#10251A" stroke-width="6">
+      <path d="M160 794h18v110h-18zM420 794h18v110h-18zM1040 794h18v110h-18zM1440 794h18v110h-18z"/>
+    </g>
+  </g>
+
+  <!-- products on conveyor (safe centre) -->
+  <g>
+    <use href="#lnBottle" transform="translate(300 770)"/>
+    <use href="#lnCan" transform="translate(430 770)"/>
+    <use href="#lnBottle" transform="translate(560 770)"/>
+    <use href="#lnCan" transform="translate(680 770)"/>
+    <use href="#lnBottle" transform="translate(800 770) scale(1.02)"/>
+    <use href="#lnCan" transform="translate(920 770)"/>
+    <use href="#lnBottle" transform="translate(1040 770)"/>
+    <use href="#lnCan" transform="translate(1160 770)"/>
+    <use href="#lnBottle" transform="translate(1280 770)"/>
+    <use href="#lnCan" transform="translate(1400 770)"/>
+  </g>
+
+  <!-- floor -->
+  <path d="M0 826h1600v174H0V826Z" fill="url(#lnFloor)"/>
+  <path d="M0 826h1600" stroke="#D7F35B" stroke-width="3" opacity="0.3"/>
+  <path d="M0 846h1600v22H0z" fill="#F6C94C" opacity="0.92"/>
+  <g fill="#10251A" opacity="0.85">
+    <path d="M20 846l22 22H20l22-22h22l22 22H64l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22l22-22h22l22 22h-22"/>
+  </g>
+  <g stroke="#6F8B7B" stroke-width="3" opacity="0.2">
+    <path d="M0 928h1600"/>
+    <path d="M240 868l-50 132M700 868l-26 132M1140 868l24 132M1480 868l40 132"/>
+  </g>
+
+  <!-- foreground crates (desktop sides) -->
+  <g transform="translate(48 862)">
+    <rect x="0" y="0" width="230" height="128" rx="5" fill="#C9AE79" stroke="#10251A" stroke-width="6"/>
+    <path d="M0 42h230M0 90h230M62 0v128M158 0v128" stroke="#10251A" stroke-width="4" opacity="0.6"/>
+    <use href="#lnBottle" transform="translate(40 40) scale(0.4)"/>
+    <use href="#lnBottle" transform="translate(112 40) scale(0.4)"/>
+    <use href="#lnBottle" transform="translate(190 40) scale(0.4)"/>
+  </g>
+  <g transform="translate(1322 862)">
+    <rect x="0" y="0" width="226" height="128" rx="5" fill="#B9A171" stroke="#10251A" stroke-width="6"/>
+    <path d="M0 42h226M0 90h226M60 0v128M154 0v128" stroke="#10251A" stroke-width="4" opacity="0.6"/>
+    <use href="#lnCan" transform="translate(44 38) scale(0.44)"/>
+    <use href="#lnCan" transform="translate(116 38) scale(0.44)"/>
+    <use href="#lnCan" transform="translate(190 38) scale(0.44)"/>
+  </g>
+
+  <!-- arrows -->
+  <g opacity="0.55" stroke="#D7F35B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1230 330h56l-15-15M1286 330l-15 15"/>
+    <path d="M370 330h-56l15-15M314 330l15 15"/>
+  </g>
+  <path d="M0 0h1600v1000H0z" fill="#061B13" opacity="0.04"/>
+</svg>
+
+

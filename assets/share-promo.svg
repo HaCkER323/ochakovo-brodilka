@@ -1,0 +1,160 @@
+<svg width="1080" height="1350" viewBox="0 0 1080 1350" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="spBottle" x1="280" y1="1000" x2="470" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08291B"/>
+      <stop offset="0.18" stop-color="#176B45"/>
+      <stop offset="0.46" stop-color="#2E8A5B"/>
+      <stop offset="0.74" stop-color="#115132"/>
+      <stop offset="1" stop-color="#072418"/>
+    </linearGradient>
+    <linearGradient id="spCan" x1="560" y1="1050" x2="770" y2="1050" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C63F16"/>
+      <stop offset="0.22" stop-color="#FF9B6D"/>
+      <stop offset="0.52" stop-color="#FF6B3D"/>
+      <stop offset="0.82" stop-color="#E0521F"/>
+      <stop offset="1" stop-color="#B33B14"/>
+    </linearGradient>
+    <linearGradient id="spLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#FFFCF2"/>
+      <stop offset="1" stop-color="#EDE5D0"/>
+    </linearGradient>
+    <linearGradient id="spLemon" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#FBE07A"/>
+      <stop offset="1" stop-color="#EFAE2F"/>
+    </linearGradient>
+    <filter id="spShadow" x="-200" y="-200" width="1480" height="1750" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+  </defs>
+
+  <rect width="1080" height="1350" fill="#F3EEDF"/>
+  <!-- brand shapes -->
+  <circle cx="1016" cy="168" r="238" fill="#D7F35B"/>
+  <circle cx="1016" cy="168" r="286" fill="none" stroke="#0C3B28" stroke-width="3" opacity="0.35"/>
+  <circle cx="64" cy="1218" r="170" fill="#0C3B28" opacity="0.06"/>
+  <circle cx="176" cy="560" r="9" fill="#FF6B3D"/>
+  <circle cx="962" cy="596" r="12" fill="none" stroke="#0C3B28" stroke-width="3"/>
+  <circle cx="930" cy="660" r="20" fill="#F6C94C"/>
+  <path d="M60 720c40-12 78-10 114 8" stroke="#FF6B3D" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- brand row -->
+  <text x="64" y="104" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="32" font-weight="800" letter-spacing="2.5">ОЧАКОВО</text>
+  <text x="264" y="104" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="32" font-weight="400">×</text>
+  <rect x="300" y="70" width="196" height="46" rx="3" fill="#0C3B28"/>
+  <text x="398" y="104" text-anchor="middle" fill="#D7F35B" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="26" font-weight="800" letter-spacing="2">БРОДИЛКА</text>
+  <circle cx="960" cy="94" r="6" fill="#FF6B3D"/>
+  <text x="1016" y="100" text-anchor="end" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="15" font-weight="700" letter-spacing="2">ПЕРВАЯ СМЕНА</text>
+
+  <!-- headline -->
+  <text x="60" y="330" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="168" font-weight="800" letter-spacing="-4">СЫГРАЙ</text>
+  <rect x="44" y="382" width="960" height="164" fill="#D7F35B"/>
+  <text x="60" y="522" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="150" font-weight="800" letter-spacing="-2" textLength="930" lengthAdjust="spacingAndGlyphs">В БРОДИЛКУ</text>
+
+  <!-- subline -->
+  <text x="64" y="626" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="31" font-weight="600" letter-spacing="0.2">Квест о первой смене на заводе</text>
+  <text x="64" y="670" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="31" font-weight="600" letter-spacing="0.2">кваса и лимонадов</text>
+  <path d="M64 702h96" stroke="#FF6B3D" stroke-width="5"/>
+
+  <!-- products -->
+  <ellipse cx="545" cy="1228" rx="330" ry="30" fill="#0C3B28" opacity="0.16" filter="url(#spShadow)"/>
+
+  <!-- rye stalk behind bottle -->
+  <g stroke="#0C3B28" stroke-width="4" stroke-linecap="round">
+    <path d="M232 1204c22-48 30-112 20-164"/>
+    <g fill="#F6C94C" stroke-width="3.5">
+      <path d="M256 1040c-22-4-33 4-35 22 16 2 29-4 35-22Z"/>
+      <path d="M253 1070c-22-3-32 6-33 24 16 0 28-7 33-24Z"/>
+      <path d="M248 1100c-21-2-31 8-30 26 15-1 26-9 30-26Z"/>
+      <path d="M242 1130c-20 0-29 10-27 27 14-1 24-11 27-27Z"/>
+      <path d="M236 1158c-19 1-27 12-24 28 13-2 22-12 24-28Z"/>
+    </g>
+  </g>
+
+  <!-- kvass bottle -->
+  <g>
+    <path d="M344 740h62v66c0 16 16 28 34 42 16 12 30 34 30 62v260c0 26-20 46-46 46H326c-26 0-46-20-46-46V910c0-28 14-50 30-62 18-14 34-26 34-42v-66Z" fill="url(#spBottle)" stroke="#10251A" stroke-width="6"/>
+    <rect x="340" y="704" width="70" height="38" rx="8" fill="#D7F35B" stroke="#10251A" stroke-width="5"/>
+    <g stroke="#10251A" stroke-width="2">
+      <path d="M354 708v30M370 708v30M386 708v30M402 708v30"/>
+    </g>
+    <ellipse cx="375" cy="704" rx="35" ry="10" fill="#E7F98C" stroke="#10251A" stroke-width="4"/>
+    <path d="M300 930v234" stroke="#FFFDF2" stroke-width="9" opacity="0.2" stroke-linecap="round"/>
+    <rect x="292" y="952" width="166" height="196" rx="4" fill="url(#spLabel)" stroke="#10251A" stroke-width="5"/>
+    <rect x="292" y="952" width="166" height="9" fill="#D7F35B"/>
+    <rect x="292" y="1139" width="166" height="9" fill="#D7F35B"/>
+    <text x="375" y="998" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="17" font-weight="700" letter-spacing="1.2">ОЧАКОВСКИЙ</text>
+    <text x="375" y="1044" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="46" font-weight="800" letter-spacing="-1">КВАС</text>
+    <path d="M328 1058h94" stroke="#0C3B28" stroke-width="3"/>
+    <text x="375" y="1082" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="12" font-weight="700" letter-spacing="1.1">ДВОЙНОЕ БРОЖЕНИЕ</text>
+    <text x="375" y="1108" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="11" font-weight="600" letter-spacing="0.8">РЖАНОЙ СОЛОД · 0,5 Л</text>
+    <text x="375" y="1132" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4">ТРАДИЦИОННЫЙ РЕЦЕПТ</text>
+  </g>
+
+  <!-- lemonade can -->
+  <g>
+    <rect x="560" y="868" width="210" height="348" rx="24" fill="url(#spCan)" stroke="#10251A" stroke-width="6"/>
+    <rect x="560" y="868" width="210" height="20" rx="10" fill="#E8EEE7" stroke="#10251A" stroke-width="4"/>
+    <ellipse cx="665" cy="868" rx="98" ry="15" fill="#CFD9D1" stroke="#10251A" stroke-width="5"/>
+    <ellipse cx="665" cy="868" rx="80" ry="9" fill="#93A79C"/>
+    <path d="M640 866c6-8 20-12 32-8 6 2 8 6 5 9-4 4-14 5-24 4-10-1-16-3-13-5Z" fill="#DEE6DF" stroke="#10251A" stroke-width="3"/>
+    <rect x="560" y="1154" width="210" height="22" rx="10" fill="#E8EEE7" stroke="#10251A" stroke-width="4"/>
+    <rect x="560" y="930" width="210" height="196" fill="url(#spLabel)" stroke="#10251A" stroke-width="5"/>
+    <rect x="560" y="930" width="210" height="9" fill="#FF6B3D"/>
+    <rect x="560" y="1117" width="210" height="9" fill="#FF6B3D"/>
+    <text x="665" y="966" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="15" font-weight="700" letter-spacing="1.6">ОЧАКОВСКИЙ</text>
+    <text x="665" y="1010" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="42" font-weight="800" letter-spacing="-1">ЛИМОНАД</text>
+    <g transform="translate(665 1058)">
+      <circle r="30" fill="url(#spLemon)" stroke="#10251A" stroke-width="4"/>
+      <circle r="23" fill="#FCEFA8"/>
+      <g stroke="#E9A82E" stroke-width="2.6">
+        <path d="M0-21V21M-21 0H21M-15-15 15 15M15-15-15 15"/>
+      </g>
+      <circle r="30" fill="none" stroke="#10251A" stroke-width="4"/>
+    </g>
+    <text x="665" y="1104" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="11" font-weight="600" letter-spacing="1.2">ЛИМОН · МЯТА · ПУЗЫРЬКИ</text>
+    <text x="665" y="1140" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="16" font-weight="800" letter-spacing="3">БРОДИЛКА</text>
+    <path d="M584 896v252" stroke="#FFFFFF" stroke-width="9" opacity="0.22" stroke-linecap="round"/>
+    <path d="M748 900v244" stroke="#10251A" stroke-width="7" opacity="0.16" stroke-linecap="round"/>
+    <g fill="#FFFDF5" opacity="0.55">
+      <circle cx="586" cy="902" r="4"/><circle cx="600" cy="918" r="2.6"/><circle cx="744" cy="906" r="3"/>
+      <circle cx="596" cy="1178" r="3"/><circle cx="750" cy="1172" r="4"/>
+    </g>
+    <g fill="none" stroke="#D7F35B" stroke-width="4" stroke-linecap="round">
+      <path d="M640 924c-8-14-6-24 2-34M670 918c-7-12-5-22 2-30M700 926c-6-12-4-22 2-30"/>
+    </g>
+  </g>
+
+  <!-- lemon in front -->
+  <g>
+    <ellipse cx="510" cy="1224" rx="66" ry="15" fill="#0C3B28" opacity="0.18"/>
+    <path d="M442 1162c-7-34 18-60 50-58 32 2 54 32 47 63-6 28-32 45-59 40-25-5-34-21-38-45Z" fill="url(#spLemon)" stroke="#10251A" stroke-width="6"/>
+    <path d="M462 1142c9-19 28-30 48-26" stroke="#FFF0A8" stroke-width="9" stroke-linecap="round" opacity="0.8"/>
+    <path d="M486 1110c11-16 30-22 45-15-7 17-23 26-41 22" fill="#7CB342" stroke="#10251A" stroke-width="3.5"/>
+    <path d="M450 1180c11-7 20-6 26 2" stroke="#D98A2C" stroke-width="3.5" stroke-linecap="round" opacity="0.7"/>
+  </g>
+
+  <!-- prize sticker -->
+  <g transform="rotate(10 902 1006)">
+    <circle cx="902" cy="1006" r="80" fill="#FF6B3D" stroke="#10251A" stroke-width="6"/>
+    <circle cx="902" cy="1006" r="66" fill="none" stroke="#F3EEDF" stroke-width="3" stroke-dasharray="5 7"/>
+    <text x="902" y="992" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="27" font-weight="800">ПРИЗ</text>
+    <text x="902" y="1022" text-anchor="middle" fill="#10251A" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="17" font-weight="700">ЗА СМЕНУ</text>
+    <path d="M878 1040c16 6 37 5 52-2" stroke="#10251A" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- floating bubbles -->
+  <g>
+    <circle cx="150" cy="790" r="20" fill="#D7F35B" stroke="#10251A" stroke-width="4"/>
+    <circle cx="156" cy="784" r="5" fill="#FFFDF5"/>
+    <circle cx="940" cy="820" r="13" fill="none" stroke="#10251A" stroke-width="4"/>
+    <circle cx="864" cy="1150" r="8" fill="#FF6B3D" stroke="#10251A" stroke-width="3"/>
+    <circle cx="280" cy="760" r="6" fill="#F6C94C"/>
+  </g>
+
+  <!-- footer -->
+  <path d="M64 1272h952" stroke="#0C3B28" stroke-width="2" opacity="0.3"/>
+  <text x="64" y="1310" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="15" font-weight="600" letter-spacing="2">КВАС · ЛИМОНАДЫ · ВОДА</text>
+  <text x="1016" y="1312" text-anchor="end" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="27" font-weight="800" letter-spacing="0.5">ochakovo.ru</text>
+  <path d="M868 1324h148" stroke="#FF6B3D" stroke-width="4"/>
+</svg>
+

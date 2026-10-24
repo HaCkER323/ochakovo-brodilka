@@ -1,0 +1,1244 @@
+{
+  "runId": "2026-10-24T09-31-54",
+  "startedAt": "2026-10-24T09:31:54.787Z",
+  "finishedAt": "2026-10-24T09:32:17.724Z",
+  "env": {
+    "runId": "2026-10-24T09-31-54",
+    "node": "v24.17.0",
+    "platform": "win32",
+    "browser": "Edg/155.0.4283.62",
+    "browserPath": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+    "baseUrl": "http://127.0.0.1:49935",
+    "headed": false
+  },
+  "summary": {
+    "scenarios": 1,
+    "checks": 47,
+    "passed": 47,
+    "failed": 0,
+    "warned": 0,
+    "skipped": 0,
+    "fatal": 0,
+    "failures": []
+  },
+  "scenarios": [
+    {
+      "id": "final-fixes",
+      "title": "Финальные фиксы: HUD в 2 строки, бейдж top-right, скрытый scene-stamp, intro counter, 07:40–16:10",
+      "viewport": {
+        "id": "mobile",
+        "width": 390,
+        "height": 844,
+        "dpr": 3,
+        "mobile": true
+      },
+      "startedAt": "2026-10-24T09:31:55.644Z",
+      "checks": [
+        {
+          "id": "final-fixes.scene-time-label",
+          "status": "pass",
+          "details": {
+            "hasStart": true,
+            "hasEnd": true
+          }
+        },
+        {
+          "id": "final-fixes-390.badge",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "position": "relative",
+            "rect": {
+              "left": 179,
+              "top": 95,
+              "right": 375,
+              "bottom": 141,
+              "width": 195,
+              "height": 47
+            },
+            "inHeroArt": false
+          }
+        },
+        {
+          "id": "final-fixes-390.badge-position",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "position": "relative",
+            "rect": {
+              "left": 179,
+              "top": 95,
+              "right": 375,
+              "bottom": 141,
+              "width": 195,
+              "height": 47
+            },
+            "inHeroArt": false
+          }
+        },
+        {
+          "id": "final-fixes-390.badge-right",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "position": "relative",
+            "rect": {
+              "left": 179,
+              "top": 95,
+              "right": 375,
+              "bottom": 141,
+              "width": 195,
+              "height": 47
+            },
+            "inHeroArt": false
+          }
+        },
+        {
+          "id": "final-fixes-390.badge-outside-hero-art",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "position": "relative",
+            "rect": {
+              "left": 179,
+              "top": 95,
+              "right": 375,
+              "bottom": 141,
+              "width": 195,
+              "height": 47
+            },
+            "inHeroArt": false
+          }
+        },
+        {
+          "id": "final-fixes-390.badge-above-cta",
+          "status": "pass",
+          "details": {
+            "badge": {
+              "left": 179,
+              "top": 95,
+              "right": 375,
+              "bottom": 141,
+              "width": 195,
+              "height": 47
+            },
+            "cta": {
+              "left": 16,
+              "top": 575,
+              "right": 374,
+              "bottom": 633,
+              "width": 358,
+              "height": 58
+            }
+          }
+        },
+        {
+          "id": "final-fixes-390.intro-header-counter",
+          "status": "pass",
+          "details": {
+            "before": {
+              "header": "Введение1 / 5",
+              "counter": "01 / 05"
+            },
+            "after": {
+              "header": "Введение2 / 5",
+              "counter": "02 / 05",
+              "sameHeaderNode": true
+            }
+          }
+        },
+        {
+          "id": "final-fixes-390.hud-present",
+          "status": "pass",
+          "details": {
+            "hud": {
+              "left": 10,
+              "top": 70,
+              "right": 380,
+              "bottom": 172,
+              "width": 370,
+              "height": 102
+            },
+            "back": {
+              "left": 10,
+              "top": 74,
+              "right": 75,
+              "bottom": 118,
+              "width": 65,
+              "height": 44
+            },
+            "score": {
+              "left": 323,
+              "top": 83,
+              "right": 380,
+              "bottom": 109,
+              "width": 57,
+              "height": 27
+            },
+            "route": {
+              "left": 10,
+              "top": 125,
+              "right": 380,
+              "bottom": 168,
+              "width": 370,
+              "height": 43
+            },
+            "finish": {
+              "left": 351,
+              "top": 125,
+              "right": 380,
+              "bottom": 168,
+              "width": 30,
+              "height": 43
+            },
+            "routeSecondRow": true,
+            "scoreFinishOverlap": false,
+            "routeWithinHud": true,
+            "wrap": "nowrap"
+          }
+        },
+        {
+          "id": "final-fixes-390.hud-score-no-finish-overlap",
+          "status": "pass",
+          "details": {
+            "hud": {
+              "left": 10,
+              "top": 70,
+              "right": 380,
+              "bottom": 172,
+              "width": 370,
+              "height": 102
+            },
+            "back": {
+              "left": 10,
+              "top": 74,
+              "right": 75,
+              "bottom": 118,
+              "width": 65,
+              "height": 44
+            },
+            "score": {
+              "left": 323,
+              "top": 83,
+              "right": 380,
+              "bottom": 109,
+              "width": 57,
+              "height": 27
+            },
+            "route": {
+              "left": 10,
+              "top": 125,
+              "right": 380,
+              "bottom": 168,
+              "width": 370,
+              "height": 43
+            },
+            "finish": {
+              "left": 351,
+              "top": 125,
+              "right": 380,
+              "bottom": 168,
+              "width": 30,
+              "height": 43
+            },
+            "routeSecondRow": true,
+            "scoreFinishOverlap": false,
+            "routeWithinHud": true,
+            "wrap": "nowrap"
+          }
+        },
+        {
+          "id": "final-fixes-390.hud-route-fits",
+          "status": "pass",
+          "details": {
+            "hud": {
+              "left": 10,
+              "top": 70,
+              "right": 380,
+              "bottom": 172,
+              "width": 370,
+              "height": 102
+            },
+            "back": {
+              "left": 10,
+              "top": 74,
+              "right": 75,
+              "bottom": 118,
+              "width": 65,
+              "height": 44
+            },
+            "score": {
+              "left": 323,
+              "top": 83,
+              "right": 380,
+              "bottom": 109,
+              "width": 57,
+              "height": 27
+            },
+            "route": {
+              "left": 10,
+              "top": 125,
+              "right": 380,
+              "bottom": 168,
+              "width": 370,
+              "height": 43
+            },
+            "finish": {
+              "left": 351,
+              "top": 125,
+              "right": 380,
+              "bottom": 168,
+              "width": 30,
+              "height": 43
+            },
+            "routeSecondRow": true,
+            "scoreFinishOverlap": false,
+            "routeWithinHud": true,
+            "wrap": "nowrap"
+          }
+        },
+        {
+          "id": "final-fixes-390.hud-two-rows",
+          "status": "pass",
+          "details": {
+            "hud": {
+              "left": 10,
+              "top": 70,
+              "right": 380,
+              "bottom": 172,
+              "width": 370,
+              "height": 102
+            },
+            "back": {
+              "left": 10,
+              "top": 74,
+              "right": 75,
+              "bottom": 118,
+              "width": 65,
+              "height": 44
+            },
+            "score": {
+              "left": 323,
+              "top": 83,
+              "right": 380,
+              "bottom": 109,
+              "width": 57,
+              "height": 27
+            },
+            "route": {
+              "left": 10,
+              "top": 125,
+              "right": 380,
+              "bottom": 168,
+              "width": 370,
+              "height": 43
+            },
+            "finish": {
+              "left": 351,
+              "top": 125,
+              "right": 380,
+              "bottom": 168,
+              "width": 30,
+              "height": 43
+            },
+            "routeSecondRow": true,
+            "scoreFinishOverlap": false,
+            "routeWithinHud": true,
+            "wrap": "nowrap"
+          }
+        },
+        {
+          "id": "final-fixes-390.scene-stamp-hidden",
+          "status": "pass",
+          "details": {
+            "display": "none",
+            "visibility": "visible",
+            "width": 0,
+            "height": 0,
+            "text": "Смена 01 · Этап 01 / 03"
+          }
+        },
+        {
+          "id": "final-fixes-390.console-clean",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "final-fixes-360.badge",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "position": "relative",
+            "rect": {
+              "left": 149,
+              "top": 95,
+              "right": 345,
+              "bottom": 141,
+              "width": 195,
+              "height": 47
+            },
+            "inHeroArt": false
+          }
+        },
+        {
+          "id": "final-fixes-360.badge-position",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "position": "relative",
+            "rect": {
+              "left": 149,
+              "top": 95,
+              "right": 345,
+              "bottom": 141,
+              "width": 195,
+              "height": 47
+            },
+            "inHeroArt": false
+          }
+        },
+        {
+          "id": "final-fixes-360.badge-right",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "position": "relative",
+            "rect": {
+              "left": 149,
+              "top": 95,
+              "right": 345,
+              "bottom": 141,
+              "width": 195,
+              "height": 47
+            },
+            "inHeroArt": false
+          }
+        },
+        {
+          "id": "final-fixes-360.badge-outside-hero-art",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "position": "relative",
+            "rect": {
+              "left": 149,
+              "top": 95,
+              "right": 345,
+              "bottom": 141,
+              "width": 195,
+              "height": 47
+            },
+            "inHeroArt": false
+          }
+        },
+        {
+          "id": "final-fixes-360.badge-above-cta",
+          "status": "pass",
+          "details": {
+            "badge": {
+              "left": 149,
+              "top": 95,
+              "right": 345,
+              "bottom": 141,
+              "width": 195,
+              "height": 47
+            },
+            "cta": {
+              "left": 16,
+              "top": 559,
+              "right": 344,
+              "bottom": 617,
+              "width": 328,
+              "height": 58
+            }
+          }
+        },
+        {
+          "id": "final-fixes-360.intro-header-counter",
+          "status": "pass",
+          "details": {
+            "before": {
+              "header": "Введение1 / 5",
+              "counter": "01 / 05"
+            },
+            "after": {
+              "header": "Введение2 / 5",
+              "counter": "02 / 05",
+              "sameHeaderNode": true
+            }
+          }
+        },
+        {
+          "id": "final-fixes-360.hud-present",
+          "status": "pass",
+          "details": {
+            "hud": {
+              "left": 10,
+              "top": 70,
+              "right": 350,
+              "bottom": 172,
+              "width": 340,
+              "height": 102
+            },
+            "back": {
+              "left": 10,
+              "top": 74,
+              "right": 75,
+              "bottom": 118,
+              "width": 65,
+              "height": 44
+            },
+            "score": {
+              "left": 293,
+              "top": 83,
+              "right": 350,
+              "bottom": 109,
+              "width": 57,
+              "height": 27
+            },
+            "route": {
+              "left": 10,
+              "top": 125,
+              "right": 350,
+              "bottom": 168,
+              "width": 340,
+              "height": 43
+            },
+            "finish": {
+              "left": 321,
+              "top": 125,
+              "right": 350,
+              "bottom": 168,
+              "width": 30,
+              "height": 43
+            },
+            "routeSecondRow": true,
+            "scoreFinishOverlap": false,
+            "routeWithinHud": true,
+            "wrap": "nowrap"
+          }
+        },
+        {
+          "id": "final-fixes-360.hud-score-no-finish-overlap",
+          "status": "pass",
+          "details": {
+            "hud": {
+              "left": 10,
+              "top": 70,
+              "right": 350,
+              "bottom": 172,
+              "width": 340,
+              "height": 102
+            },
+            "back": {
+              "left": 10,
+              "top": 74,
+              "right": 75,
+              "bottom": 118,
+              "width": 65,
+              "height": 44
+            },
+            "score": {
+              "left": 293,
+              "top": 83,
+              "right": 350,
+              "bottom": 109,
+              "width": 57,
+              "height": 27
+            },
+            "route": {
+              "left": 10,
+              "top": 125,
+              "right": 350,
+              "bottom": 168,
+              "width": 340,
+              "height": 43
+            },
+            "finish": {
+              "left": 321,
+              "top": 125,
+              "right": 350,
+              "bottom": 168,
+              "width": 30,
+              "height": 43
+            },
+            "routeSecondRow": true,
+            "scoreFinishOverlap": false,
+            "routeWithinHud": true,
+            "wrap": "nowrap"
+          }
+        },
+        {
+          "id": "final-fixes-360.hud-route-fits",
+          "status": "pass",
+          "details": {
+            "hud": {
+              "left": 10,
+              "top": 70,
+              "right": 350,
+              "bottom": 172,
+              "width": 340,
+              "height": 102
+            },
+            "back": {
+              "left": 10,
+              "top": 74,
+              "right": 75,
+              "bottom": 118,
+              "width": 65,
+              "height": 44
+            },
+            "score": {
+              "left": 293,
+              "top": 83,
+              "right": 350,
+              "bottom": 109,
+              "width": 57,
+              "height": 27
+            },
+            "route": {
+              "left": 10,
+              "top": 125,
+              "right": 350,
+              "bottom": 168,
+              "width": 340,
+              "height": 43
+            },
+            "finish": {
+              "left": 321,
+              "top": 125,
+              "right": 350,
+              "bottom": 168,
+              "width": 30,
+              "height": 43
+            },
+            "routeSecondRow": true,
+            "scoreFinishOverlap": false,
+            "routeWithinHud": true,
+            "wrap": "nowrap"
+          }
+        },
+        {
+          "id": "final-fixes-360.hud-two-rows",
+          "status": "pass",
+          "details": {
+            "hud": {
+              "left": 10,
+              "top": 70,
+              "right": 350,
+              "bottom": 172,
+              "width": 340,
+              "height": 102
+            },
+            "back": {
+              "left": 10,
+              "top": 74,
+              "right": 75,
+              "bottom": 118,
+              "width": 65,
+              "height": 44
+            },
+            "score": {
+              "left": 293,
+              "top": 83,
+              "right": 350,
+              "bottom": 109,
+              "width": 57,
+              "height": 27
+            },
+            "route": {
+              "left": 10,
+              "top": 125,
+              "right": 350,
+              "bottom": 168,
+              "width": 340,
+              "height": 43
+            },
+            "finish": {
+              "left": 321,
+              "top": 125,
+              "right": 350,
+              "bottom": 168,
+              "width": 30,
+              "height": 43
+            },
+            "routeSecondRow": true,
+            "scoreFinishOverlap": false,
+            "routeWithinHud": true,
+            "wrap": "nowrap"
+          }
+        },
+        {
+          "id": "final-fixes-360.scene-stamp-hidden",
+          "status": "pass",
+          "details": {
+            "display": "none",
+            "visibility": "visible",
+            "width": 0,
+            "height": 0,
+            "text": "Смена 01 · Этап 01 / 03"
+          }
+        },
+        {
+          "id": "final-fixes-360.console-clean",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "final-fixes-landscape.badge",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "position": "absolute",
+            "rect": {
+              "left": 587,
+              "top": 86,
+              "right": 809,
+              "bottom": 139,
+              "width": 222,
+              "height": 53
+            },
+            "inHeroArt": false
+          }
+        },
+        {
+          "id": "final-fixes-landscape.badge-position",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "position": "absolute",
+            "rect": {
+              "left": 587,
+              "top": 86,
+              "right": 809,
+              "bottom": 139,
+              "width": 222,
+              "height": 53
+            },
+            "inHeroArt": false
+          }
+        },
+        {
+          "id": "final-fixes-landscape.badge-right",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "position": "absolute",
+            "rect": {
+              "left": 587,
+              "top": 86,
+              "right": 809,
+              "bottom": 139,
+              "width": 222,
+              "height": 53
+            },
+            "inHeroArt": false
+          }
+        },
+        {
+          "id": "final-fixes-landscape.badge-outside-hero-art",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "position": "absolute",
+            "rect": {
+              "left": 587,
+              "top": 86,
+              "right": 809,
+              "bottom": 139,
+              "width": 222,
+              "height": 53
+            },
+            "inHeroArt": false
+          }
+        },
+        {
+          "id": "final-fixes-landscape.badge-above-cta",
+          "status": "pass",
+          "details": {
+            "badge": {
+              "left": 587,
+              "top": 86,
+              "right": 809,
+              "bottom": 139,
+              "width": 222,
+              "height": 53
+            },
+            "cta": {
+              "left": 35,
+              "top": 651,
+              "right": 219,
+              "bottom": 709,
+              "width": 184,
+              "height": 58
+            }
+          }
+        },
+        {
+          "id": "final-fixes-landscape.intro-header-counter",
+          "status": "pass",
+          "details": {
+            "before": {
+              "header": "Введение1 / 5",
+              "counter": "01 / 05"
+            },
+            "after": {
+              "header": "Введение2 / 5",
+              "counter": "02 / 05",
+              "sameHeaderNode": true
+            }
+          }
+        },
+        {
+          "id": "final-fixes-landscape.hud-present",
+          "status": "pass",
+          "details": {
+            "hud": {
+              "left": 35,
+              "top": 82,
+              "right": 809,
+              "bottom": 142,
+              "width": 773,
+              "height": 60
+            },
+            "back": {
+              "left": 35,
+              "top": 96,
+              "right": 114,
+              "bottom": 128,
+              "width": 78,
+              "height": 32
+            },
+            "score": {
+              "left": 741,
+              "top": 96,
+              "right": 809,
+              "bottom": 128,
+              "width": 67,
+              "height": 32
+            },
+            "route": {
+              "left": 122,
+              "top": 86,
+              "right": 616,
+              "bottom": 138,
+              "width": 494,
+              "height": 52
+            },
+            "finish": {
+              "left": 380,
+              "top": 86,
+              "right": 444,
+              "bottom": 136,
+              "width": 64,
+              "height": 50
+            },
+            "routeSecondRow": false,
+            "scoreFinishOverlap": false,
+            "routeWithinHud": true,
+            "wrap": "nowrap"
+          }
+        },
+        {
+          "id": "final-fixes-landscape.hud-score-no-finish-overlap",
+          "status": "pass",
+          "details": {
+            "hud": {
+              "left": 35,
+              "top": 82,
+              "right": 809,
+              "bottom": 142,
+              "width": 773,
+              "height": 60
+            },
+            "back": {
+              "left": 35,
+              "top": 96,
+              "right": 114,
+              "bottom": 128,
+              "width": 78,
+              "height": 32
+            },
+            "score": {
+              "left": 741,
+              "top": 96,
+              "right": 809,
+              "bottom": 128,
+              "width": 67,
+              "height": 32
+            },
+            "route": {
+              "left": 122,
+              "top": 86,
+              "right": 616,
+              "bottom": 138,
+              "width": 494,
+              "height": 52
+            },
+            "finish": {
+              "left": 380,
+              "top": 86,
+              "right": 444,
+              "bottom": 136,
+              "width": 64,
+              "height": 50
+            },
+            "routeSecondRow": false,
+            "scoreFinishOverlap": false,
+            "routeWithinHud": true,
+            "wrap": "nowrap"
+          }
+        },
+        {
+          "id": "final-fixes-landscape.hud-route-fits",
+          "status": "pass",
+          "details": {
+            "hud": {
+              "left": 35,
+              "top": 82,
+              "right": 809,
+              "bottom": 142,
+              "width": 773,
+              "height": 60
+            },
+            "back": {
+              "left": 35,
+              "top": 96,
+              "right": 114,
+              "bottom": 128,
+              "width": 78,
+              "height": 32
+            },
+            "score": {
+              "left": 741,
+              "top": 96,
+              "right": 809,
+              "bottom": 128,
+              "width": 67,
+              "height": 32
+            },
+            "route": {
+              "left": 122,
+              "top": 86,
+              "right": 616,
+              "bottom": 138,
+              "width": 494,
+              "height": 52
+            },
+            "finish": {
+              "left": 380,
+              "top": 86,
+              "right": 444,
+              "bottom": 136,
+              "width": 64,
+              "height": 50
+            },
+            "routeSecondRow": false,
+            "scoreFinishOverlap": false,
+            "routeWithinHud": true,
+            "wrap": "nowrap"
+          }
+        },
+        {
+          "id": "final-fixes-landscape.scene-stamp-visible",
+          "status": "pass",
+          "details": {
+            "display": "block",
+            "visibility": "visible",
+            "width": 167,
+            "height": 31,
+            "text": "Смена 01 · Этап 01 / 03"
+          }
+        },
+        {
+          "id": "final-fixes-landscape.console-clean",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "final-fixes-desktop.badge",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "position": "absolute",
+            "rect": {
+              "left": 1143,
+              "top": 108,
+              "right": 1365,
+              "bottom": 161,
+              "width": 222,
+              "height": 53
+            },
+            "inHeroArt": false
+          }
+        },
+        {
+          "id": "final-fixes-desktop.badge-position",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "position": "absolute",
+            "rect": {
+              "left": 1143,
+              "top": 108,
+              "right": 1365,
+              "bottom": 161,
+              "width": 222,
+              "height": 53
+            },
+            "inHeroArt": false
+          }
+        },
+        {
+          "id": "final-fixes-desktop.badge-right",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "position": "absolute",
+            "rect": {
+              "left": 1143,
+              "top": 108,
+              "right": 1365,
+              "bottom": 161,
+              "width": 222,
+              "height": 53
+            },
+            "inHeroArt": false
+          }
+        },
+        {
+          "id": "final-fixes-desktop.badge-outside-hero-art",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "position": "absolute",
+            "rect": {
+              "left": 1143,
+              "top": 108,
+              "right": 1365,
+              "bottom": 161,
+              "width": 222,
+              "height": 53
+            },
+            "inHeroArt": false
+          }
+        },
+        {
+          "id": "final-fixes-desktop.badge-above-cta",
+          "status": "pass",
+          "details": {
+            "badge": {
+              "left": 1143,
+              "top": 108,
+              "right": 1365,
+              "bottom": 161,
+              "width": 222,
+              "height": 53
+            },
+            "cta": {
+              "left": 60,
+              "top": 796,
+              "right": 244,
+              "bottom": 854,
+              "width": 184,
+              "height": 58
+            }
+          }
+        },
+        {
+          "id": "final-fixes-desktop.intro-header-counter",
+          "status": "pass",
+          "details": {
+            "before": {
+              "header": "Введение1 / 5",
+              "counter": "01 / 05"
+            },
+            "after": {
+              "header": "Введение2 / 5",
+              "counter": "02 / 05",
+              "sameHeaderNode": true
+            }
+          }
+        },
+        {
+          "id": "final-fixes-desktop.hud-present",
+          "status": "pass",
+          "details": {
+            "hud": {
+              "left": 60,
+              "top": 86,
+              "right": 1380,
+              "bottom": 145,
+              "width": 1319,
+              "height": 59
+            },
+            "back": {
+              "left": 60,
+              "top": 100,
+              "right": 139,
+              "bottom": 131,
+              "width": 78,
+              "height": 32
+            },
+            "score": {
+              "left": 1312,
+              "top": 100,
+              "right": 1380,
+              "bottom": 131,
+              "width": 67,
+              "height": 32
+            },
+            "route": {
+              "left": 574,
+              "top": 90,
+              "right": 866,
+              "bottom": 141,
+              "width": 292,
+              "height": 51
+            },
+            "finish": {
+              "left": 790,
+              "top": 90,
+              "right": 866,
+              "bottom": 141,
+              "width": 76,
+              "height": 51
+            },
+            "routeSecondRow": false,
+            "scoreFinishOverlap": false,
+            "routeWithinHud": true,
+            "wrap": "nowrap"
+          }
+        },
+        {
+          "id": "final-fixes-desktop.hud-score-no-finish-overlap",
+          "status": "pass",
+          "details": {
+            "hud": {
+              "left": 60,
+              "top": 86,
+              "right": 1380,
+              "bottom": 145,
+              "width": 1319,
+              "height": 59
+            },
+            "back": {
+              "left": 60,
+              "top": 100,
+              "right": 139,
+              "bottom": 131,
+              "width": 78,
+              "height": 32
+            },
+            "score": {
+              "left": 1312,
+              "top": 100,
+              "right": 1380,
+              "bottom": 131,
+              "width": 67,
+              "height": 32
+            },
+            "route": {
+              "left": 574,
+              "top": 90,
+              "right": 866,
+              "bottom": 141,
+              "width": 292,
+              "height": 51
+            },
+            "finish": {
+              "left": 790,
+              "top": 90,
+              "right": 866,
+              "bottom": 141,
+              "width": 76,
+              "height": 51
+            },
+            "routeSecondRow": false,
+            "scoreFinishOverlap": false,
+            "routeWithinHud": true,
+            "wrap": "nowrap"
+          }
+        },
+        {
+          "id": "final-fixes-desktop.hud-route-fits",
+          "status": "pass",
+          "details": {
+            "hud": {
+              "left": 60,
+              "top": 86,
+              "right": 1380,
+              "bottom": 145,
+              "width": 1319,
+              "height": 59
+            },
+            "back": {
+              "left": 60,
+              "top": 100,
+              "right": 139,
+              "bottom": 131,
+              "width": 78,
+              "height": 32
+            },
+            "score": {
+              "left": 1312,
+              "top": 100,
+              "right": 1380,
+              "bottom": 131,
+              "width": 67,
+              "height": 32
+            },
+            "route": {
+              "left": 574,
+              "top": 90,
+              "right": 866,
+              "bottom": 141,
+              "width": 292,
+              "height": 51
+            },
+            "finish": {
+              "left": 790,
+              "top": 90,
+              "right": 866,
+              "bottom": 141,
+              "width": 76,
+              "height": 51
+            },
+            "routeSecondRow": false,
+            "scoreFinishOverlap": false,
+            "routeWithinHud": true,
+            "wrap": "nowrap"
+          }
+        },
+        {
+          "id": "final-fixes-desktop.scene-stamp-visible",
+          "status": "pass",
+          "details": {
+            "display": "block",
+            "visibility": "visible",
+            "width": 181,
+            "height": 32,
+            "text": "Смена 01 · Этап 01 / 03"
+          }
+        },
+        {
+          "id": "final-fixes-desktop.console-clean",
+          "status": "pass",
+          "details": null
+        }
+      ],
+      "screenshots": [
+        "screens/2026-10-24T09-31-54/final-fixes/01-landing-390.png",
+        "screens/2026-10-24T09-31-54/final-fixes/02-game-hud-390.png",
+        "screens/2026-10-24T09-31-54/final-fixes/03-landing-360.png",
+        "screens/2026-10-24T09-31-54/final-fixes/04-game-hud-360.png",
+        "screens/2026-10-24T09-31-54/final-fixes/05-landing-landscape.png",
+        "screens/2026-10-24T09-31-54/final-fixes/06-game-hud-landscape.png",
+        "screens/2026-10-24T09-31-54/final-fixes/07-landing-desktop.png",
+        "screens/2026-10-24T09-31-54/final-fixes/08-game-hud-desktop.png"
+      ],
+      "notes": [],
+      "fatal": null
+    }
+  ]
+}

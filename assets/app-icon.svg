@@ -1,0 +1,58 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="aiBg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14563B"/>
+      <stop offset="1" stop-color="#082A1B"/>
+    </linearGradient>
+    <radialGradient id="aiBody" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(214 236) rotate(52) scale(250)">
+      <stop stop-color="#F3FFB4"/>
+      <stop offset="0.42" stop-color="#D7F35B"/>
+      <stop offset="1" stop-color="#9DBE28"/>
+    </radialGradient>
+    <clipPath id="aiClip"><rect width="512" height="512" rx="104"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#aiClip)">
+    <rect width="512" height="512" fill="url(#aiBg)"/>
+    <circle cx="454" cy="66" r="118" fill="#FF6B3D"/>
+    <circle cx="454" cy="66" r="154" fill="none" stroke="#F3EEDF" stroke-width="5" opacity="0.4"/>
+    <circle cx="72" cy="424" r="128" fill="#D7F35B" opacity="0.1"/>
+    <path d="M0 452c96-26 208-26 310 0 76 19 142 20 202 2v58H0v-60Z" fill="#061B13" opacity="0.35"/>
+
+    <!-- fizz -->
+    <g stroke="#D7F35B" stroke-width="8" stroke-linecap="round">
+      <path d="M126 128c-8-17-6-31 4-44M96 206c-9-14-10-27-4-40M390 168c10-16 11-30 4-44M418 244c9-13 11-26 6-39"/>
+    </g>
+    <circle cx="102" cy="86" r="12" fill="#FF6B3D"/>
+    <circle cx="430" cy="330" r="10" fill="#F3EEDF"/>
+    <circle cx="92" cy="330" r="7" fill="#F6C94C"/>
+    <circle cx="404" cy="112" r="18" fill="none" stroke="#D7F35B" stroke-width="6"/>
+
+    <!-- mascot body -->
+    <path d="M256 140c84 0 150 66 150 150s-66 150-150 150-150-66-150-150 66-150 150-150Z" fill="url(#aiBody)" stroke="#10251A" stroke-width="10"/>
+    <path d="M156 216c18-34 52-56 88-62" stroke="#FFFDF2" stroke-width="14" stroke-linecap="round" opacity="0.75"/>
+    <circle cx="132" cy="286" r="10" fill="#FFFDF2" opacity="0.5"/>
+
+    <!-- cap -->
+    <path d="M176 178c8-39 46-64 84-58 36 5 60 31 65 66-52 12-104 8-149-8Z" fill="#FF6B3D" stroke="#10251A" stroke-width="9"/>
+    <path d="M178 180c50 13 101 15 145 10" stroke="#10251A" stroke-width="7"/>
+    <circle cx="252" cy="140" r="10" fill="#D7F35B" stroke="#10251A" stroke-width="6"/>
+
+    <!-- face -->
+    <ellipse cx="208" cy="286" rx="19" ry="25" fill="#10251A"/>
+    <ellipse cx="304" cy="286" rx="19" ry="25" fill="#10251A"/>
+    <circle cx="214" cy="277" r="6.5" fill="#FFFDF5"/>
+    <circle cx="310" cy="277" r="6.5" fill="#FFFDF5"/>
+    <path d="M168 252c17-9 35-8 50 2M344 252c-17-9-35-8-50 2" stroke="#10251A" stroke-width="9" stroke-linecap="round"/>
+    <path d="M212 340c15 15 28 22 44 22s29-7 44-22" stroke="#10251A" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <path d="M232 365c9 3 18 4 24 4s15-1 24-4" stroke="#10251A" stroke-width="5" stroke-linecap="round" opacity="0.45"/>
+    <ellipse cx="160" cy="332" rx="21" ry="11" fill="#FF8B65" opacity="0.55"/>
+    <ellipse cx="352" cy="332" rx="21" ry="11" fill="#FF8B65" opacity="0.55"/>
+
+    <!-- splash drops -->
+    <path d="M100 406c14 4 24 14 26 28-16 1-27-9-26-28Z" fill="#D7F35B" stroke="#10251A" stroke-width="5"/>
+    <path d="M414 388c16-3 29 4 36 18-14 6-28 0-36-18Z" fill="#D7F35B" stroke="#10251A" stroke-width="5"/>
+    <circle cx="76" cy="152" r="7" fill="#D7F35B"/>
+    <circle cx="446" cy="452" r="9" fill="#FF6B3D" stroke="#10251A" stroke-width="4"/>
+  </g>
+</svg>

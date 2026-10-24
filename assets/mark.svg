@@ -1,0 +1,95 @@
+<svg width="480" height="560" viewBox="0 0 480 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="markBg" x1="0" y1="0" x2="480" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E7FB90"/>
+      <stop offset="1" stop-color="#BCD93F"/>
+    </linearGradient>
+    <clipPath id="markClip"><rect width="480" height="560" rx="24"/></clipPath>
+  </defs>
+  <g clip-path="url(#markClip)">
+    <rect width="480" height="560" fill="url(#markBg)"/>
+    <circle cx="396" cy="106" r="118" fill="#FF6B3D"/>
+    <circle cx="396" cy="106" r="146" fill="none" stroke="#F3EEDF" stroke-width="4" opacity="0.45"/>
+    <path d="M0 468c92-26 196-27 292-2 68 18 128 20 188 6v88H0v-92Z" fill="#0C3B28" opacity="0.12"/>
+    <circle cx="58" cy="188" r="12" fill="none" stroke="#0C3B28" stroke-width="3" opacity="0.4"/>
+    <circle cx="86" cy="128" r="6" fill="#F3EEDF" opacity="0.8"/>
+    <circle cx="70" cy="88" r="18" fill="#D7F35B" stroke="#0C3B28" stroke-width="3"/>
+
+    <!-- wooden mash paddle (behind hand) -->
+    <g transform="rotate(-5 420 400)">
+      <rect x="416" y="344" width="17" height="224" rx="8" fill="#C9945C" stroke="#10251A" stroke-width="5"/>
+      <rect x="376" y="238" width="90" height="132" rx="24" fill="#D9A96C" stroke="#10251A" stroke-width="5"/>
+      <path d="M394 272h54M394 300h54M394 328h54" stroke="#A9723F" stroke-width="3.5" stroke-linecap="round" opacity="0.75"/>
+      <path d="M424 344v236" stroke="#A9723F" stroke-width="3" opacity="0.45"/>
+    </g>
+
+    <!-- neck -->
+    <path d="M212 326h56v58c0 14-13 22-28 22s-28-8-28-22v-58Z" fill="#E2A97C" stroke="#10251A" stroke-width="5"/>
+    <path d="M218 370c7 9 15 13 22 13s15-4 22-13" stroke="#C1855C" stroke-width="6" stroke-linecap="round" opacity="0.45"/>
+    <path d="M225 376c-2 10-2 20 0 28M255 376c2 10 2 20 0 28" stroke="#C1855C" stroke-width="3.5" stroke-linecap="round" opacity="0.35"/>
+    <path d="M212 392c9 7 47 7 56 0" stroke="#10251A" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+
+    <!-- body / work jacket -->
+    <path d="M30 560c4-92 52-140 136-152 24-4 48-6 74-6s50 2 74 6c84 12 132 60 136 152H30Z" fill="#14563B" stroke="#10251A" stroke-width="6"/>
+    <path d="M92 506c8-34 28-54 56-62M388 506c-8-34-28-54-56-62" stroke="#D7F35B" stroke-width="4" stroke-linecap="round" opacity="0.45"/>
+    <!-- undershirt collar -->
+    <path d="M200 394c8 32 72 32 80 0l-14 0c-6 24-46 24-52 0Z" fill="#F3EEDF" stroke="#10251A" stroke-width="4"/>
+    <!-- apron -->
+    <path d="M174 430c22 12 110 12 132 0l12 130H162l12-130Z" fill="#0A3524" stroke="#10251A" stroke-width="6"/>
+    <path d="M176 432 156 408M304 432l20-24" stroke="#0C3B28" stroke-width="11"/>
+    <path d="M176 432 156 408M304 432l20-24" stroke="#D7F35B" stroke-width="3.5" opacity="0.85"/>
+    <rect x="200" y="456" width="80" height="27" rx="4" fill="#F3EEDF" stroke="#10251A" stroke-width="4"/>
+    <text x="240" y="474" text-anchor="middle" fill="#0C3B28" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">КВАСНОЙ ЦЕХ</text>
+    <path d="M184 500h42M184 512h30" stroke="#D7F35B" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
+    <path d="M282 500h28" stroke="#D7F35B" stroke-width="3.5" stroke-linecap="round" opacity="0.55"/>
+
+    <!-- ears -->
+    <ellipse cx="153" cy="266" rx="15" ry="25" fill="#D99C6F" stroke="#10251A" stroke-width="5"/>
+    <ellipse cx="327" cy="266" rx="15" ry="25" fill="#D99C6F" stroke="#10251A" stroke-width="5"/>
+    <path d="M150 258c-3 5-3 12 2 17M330 258c3 5 3 12-2 17" stroke="#B97E55" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- face -->
+    <path d="M240 142c54 0 88 38 88 92 0 62-14 110-46 124-14 6-28 8-42 8s-28-2-42-8c-32-14-46-62-46-124 0-54 34-92 88-92Z" fill="#E2A97C" stroke="#10251A" stroke-width="6"/>
+
+    <!-- hair -->
+    <path d="M240 122c63 0 100 42 97 108-1 10-6 14-11 10-5-24-13-38-24-47-18 10-40 15-62 15s-44-5-62-15c-11 9-19 23-24 47-5 4-10 0-11-10-3-66 34-108 97-108Z" fill="#332C25" stroke="#10251A" stroke-width="6"/>
+    <path d="M186 166c14-16 33-25 54-27M294 166c-8-13-19-21-32-24" stroke="#4E453B" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+    <path d="M240 132v14M214 136l5 13M266 136l-5 13" stroke="#4E453B" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+
+    <!-- short beard, trimmed around the mouth -->
+    <path d="M154 244C154 302 170 340 198 354 212 361 226 364 240 364 254 364 268 361 282 354 310 340 326 302 326 244 320 276 312 298 300 310 288 322 266 328 240 330 214 328 192 322 180 310 168 298 160 276 154 244Z" fill="#3A332B" stroke="#10251A" stroke-width="5"/>
+    <path d="M186 314c9 11 21 17 34 19M294 314c-9 11-21 17-34 19" stroke="#231F1A" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+    <path d="M206 346c10 6 22 9 34 9s24-3 34-9" stroke="#231F1A" stroke-width="3.5" stroke-linecap="round" opacity="0.4"/>
+    <!-- moustache -->
+    <path d="M212 292c7-7 19-8 28-3 9-5 21-4 28 3-7 5-18 5-28 0-10 5-21 5-28 0Z" fill="#3A332B" stroke="#10251A" stroke-width="4" stroke-linejoin="round"/>
+
+    <!-- brows -->
+    <path d="M181 225c11-7 25-7 37 0M299 225c-11-7-25-7-37 0" stroke="#332C25" stroke-width="7" stroke-linecap="round"/>
+
+    <!-- eyes -->
+    <path d="M193 250c5-9 18-10 26-1-7 9-20 10-26 1Z" fill="#FFFDF5" stroke="#10251A" stroke-width="3"/>
+    <path d="M287 250c-5-9-18-10-26-1 7 9 20 10 26 1Z" fill="#FFFDF5" stroke="#10251A" stroke-width="3"/>
+    <path d="M193 250c5-9 18-10 26-1M287 250c-5-9-18-10-26-1" stroke="#10251A" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="206" cy="251" r="6.6" fill="#4A3524"/>
+    <circle cx="274" cy="251" r="6.6" fill="#4A3524"/>
+    <circle cx="206" cy="251" r="3" fill="#10251A"/>
+    <circle cx="274" cy="251" r="3" fill="#10251A"/>
+    <circle cx="203.6" cy="248.4" r="2" fill="#FFFDF5"/>
+    <circle cx="271.6" cy="248.4" r="2" fill="#FFFDF5"/>
+
+    <!-- nose -->
+    <path d="M240 252c-1 14-3 26-7 33 4 5 10 5 14 0-4-7-6-19-7-33Z" fill="none" stroke="#B97E55" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- smile -->
+    <path d="M212 302c11 4 45 4 56 0-5 18-51 18-56 0Z" fill="#5E2E24" stroke="#10251A" stroke-width="4.5" stroke-linejoin="round"/>
+    <path d="M218 305c8 3 36 3 44 0l-2 6c-10 3-30 3-40 0l-2-6Z" fill="#F3EEDF"/>
+    <path d="M222 316c6 2 12 3 18 3s12-1 18-3" stroke="#B97E55" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+
+    <!-- right arm, cuff and hand gripping the paddle -->
+    <path d="M352 406c26 4 46 16 56 32 5 9 2 17-6 21l-14 6c-4-20-16-38-36-59Z" fill="#14563B" stroke="#10251A" stroke-width="6"/>
+    <path d="M392 450c8 8 20 8 28 2l2 14c-8 8-20 8-28 0l-2-16Z" fill="#0C3B28" stroke="#10251A" stroke-width="4"/>
+    <path d="M402 452c12-6 28-2 34 10 6 13-1 27-15 30-13 3-23-6-24-18-1-9 1-17 5-22Z" fill="#E2A97C" stroke="#10251A" stroke-width="5"/>
+    <path d="M408 456c6-4 15-3 20 2-4 4-13 5-20 1Z" fill="#E2A97C" stroke="#10251A" stroke-width="3.5"/>
+    <path d="M400 466c8-3 16-3 23 0M399 476c8-3 17-3 24 0M401 486c7-3 15-3 21 0" stroke="#B97E55" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>
