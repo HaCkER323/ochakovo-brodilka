@@ -903,6 +903,16 @@ class Page {
     );
   }
 
+  async setReducedMotion(reduce) {
+    await this.cdp.send(
+      "Emulation.setEmulatedMedia",
+      { media: "screen", features: [{ name: "prefers-reduced-motion", value: reduce ? "reduce" : "no-preference" }] },
+      this.sessionId
+    ).catch(() => {});
+    await sleep(250);
+    return this.eval(`matchMedia("(prefers-reduced-motion: reduce)").matches`, { awaitPromise: false });
+  }
+
   async emulateDisplayMode(mode) {
     if (!mode) {
       await this.cdp.send("Emulation.setEmulatedMedia", { media: "", features: [] }, this.sessionId).catch(() => {});
@@ -1513,11 +1523,13 @@ class GameDriver {
     );
   }
 
-  async fillApplyForm({ name = "Иван Тестов", phone = "+7 999 123-45-67", email = "ivan@example.com", city = "Москва", link = "", consent = true, file = null } = {}) {
+  async fillApplyForm({ name = "Иван Тестов", phone = "+7 999 123-45-67", email = "ivan@example.com", city = "Москва", link = "", consent = true, file = null, birthDate = "1996-05-14", education = "" } = {}) {
     await this.page.fill("#fieldName", name);
+    if (await this.page.exists("#fieldBirthDate")) await this.page.fill("#fieldBirthDate", birthDate);
     await this.page.fill("#fieldPhone", phone);
     await this.page.fill("#fieldEmail", email);
     await this.page.fill("#fieldCity", city);
+    if (education && (await this.page.exists("#fieldEducation"))) await this.page.fill("#fieldEducation", education);
     if (link) await this.page.fill("#fieldResumeLink", link);
     if (file) {
       await this.page.setFileInput("#fieldResume", file);
@@ -1963,23 +1975,24 @@ async function desktopFullScenario(page, report, driver) {
   await driver.submitApplyForm();
   await sleep(300);
   let form = await driver.formState();
-  report.check("form.empty-errors", form.errors.length >= 3, form);
+  report.check("form.empty-errors", form.errors.length >= 4, form);
   report.check("form.empty-consent-error", form.consentError === true || (form.generalError && form.generalError.visible), form);
   report.check("form.empty-focus", !!form.active && (form.active.name === "name" || form.active.id === "fieldName"), form.active);
   await report.shot(page, "form-empty-errors");
 
-  // Tab из первого невалидного поля ведёт в следующее поле
+  // Tab из первого невалидного поля ведёт в следующее поле (ФИО → дата рождения)
   await page.press("Tab");
   const tabbed = await page.activeElement();
-  report.check("form.tab-order", !!tabbed && (tabbed.name === "phone" || tabbed.id === "fieldPhone"), tabbed);
+  report.check("form.tab-order", !!tabbed && (tabbed.name === "birthDate" || tabbed.id === "fieldBirthDate" || tabbed.name === "phone" || tabbed.id === "fieldPhone"), tabbed);
 
   // 2) невалидные значения
-  await driver.fillApplyForm({ name: "A", phone: "123", email: "bad", city: "", link: "not-a-url", consent: false });
+  await driver.fillApplyForm({ name: "A", birthDate: "2999-01-01", phone: "123", email: "bad", city: "", link: "not-a-url", consent: false });
   await driver.submitApplyForm();
   await sleep(300);
   form = await driver.formState();
   const errorNames = form.errors.map((entry) => entry.name);
   report.check("form.invalid-name", errorNames.includes("name"), form.errors);
+  report.check("form.invalid-birthdate", errorNames.includes("birthDate"), form.errors);
   report.check("form.invalid-phone", errorNames.includes("phone"), form.errors);
   report.check("form.invalid-email", errorNames.includes("email"), form.errors);
   report.check("form.invalid-link", errorNames.includes("resumeLink"), form.errors);
@@ -3125,6 +3138,22 @@ async function contentGuardScenario(page, report, driver) {
   // «безалкогольные» допустимо, отдельно фиксируем ручной просмотр
   const alcoholMentions = [...new Set((allRendered + allSources).match(/(?<!без)алкогол\S*/gi) || [])];
   if (alcoholMentions.length) report.note("упоминания алкоголя (ручная проверка): " + JSON.stringify(alcoholMentions.slice(0, 8)));
+  report.check("content.no-old-lexicon", !/оптимист|не дам заскучать|заскучать|весёлый пузырь|дружок|малыш/i.test(allRendered + allSources), (allRendered.match(/оптимист|заскучать|дружок|малыш/gi) || []).slice(0, 5));
+  report.check("content.bubble-lore-1996", /1996/.test(allRendered), (allRendered.match(/1996/g) || []).length);
+  const dataForLore = (driver && driver.data) || {};
+  const bubbleTexts = []
+    .concat(((dataForLore.intro || []).filter((line) => line.speaker === "bubble") || []).map((line) => line.text || ""))
+    .concat(
+      ((dataForLore.characters || []) || []).flatMap((char) =>
+        (char.steps || []).flatMap((step) => (step.beats || []).filter((beat) => beat.speaker === "bubble").map((beat) => beat.text || ""))
+      )
+    )
+    .join("\n");
+  const bubbleManualWork = /(^|[^а-яё])(я|мы)\s+(соберу|сделаю|проверю|настрою|запущу|остановлю|выберу|найду|починю)/i;
+  report.check("content.bubble-not-working", !bubbleManualWork.test(bubbleTexts), (bubbleTexts.match(bubbleManualWork) || []).slice(0, 5));
+  report.check("content.player-does-shift", /смену проходишь ты|решаешь ты|ты не бери/i.test(bubbleTexts), bubbleTexts.slice(0, 200));
+  report.check("content.no-kvasovar-visible", !/квасовар/i.test(allRendered));
+  report.check("content.no-machine-role-old", !/пивовар/i.test(allRendered + allSources));
   await report.shot(page, "content-guard-final");
 
   await checkConsole(page, report, "content-guard");
@@ -3716,6 +3745,9 @@ async function formNoFileScenario(page, report, driver) {
       const fileInputs = document.querySelectorAll('input[type="file"]');
       const linkLabel = document.querySelector('label[for="fieldResumeLink"], .field label[for="fieldResumeLink"]');
       const linkInput = document.querySelector('#fieldResumeLink, input[name="resumeLink"]');
+      const birthInput = document.querySelector('#fieldBirthDate, input[name="birthDate"]');
+      const educationInput = document.querySelector('#fieldEducation, input[name="education"]');
+      const educationLabel = document.querySelector('label[for="fieldEducation"]');
       return {
         fileInputs: fileInputs.length,
         fileField: !!document.querySelector('#fieldResume, input[name="resume"]'),
@@ -3725,6 +3757,10 @@ async function formNoFileScenario(page, report, driver) {
         linkLabel: linkLabel ? (linkLabel.textContent || '').replace(/\\s+/g, ' ').trim() : null,
         linkInput: !!linkInput,
         linkRequired: linkInput ? linkInput.required : null,
+        birthDate: birthInput ? { present: true, required: birthInput.required, min: birthInput.getAttribute('min'), type: birthInput.type } : { present: false },
+        birthLabel: (document.querySelector('label[for="fieldBirthDate"]') || {}).textContent || '',
+        education: educationInput ? { present: true, required: educationInput.required } : { present: false },
+        educationLabel: educationLabel ? (educationLabel.textContent || '').replace(/\\s+/g, ' ').trim() : null,
         applyFontSize: apply ? parseFloat(getComputedStyle(apply).fontSize) : null,
         hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
       };
@@ -3733,6 +3769,9 @@ async function formNoFileScenario(page, report, driver) {
   );
   report.check("form-nofile.no-file-input", formInfo.fileInputs === 0 && formInfo.fileField === false, { fileInputs: formInfo.fileInputs, fileField: formInfo.fileField });
   report.check("form-nofile.no-attach-text", !/прикрепить файл|выбери файл|резюме файлом/i.test(formInfo.applyText), (formInfo.applyText.match(/прикрепить файл|выбери файл|резюме файлом/gi) || []).slice(0, 3));
+  report.check("form-nofile.card-title", /карточка стажёра/i.test(formInfo.applyText), formInfo.applyText.slice(0, 160));
+  report.check("form-nofile.birthdate-required", formInfo.birthDate.present === true && formInfo.birthDate.min === "1900-01-01" && /\*/.test(String(formInfo.birthLabel || "")), { birthDate: formInfo.birthDate, label: formInfo.birthLabel });
+  report.check("form-nofile.education-optional", formInfo.education.present === true && formInfo.education.required === false && /необязательно/i.test(String(formInfo.educationLabel || "")), { education: formInfo.education, label: formInfo.educationLabel });
   report.check("form-nofile.resume-link-optional", formInfo.linkInput === true && formInfo.linkRequired === false, { linkInput: formInfo.linkInput, required: formInfo.linkRequired });
   report.check("form-nofile.resume-link-label", !!formInfo.linkLabel && /необязательно/i.test(formInfo.linkLabel), formInfo.linkLabel);
   const vacancy = characters[0].vacancy;
@@ -3763,13 +3802,15 @@ async function formNoFileScenario(page, report, driver) {
   await report.shot(page, "form-nofile-mobile");
 
   // отправка без резюме/ссылки
-  await driver.fillApplyForm({ name: "Без Файла", phone: "+7 999 555-44-33", email: "nofile@example.com", consent: true });
+  await driver.fillApplyForm({ name: "Без Файла", phone: "+7 999 555-44-33", email: "nofile@example.com", education: "МГУ", consent: true });
   await driver.submitApplyForm();
   await page.waitScreen("success", { timeout: 8000 });
   const storage = await page.storage();
   const application = storage.state && (storage.state.applications || [])[0];
   report.check("form-nofile.submit-without-resume", !!application, application ? application.ticket : null);
   report.check("form-nofile.application-no-file", !!application && !application.resumeFile && !application.resume, application);
+  report.check("form-nofile.application-birthdate", !!application && application.birthDate === "1996-05-14", application && application.birthDate);
+  report.check("form-nofile.application-education", !!application && application.education === "МГУ", application && application.education);
   await report.shot(page, "form-nofile-success");
   await checkConsole(page, report, "form-nofile");
 }
@@ -4117,8 +4158,8 @@ async function designThemeScenario(page, report, driver) {
   const brandCss = (await page.fetchTexts(["css/brand.css"]))[0];
   const cssText = String((brandCss && brandCss.text) || "");
   const preludes = [...cssText.matchAll(/([^{}]+)\{/g)]
-    .map((match) => match[1].trim())
-    .filter((prelude) => prelude && !prelude.startsWith("@") && !prelude.includes("@media") && !prelude.includes("@supports") && !prelude.startsWith("/*") && !/^(from|to|\d+(?:\.\d+)?%)$/.test(prelude));
+    .map((match) => match[1].trim().replace(/\s+/g, " "))
+    .filter((prelude) => prelude && !prelude.startsWith("@") && !prelude.includes("@media") && !prelude.includes("@supports") && !prelude.startsWith("/*") && !/^(from|to|\d+(?:\.\d+)?%)$/.test(prelude) && !/^\d+%(?:, \d+%)*$/.test(prelude));
   const unscoped = preludes.filter((prelude) => !prelude.includes('html[data-design="brand"]'));
   report.check("design.brand-css-scoped", preludes.length > 50 && unscoped.length === 0, { rules: preludes.length, unscoped: unscoped.slice(0, 8) });
 
@@ -4126,9 +4167,8 @@ async function designThemeScenario(page, report, driver) {
     "assets/brand/ochakovo-logo.png",
     "assets/brand/ochakovo-logo-white.png",
     "assets/brand/ochakovo-mark.svg",
-    "assets/brand/pattern-red.jpg",
-    "assets/brand/pattern-white.jpg",
-    "assets/brand/brand-preview.png"
+    "assets/brand/ornament.svg",
+    "assets/brand/ornament-red.svg"
   ];
   const brandAssets = await page.eval(
     `Promise.all(${JSON.stringify(brandAssetPaths)}.map(async (path) => {
@@ -4355,7 +4395,8 @@ async function designThemeScenario(page, report, driver) {
     })()`,
     { awaitPromise: true }
   ).catch(() => ({ keys: [], urls: [] }));
-  report.check("design.pwa-cache-brand", ["brand.css", "ochakovo-logo.png", "ochakovo-mark.svg", "pattern-red.jpg", "pattern-white.jpg"].every((needle) => cached.urls.some((url) => url.includes(needle))), { keys: cached.keys, missing: ["brand.css", "ochakovo-logo.png", "ochakovo-mark.svg", "pattern-red.jpg", "pattern-white.jpg"].filter((needle) => !cached.urls.some((url) => url.includes(needle))) });
+  report.check("design.pwa-cache-brand", ["brand.css", "ochakovo-logo.png", "ochakovo-mark.svg", "ornament.svg", "splat.svg", "pop.svg"].every((needle) => cached.urls.some((url) => url.includes(needle))), { keys: cached.keys, missing: ["brand.css", "ochakovo-logo.png", "ochakovo-mark.svg", "ornament.svg", "splat.svg", "pop.svg"].filter((needle) => !cached.urls.some((url) => url.includes(needle))) });
+  report.check("design.pwa-no-raster-patterns", !cached.urls.some((url) => /pattern-(red|white)\.jpg/i.test(url)), cached.urls.filter((url) => /pattern-/i.test(url)));
   const brandReferences = await page.fetchTexts(["index.html", "css/brand.css"]);
   report.check(
     "design.brand-preview-not-referenced",
@@ -4379,6 +4420,333 @@ async function designThemeScenario(page, report, driver) {
   const readme = await page.fetchTexts(["README.md"]).catch(() => []);
   report.check("design.readme-no-kvasovar", readme.length > 0 && !/квасовар/i.test(String(readme[0].text || "")), (String((readme[0] || {}).text || "").match(/квасовар\S*/gi) || []).slice(0, 5));
   await checkConsole(page, report, "design-theme");
+}
+
+function extractPdfJpeg(buffer) {
+  let start = -1;
+  for (let index = 0; index < buffer.length - 1; index += 1) {
+    if (buffer[index] === 0xff && buffer[index + 1] === 0xd8) { start = index; break; }
+  }
+  if (start < 0) return null;
+  for (let index = buffer.length - 2; index >= start; index -= 1) {
+    if (buffer[index] === 0xff && buffer[index + 1] === 0xd9) return buffer.subarray(start, index + 2);
+  }
+  return null;
+}
+
+async function v14FinalScenario(page, report, driver, context) {
+  await page.configureDownloads(DOWNLOADS_DIR);
+  const data = await driver.loadData();
+  const mark = data.characters[0];
+  const mascotAudit = async (label, { requireSome = true, maxWidth = 120 } = {}) => {
+    const mascots = await page.eval(
+      `(() => Array.from(document.querySelectorAll('img[src="assets/mascot.svg"], img[src$="/mascot.svg"]')).filter((img) => { if (img.closest('.bubble-scene')) return false; const r = img.getBoundingClientRect(); return r.width > 0 && r.height > 0; }).map((img) => { const r = img.getBoundingClientRect(); return { src: img.getAttribute('src'), width: Math.round(r.width), height: Math.round(r.height), naturalWidth: img.naturalWidth, filter: getComputedStyle(img).filter, clipped: img.scrollWidth > img.clientWidth + 1 || img.scrollHeight > img.clientHeight + 1 }; }))()`,
+      { awaitPromise: false }
+    );
+    const bad = mascots.filter((mascot) => mascot.width < 24 || mascot.width > maxWidth || Math.abs(mascot.width - mascot.height) > Math.max(4, mascot.width * 0.18));
+    report.check(`${label}.mascot-sizes`, (!requireSome || mascots.length > 0) && bad.length === 0, { mascots, bad });
+    return mascots;
+  };
+  const downloadPdf = async (label) => {
+    await page.eval("(() => { const toast = document.querySelector('#toast'); if (toast) toast.classList.remove('is-visible'); return true; })()", { awaitPromise: false });
+    const existing = await fsp.readdir(DOWNLOADS_DIR).catch(() => []);
+    await page.scrollIntoView('[data-action="download-application"]');
+    await sleep(150);
+    await page.click('[data-action="download-application"]');
+    await sleep(400);
+    let files = await page.waitForDownload({ existing, timeout: 10000 }).catch(() => null);
+    if (!files || !files.length) {
+      // повторный программный клик, если тост/оверлей перехватил первый
+      await page.eval(`(() => { const button = document.querySelector('[data-action="download-application"]'); if (button) button.click(); return true; })()`, { awaitPromise: false });
+      files = await page.waitForDownload({ existing, timeout: 5000 }).catch(() => null);
+    }
+    if (!files || !files.length) {
+      report.check(`${label}.pdf-downloaded`, false, { toast: await page.text("#toast"), files });
+      return null;
+    }
+    const fileName = files[0];
+    const buffer = await fsp.readFile(path.join(DOWNLOADS_DIR, fileName)).catch(() => Buffer.alloc(0));
+    const pdf = inspectPdfBuffer(buffer, fileName);
+    report.check(`${label}.pdf-valid`, pdf.isPdf && pdf.hasEof && pdf.pages >= 1 && pdf.size > 5000, pdf);
+    report.check(`${label}.pdf-filename`, /ochakovo-zayavka-.+\.pdf$/i.test(fileName), fileName);
+    const jpeg = extractPdfJpeg(buffer);
+    if (jpeg) await fsp.writeFile(path.join(QA_DIR, "artifacts", `pdf-v14-${label}.jpg`), jpeg).catch(() => {});
+    report.check(`${label}.pdf-image`, !!jpeg && jpeg.length > 10000, { bytes: jpeg ? jpeg.length : 0 });
+    return { fileName, buffer, pdf };
+  };
+
+  // 1) Чистый брендовый hero: без растровых паттернов, новый маскот
+  await page.setViewport({ width: 1440, height: 1000, mobile: false, dpr: 1 });
+  await page.eval("try { localStorage.clear(); } catch (error) {}", { awaitPromise: false });
+  await page.navigate(page.baseUrl);
+  await page.waitScreen("landing");
+  await sleep(600);
+  const heroInfo = await page.eval(
+    `(() => {
+      const backgrounds = ['.landing-hero', '.hero-art', '.hero-copy', '.hero-can', '.hero-guide'].map((selector) => {
+        const el = document.querySelector(selector);
+        return el ? { selector, backgroundImage: getComputedStyle(el).backgroundImage } : null;
+      }).filter(Boolean);
+      const resources = performance.getEntriesByType('resource').map((entry) => entry.name).filter((url) => /pattern-(red|white)|brand-preview/i.test(url));
+      return {
+        backgrounds,
+        rasterRefs: resources,
+        title: document.title,
+        description: (document.querySelector('meta[name="description"]') || {}).content || '',
+        hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+        mascots: Array.from(document.querySelectorAll('img[src*="mascot"]')).filter((img) => img.getBoundingClientRect().width > 0).map((img) => ({ src: img.getAttribute('src'), width: Math.round(img.getBoundingClientRect().width) }))
+      };
+    })()`,
+    { awaitPromise: false }
+  );
+  const rasterBackground = heroInfo.backgrounds.filter((item) => /\.jpe?g|pattern-/i.test(String(item.backgroundImage)));
+  report.check("v14.hero-clean", rasterBackground.length === 0 && heroInfo.rasterRefs.length === 0, { rasterBackground, rasterRefs: heroInfo.rasterRefs });
+  report.check("v14.hero-no-hscroll", !heroInfo.hscroll);
+  report.check("v14.title-meta", /БРОДИЛКА/i.test(heroInfo.title) && heroInfo.description.length > 40, { title: heroInfo.title, description: heroInfo.description.slice(0, 100) });
+  const landingMascots = await mascotAudit("v14-landing");
+  report.check("v14.hero-mascot", landingMascots.some((mascot) => mascot.naturalWidth > 0 && mascot.width >= 60), landingMascots);
+  const mascotAsset = await page.eval(`fetch("assets/mascot.svg", { cache: "no-store" }).then(async (response) => ({ status: response.status, text: await response.text() }))`, { awaitPromise: true });
+  const mascotHash = crypto.createHash("sha256").update(String(mascotAsset.text || "")).digest("hex").toUpperCase();
+  report.check(
+    "v14.mascot-root-asset",
+    mascotAsset.status === 200 && mascotAsset.text.length >= 5500 && mascotAsset.text.length <= 5600 && /gCapTop/.test(mascotAsset.text) && /gCapSide/.test(mascotAsset.text) && mascotHash === "732F89E485985877197D7865DCCF8FECA4E3D7CA59EC21C6B937D8AFFDC57039",
+    { status: mascotAsset.status, bytes: mascotAsset.text.length, hash: mascotHash }
+  );
+  await report.shot(page, "v14-landing-brand");
+
+  // Маскот на интро / героях / чате (новый ассет, 24–120px)
+  await page.click('[data-action="start-quest"]');
+  await sleep(350);
+  if ((await page.screen()) === "intro") {
+    if (await page.exists('[data-action="intro-next"]')) {
+      await page.click('[data-action="intro-next"]');
+      await sleep(350);
+    }
+    await mascotAudit("v14-intro", { requireSome: false, maxWidth: 360 });
+    await report.shot(page, "v14-intro-mascot");
+    await page.click('[data-action="intro-skip"]').catch(() => {});
+  }
+  await page.waitScreen("characters");
+  await mascotAudit("v14-characters");
+  await driver.selectCharacter(mark.id);
+  await page.waitScreen("game");
+  if (await page.exists('[data-action="next-beat"]')) {
+    await page.click('[data-action="next-beat"]');
+    await sleep(350);
+  }
+  await mascotAudit("v14-chat");
+  await report.shot(page, "v14-chat-mascot");
+  await driver.goToCharacters();
+  await page.waitScreen("characters");
+
+  // 2) Финал: взрыв/клякса, промокод, скрытие сцены ~1.6с
+  await driver.completeRoute(mark.id);
+  await page.waitScreen("result");
+  await sleep(300);
+  const splatInfo = await page.eval(
+    `(() => {
+      const scene = document.querySelector('.bubble-scene');
+      const pop = document.querySelector('.bubble-scene-pop');
+      const splat = document.querySelector('.promo-splat');
+      const splatImg = document.querySelector('.promo-splat-img');
+      const code = document.querySelector('#promoCode');
+      const copy = document.querySelector('[data-action="copy-code"]');
+      const openApply = document.querySelector('[data-action="open-apply"]');
+      const stars = document.querySelector('.result-head-stars');
+      const rect = (el) => { if (!el) return null; const r = el.getBoundingClientRect(); return { left: Math.round(r.left), top: Math.round(r.top), right: Math.round(r.right), bottom: Math.round(r.bottom), width: Math.round(r.width), height: Math.round(r.height) }; };
+      const hit = (el) => { if (!el) return null; const pre = el.getBoundingClientRect(); window.scrollTo({ top: Math.max(0, window.scrollY + pre.top - Math.max(12, (window.innerHeight - pre.height) / 2)), left: 0, behavior: "instant" }); const r = el.getBoundingClientRect(); const top = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return !!(top && (el === top || el.contains(top) || top.contains(el))); };
+      return {
+        scenePresent: !!scene,
+        sceneClass: scene ? String(scene.className) : null,
+        scenePointerEvents: scene ? getComputedStyle(scene).pointerEvents : null,
+        sceneOpacity: scene ? getComputedStyle(scene).opacity : null,
+        popLoaded: !!(pop && pop.complete && pop.naturalWidth > 0),
+        splatPresent: !!splat,
+        splatImgLoaded: !!(splatImg && splatImg.complete && splatImg.naturalWidth > 0),
+        code: code ? code.textContent.trim() : null,
+        codeRect: rect(code),
+        codeClipped: code ? code.scrollWidth > code.clientWidth + 1 || code.textContent.trim().endsWith("…") : null,
+        copyHit: hit(copy),
+        openApplyHit: hit(openApply),
+        starsHit: hit(stars),
+        stars: stars ? (stars.textContent || "").trim() : null,
+        rewardText: (document.querySelector('.ticket-value strong') || {}).textContent || null,
+        viewport: document.documentElement.clientWidth
+      };
+    })()`,
+    { awaitPromise: false }
+  );
+  report.check("v14.result-splat", splatInfo.splatPresent && splatInfo.splatImgLoaded, splatInfo);
+  report.check("v14.result-pop-scene", splatInfo.scenePresent && splatInfo.popLoaded, splatInfo);
+  report.check("v14.result-no-overlap", splatInfo.copyHit === true && splatInfo.openApplyHit === true && splatInfo.starsHit === true, splatInfo);
+  report.check("v14.result-promo", !!splatInfo.code && splatInfo.code.length >= 6 && splatInfo.codeClipped === false, splatInfo);
+  report.check("v14.result-stars-reward", /3\s*\/\s*3/.test(String(splatInfo.stars)) && /150/.test(String(splatInfo.rewardText)), splatInfo);
+  await report.shot(page, "v14-result-brand");
+  await mascotAudit("v14-result-brand", { requireSome: false });
+  const codeBeforeCopy = splatInfo.code;
+  await page.click('[data-action="copy-code"]');
+  await sleep(400);
+  report.check("v14.copy-toast", /скопир/i.test(String(await page.text("#toast"))), await page.text("#toast"));
+
+  await sleep(1600);
+  const sceneAfter = await page.eval(
+    `(() => { const scene = document.querySelector('.bubble-scene'); if (!scene) return { gone: true }; const style = getComputedStyle(scene); const r = scene.getBoundingClientRect(); const title = document.querySelector('.result-title'); const t = title ? title.getBoundingClientRect() : null; const top = t ? document.elementFromPoint(t.left + t.width / 2, t.top + t.height / 2) : null; return { gone: false, className: String(scene.className), opacity: style.opacity, visibility: style.visibility, pointerEvents: style.pointerEvents, display: style.display, width: Math.round(r.width), height: Math.round(r.height), titleBlocked: !!(top && scene.contains(top)) }; })()`,
+    { awaitPromise: false }
+  );
+  report.check("v14.pop-scene-hides", sceneAfter.gone === true || sceneAfter.opacity === "0" || sceneAfter.visibility === "hidden" || sceneAfter.display === "none" || (sceneAfter.pointerEvents === "none" && sceneAfter.className.includes("is-done")) || sceneAfter.width === 0, sceneAfter);
+  report.check("v14.pop-scene-not-blocking", sceneAfter.titleBlocked !== true, sceneAfter);
+  await report.shot(page, "v14-result-settled");
+
+  // 3) Форма «Карточка стажёра»: дата рождения/ВУЗ, валидации, PDF brand
+  await driver.openApplyFromResult();
+  await page.waitScreen("apply");
+  await sleep(300);
+  await mascotAudit("v14-form", { requireSome: false });
+  await report.shot(page, "v14-form-mascot");
+  const formFields = await page.eval(
+    `(() => {
+      const name = document.querySelector('#fieldName');
+      const birth = document.querySelector('#fieldBirthDate');
+      const education = document.querySelector('#fieldEducation');
+      const file = document.querySelector('input[type="file"]');
+      const labelFor = (id) => { const el = document.querySelector('label[for="' + id + '"]'); return el ? (el.textContent || '').trim() : ''; };
+      return {
+        title: (document.querySelector('.form-head h2') || {}).textContent || '',
+        name: name ? { placeholder: name.placeholder } : null,
+        birth: birth ? { min: birth.getAttribute('min'), type: birth.type } : null,
+        education: education ? { placeholder: education.placeholder } : null,
+        educationLabel: labelFor('fieldEducation'),
+        labels: { name: labelFor('fieldName'), birthDate: labelFor('fieldBirthDate'), phone: labelFor('fieldPhone'), email: labelFor('fieldEmail') },
+        fileInputs: file ? 1 : 0,
+        hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
+      };
+    })()`,
+    { awaitPromise: false }
+  );
+  report.check("v14.form-card", /Карточка стажёра/i.test(formFields.title), formFields);
+  const requiredMarkers = ["name", "birthDate", "phone", "email"].every((key) => formFields.labels[key].includes("*"));
+  report.check("v14.form-fields", !!formFields.name && !!formFields.birth && !!formFields.education && formFields.birth.type === "date" && formFields.birth.min === "1900-01-01" && /необязательно/i.test(formFields.educationLabel) && requiredMarkers, formFields);
+  report.check("v14.form-no-file", formFields.fileInputs === 0);
+  report.check("v14.form-no-hscroll", !formFields.hscroll);
+
+  await driver.fillApplyForm({ birthDate: "2999-01-01", name: "Проверка Дат", phone: "+7 999 111-22-33", email: "date@example.com", consent: true });
+  await driver.submitApplyForm();
+  await sleep(300);
+  let formState = await driver.formState();
+  report.check("v14.form-future-date", formState.errors.some((error) => error.name === "birthDate"), formState.errors);
+  await driver.fillApplyForm({ birthDate: "1899-12-31", name: "Проверка Дат", phone: "+7 999 111-22-33", email: "date@example.com", consent: true });
+  await driver.submitApplyForm();
+  await sleep(300);
+  formState = await driver.formState();
+  report.check("v14.form-old-date", formState.errors.some((error) => error.name === "birthDate"), formState.errors);
+  await driver.fillApplyForm({ birthDate: "1996-05-14", education: "МГУ", name: "Проверка Дат", phone: "+7 999 111-22-33", email: "date@example.com", consent: true });
+  await driver.submitApplyForm();
+  await page.waitScreen("success", { timeout: 8000 });
+  const storageAfterForm = await page.storage();
+  const application = storageAfterForm.state && (storageAfterForm.state.applications || [])[0];
+  report.check("v14.storage-birthdate", !!application && application.birthDate === "1996-05-14" && application.education === "МГУ", application);
+  const brandPdf = await downloadPdf("brand");
+  await report.shot(page, "v14-success-brand");
+
+  // 4) Вторая тема: PDF под brodilka, коды/финал не сломаны
+  await page.click('[data-action="home"]');
+  await page.waitScreen("landing");
+  await page.eval("window.scrollTo(0, document.body.scrollHeight)", { awaitPromise: false });
+  await page.click('[data-action="design-brodilka"]');
+  await sleep(400);
+  const brodilkaTheme = await page.eval(`({ design: document.documentElement.getAttribute('data-design'), theme: (document.querySelector('meta[name="theme-color"]') || {}).content })`, { awaitPromise: false });
+  report.check("v14.brodilka-theme", brodilkaTheme.design === "brodilka" && brodilkaTheme.theme === "#0C3B28", brodilkaTheme);
+  await driver.completeRoute(mark.id);
+  await page.waitScreen("result");
+  await sleep(400);
+  const brodilkaSplat = await page.eval(
+    `(() => { const code = document.querySelector('#promoCode'); const splat = document.querySelector('.promo-splat-img'); const scene = document.querySelector('.bubble-scene'); return { code: code ? code.textContent.trim() : null, clipped: code ? code.scrollWidth > code.clientWidth + 1 : null, splat: !!(splat && splat.complete && splat.naturalWidth > 0), scene: !!scene, design: document.documentElement.getAttribute('data-design') }; })()`,
+    { awaitPromise: false }
+  );
+  report.check("v14.brodilka-result", brodilkaSplat.design === "brodilka" && !!brodilkaSplat.code && brodilkaSplat.clipped === false && brodilkaSplat.splat === true, brodilkaSplat);
+  await sleep(1700);
+  await report.shot(page, "v14-result-brodilka-settled");
+  await driver.openApplyFromResult();
+  await page.waitScreen("apply");
+  await driver.fillApplyForm({ birthDate: "1996-05-14", education: "МГУ", name: "Проверка Дат", phone: "+7 999 111-22-33", email: "date@example.com", consent: true });
+  await driver.submitApplyForm();
+  await page.waitScreen("success", { timeout: 8000 });
+  const brodilkaPdf = await downloadPdf("brodilka");
+  report.check("v14.pdf-theme-diff", !!(brandPdf && brodilkaPdf) && !brandPdf.buffer.equals(brodilkaPdf.buffer), { brand: brandPdf && brandPdf.pdf.size, brodilka: brodilkaPdf && brodilkaPdf.pdf.size });
+  await report.shot(page, "v14-success-brodilka");
+
+  // 5) Reduced motion: анимации отключены, контент и промокод доступны
+  const reducedApplied = await page.setReducedMotion(true);
+  await page.eval("try { localStorage.clear(); } catch (error) {}", { awaitPromise: false });
+  await page.navigate(page.baseUrl);
+  await page.waitScreen("landing");
+  await sleep(500);
+  const reducedLanding = await page.eval(
+    `(() => {
+      const animations = document.getAnimations ? document.getAnimations({ subtree: true }) : [];
+      const running = animations.filter((animation) => animation.playState === "running");
+      const heroTitle = document.querySelector('.hero-title, .display');
+      const style = heroTitle ? getComputedStyle(heroTitle) : null;
+      return { matches: matchMedia("(prefers-reduced-motion: reduce)").matches, running: running.length, heroDuration: style ? style.animationDuration : null, hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1 };
+    })()`,
+    { awaitPromise: false }
+  );
+  report.check("v14.reduced-motion-media", reducedApplied === true && reducedLanding.matches === true, reducedLanding);
+  report.check("v14.reduced-motion-no-anim", reducedLanding.running === 0, reducedLanding);
+  await driver.completeRoute(mark.id);
+  await page.waitScreen("result");
+  await sleep(1900);
+  const reducedResult = await page.eval(
+    `(() => {
+      const running = (document.getAnimations ? document.getAnimations({ subtree: true }) : []).filter((animation) => animation.playState === "running");
+      const code = document.querySelector('#promoCode');
+      const scene = document.querySelector('.bubble-scene');
+      return { running: running.length, code: code ? code.textContent.trim() : null, codeClipped: code ? code.scrollWidth > code.clientWidth + 1 : null, sceneGone: !scene || scene.className.includes("is-done") || getComputedStyle(scene).opacity === "0" || getComputedStyle(scene).display === "none", hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1 };
+    })()`,
+    { awaitPromise: false }
+  );
+  report.check("v14.reduced-motion-result", reducedResult.running === 0 && !!reducedResult.code && reducedResult.codeClipped === false && reducedResult.sceneGone === true && !reducedResult.hscroll, reducedResult);
+  await report.shot(page, "v14-reduced-motion-result");
+  await page.setReducedMotion(false);
+
+  // 6) PWA v14: кэш splat/pop/ornament, без pattern-*.jpg
+  await page.navigate(page.baseUrl);
+  await page.waitScreen("landing");
+  await waitUntil(
+    async () => {
+      const info = await page.eval(`(async () => { const registrations = await navigator.serviceWorker.getRegistrations(); return { count: registrations.length, active: registrations.some((r) => !!r.active) }; })()`, { awaitPromise: true }).catch(() => null);
+      return info && info.count > 0 && info.active ? info : null;
+    },
+    { timeout: 15000, interval: 300, label: "v14 SW registration" }
+  ).catch(() => report.note("SW не зарегистрировался до PWA-проверок"));
+  await page.reload();
+  await page.waitScreen("landing");
+  await sleep(1200);
+  const pwaInfo = await page.eval(
+    `(async () => {
+      const urls = [];
+      for (const key of await caches.keys()) { const cache = await caches.open(key); for (const request of await cache.keys()) urls.push(request.url); }
+      const swText = await (await fetch("sw.js", { cache: "no-store" })).text();
+      return { keys: await caches.keys(), urls, swVersion: (swText.match(/VERSION\\s*=\\s*["']([^"']+)["']/) || [])[1] || null, swTextOldMascot: /assets\\/mascot\\/mascot\\.svg/.test(swText), swTextRootMascot: /\\.\\/assets\\/mascot\\.svg/.test(swText) };
+    })()`,
+    { awaitPromise: true }
+  ).catch(() => ({ keys: [], urls: [], swVersion: null }));
+  const swNumber = parseSwVersion(`const VERSION = "${pwaInfo.swVersion || ""}"`).number;
+  report.check("v14.sw-version", swNumber !== null && swNumber >= 15, { version: pwaInfo.swVersion, number: swNumber });
+  report.check("v14.sw-mascot-path", pwaInfo.swTextRootMascot === true && pwaInfo.swTextOldMascot === false, pwaInfo);
+  report.check("v14.cache-splat", ["splat.svg", "pop.svg", "ornament.svg"].every((needle) => pwaInfo.urls.some((url) => url.includes(needle))), { missing: ["splat.svg", "pop.svg", "ornament.svg"].filter((needle) => !pwaInfo.urls.some((url) => url.includes(needle))), keys: pwaInfo.keys });
+  report.check("v14.cache-root-mascot", pwaInfo.urls.some((url) => /\/assets\/mascot\.svg$/i.test(url)) && !pwaInfo.urls.some((url) => /assets\/mascot\/mascot\.svg/i.test(url)), pwaInfo.urls.filter((url) => /mascot/i.test(url)));
+  report.check("v14.cache-no-patterns", !pwaInfo.urls.some((url) => /pattern-(red|white)\.jpg/i.test(url)), pwaInfo.urls.filter((url) => /pattern-/i.test(url)));
+  await page.setOffline(true);
+  await page.reload({ timeout: 25000 }).catch((error) => report.note("v14 offline reload: " + error.message));
+  await sleep(800);
+  const offline = await page.eval(`({ hasApp: !!document.querySelector('[data-action="start-quest"], [data-action="resume-quest"], #app'), design: document.documentElement.getAttribute('data-design') })`, { awaitPromise: false });
+  report.check("v14.offline", offline.hasApp === true, offline);
+  await page.setOffline(false);
+  const oldMascotIssues = page.networkEntries.filter((entry) => /assets\/mascot\/mascot\.svg/i.test(String(entry.url || entry.error || "")));
+  report.check("v14.no-old-mascot-404", oldMascotIssues.length === 0, oldMascotIssues);
+  await report.shot(page, "v14-offline");
+  await checkConsole(page, report, "v14-final");
 }
 
 async function finalFixesScenario(page, report, driver) {
@@ -4632,6 +5000,12 @@ const SCENARIOS = [
     title: "Брендовая тема: default brand, переключатель, persist/reload, промокод, PWA v10",
     viewport: "desktop",
     run: designThemeScenario
+  },
+  {
+    id: "v14-final",
+    title: "v14: чистый hero, новый Пузырь 24–120, splat/промокод, форма стажёра, PDF обе темы, reduced-motion, PWA v14",
+    viewport: "desktop",
+    run: v14FinalScenario
   }
 ];
 

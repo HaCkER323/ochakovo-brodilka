@@ -10,16 +10,15 @@ html[data-design="brand"] {
   --brand-ink: #1a1a1a;
   --brand-gray: #626262;
   --brand-silver: #a2aaad;
-  --brand-line: #e3e3e3;
+  --brand-line: rgba(162, 170, 173, 0.45);
   --brand-bg: #f4f4f4;
-  --brand-success: #84bd00;
 
   --ink: #1a1a1a;
   --forest: #ab2328;
-  --forest-2: #8f1c21;
+  --forest-2: #ab2328;
   --green: #d50032;
   --lime: #d50032;
-  --lime-soft: #fce8ec;
+  --lime-soft: rgba(213, 0, 50, 0.08);
   --cream: #ffffff;
   --paper: #ffffff;
   --orange: #d50032;
@@ -223,7 +222,7 @@ html[data-design="brand"] .btn-dark {
 }
 
 html[data-design="brand"] .btn-dark:hover {
-  background: #000000;
+  background: #1a1a1a;
 }
 
 html[data-design="brand"] .btn-orange {
@@ -301,23 +300,33 @@ html[data-design="brand"] .hero-tag {
 html[data-design="brand"] .hero-art {
   position: relative;
   min-height: 480px;
-  padding: 26px;
+  padding: 28px;
   overflow: hidden;
   border: none;
   background-color: var(--brand-red);
-  background-image: url("../assets/brand/pattern-white.jpg");
-  background-size: cover;
-  background-position: center;
+  background-image:
+    radial-gradient(120% 120% at 50% 58%, rgba(213, 0, 50, 0.6), rgba(213, 0, 50, 0) 64%),
+    url("../assets/brand/ornament.svg");
+  background-size: auto, cover;
+  background-position: center, center;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+  isolation: isolate;
 }
 
+/* Официальный white wordmark — акцент в красной панели */
 html[data-design="brand"] .hero-art::before {
   content: "";
   position: absolute;
-  inset: 0;
-  z-index: 0;
+  top: 26px;
+  left: 26px;
+  z-index: 2;
+  width: 172px;
+  height: 45px;
   border: 0;
   border-radius: 0;
-  background: rgba(213, 0, 50, 0.55);
+  background: url("../assets/brand/ochakovo-logo-white.png") left top / contain no-repeat;
+  opacity: 0.94;
   transform: none;
 }
 
@@ -503,11 +512,11 @@ html[data-design="brand"] .intro-screen {
 }
 
 html[data-design="brand"] .intro-bg {
-  opacity: 0.1;
+  opacity: 0.38;
 }
 
 html[data-design="brand"] .intro-bg img {
-  filter: grayscale(1) contrast(0.9);
+  filter: grayscale(1) contrast(0.95) brightness(0.98);
 }
 
 html[data-design="brand"] .intro-bg::after {
@@ -527,7 +536,7 @@ html[data-design="brand"] .intro-counter strong {
 }
 
 html[data-design="brand"] .intro-progress {
-  background: #e3e3e3;
+  background: rgba(162, 170, 173, 0.35);
 }
 
 html[data-design="brand"] .intro-progress i {
@@ -600,7 +609,7 @@ html[data-design="brand"] .dialogue-text {
 }
 
 html[data-design="brand"] .dialogue-text .hl {
-  background: linear-gradient(transparent 60%, #fce8ec 60%);
+  background: linear-gradient(transparent 60%, rgba(213, 0, 50, 0.12) 60%);
 }
 
 html[data-design="brand"] .intro-footnote {
@@ -723,7 +732,7 @@ html[data-design="brand"] .char-stars {
 }
 
 html[data-design="brand"] .char-stars .off {
-  color: #d6d6d6;
+  color: #a2aaad;
 }
 
 html[data-design="brand"] .char-stamp {
@@ -754,7 +763,7 @@ html[data-design="brand"] .hud-stars {
 }
 
 html[data-design="brand"] .hud-stars .off {
-  color: #d6d6d6;
+  color: #a2aaad;
 }
 
 html[data-design="brand"] .hud-score {
@@ -892,8 +901,8 @@ html[data-design="brand"] .chat-msg-body {
 }
 
 html[data-design="brand"] .chat-msg.is-own .chat-msg-body {
-  border-color: #f3c2cc;
-  background: #fce8ec;
+  border-color: rgba(213, 0, 50, 0.28);
+  background: rgba(213, 0, 50, 0.08);
 }
 
 html[data-design="brand"] .chat-msg-head strong {
@@ -915,7 +924,7 @@ html[data-design="brand"] .chat-text {
 }
 
 html[data-design="brand"] .chat-text .hl {
-  background: linear-gradient(transparent 60%, #fce8ec 60%);
+  background: linear-gradient(transparent 60%, rgba(213, 0, 50, 0.12) 60%);
 }
 
 html[data-design="brand"] .chat-actions {
@@ -965,7 +974,7 @@ html[data-design="brand"] .pick-card.is-selected,
 html[data-design="brand"] .choice-btn.is-correct,
 html[data-design="brand"] .sample-card.is-correct {
   border-color: var(--brand-red);
-  background: #fce8ec;
+  background: rgba(213, 0, 50, 0.08);
   box-shadow: none;
 }
 
@@ -986,13 +995,13 @@ html[data-design="brand"] .sort-card.is-wrong,
 html[data-design="brand"] .choice-btn.is-wrong,
 html[data-design="brand"] .sample-card.is-wrong {
   border-color: var(--brand-red-dark);
-  background: #fce8ec;
+  background: rgba(213, 0, 50, 0.08);
 }
 
 html[data-design="brand"] .choice-btn.is-correct,
 html[data-design="brand"] .sample-card.is-correct {
-  border-color: var(--brand-success);
-  background: #eef5dc;
+  border-color: #1a1a1a;
+  background: #f4f4f4;
 }
 
 html[data-design="brand"] .sort-card.is-picked {
@@ -1019,7 +1028,7 @@ html[data-design="brand"] .sort-progress .sp-step.is-filled {
 }
 
 html[data-design="brand"] .ph-scale {
-  background: linear-gradient(90deg, #a2aaad 0%, #d50032 32%, #d50032 40%, #84bd00 50%, #d50032 60%, #d50032 68%, #a2aaad 100%);
+  background: linear-gradient(90deg, #a2aaad 0%, #d50032 34%, #ab2328 50%, #d50032 66%, #a2aaad 100%);
 }
 
 html[data-design="brand"] .ph-target {
@@ -1048,25 +1057,25 @@ html[data-design="brand"] input[type="range"].ph-range {
 html[data-design="brand"] .inline-feedback {
   border: 1px solid var(--brand-red);
   border-radius: 0;
-  background: #fce8ec;
+  background: rgba(213, 0, 50, 0.08);
   color: var(--brand-ink);
 }
 
 html[data-design="brand"] .inline-feedback.is-error {
   border-color: var(--brand-red-dark);
-  background: #fce8ec;
+  background: rgba(213, 0, 50, 0.08);
   color: var(--brand-red-dark);
 }
 
 html[data-design="brand"] .inline-feedback.is-good {
-  border-color: var(--brand-success);
-  background: #eef5dc;
-  color: #3f5a00;
+  border-color: #1a1a1a;
+  background: #f4f4f4;
+  color: #1a1a1a;
 }
 
 html[data-design="brand"] .defect-status i {
   border-radius: 0;
-  background: var(--brand-success);
+  background: var(--brand-red);
   box-shadow: none;
 }
 
@@ -1091,7 +1100,7 @@ html[data-design="brand"] .bottle-body {
 }
 
 html[data-design="brand"] .bottle-fill {
-  background: linear-gradient(90deg, #8f1c21, #d50032 45%, #8f1c21);
+  background: linear-gradient(90deg, #ab2328, #d50032 45%, #ab2328);
 }
 
 html[data-design="brand"] .bottle-neck {
@@ -1168,12 +1177,10 @@ html[data-design="brand"] .result-screen::before {
 html[data-design="brand"] .result-head {
   position: relative;
   overflow: hidden;
-  padding: clamp(24px, 3.6vw, 46px);
+  padding: clamp(26px, 3.8vw, 50px);
   border: none;
-  background-color: var(--brand-red);
-  background-image: url("../assets/brand/pattern-white.jpg");
-  background-size: cover;
-  background-position: center;
+  background: var(--brand-red);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
   color: #ffffff;
 }
 
@@ -1182,7 +1189,8 @@ html[data-design="brand"] .result-head::before {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: rgba(213, 0, 50, 0.6);
+  background: radial-gradient(120% 100% at 100% 0%, rgba(171, 35, 40, 0.55), transparent 60%);
+  pointer-events: none;
 }
 
 html[data-design="brand"] .result-head > * {
@@ -1209,7 +1217,8 @@ html[data-design="brand"] .result-title span {
 }
 
 html[data-design="brand"] .result-sub {
-  color: rgba(255, 255, 255, 0.88);
+  color: #ffffff;
+  max-width: 640px;
 }
 
 html[data-design="brand"] .result-head-stars {
@@ -1217,7 +1226,7 @@ html[data-design="brand"] .result-head-stars {
 }
 
 html[data-design="brand"] .result-head-stars small {
-  color: rgba(255, 255, 255, 0.75);
+  color: #ffffff;
 }
 
 html[data-design="brand"] .reward-ticket {
@@ -1346,7 +1355,7 @@ html[data-design="brand"] .result-alt p {
 
 html[data-design="brand"] .all-complete {
   border: 1px solid var(--brand-silver);
-  border-left: 4px solid var(--brand-success);
+  border-left: 4px solid var(--brand-red);
   border-radius: 0;
   background: var(--brand-bg);
   color: var(--brand-ink);
@@ -1373,7 +1382,7 @@ html[data-design="brand"] .confetti i:nth-child(5n) {
 }
 
 html[data-design="brand"] .confetti i:nth-child(7n) {
-  background: var(--brand-success) !important;
+  background: var(--brand-red-dark) !important;
 }
 
 /* --- Заявка --- */
@@ -1521,7 +1530,7 @@ html[data-design="brand"] .field-error {
 html[data-design="brand"] .field.has-error input,
 html[data-design="brand"] .field.has-error textarea {
   border-color: var(--brand-red-dark);
-  background: #fce8ec;
+  background: rgba(213, 0, 50, 0.08);
 }
 
 html[data-design="brand"] .consent {
@@ -1539,7 +1548,7 @@ html[data-design="brand"] .consent.has-error {
 html[data-design="brand"] .form-error-general {
   border: 1px solid var(--brand-red-dark);
   border-radius: 0;
-  background: #fce8ec;
+  background: rgba(213, 0, 50, 0.08);
   color: var(--brand-red-dark);
 }
 
@@ -1809,4 +1818,554 @@ html[data-design="brand"] .noscript {
   html[data-design="brand"] .copy-btn {
     flex: 0 0 auto;
   }
+}
+
+/* =========================================================
+   Дизайн-пасс: контраст, состояния, композиция, движение
+   ========================================================= */
+
+/* --- Читаемость мелких подписей --- */
+html[data-design="brand"] .intro-footnote {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .field label .optional {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .field input::placeholder,
+html[data-design="brand"] .field textarea::placeholder {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .result-alt .icon-link {
+  color: var(--brand-gray);
+}
+
+/* --- Состояния: hover / focus / active / disabled --- */
+html[data-design="brand"] .btn:focus-visible {
+  outline: 2px solid var(--brand-red);
+  outline-offset: 3px;
+}
+
+html[data-design="brand"] .btn-primary:active {
+  background: var(--brand-red-dark);
+  border-color: var(--brand-red-dark);
+}
+
+html[data-design="brand"] .btn-ghost:hover {
+  border-color: var(--brand-red);
+  background: var(--brand-bg);
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .btn-ghost:active {
+  background: rgba(213, 0, 50, 0.08);
+}
+
+html[data-design="brand"] .btn:disabled,
+html[data-design="brand"] .btn[disabled] {
+  border-color: var(--brand-silver);
+  background: var(--brand-bg);
+  color: var(--brand-gray);
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+
+html[data-design="brand"] .field input:hover,
+html[data-design="brand"] .field textarea:hover {
+  border-color: var(--brand-gray);
+}
+
+html[data-design="brand"] .field input:focus,
+html[data-design="brand"] .field textarea:focus {
+  border-color: var(--brand-red);
+  box-shadow: 0 0 0 2px rgba(213, 0, 50, 0.14);
+}
+
+html[data-design="brand"] .copy-btn:focus-visible,
+html[data-design="brand"] .design-switch-btn:focus-visible,
+html[data-design="brand"] .icon-link:focus-visible {
+  outline: 2px solid var(--brand-red);
+  outline-offset: 2px;
+}
+
+html[data-design="brand"] .copy-btn:active {
+  transform: scale(0.96);
+}
+
+html[data-design="brand"] .copy-btn:hover {
+  color: var(--brand-red-dark);
+}
+
+html[data-design="brand"] .design-switch-btn:hover {
+  background: var(--brand-bg);
+}
+
+html[data-design="brand"] .design-switch-btn[aria-pressed="true"]:hover {
+  background: var(--brand-red-dark);
+  border-color: var(--brand-red-dark);
+}
+
+html[data-design="brand"] .character-card,
+html[data-design="brand"] .pick-card,
+html[data-design="brand"] .sort-card,
+html[data-design="brand"] .choice-btn,
+html[data-design="brand"] .sample-card,
+html[data-design="brand"] .btn,
+html[data-design="brand"] .design-switch-btn,
+html[data-design="brand"] .copy-btn,
+html[data-design="brand"] .route-dot {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+html[data-design="brand"] .character-card:hover {
+  transform: translateY(-3px);
+}
+
+html[data-design="brand"] .chat-avatar {
+  border-radius: 0;
+}
+
+html[data-design="brand"] .pick-card:hover,
+html[data-design="brand"] .sort-card:hover,
+html[data-design="brand"] .choice-btn:hover,
+html[data-design="brand"] .sample-card:hover {
+  transform: translateY(-1px);
+}
+
+/* --- Композиция: футер и секции --- */
+html[data-design="brand"] .site-footer {
+  padding-top: 26px;
+  padding-bottom: 28px;
+}
+
+html[data-design="brand"] .site-footer-left {
+  gap: 12px;
+}
+
+html[data-design="brand"] .character-screen,
+html[data-design="brand"] .apply-screen {
+  background: var(--brand-bg) !important;
+}
+
+html[data-design="brand"] .form-card {
+  border-top: 4px solid var(--brand-red);
+}
+
+html[data-design="brand"] .success-card {
+  border-top: 4px solid var(--brand-red);
+}
+
+/* =========================================================
+   Анимации (CSS-only, transform/opacity, без влияния на layout)
+   ========================================================= */
+
+@keyframes brand-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes brand-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes brand-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes brand-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.35deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0.55deg);
+  }
+}
+
+@keyframes brand-float-soft {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0.4deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-0.6deg);
+  }
+}
+
+@keyframes brand-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(213, 0, 50, 0.26);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(213, 0, 50, 0);
+  }
+}
+
+@keyframes chat-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ticket-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes star-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.18);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes brand-flash {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  22% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes brand-sweep {
+  from {
+    transform: translateX(-130%);
+  }
+  to {
+    transform: translateX(230%);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-design="brand"] .landing .hero-copy > .eyebrow {
+    animation: brand-rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  html[data-design="brand"] .hero-title .line {
+    animation: brand-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  html[data-design="brand"] .hero-title .line:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+
+  html[data-design="brand"] .hero-title .line:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+
+  html[data-design="brand"] .hero-title .accent {
+    animation: brand-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  }
+
+  html[data-design="brand"] .hero-sub {
+    animation: brand-fade 0.6s ease 0.28s both;
+  }
+
+  html[data-design="brand"] .hero-actions {
+    animation: brand-rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.34s both;
+  }
+
+  html[data-design="brand"] .hero-tags {
+    animation: brand-fade 0.6s ease 0.42s both;
+  }
+
+  html[data-design="brand"] .hero-art {
+    animation: brand-fade 0.9s ease 0.1s both;
+  }
+
+  html[data-design="brand"] .hero-can {
+    animation: brand-float 7s ease-in-out infinite;
+  }
+
+  html[data-design="brand"] .hero-guide img {
+    animation: brand-float-soft 5.5s ease-in-out infinite;
+  }
+
+  html[data-design="brand"] .how-card {
+    animation: brand-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+
+  html[data-design="brand"] .how-card:nth-child(1) {
+    animation-delay: 0.04s;
+  }
+
+  html[data-design="brand"] .how-card:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+
+  html[data-design="brand"] .how-card:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  html[data-design="brand"] .how-card:hover {
+    transform: translateY(-3px);
+  }
+
+  html[data-design="brand"] .intro-speaker-media {
+    animation: brand-pop 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  html[data-design="brand"] .intro-speaker-tag {
+    animation: brand-rise 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.04s both;
+  }
+
+  html[data-design="brand"] .intro-progress i {
+    transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html[data-design="brand"] .character-guide {
+    animation: brand-fade 0.55s ease 0.06s both;
+  }
+
+  html[data-design="brand"] .character-card {
+    animation: brand-rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+
+  html[data-design="brand"] .character-card:nth-child(1) {
+    animation-delay: 0.06s;
+  }
+
+  html[data-design="brand"] .character-card:nth-child(2) {
+    animation-delay: 0.14s;
+  }
+
+  html[data-design="brand"] .character-card:nth-child(3) {
+    animation-delay: 0.22s;
+  }
+
+  html[data-design="brand"] .route-stop.is-active .route-dot {
+    animation: brand-pulse 2.2s ease-out infinite;
+  }
+
+  html[data-design="brand"] .chat-msg {
+    animation: chat-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  html[data-design="brand"] .feedback-mark,
+  html[data-design="brand"] .fact-card {
+    animation: brand-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  html[data-design="brand"] .feedback-stars span {
+    animation: star-pop 0.4s ease both;
+  }
+
+  html[data-design="brand"] .inline-feedback.is-visible {
+    animation: brand-rise 0.22s ease both;
+  }
+
+  html[data-design="brand"] .result-head {
+    animation: brand-fade 0.55s ease both;
+  }
+
+  html[data-design="brand"] .result-head::after {
+    content: "";
+    position: absolute;
+    inset: -30% -10%;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 78% 12%, rgba(255, 255, 255, 0.42), transparent 55%);
+    animation: brand-flash 1.5s ease-out 0.15s 1 both;
+  }
+
+  html[data-design="brand"] .reward-ticket {
+    animation: ticket-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+  }
+
+  html[data-design="brand"] .result-head-stars span {
+    display: inline-block;
+    animation: star-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  html[data-design="brand"] .result-head-stars span:nth-child(1) {
+    animation-delay: 0.18s;
+  }
+
+  html[data-design="brand"] .result-head-stars span:nth-child(2) {
+    animation-delay: 0.26s;
+  }
+
+  html[data-design="brand"] .result-head-stars span:nth-child(3) {
+    animation-delay: 0.34s;
+  }
+
+  html[data-design="brand"] .ticket-code-row {
+    position: relative;
+    overflow: hidden;
+  }
+
+  html[data-design="brand"] .ticket-code-row::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 38%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    pointer-events: none;
+    animation: brand-sweep 1.4s ease-out 0.65s 1 both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-design="brand"] .hero-can,
+  html[data-design="brand"] .hero-guide img,
+  html[data-design="brand"] .route-stop.is-active .route-dot,
+  html[data-design="brand"] .result-head,
+  html[data-design="brand"] .result-head::after,
+  html[data-design="brand"] .reward-ticket,
+  html[data-design="brand"] .result-head-stars span,
+  html[data-design="brand"] .chat-msg,
+  html[data-design="brand"] .character-card,
+  html[data-design="brand"] .how-card,
+  html[data-design="brand"] .intro-speaker-media,
+  html[data-design="brand"] .intro-speaker-tag,
+  html[data-design="brand"] .ticket-code-row::after {
+    animation: none !important;
+  }
+
+  html[data-design="brand"] .hero-title .line,
+  html[data-design="brand"] .hero-title .accent,
+  html[data-design="brand"] .hero-sub,
+  html[data-design="brand"] .hero-actions,
+  html[data-design="brand"] .hero-tags,
+  html[data-design="brand"] .hero-copy > .eyebrow {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* --- Векторные акценты на мобильных --- */
+@media (max-width: 680px) {
+  html[data-design="brand"] .intro-top {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  html[data-design="brand"] .intro-counter {
+    gap: 6px;
+    font-size: 9px;
+    white-space: nowrap;
+  }
+
+  html[data-design="brand"] .intro-progress {
+    width: 42px;
+    flex: 0 0 42px;
+  }
+
+  html[data-design="brand"] .intro-skip {
+    flex: 0 0 auto;
+    gap: 6px;
+    padding: 8px 10px;
+    min-height: 40px;
+    font-size: 8px;
+    white-space: nowrap;
+  }
+
+  html[data-design="brand"] .hero-art::before {
+    top: 16px;
+    left: 16px;
+    width: 128px;
+    height: 34px;
+  }
+
+  html[data-design="brand"] .hero-art {
+    background-size: auto, 155% auto;
+  }
+
+  html[data-design="brand"] .result-head::before {
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    inset: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  html[data-design="brand"] .hero-art::before {
+    width: 112px;
+    height: 30px;
+  }
+}
+
+/* --- Финал: клякса и промокод --- */
+html[data-design="brand"] .bubble-scene {
+  background-color: #f4f4f4;
+  background-image:
+    radial-gradient(circle at 50% 46%, #ffffff 0%, #ffffff 24%, #f4f4f4 66%, #f4f4f4 100%);
+}
+
+html[data-design="brand"] .promo-splat .ticket-code-row {
+  border: 0;
+  background: transparent;
+  padding: 12px 8px;
+}
+
+html[data-design="brand"] .promo-splat .ticket-code {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .promo-splat .copy-btn {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .promo-splat .copy-btn:hover {
+  color: var(--brand-red-dark);
 }

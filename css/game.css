@@ -2552,6 +2552,20 @@ input[type="range"].ph-range {
   transition: border-color 0.16s, box-shadow 0.16s;
 }
 
+.field input[type="date"] {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 11px;
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.3;
+  transition: border-color 0.16s, box-shadow 0.16s;
+}
+
 .field textarea {
   min-height: 85px;
   resize: vertical;
@@ -2721,10 +2735,19 @@ input[type="range"].ph-range {
 }
 
 .form-note {
-  max-width: 220px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 280px;
   color: var(--muted);
-  font-size: 8px;
+  font-size: 9px;
   line-height: 1.4;
+}
+
+.form-note-mascot {
+  width: 34px;
+  flex: 0 0 auto;
+  margin-top: -3px;
 }
 
 .form-error-general {
@@ -2878,6 +2901,44 @@ input[type="range"].ph-range {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+.success-applicant {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.success-applicant-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  min-width: 0;
+}
+
+.success-applicant-row span {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.success-applicant-row b {
+  min-width: 0;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  text-align: right;
 }
 
 .success-steps {
@@ -4927,4 +4988,321 @@ input[type="range"].ph-range {
 .result-screen > .site-footer {
   position: relative;
   z-index: 3;
+}
+
+/* =========================================================
+   Финал: Пузырь надувается, лопается, клякса с промокодом
+   ========================================================= */
+
+.bubble-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 180;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--cream);
+  pointer-events: none;
+  animation: bubble-scene-out 0.3s ease 1.25s forwards;
+}
+
+.bubble-scene::before,
+.bubble-scene::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.3);
+  animation: spark-burst 1s ease-out 0.55s forwards;
+}
+
+.bubble-scene::before {
+  box-shadow:
+    0 -170px 0 -1px var(--orange),
+    130px -120px 0 0 var(--lime),
+    180px 25px 0 -1px var(--yellow),
+    125px 130px 0 1px var(--orange),
+    0 180px 0 -1px var(--lime),
+    -150px 110px 0 0 var(--yellow),
+    -190px -25px 0 -1px var(--orange),
+    -120px -140px 0 1px var(--lime);
+}
+
+.bubble-scene::after {
+  width: 4px;
+  height: 4px;
+  animation-delay: 0.68s;
+  box-shadow:
+    0 -105px 0 1px var(--yellow),
+    85px -75px 0 -1px var(--orange),
+    100px 18px 0 0 var(--lime),
+    80px 100px 0 1px var(--yellow),
+    0 115px 0 0 var(--orange),
+    -95px 65px 0 -1px var(--lime),
+    -115px -10px 0 1px var(--yellow),
+    -70px -95px 0 -1px var(--orange);
+}
+
+.bubble-scene.is-done {
+  display: none !important;
+}
+
+.bubble-scene-inner {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(85vw, 620px);
+  aspect-ratio: 1;
+}
+
+.bubble-scene-mascot {
+  width: 80%;
+  height: auto;
+  animation: bubble-inflate 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.bubble-scene-pop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 175%;
+  height: auto;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.4);
+  animation: bubble-pop 0.55s ease 0.85s both;
+}
+
+.promo-splat {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: clamp(170px, 26vw, 265px);
+  margin: 4px 0 2px;
+}
+
+.promo-splat-img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  animation: splat-in 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s both;
+}
+
+.promo-splat-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 470px);
+  padding: 0 14px;
+}
+
+.promo-splat .ticket-code-row {
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  padding: 12px 8px;
+  border: 0;
+  background: transparent;
+}
+
+.promo-splat .ticket-code {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: visible;
+  font-size: clamp(16px, 1.9vw, 22px);
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+.promo-splat .copy-btn {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 8px;
+}
+
+.promo-splat.is-copied .ticket-code {
+  animation: code-flash 0.55s ease both;
+}
+
+@keyframes bubble-inflate {
+  0% {
+    opacity: 0;
+    transform: scale(0.35) rotate(-2deg);
+  }
+  14% {
+    opacity: 1;
+  }
+  32% {
+    transform: scale(0.9) rotate(3deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+  66% {
+    transform: scale(1.03) rotate(2deg);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.38) rotate(-2deg);
+  }
+  92% {
+    opacity: 1;
+    transform: scale(1.58);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.86);
+  }
+}
+
+@keyframes bubble-pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.35) rotate(0deg);
+  }
+  22% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.92) rotate(-5deg);
+  }
+  52% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.12) rotate(4deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.48) rotate(0deg);
+  }
+}
+
+@keyframes bubble-scene-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes spark-burst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
+  }
+  18% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.12) rotate(8deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.45) rotate(16deg);
+  }
+}
+
+@keyframes splat-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.55) rotate(-5deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.04) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes code-flash {
+  0%,
+  100% {
+    color: var(--ink);
+  }
+  35% {
+    color: var(--forest);
+  }
+}
+
+@media (max-width: 680px) {
+  .bubble-scene-inner {
+    width: min(100vw, 380px);
+  }
+
+  .bubble-scene-mascot {
+    width: 90%;
+  }
+
+  .bubble-scene-pop {
+    width: 185%;
+  }
+
+  .promo-splat {
+    min-height: clamp(150px, 42vw, 210px);
+  }
+
+  .promo-splat-inner {
+    width: min(100%, 330px);
+    padding: 0 8px;
+  }
+
+  .promo-splat .ticket-code-row {
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 2px;
+  }
+
+  .promo-splat .ticket-code {
+    flex: 0 1 auto;
+    font-size: clamp(16px, 4.4vw, 20px);
+    text-align: center;
+  }
+
+  .promo-splat .copy-btn {
+    min-height: 38px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 420px) {
+  .promo-splat .ticket-code {
+    font-size: 15px;
+    letter-spacing: 0.03em;
+  }
+
+  .promo-splat .copy-btn {
+    padding: 7px 5px;
+    font-size: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble-scene {
+    display: none !important;
+  }
+
+  .promo-splat-img {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .promo-splat.is-copied .promo-splat-img,
+  .promo-splat.is-copied .ticket-code {
+    animation: none !important;
+  }
 }

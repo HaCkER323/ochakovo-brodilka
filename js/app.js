@@ -109,6 +109,13 @@
     return formatPh(target[0]) + "–" + formatPh(target[1]);
   }
 
+  function formatBirthDate(value) {
+    const text = String(value == null ? "" : value).trim();
+    const parts = text.split("-");
+    if (parts.length !== 3 || parts[0].length !== 4) return "не указана";
+    return parts[2] + "." + parts[1] + "." + parts[0];
+  }
+
   function stripTags(value) {
     return String(value == null ? "" : value).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
   }
@@ -441,20 +448,20 @@
       html = '<div class="hs-row"><span class="hs-dot"></span><span>Отклик на вакансию</span><span class="hs-strong">HR</span></div>';
     } else if (currentScreen === "success") {
       const delivered = Boolean(state.lastApplication && state.lastApplication.delivered);
-      html = '<div class="hs-row"><span class="hs-dot"></span><span>' + (delivered ? "Заявка отправлена" : "Заявка сохранена") + '</span><span class="hs-strong">HR</span></div>';
+      html = '<div class="hs-row"><span class="hs-dot"></span><span>' + (delivered ? "Карточка отправлена" : "Карточка сохранена") + '</span><span class="hs-strong">HR</span></div>';
     }
 
     headStatus.innerHTML = html;
     applySoundState();
 
     const titles = {
-      landing: "БРОДИЛКА — квест о первой смене на Очаково",
-      intro: "Введение — БРОДИЛКА",
-      characters: "Выбор героя — БРОДИЛКА",
-      game: getActiveCharacter() ? "Смена · " + getActiveCharacter().name + " — БРОДИЛКА" : "Смена — БРОДИЛКА",
-      result: "Смена пройдена — БРОДИЛКА",
-      apply: "Отклик на вакансию — БРОДИЛКА",
-      success: "Заявка отправлена — БРОДИЛКА"
+      landing: "БРОДИЛКА: первая смена на Очаково",
+      intro: "Введение · БРОДИЛКА",
+      characters: "Выбор героя · БРОДИЛКА",
+      game: getActiveCharacter() ? "Смена · " + getActiveCharacter().name + " · БРОДИЛКА" : "Смена · БРОДИЛКА",
+      result: "Смена закрыта · БРОДИЛКА",
+      apply: "Отклик на вакансию · БРОДИЛКА",
+      success: "Карточка отправлена · БРОДИЛКА"
     };
     if (titles[currentScreen]) document.title = titles[currentScreen];
   }
@@ -511,7 +518,7 @@
   }
 
   function shareMessage() {
-    return "Сыграй в БРОДИЛКУ — квест Очаково о квасе и лимонадах: " + sharePageUrl();
+    return "Сыграй в БРОДИЛКУ: квест Очаково о квасе и лимонадах. " + sharePageUrl();
   }
 
   function loadShareImage() {
@@ -649,7 +656,7 @@
         '<div class="fatal-card">' +
           '<div class="eyebrow">БРОДИЛКА</div>' +
           '<h1 class="display">Смена<br><em>не загрузилась.</em></h1>' +
-          "<p>" + escapeHtml(message || "Не удалось прочитать сценарий игры. Обнови страницу — если не поможет, проверь, что файлы js/data.js и папка assets на месте.") + "</p>" +
+          "<p>" + escapeHtml(message || "Сценарий не прочитался. Обнови страницу. Если не помогло, проверь js/data.js и папку assets.") + "</p>" +
           '<button class="btn btn-primary" type="button" data-action="reload-app">Обновить страницу ' + icon.refresh + "</button>" +
         "</div>" +
       "</section>";
@@ -666,10 +673,10 @@
         '<div class="site-footer-left">' +
           '<span class="footer-mark">ОЧАКОВО × БРОДИЛКА</span>' +
           '<span class="footer-dot"></span>' +
-          "<span>Демо-концепт, не публичная оферта</span>" +
+          "<span>Демо, не публичная оферта</span>" +
         "</div>" +
         '<div class="site-footer-left">' +
-          "<span>Прогресс хранится в этом браузере</span>" +
+          "<span>Прогресс живёт в этом браузере</span>" +
           '<span class="footer-dot"></span>' +
           '<button class="footer-reset" type="button" data-action="reset-progress">Сбросить прогресс</button>' +
         "</div>" +
@@ -732,8 +739,8 @@
       ? "Смена " + activeChar.order + " · " + escapeHtml(activeChar.name) + " · этап " + (state.activeQuest.stepIndex + 1) + " из " + activeChar.steps.length
       : "7 минут · без регистрации";
     const guideText = active
-      ? "Ты остановился на этапе " + (state.activeQuest.stepIndex + 1).toString() + ". Продолжим?"
-      : "Я Пузырь. Проведу по заводу и не дам заскучать.";
+      ? "Этап " + (state.activeQuest.stepIndex + 1).toString() + ". Не потерялся? Фух. Продолжим?"
+      : "Погнали. Смена не ждёт. Я Пузырь, гид. С 1996 года на заводе. Показываю, объясняю. Смену проходишь ты.";
 
     const roleTags = characterRoles()
       .map(function (role) {
@@ -748,7 +755,7 @@
         CHARACTERS.map(function (char) {
           return "<span>Смена " + escapeHtml(char.order) + " · " + escapeHtml(char.role) + '</span><span class="star">✦</span>';
         }).join("") +
-        "<span>Приз — 150 баллов</span><span class=\"star\">✦</span>" +
+        "<span>Приз: 150 баллов</span><span class=\"star\">✦</span>" +
       "</div>";
 
     const html =
@@ -762,7 +769,7 @@
               '<span class="line">на завод<span style="color:var(--orange)">.</span></span>' +
               '<span class="accent">Не на<br>экскурсию.</span>' +
             "</h1>" +
-            '<p class="hero-sub">Три смены. Три характера. Один завод, где делают квас, лимонады и воду. Выбери героя, пройди путь и забери приз — <strong>без скучных лекций и тестов.</strong></p>' +
+            '<p class="hero-sub">Три смены, три характера, один завод: квас, лимонады и вода. Выбери героя, пройди смену и забери приз. <strong>Без лекций и тестов.</strong></p>' +
             '<div class="hero-actions">' +
               '<button class="btn btn-primary btn-lg" type="button" data-action="' + primaryAction + '">' + primaryLabel + " " + icon.arrow + "</button>" +
               '<span class="hero-meta">' + icon.clock + " " + metaText + "</span>" +
@@ -772,7 +779,7 @@
           '<div class="hero-art">' +
             '<img class="hero-can" src="assets/hero-can.svg" alt="Бутылка кваса и банка лимонада БРОДИЛКА">' +
             '<div class="hero-guide">' +
-              '<img src="assets/mascot.svg" alt="Пузырь — гид по заводу">' +
+              '<img src="assets/mascot.svg" alt="Пузырь, гид по заводу">' +
               '<div class="hero-guide-note">' + guideText + "</div>" +
             "</div>" +
           "</div>" +
@@ -796,19 +803,19 @@
             '<article class="how-card">' +
               '<div class="how-num">01 / ВЫБОР</div>' +
               "<h3>Выбери героя</h3>" +
-              "<p>" + escapeHtml(rolesText.charAt(0).toUpperCase() + rolesText.slice(1)) + ". У каждого свой характер, маршрут и взгляд на завод.</p>" +
+              "<p>" + escapeHtml(rolesText.charAt(0).toUpperCase() + rolesText.slice(1)) + ". У каждого свой маршрут и свой взгляд на завод.</p>" +
               '<div class="how-icon">' + icon.map + "</div>" +
             "</article>" +
             '<article class="how-card">' +
               '<div class="how-num">02 / СМЕНА</div>' +
               "<h3>Пройди смену</h3>" +
-              "<p>Короткие диалоги, настоящие рабочие задачки и мини-игры. Без лекций на сорок минут.</p>" +
+              "<p>Короткие диалоги, рабочие задачки и мини-игры. Лекций на сорок минут не будет.</p>" +
               '<div class="how-icon">' + icon.spark + "</div>" +
             "</article>" +
             '<article class="how-card">' +
               '<div class="how-num">03 / ПРИЗ</div>' +
               "<h3>Забери приз</h3>" +
-              "<p>150 баллов на продукцию Очаково на маркетплейсах. А если захочешь — откликнись на вакансию.</p>" +
+              "<p>150 баллов на продукцию Очаково на маркетплейсах. Захочешь, откликнешься на вакансию.</p>" +
               '<div class="how-icon">' + icon.gift + "</div>" +
             "</article>" +
           "</div>" +
@@ -817,7 +824,7 @@
               '<span class="how-reward-icon">' + icon.gift + "</span>" +
               "<div>" +
                 "<h3>Приз за пройденную смену</h3>" +
-                "<p>150 баллов на продукцию Очаково на маркетплейсах. Промокод — сразу после финала.</p>" +
+                "<p>150 баллов на продукцию Очаково. Промокод появится сразу после финала.</p>" +
               "</div>" +
             "</div>" +
             '<button class="btn btn-dark" type="button" data-action="' + primaryAction + '">' + primaryLabel + " " + icon.arrow + "</button>" +
@@ -994,17 +1001,17 @@
               '<div class="eyebrow">Смена ' + pad2(Math.min(done + 1, CHARACTERS.length)) + " из " + pad2(CHARACTERS.length) + " · выбор героя</div>" +
               '<h1 class="display">С кем<br><em>на смену?</em></h1>' +
             "</div>" +
-            '<p class="character-intro">Ошибиться нельзя — можно попробовать всех. <strong>У каждого свой маршрут и свой повод остаться.</strong> Начни с того, кто ближе. Или с того, кто страшнее.</p>' +
+            '<p class="character-intro">Ошибиться нельзя, а попробовать всех можно. <strong>У каждого свой маршрут и свой повод остаться.</strong> Начни с того, кто ближе. Или с того, кто страшнее.</p>' +
           "</div>" +
           '<div class="character-guide">' +
             '<img src="assets/mascot.svg" alt="">' +
             '<div class="character-guide-text">' +
               '<span class="character-guide-label">Совет Пузыря</span>' +
-              "<p>Проходить можно в любом порядке. Приз дают за каждую завершённую смену — и переживать из-за ошибок не нужно.</p>" +
+              "<p>Порядок любой. Приз за каждую смену. Ошибки не страшно. Я видел много смен, волнуюсь всё равно. Ты не бери с меня пример.</p>" +
             "</div>" +
           "</div>" +
           (allDone
-            ? '<div class="all-done-banner"><div><span class="mono-label">' + CHARACTERS.length + " / " + CHARACTERS.length + ' смены</span><p>Ты прошёл завод вдоль и поперёк. Теперь ты знаешь его лучше, чем некоторые сотрудники.</p></div><span class="mono-label">СВОЙ ЧЕЛОВЕК</span></div>'
+            ? '<div class="all-done-banner"><div><span class="mono-label">' + CHARACTERS.length + " / " + CHARACTERS.length + ' смены</span><p>Ты прошёл завод вдоль и поперёк. Теперь знаешь его лучше некоторых сотрудников.</p></div><span class="mono-label">СВОЙ ЧЕЛОВЕК</span></div>'
             : "") +
           '<div class="characters-grid">' + cards + "</div>" +
           '<div class="character-foot">' +
@@ -1053,7 +1060,7 @@
         openModal({
           eyebrow: "Смена не закончена",
           title: "Начать другую?",
-          text: "Текущий путь за " + activeChar.name + " сбросится на этапе " + (active.stepIndex + 1) + ". Его можно будет пройти заново, но прогресс этой смены не сохранится.",
+          text: "Путь за " + activeChar.name + " сбросится на этапе " + (active.stepIndex + 1) + ". Пройти можно заново, но прогресс этой смены пропадёт.",
           cancelLabel: "Остаться",
           confirmLabel: "Начать новую",
           onConfirm: function () {
@@ -1111,7 +1118,7 @@
   function sceneMarkup(char, step, quest) {
     return (
       '<div class="scene-panel">' +
-        '<img class="scene-bg" src="' + char.scene + '" alt="' + escapeHtml(step.place) + ' — сцена смены">' +
+        '<img class="scene-bg" src="' + char.scene + '" alt="' + escapeHtml(step.place) + ', сцена смены">' +
         '<div class="scene-top">' +
           '<span class="location-chip">' + escapeHtml(step.place) + " · " + escapeHtml(step.time) + "</span>" +
           '<span class="scene-stamp">Смена ' + char.order + " · Этап " + pad2(quest.stepIndex + 1) + " / " + pad2(char.steps.length) + "</span>" +
@@ -1483,7 +1490,7 @@
       footer =
         '<div class="task-footer">' +
           '<span class="task-counter">Нажми на пробу с отклонением</span>' +
-          '<span class="task-counter">Норма — в задании</span>' +
+          '<span class="task-counter">Норма: в задании</span>' +
         "</div>";
     } else if (task.type === "ph") {
       widget = renderPhWidget(task);
@@ -1694,7 +1701,7 @@
       stepState.selected.splice(index, 1);
     } else {
       if (stepState.selected.length >= task.required) {
-        showToast("Уже выбрано " + task.required + ". Сними один компонент.");
+        showToast("Уже " + task.required + ". Сними один компонент.");
         return;
       }
       stepState.selected.push(id);
@@ -1930,7 +1937,7 @@
       Array.from(conveyor.querySelectorAll(".bottle-btn")).forEach(function (button) {
         button.disabled = true;
       });
-      showToast("Время! Брак был здесь — линия остановилась.");
+      showToast("Время. Брак был здесь, линия встала.");
       fill.style.transform = "scaleX(0)";
       addTimeout(function () {
         if (stepState.defect.round + 1 >= task.rounds) {
@@ -1959,7 +1966,7 @@
         registerMistake();
         stepState.defect.wrong += 1;
         deadline -= 1500;
-        showToast("Мимо. Это не брак. Минус 1,5 секунды.");
+        showToast("Мимо, это не брак. Минус 1,5 секунды.");
         window.setTimeout(function () {
           button.classList.remove("is-miss");
         }, 400);
@@ -2028,6 +2035,12 @@
     const totalSteps = char.steps.length;
 
     const html =
+      '<div class="bubble-scene" aria-hidden="true">' +
+        '<div class="bubble-scene-inner">' +
+          '<img class="bubble-scene-mascot" src="assets/mascot.svg" alt="">' +
+          '<img class="bubble-scene-pop" src="assets/mascot/pop.svg" alt="">' +
+        "</div>" +
+      "</div>" +
       '<section class="screen result-screen">' +
         confettiMarkup() +
         '<div class="result-wrap">' +
@@ -2048,18 +2061,23 @@
               "</div>" +
               '<div class="ticket-value"><strong>' + escapeHtml(reward) + '</strong><span>баллов на продукцию на маркетплейсах</span></div>' +
               '<div class="ticket-code-label">Твой промокод</div>' +
-              '<div class="ticket-code-row">' +
-                '<span class="ticket-code" id="promoCode">' + escapeHtml(completion.code) + "</span>" +
-                '<button class="copy-btn" type="button" data-action="copy-code" data-code="' + escapeHtml(completion.code) + '">' + icon.copy + " Копировать</button>" +
+              '<div class="promo-splat" id="promoSplat">' +
+                '<img class="promo-splat-img" src="assets/mascot/splat.svg" alt="">' +
+                '<div class="promo-splat-inner">' +
+                  '<div class="ticket-code-row">' +
+                    '<span class="ticket-code" id="promoCode">' + escapeHtml(completion.code) + "</span>" +
+                    '<button class="copy-btn" type="button" data-action="copy-code" data-code="' + escapeHtml(completion.code) + '">' + icon.copy + " Копировать</button>" +
+                  "</div>" +
+                "</div>" +
               "</div>" +
-              '<p class="ticket-note">' + icon.spark + " Промокод — за завершённый маршрут. Баллы начисляются на продукцию Очаково на маркетплейсах.</p>" +
+              '<p class="ticket-note">' + icon.spark + " Пузырь не выдержал. Лопнул. Впервые с 1996 года. Буль. На месте осталась клякса, а в ней промокод. Баллы начисляются на продукцию Очаково.</p>" +
             "</div>" +
 
             '<div class="result-info">' +
               '<div class="result-story">' +
                 '<div class="result-story-label">Что ты сделал</div>' +
                 "<h2>" + escapeHtml(char.name) + ", смена закрыта</h2>" +
-                "<p>" + escapeHtml(char.resultLine) + " " + totalSteps + " этапа, " + totalSteps + " решения и ни одного скучного теста.</p>" +
+                "<p>" + escapeHtml(char.resultLine) + " " + totalSteps + " этапа, " + totalSteps + " решения. Пузырь держался тридцать лет. На этой смене не вышло.</p>" +
                 '<div class="result-stat-row">' +
                   '<span class="result-stat">Этапы <b>' + totalSteps + " / " + totalSteps + "</b></span>" +
                   '<span class="result-stat">Точность <b>' + completion.stars + " / 3</b></span>" +
@@ -2075,18 +2093,18 @@
                     '<div class="vacancy-mini-meta">' + escapeHtml(char.vacancy.location) + " · " + escapeHtml(char.vacancy.schedule) + "</div>" +
                   "</div>" +
                 "</div>" +
-                (alreadyApplied ? '<span class="result-badge is-done">Заявка у HR</span>' : '<span class="result-badge">HR ждёт</span>') +
+                (alreadyApplied ? '<span class="result-badge is-done">Карточка у HR</span>' : '<span class="result-badge">HR ждёт</span>') +
               "</div>" +
               '<div class="result-actions">' +
                 '<button class="btn btn-primary" type="button" data-action="open-apply" data-char="' + char.id + '">Откликнуться на вакансию ' + icon.arrow + "</button>" +
                 '<button class="btn btn-ghost" type="button" data-action="go-characters">Другая история</button>' +
               "</div>" +
               '<div class="result-alt">' +
-                "<p>Передумал? Это нормально. Выбери другую смену и посмотри, как устроен завод с другой стороны.</p>" +
+                "<p>Пузырь лопнул впервые с 1996 года, но завод остался. Выбери другую смену и посмотри, как всё устроено изнутри.</p>" +
                 '<button class="btn btn-ghost result-share" type="button" data-action="share-result" data-char="' + char.id + '">' + icon.share + " Поделиться картинкой</button>" +
               "</div>" +
               (allDone
-                ? '<div class="all-complete">' + icon.spark + "<div><b>" + CHARACTERS.length + " из " + CHARACTERS.length + ". Свой человек.</b><span>Ты прошёл все " + CHARACTERS.length + " смены. Теперь завод знает тебя в лицо. Ну, почти.</span></div></div>"
+                ? '<div class="all-complete">' + icon.spark + "<div><b>" + CHARACTERS.length + " из " + CHARACTERS.length + ". Свой человек.</b><span>Ты прошёл все " + CHARACTERS.length + " смены. Я же говорил: ты справишься. Не лопни от восторга.</span></div></div>"
                 : "") +
             "</div>" +
           "</div>" +
@@ -2096,6 +2114,12 @@
 
     setScreen(html);
     updateHeader();
+
+    /* Страховка: сцена не должна залипать, даже если анимация не доиграла. */
+    addTimeout(function () {
+      const scene = document.querySelector(".bubble-scene");
+      if (scene) scene.classList.add("is-done");
+    }, 1620);
   }
 
   /* -------------------------------------------------------
@@ -2120,7 +2144,7 @@
         '<div class="apply-wrap">' +
           '<div class="apply-head">' +
             "<div>" +
-              '<div class="eyebrow">Один шаг</div>' +
+              '<div class="eyebrow">Последний шаг</div>' +
               '<h1 class="display">Отклик<br><em>на смену.</em></h1>' +
             "</div>" +
             '<button class="icon-link" type="button" data-action="back-result">' + icon.arrowLeft + " Назад к результату</button>" +
@@ -2148,26 +2172,33 @@
                 '<div class="vacancy-perks">' +
                   vacancy.perks.map(function (perk) { return '<span class="vacancy-perk">' + escapeHtml(perk) + "</span>"; }).join("") +
                 "</div>" +
-                '<p class="vacancy-disclaimer">Условия и вакансия — пример для демо-концепта. Не публичная оферта.</p>' +
+                '<p class="vacancy-disclaimer">Условия и вакансия демонстрационные. Не публичная оферта.</p>' +
               "</div>" +
             "</aside>" +
 
             '<div class="form-card">' +
               '<div class="form-head">' +
-                "<div><h2>Расскажи о себе</h2><p>Заполни короткую форму. Резюме не обязательно — можно откликнуться без него.</p></div>" +
-                '<span class="form-step">HR / 01</span>' +
+                "<div><h2>Карточка стажёра</h2><p>Заполни карточку. Пара минут, и она уйдёт в HR. Резюме не нужно.</p></div>" +
+                '<span class="form-step">Стажёр / 01</span>' +
               "</div>" +
               '<form id="applyForm" data-char="' + char.id + '" novalidate>' +
                 '<div class="form-grid">' +
+                  '<div class="field is-full">' +
+                    '<label for="fieldName">ФИО <span class="req">*</span></label>' +
+                    '<input id="fieldName" name="name" type="text" autocomplete="name" placeholder="Иванов Иван Иванович" maxlength="80">' +
+                    '<span class="field-hint">Как в паспорте, так проще оформить.</span>' +
+                    '<span class="field-error">Напиши ФИО, как в паспорте</span>' +
+                  "</div>" +
                   '<div class="field">' +
-                    '<label for="fieldName">Имя <span class="req">*</span></label>' +
-                    '<input id="fieldName" name="name" type="text" autocomplete="name" placeholder="Как к тебе обращаться" maxlength="80">' +
-                    '<span class="field-error">Напиши, как тебя зовут</span>' +
+                    '<label for="fieldBirthDate">Дата рождения <span class="req">*</span></label>' +
+                    '<input id="fieldBirthDate" name="birthDate" type="date" autocomplete="bday" min="1900-01-01">' +
+                    '<span class="field-hint">Нужна для оформления. Без неё не получится оформить смену.</span>' +
+                    '<span class="field-error">Укажи дату рождения</span>' +
                   "</div>" +
                   '<div class="field">' +
                     '<label for="fieldPhone">Телефон <span class="req">*</span></label>' +
                     '<input id="fieldPhone" name="phone" type="tel" autocomplete="tel" placeholder="+7 999 000-00-00" maxlength="30">' +
-                    '<span class="field-error">Нужен номер для связи</span>' +
+                    '<span class="field-error">Оставь номер для связи</span>' +
                   "</div>" +
                   '<div class="field">' +
                     '<label for="fieldEmail">Email <span class="req">*</span></label>' +
@@ -2180,19 +2211,24 @@
                     '<span class="field-error"></span>' +
                   "</div>" +
                   '<div class="field is-full">' +
+                    '<label for="fieldEducation">ВУЗ или колледж <span class="optional">необязательно</span></label>' +
+                    '<input id="fieldEducation" name="education" type="text" autocomplete="organization" placeholder="МГУ, РТУ МИРЭА, колледж связи" maxlength="120">' +
+                    '<span class="field-hint">Можно не заполнять, если не учишься.</span>' +
+                  "</div>" +
+                  '<div class="field is-full">' +
                     '<label for="fieldResumeLink">Ссылка на резюме <span class="optional">необязательно</span></label>' +
                     '<input id="fieldResumeLink" name="resumeLink" type="url" placeholder="https://hh.ru/resume/..." maxlength="300">' +
-                    '<span class="field-hint">Можно откликнуться без резюме: просто оставь поле пустым.</span>' +
-                    '<span class="field-error">Нужна ссылка, начинающаяся с http:// или https://</span>' +
+                    '<span class="field-hint">Без резюме тоже можно. Оставь поле пустым.</span>' +
+                    '<span class="field-error">Ссылка должна начинаться с http:// или https://</span>' +
                   "</div>" +
                   '<label class="consent" id="consentLabel">' +
                     '<input name="consent" type="checkbox">' +
-                    "<span>Согласен на обработку персональных данных для рассмотрения отклика. Это демо-форма: данные сохранятся только в этом браузере.</span>" +
+                    "<span>Согласен на обработку персональных данных. Это демо: ФИО, дата рождения и контакты останутся в этом браузере.</span>" +
                   "</label>" +
                   '<div class="form-error-general" id="formError"></div>' +
                   '<div class="form-submit-row">' +
-                    '<button class="btn btn-primary" type="submit">Отправить в HR ' + icon.arrow + "</button>" +
-                    '<p class="form-note">HR получит заявку и свяжется, если профиль совпадёт с вакансией.</p>' +
+                    '<button class="btn btn-primary" type="submit">Отправить карточку ' + icon.arrow + "</button>" +
+                    '<p class="form-note"><img class="form-note-mascot" src="assets/mascot.svg" alt=""><span>Карточка уйдёт в HR. Заполняешь ты, я рядом.</span></p>' +
                   "</div>" +
                 "</div>" +
               "</form>" +
@@ -2208,6 +2244,12 @@
   function mountApplyForm() {
     const form = document.getElementById("applyForm");
     if (!form) return;
+    const birthInput = form.elements.birthDate;
+    if (birthInput) {
+      const now = new Date();
+      const today = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+      birthInput.max = today;
+    }
     form.addEventListener("input", function (event) {
       const target = event.target;
       if (!target || !target.name) return;
@@ -2260,19 +2302,38 @@
     }
 
     const name = form.elements.name.value.trim();
+    const birthDate = form.elements.birthDate.value;
     const phone = form.elements.phone.value.trim();
     const email = form.elements.email.value.trim();
+    const education = form.elements.education.value.trim();
     const resumeLink = form.elements.resumeLink.value.trim();
     const consent = form.elements.consent.checked;
     let firstInvalid = null;
 
     if (name.length < 2) {
-      setFieldError(form, "name", "Напиши, как тебя зовут");
+      setFieldError(form, "name", "Напиши ФИО, как в паспорте");
       firstInvalid = firstInvalid || form.elements.name;
     }
+
+    let birthDateValid = /^\d{4}-\d{2}-\d{2}$/.test(birthDate);
+    if (birthDateValid) {
+      const parsed = new Date(birthDate + "T00:00:00");
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const earliest = new Date(1900, 0, 1);
+      birthDateValid = !Number.isNaN(parsed.getTime()) && parsed <= today && parsed >= earliest;
+    }
+    if (!birthDate) {
+      setFieldError(form, "birthDate", "Укажи дату рождения");
+      firstInvalid = firstInvalid || form.elements.birthDate;
+    } else if (!birthDateValid) {
+      setFieldError(form, "birthDate", "Проверь дату: не в будущем и не раньше 1900 года");
+      firstInvalid = firstInvalid || form.elements.birthDate;
+    }
+
     const digits = phone.replace(/\D/g, "");
     if (digits.length < 10) {
-      setFieldError(form, "phone", "Нужен номер для связи — минимум 10 цифр");
+      setFieldError(form, "phone", "Нужен номер, минимум 10 цифр");
       firstInvalid = firstInvalid || form.elements.phone;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(email)) {
@@ -2287,7 +2348,7 @@
       if (consentLabel) consentLabel.classList.add("has-error");
       if (form.elements.consent) form.elements.consent.setAttribute("aria-invalid", "true");
       if (general) {
-        general.textContent = "Поставь галочку согласия — без неё заявку нельзя отправить.";
+        general.textContent = "Поставь галочку, иначе карточку не отправить.";
         general.classList.add("is-visible");
       }
       firstInvalid = firstInvalid || form.elements.consent;
@@ -2300,6 +2361,8 @@
 
     return {
       name: name,
+      birthDate: birthDate,
+      education: education,
       phone: phone,
       email: email,
       city: form.elements.city.value.trim(),
@@ -2334,6 +2397,8 @@
       if (endpoint) {
         const body = new FormData();
         body.append("name", data.name);
+        body.append("birthDate", data.birthDate);
+        body.append("education", data.education);
         body.append("phone", data.phone);
         body.append("email", data.email);
         body.append("city", data.city);
@@ -2359,10 +2424,10 @@
       }
       const general = document.getElementById("formError");
       if (general) {
-        general.textContent = "Не удалось отправить заявку. Проверь соединение и попробуй ещё раз.";
+        general.textContent = "Не получилось отправить. Проверь связь и попробуй ещё раз.";
         general.classList.add("is-visible");
       }
-      announce("Не удалось отправить заявку. Проверь соединение и попробуй ещё раз.");
+      announce("Не получилось отправить. Проверь связь и попробуй ещё раз.");
       return;
     }
 
@@ -2372,6 +2437,8 @@
       charId: char.id,
       vacancy: char.vacancy.title,
       name: data.name,
+      birthDate: data.birthDate,
+      education: data.education,
       phone: data.phone,
       email: data.email,
       city: data.city,
@@ -2397,33 +2464,38 @@
     const dateText = date.toLocaleDateString("ru-RU", { day: "2-digit", month: "long" });
     const delivered = Boolean(application.delivered);
     const applicationCopy = delivered
-      ? "Заявка на вакансию «" + escapeHtml(application.vacancy) + "» отправлена в HR. Специалист свяжется с тобой, если профиль совпадёт с запросом команды."
-      : "Заявка на вакансию «" + escapeHtml(application.vacancy) + "» сохранена. HR свяжется с тобой, если профиль совпадёт с запросом команды.";
+      ? "Карточка на «" + escapeHtml(application.vacancy) + "» ушла в HR. Напишут, если профиль подойдёт."
+      : "Карточка на «" + escapeHtml(application.vacancy) + "» сохранена. HR напишет, если профиль подойдёт.";
 
     const html =
       '<section class="screen success-screen">' +
         '<div class="success-card">' +
           '<div class="success-icon">' + icon.check + "</div>" +
-          '<div class="mono-label">Заявка принята · ' + escapeHtml(dateText) + "</div>" +
-          "<h1>Заявка<br>у HR.</h1>" +
-          "<p>Спасибо, " + escapeHtml(application.name.split(" ")[0]) + ". " + applicationCopy + "</p>" +
+          '<div class="mono-label">Карточка принята · ' + escapeHtml(dateText) + "</div>" +
+          "<h1>Карточка<br>у HR.</h1>" +
+          "<p>Спасибо, " + escapeHtml(application.name) + ". " + applicationCopy + "</p>" +
           '<div class="success-ticket">' +
-            "<div><span>Номер заявки</span><b>" + escapeHtml(application.ticket) + "</b></div>" +
+            "<div><span>Номер карточки</span><b>" + escapeHtml(application.ticket) + "</b></div>" +
             '<span class="status-chip">' + (delivered ? "Отправлено в HR" : "В очереди у HR") + "</span>" +
           "</div>" +
+          '<div class="success-applicant">' +
+            '<div class="success-applicant-row"><span>ФИО</span><b>' + escapeHtml(application.name) + "</b></div>" +
+            '<div class="success-applicant-row"><span>Дата рождения</span><b>' + escapeHtml(formatBirthDate(application.birthDate)) + "</b></div>" +
+            (application.education ? '<div class="success-applicant-row"><span>ВУЗ или колледж</span><b>' + escapeHtml(application.education) + "</b></div>" : "") +
+          "</div>" +
           '<div class="success-steps">' +
-            '<div class="success-step"><span>01</span><div><b>' + (delivered ? "HR получил заявку" : "Заявка сохранена") + '</b><p>Имя и контакты — уже в одном месте.</p></div></div>' +
-            '<div class="success-step"><span>02</span><div><b>2 рабочих дня</b><p>Обычно столько нужно, чтобы вернуться с ответом.</p></div></div>' +
-            '<div class="success-step"><span>03</span><div><b>Знакомство</b><p>Если всё совпадёт — позовём на интервью.</p></div></div>' +
+            '<div class="success-step"><span>01</span><div><b>' + (delivered ? "HR получил карточку" : "Карточка сохранена") + '</b><p>ФИО и контакты уже в одном месте.</p></div></div>' +
+            '<div class="success-step"><span>02</span><div><b>2 рабочих дня</b><p>Обычно этого хватает, чтобы ответить.</p></div></div>' +
+            '<div class="success-step"><span>03</span><div><b>Знакомство</b><p>Если всё совпадёт, позовём на интервью.</p></div></div>' +
           "</div>" +
           '<div class="success-actions">' +
             '<button class="btn btn-primary" type="button" data-action="home">На главную ' + icon.arrow + "</button>" +
             '<button class="btn btn-ghost" type="button" data-action="go-characters">Другая история</button>' +
-            '<button class="btn btn-ghost" type="button" data-action="download-application" data-ticket="' + escapeHtml(application.ticket) + '">' + icon.download + " Скачать заявку в PDF</button>" +
+            '<button class="btn btn-ghost" type="button" data-action="download-application" data-ticket="' + escapeHtml(application.ticket) + '">' + icon.download + " Скачать карточку в PDF</button>" +
           "</div>" +
           '<p class="success-note">' + (delivered
-            ? "Заявка отправлена в HR-систему. В рабочей версии сюда же можно добавить уведомление в мессенджер рекрутера."
-            : "Демо-прототип: заявка сохранена в этом браузере и никуда не отправлена. В рабочей версии этот шаг подключается к HR-системе" + (char ? " и вакансии «" + escapeHtml(char.vacancy.title) + "»" : "") + ".") + "</p>" +
+            ? "Карточка ушла в HR-систему. В рабочей версии сюда добавят уведомление рекрутеру."
+            : "Это демо: карточка лежит в браузере и никуда не ушла. В рабочей версии её отправят в HR-систему" + (char ? " и вакансии «" + escapeHtml(char.vacancy.title) + "»" : "") + ".") + "</p>" +
         "</div>" +
       "</section>";
 
@@ -2467,7 +2539,7 @@
     window.addEventListener("appinstalled", function () {
       installPromptEvent = null;
       showInstallButton(false);
-      showToast("БРОДИЛКА установлена. Открыть можно с домашнего экрана.");
+      showToast("БРОДИЛКА установлена. Открывай с домашнего экрана.");
     });
 
     installBtn.addEventListener("click", function () {
@@ -2482,7 +2554,7 @@
       if (prompt.userChoice && typeof prompt.userChoice.then === "function") {
         prompt.userChoice.then(function (choice) {
           if (choice && choice.outcome === "accepted") {
-            showToast("Устанавливаем…");
+            showToast("Ставим…");
           }
         }).catch(function () {
           /* пользователь закрыл системный диалог */
@@ -2628,6 +2700,15 @@
       case "copy-code":
         copyText(element.getAttribute("data-code") || "").then(function (ok) {
           showToast(ok ? "Промокод скопирован" : "Не получилось скопировать. Выдели код вручную.");
+          if (!ok) return;
+          const splat = element.closest(".promo-splat");
+          if (!splat) return;
+          splat.classList.remove("is-copied");
+          void splat.offsetWidth;
+          splat.classList.add("is-copied");
+          window.setTimeout(function () {
+            splat.classList.remove("is-copied");
+          }, 700);
         });
         break;
 
@@ -2640,7 +2721,7 @@
         openModal({
           eyebrow: "Сброс прогресса",
           title: "Начать с нуля?",
-          text: "Пропадут все пройденные смены, промокоды и сохранённые заявки. Это действие нельзя отменить.",
+          text: "Пропадут все смены, промокоды и заявки. Отменить нельзя.",
           cancelLabel: "Остаться",
           confirmLabel: "Сбросить",
           danger: true,
@@ -2685,7 +2766,7 @@
         } catch (error) {
           pdfReady = false;
         }
-        showToast(pdfReady ? "PDF с заявкой скачан" : "PDF не собрался — открыли версию для печати.");
+        showToast(pdfReady ? "PDF с карточкой скачан" : "PDF не собрался, открыли версию для печати.");
         break;
       }
 

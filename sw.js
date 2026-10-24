@@ -1,15 +1,15 @@
-/* =========================================================
-   БРОДИЛКА — service worker
-   Кэширует оболочку, отдаёт офлайн-фолбэк и свежие скрипты.
-   Работает только по http(s); на file:// не регистрируется.
+﻿/* =========================================================
+   Р‘Р РћР”РР›РљРђ вЂ” service worker
+   РљСЌС€РёСЂСѓРµС‚ РѕР±РѕР»РѕС‡РєСѓ, РѕС‚РґР°С‘С‚ РѕС„Р»Р°Р№РЅ-С„РѕР»Р±СЌРє Рё СЃРІРµР¶РёРµ СЃРєСЂРёРїС‚С‹.
+   Р Р°Р±РѕС‚Р°РµС‚ С‚РѕР»СЊРєРѕ РїРѕ http(s); РЅР° file:// РЅРµ СЂРµРіРёСЃС‚СЂРёСЂСѓРµС‚СЃСЏ.
    ========================================================= */
 
-const VERSION = "brodilka-v11";
+const VERSION = "brodilka-v15";
 const SHELL_CACHE = VERSION + "-shell";
 const RUNTIME_CACHE = VERSION + "-runtime";
 
-/* Оболочка приложения. Каждый файл кэшируется независимо:
-   отсутствие новой иконки или ассета не ломает установку SW. */
+/* РћР±РѕР»РѕС‡РєР° РїСЂРёР»РѕР¶РµРЅРёСЏ. РљР°Р¶РґС‹Р№ С„Р°Р№Р» РєСЌС€РёСЂСѓРµС‚СЃСЏ РЅРµР·Р°РІРёСЃРёРјРѕ:
+   РѕС‚СЃСѓС‚СЃС‚РІРёРµ РЅРѕРІРѕР№ РёРєРѕРЅРєРё РёР»Рё Р°СЃСЃРµС‚Р° РЅРµ Р»РѕРјР°РµС‚ СѓСЃС‚Р°РЅРѕРІРєСѓ SW. */
 const SHELL = [
   "./",
   "./index.html",
@@ -25,8 +25,9 @@ const SHELL = [
   "./assets/brand/ochakovo-logo.png",
   "./assets/brand/ochakovo-logo-white.png",
   "./assets/brand/ochakovo-mark.svg",
-  "./assets/brand/pattern-red.jpg",
-  "./assets/brand/pattern-white.jpg",
+  "./assets/brand/ornament.svg",
+  "./assets/mascot/splat.svg",
+  "./assets/mascot/pop.svg",
   "./assets/icon-192.png",
   "./assets/icon-512.png",
   "./assets/icon-maskable-512.png",
@@ -92,12 +93,12 @@ function putInCache(request, response) {
       return cache.put(request, copy);
     })
     .catch(function () {
-      /* кэш может быть недоступен — не мешаем выдаче ответа */
+      /* РєСЌС€ РјРѕР¶РµС‚ Р±С‹С‚СЊ РЅРµРґРѕСЃС‚СѓРїРµРЅ вЂ” РЅРµ РјРµС€Р°РµРј РІС‹РґР°С‡Рµ РѕС‚РІРµС‚Р° */
     });
   return response;
 }
 
-/* Сеть с откатом на кэш: свежие html/css/js важнее скорости. */
+/* РЎРµС‚СЊ СЃ РѕС‚РєР°С‚РѕРј РЅР° РєСЌС€: СЃРІРµР¶РёРµ html/css/js РІР°Р¶РЅРµРµ СЃРєРѕСЂРѕСЃС‚Рё. */
 function networkFirst(request, fallbackUrl) {
   return fetch(request)
     .then(function (response) {
@@ -119,7 +120,7 @@ function networkFirst(request, fallbackUrl) {
     });
 }
 
-/* Кэш с фоновым обновлением: картинки и шрифты. */
+/* РљСЌС€ СЃ С„РѕРЅРѕРІС‹Рј РѕР±РЅРѕРІР»РµРЅРёРµРј: РєР°СЂС‚РёРЅРєРё Рё С€СЂРёС„С‚С‹. */
 function cacheFirst(request) {
   return caches.match(request).then(function (cached) {
     const update = fetch(request)
@@ -163,3 +164,5 @@ self.addEventListener("fetch", function (event) {
 
   event.respondWith(cacheFirst(request));
 });
+
+
