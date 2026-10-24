@@ -737,7 +737,7 @@
     const primaryAction = active ? "resume-quest" : "start-quest";
     const metaText = active
       ? "Смена " + activeChar.order + " · " + escapeHtml(activeChar.name) + " · этап " + (state.activeQuest.stepIndex + 1) + " из " + activeChar.steps.length
-      : "7 минут · без регистрации";
+      : "7 минут";
     const guideText = active
       ? "Этап " + (state.activeQuest.stepIndex + 1).toString() + ". Не потерялся? Фух. Продолжим?"
       : "Погнали. Смена не ждёт. Я Пузырь, гид. С 1996 года на заводе. Показываю, объясняю. Смену проходишь ты.";
