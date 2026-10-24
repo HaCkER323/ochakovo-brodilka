@@ -3298,3 +3298,37 @@ h4 {
     width: 100%;
   }
 }
+
+/* --- Мобильный лендинг: Пузырь в потоке, без наложений --- */
+.hero-or {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 720px) {
+  .hero-art {
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .hero-guide {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    align-self: flex-start;
+    max-width: 100%;
+    margin-top: 12px;
+  }
+
+  .hero-guide-note {
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+
+  .hero-or {
+    align-self: center;
+  }
+}

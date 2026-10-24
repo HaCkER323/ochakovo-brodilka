@@ -2371,3 +2371,45 @@ html[data-design="brand"] .promo-splat .copy-btn {
 html[data-design="brand"] .promo-splat .copy-btn:hover {
   color: var(--brand-red-dark);
 }
+
+/* --- Быстрый отклик и мобильный Пузырь в брендовой теме --- */
+html[data-design="brand"] .quick-roles {
+  border-bottom-color: var(--brand-line);
+}
+
+html[data-design="brand"] .quick-role {
+  border-color: var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+}
+
+html[data-design="brand"] .quick-role.is-selected {
+  border-color: var(--brand-red);
+  background: rgba(213, 0, 50, 0.06);
+  box-shadow: inset 0 0 0 1px var(--brand-red);
+}
+
+html[data-design="brand"] .quick-role-tag {
+  color: var(--brand-red);
+}
+
+@media (max-width: 720px) {
+  html[data-design="brand"] .hero-art {
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  html[data-design="brand"] .hero-guide {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    align-self: flex-start;
+    max-width: 100%;
+    margin-top: 12px;
+  }
+
+  html[data-design="brand"] .hero-guide-note {
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+}

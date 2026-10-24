@@ -1,20 +1,20 @@
 {
-  "runId": "2026-10-24T16-18-55",
-  "startedAt": "2026-10-24T16:18:55.154Z",
-  "finishedAt": "2026-10-24T16:25:36.508Z",
+  "runId": "2026-10-24T22-59-52",
+  "startedAt": "2026-10-24T22:59:52.299Z",
+  "finishedAt": "2026-10-24T23:06:39.301Z",
   "env": {
-    "runId": "2026-10-24T16-18-55",
+    "runId": "2026-10-24T22-59-52",
     "node": "v24.17.0",
     "platform": "win32",
-    "browser": "Edg/155.0.4283.62",
+    "browser": "Edg/156.0.4314.42",
     "browserPath": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
     "baseUrl": "http://127.0.0.1:4517",
     "headed": false
   },
   "summary": {
-    "scenarios": 25,
-    "checks": 770,
-    "passed": 769,
+    "scenarios": 26,
+    "checks": 796,
+    "passed": 795,
     "failed": 0,
     "warned": 0,
     "skipped": 1,
@@ -32,7 +32,7 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T16:18:56.169Z",
+      "startedAt": "2026-10-24T22:59:53.098Z",
       "checks": [
         {
           "id": "landing.title",
@@ -50,11 +50,11 @@
           "details": [
             {
               "action": "start-quest",
-              "text": "Начать смену"
+              "text": "Начать смену-квест"
             },
             {
               "action": "start-quest",
-              "text": "Начать смену"
+              "text": "Начать смену-квест"
             }
           ]
         },
@@ -176,11 +176,11 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/survey-desktop/01-desktop-landing.png",
-        "screens/2026-10-24T16-18-55/survey-desktop/02-desktop-intro.png",
-        "screens/2026-10-24T16-18-55/survey-desktop/03-desktop-characters.png",
-        "screens/2026-10-24T16-18-55/survey-desktop/04-desktop-game-dialogue.png",
-        "screens/2026-10-24T16-18-55/survey-desktop/05-desktop-game-task.png"
+        "screens/2026-10-24T22-59-52/survey-desktop/01-desktop-landing.png",
+        "screens/2026-10-24T22-59-52/survey-desktop/02-desktop-intro.png",
+        "screens/2026-10-24T22-59-52/survey-desktop/03-desktop-characters.png",
+        "screens/2026-10-24T22-59-52/survey-desktop/04-desktop-game-dialogue.png",
+        "screens/2026-10-24T22-59-52/survey-desktop/05-desktop-game-task.png"
       ],
       "notes": [],
       "fatal": null
@@ -195,7 +195,7 @@
         "dpr": 3,
         "mobile": true
       },
-      "startedAt": "2026-10-24T16:19:03.540Z",
+      "startedAt": "2026-10-24T23:00:00.488Z",
       "checks": [
         {
           "id": "landing.title",
@@ -213,11 +213,11 @@
           "details": [
             {
               "action": "start-quest",
-              "text": "Начать смену"
+              "text": "Начать смену-квест"
             },
             {
               "action": "start-quest",
-              "text": "Начать смену"
+              "text": "Начать смену-квест"
             }
           ]
         },
@@ -346,11 +346,11 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/survey-mobile/01-mobile-landing.png",
-        "screens/2026-10-24T16-18-55/survey-mobile/02-mobile-intro.png",
-        "screens/2026-10-24T16-18-55/survey-mobile/03-mobile-characters.png",
-        "screens/2026-10-24T16-18-55/survey-mobile/04-mobile-game-dialogue.png",
-        "screens/2026-10-24T16-18-55/survey-mobile/05-mobile-game-task.png"
+        "screens/2026-10-24T22-59-52/survey-mobile/01-mobile-landing.png",
+        "screens/2026-10-24T22-59-52/survey-mobile/02-mobile-intro.png",
+        "screens/2026-10-24T22-59-52/survey-mobile/03-mobile-characters.png",
+        "screens/2026-10-24T22-59-52/survey-mobile/04-mobile-game-dialogue.png",
+        "screens/2026-10-24T22-59-52/survey-mobile/05-mobile-game-task.png"
       ],
       "notes": [],
       "fatal": null
@@ -365,7 +365,7 @@
         "dpr": 3,
         "mobile": true
       },
-      "startedAt": "2026-10-24T16:19:10.970Z",
+      "startedAt": "2026-10-24T23:00:07.602Z",
       "checks": [
         {
           "id": "landing.no-horizontal-scroll",
@@ -419,10 +419,10 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/survey-compact/01-landing.png",
-        "screens/2026-10-24T16-18-55/survey-compact/02-characters.png",
-        "screens/2026-10-24T16-18-55/survey-compact/03-game-dialogue.png",
-        "screens/2026-10-24T16-18-55/survey-compact/04-game-task.png"
+        "screens/2026-10-24T22-59-52/survey-compact/01-landing.png",
+        "screens/2026-10-24T22-59-52/survey-compact/02-characters.png",
+        "screens/2026-10-24T22-59-52/survey-compact/03-game-dialogue.png",
+        "screens/2026-10-24T22-59-52/survey-compact/04-game-task.png"
       ],
       "notes": [],
       "fatal": null
@@ -437,7 +437,7 @@
         "dpr": 3,
         "mobile": true
       },
-      "startedAt": "2026-10-24T16:19:16.817Z",
+      "startedAt": "2026-10-24T23:00:13.091Z",
       "checks": [
         {
           "id": "landing.no-horizontal-scroll",
@@ -491,10 +491,10 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/survey-landscape/01-landing.png",
-        "screens/2026-10-24T16-18-55/survey-landscape/02-characters.png",
-        "screens/2026-10-24T16-18-55/survey-landscape/03-game-dialogue.png",
-        "screens/2026-10-24T16-18-55/survey-landscape/04-game-task.png"
+        "screens/2026-10-24T22-59-52/survey-landscape/01-landing.png",
+        "screens/2026-10-24T22-59-52/survey-landscape/02-characters.png",
+        "screens/2026-10-24T22-59-52/survey-landscape/03-game-dialogue.png",
+        "screens/2026-10-24T22-59-52/survey-landscape/04-game-task.png"
       ],
       "notes": [],
       "fatal": null
@@ -509,7 +509,7 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T16:19:23.019Z",
+      "startedAt": "2026-10-24T23:00:18.661Z",
       "checks": [
         {
           "id": "result.screen",
@@ -519,12 +519,12 @@
         {
           "id": "result.promo-code",
           "status": "pass",
-          "details": "OCHK-RVXVPYEY"
+          "details": "OCHK-PMNVQVGR"
         },
         {
           "id": "result.promo-format",
           "status": "pass",
-          "details": "OCHK-RVXVPYEY"
+          "details": "OCHK-PMNVQVGR"
         },
         {
           "id": "result.stars-3",
@@ -944,7 +944,7 @@
         {
           "id": "form.success-screen",
           "status": "pass",
-          "details": "Номер карточкиHR-26-2252Отправлено в HR"
+          "details": "Номер карточкиHR-26-6496Отправлено в HR"
         },
         {
           "id": "form.success-actions",
@@ -969,15 +969,15 @@
           "id": "form.download-file",
           "status": "pass",
           "details": [
-            "ochakovo-zayavka-HR-26-2252.pdf"
+            "ochakovo-zayavka-HR-26-6496.pdf"
           ]
         },
         {
           "id": "form.download-pdf",
           "status": "pass",
           "details": {
-            "file": "ochakovo-zayavka-HR-26-2252.pdf",
-            "size": 167341,
+            "file": "ochakovo-zayavka-HR-26-6496.pdf",
+            "size": 167304,
             "isPdf": true,
             "hasEof": true,
             "pages": 1,
@@ -989,12 +989,12 @@
         {
           "id": "form.download-filename",
           "status": "pass",
-          "details": "ochakovo-zayavka-HR-26-2252.pdf"
+          "details": "ochakovo-zayavka-HR-26-6496.pdf"
         },
         {
           "id": "form.download-not-txt",
           "status": "pass",
-          "details": "ochakovo-zayavka-HR-26-2252.pdf"
+          "details": "ochakovo-zayavka-HR-26-6496.pdf"
         },
         {
           "id": "persistence.completed",
@@ -1014,11 +1014,11 @@
           "details": [
             {
               "action": "start-quest",
-              "text": "Начать смену"
+              "text": "Начать смену-квест"
             },
             {
               "action": "start-quest",
-              "text": "Начать смену"
+              "text": "Начать смену-квест"
             }
           ]
         },
@@ -1046,8 +1046,8 @@
           "id": "replay.code-unique",
           "status": "pass",
           "details": {
-            "before": "OCHK-RVXVPYEY",
-            "after": "OCHK-WNEESLES"
+            "before": "OCHK-PMNVQVGR",
+            "after": "OCHK-JWVY5HQF"
           }
         },
         {
@@ -1113,7 +1113,7 @@
         {
           "id": "reset.cta-fresh",
           "status": "pass",
-          "details": "Начать смену"
+          "details": "Начать смену-квест"
         },
         {
           "id": "persistence.corrupted-storage-recovers",
@@ -1131,16 +1131,16 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/desktop-full/01-characters.png",
-        "screens/2026-10-24T16-18-55/desktop-full/02-route-game.png",
-        "screens/2026-10-24T16-18-55/desktop-full/03-route-task-pick.png",
-        "screens/2026-10-24T16-18-55/desktop-full/04-result.png",
-        "screens/2026-10-24T16-18-55/desktop-full/05-apply-empty.png",
-        "screens/2026-10-24T16-18-55/desktop-full/06-form-empty-errors.png",
-        "screens/2026-10-24T16-18-55/desktop-full/07-form-invalid-errors.png",
-        "screens/2026-10-24T16-18-55/desktop-full/08-success.png",
-        "screens/2026-10-24T16-18-55/desktop-full/09-reset-modal.png",
-        "screens/2026-10-24T16-18-55/desktop-full/10-after-reset.png"
+        "screens/2026-10-24T22-59-52/desktop-full/01-characters.png",
+        "screens/2026-10-24T22-59-52/desktop-full/02-route-game.png",
+        "screens/2026-10-24T22-59-52/desktop-full/03-route-task-pick.png",
+        "screens/2026-10-24T22-59-52/desktop-full/04-result.png",
+        "screens/2026-10-24T22-59-52/desktop-full/05-apply-empty.png",
+        "screens/2026-10-24T22-59-52/desktop-full/06-form-empty-errors.png",
+        "screens/2026-10-24T22-59-52/desktop-full/07-form-invalid-errors.png",
+        "screens/2026-10-24T22-59-52/desktop-full/08-success.png",
+        "screens/2026-10-24T22-59-52/desktop-full/09-reset-modal.png",
+        "screens/2026-10-24T22-59-52/desktop-full/10-after-reset.png"
       ],
       "notes": [
         "download toast: \"PDF с карточкой скачан\""
@@ -1157,7 +1157,7 @@
         "dpr": 3,
         "mobile": true
       },
-      "startedAt": "2026-10-24T16:19:53.726Z",
+      "startedAt": "2026-10-24T23:00:48.647Z",
       "checks": [
         {
           "id": "reload.active-quest-saved",
@@ -1169,7 +1169,7 @@
             "rewardedSteps": [
               0
             ],
-            "startedAt": "2026-10-24T16:19:55.552Z"
+            "startedAt": "2026-10-24T23:00:50.456Z"
           }
         },
         {
@@ -1178,11 +1178,11 @@
           "details": [
             {
               "action": "resume-quest",
-              "text": "Продолжить смену"
+              "text": "Продолжить смену-квест"
             },
             {
               "action": "resume-quest",
-              "text": "Продолжить смену"
+              "text": "Продолжить смену-квест"
             }
           ]
         },
@@ -1220,7 +1220,7 @@
             "rewardedSteps": [
               0
             ],
-            "startedAt": "2026-10-24T16:19:55.552Z"
+            "startedAt": "2026-10-24T23:00:50.456Z"
           }
         },
         {
@@ -1418,11 +1418,11 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/mobile-reload/01-before-reload.png",
-        "screens/2026-10-24T16-18-55/mobile-reload/02-reload-landing.png",
-        "screens/2026-10-24T16-18-55/mobile-reload/03-result-packer.png",
-        "screens/2026-10-24T16-18-55/mobile-reload/04-result-lab.png",
-        "screens/2026-10-24T16-18-55/mobile-reload/05-characters-completed.png"
+        "screens/2026-10-24T22-59-52/mobile-reload/01-before-reload.png",
+        "screens/2026-10-24T22-59-52/mobile-reload/02-reload-landing.png",
+        "screens/2026-10-24T22-59-52/mobile-reload/03-result-packer.png",
+        "screens/2026-10-24T22-59-52/mobile-reload/04-result-lab.png",
+        "screens/2026-10-24T22-59-52/mobile-reload/05-characters-completed.png"
       ],
       "notes": [],
       "fatal": null
@@ -1437,7 +1437,7 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T16:20:19.231Z",
+      "startedAt": "2026-10-24T23:01:13.907Z",
       "checks": [
         {
           "id": "a11y.skip-link-first",
@@ -1503,7 +1503,7 @@
               "action": "start-quest",
               "id": null,
               "name": null,
-              "text": "Начать смену"
+              "text": "Начать смену-квест"
             }
           }
         },
@@ -1609,7 +1609,7 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T16:20:24.030Z",
+      "startedAt": "2026-10-24T23:01:19.178Z",
       "checks": [
         {
           "id": "history.entries",
@@ -1631,7 +1631,7 @@
             "stepIndex": 0,
             "stars": 0,
             "rewardedSteps": [],
-            "startedAt": "2026-10-24T16:20:27.843Z"
+            "startedAt": "2026-10-24T23:01:23.048Z"
           }
         },
         {
@@ -1642,7 +1642,7 @@
         {
           "id": "history.result-code",
           "status": "pass",
-          "details": "OCHK-UQ4HCZPC"
+          "details": "OCHK-SRUUAZN7"
         },
         {
           "id": "history.back-form-result-screen",
@@ -1659,7 +1659,7 @@
         {
           "id": "history.back-form-keeps-promo",
           "status": "pass",
-          "details": "OCHK-UQ4HCZPC"
+          "details": "OCHK-SRUUAZN7"
         },
         {
           "id": "history.forward-form-safe",
@@ -1693,10 +1693,10 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/history/01-after-forward.png",
-        "screens/2026-10-24T16-18-55/history/02-history-route-game.png",
-        "screens/2026-10-24T16-18-55/history/03-history-route-task-pick.png",
-        "screens/2026-10-24T16-18-55/history/04-after-success-back.png"
+        "screens/2026-10-24T22-59-52/history/01-after-forward.png",
+        "screens/2026-10-24T22-59-52/history/02-history-route-game.png",
+        "screens/2026-10-24T22-59-52/history/03-history-route-task-pick.png",
+        "screens/2026-10-24T22-59-52/history/04-after-success-back.png"
       ],
       "notes": [
         "history.forward с формы открывает result (fallback приложения), форма не восстанавливается — зафиксировано как наблюдение"
@@ -1713,7 +1713,7 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T16:20:41.785Z",
+      "startedAt": "2026-10-24T23:01:36.913Z",
       "checks": [
         {
           "id": "content.no-beer",
@@ -1873,7 +1873,7 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/content-guard/01-content-guard-final.png"
+        "screens/2026-10-24T22-59-52/content-guard/01-content-guard-final.png"
       ],
       "notes": [],
       "fatal": null
@@ -1888,7 +1888,7 @@
         "dpr": 3,
         "mobile": true
       },
-      "startedAt": "2026-10-24T16:20:58.353Z",
+      "startedAt": "2026-10-24T23:01:53.206Z",
       "checks": [
         {
           "id": "mobile-cta-390.characters-no-hscroll",
@@ -2108,12 +2108,12 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/mobile-cta/01-characters-390.png",
-        "screens/2026-10-24T16-18-55/mobile-cta/02-game-dialogue-390.png",
-        "screens/2026-10-24T16-18-55/mobile-cta/03-game-task-390.png",
-        "screens/2026-10-24T16-18-55/mobile-cta/04-characters-360.png",
-        "screens/2026-10-24T16-18-55/mobile-cta/05-game-dialogue-360.png",
-        "screens/2026-10-24T16-18-55/mobile-cta/06-game-task-360.png"
+        "screens/2026-10-24T22-59-52/mobile-cta/01-characters-390.png",
+        "screens/2026-10-24T22-59-52/mobile-cta/02-game-dialogue-390.png",
+        "screens/2026-10-24T22-59-52/mobile-cta/03-game-task-390.png",
+        "screens/2026-10-24T22-59-52/mobile-cta/04-characters-360.png",
+        "screens/2026-10-24T22-59-52/mobile-cta/05-game-dialogue-360.png",
+        "screens/2026-10-24T22-59-52/mobile-cta/06-game-task-360.png"
       ],
       "notes": [],
       "fatal": null
@@ -2128,7 +2128,7 @@
         "dpr": 3,
         "mobile": true
       },
-      "startedAt": "2026-10-24T16:21:07.502Z",
+      "startedAt": "2026-10-24T23:02:03.773Z",
       "checks": [
         {
           "id": "postfix-390x844.header-no-overlap",
@@ -3078,10 +3078,10 @@
           "details": {
             "name": "start-cta",
             "selector": "[data-action=\"start-quest\"], [data-action=\"resume-quest\"]",
-            "width": 184,
+            "width": 230,
             "height": 58,
             "left": 35,
-            "right": 219,
+            "right": 266,
             "top": 166,
             "bottom": 224,
             "minHeight": "58px",
@@ -3096,10 +3096,10 @@
           "details": {
             "name": "start-cta",
             "selector": "[data-action=\"start-quest\"], [data-action=\"resume-quest\"]",
-            "width": 184,
+            "width": 230,
             "height": 58,
             "left": 35,
-            "right": 219,
+            "right": 266,
             "top": 166,
             "bottom": 224,
             "minHeight": "58px",
@@ -3114,10 +3114,10 @@
           "details": {
             "name": "start-cta",
             "selector": "[data-action=\"start-quest\"], [data-action=\"resume-quest\"]",
-            "width": 184,
+            "width": 230,
             "height": 58,
             "left": 35,
-            "right": 219,
+            "right": 266,
             "top": 166,
             "bottom": 224,
             "minHeight": "58px",
@@ -3404,18 +3404,18 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/postfix-touch/01-landing-390x844.png",
-        "screens/2026-10-24T16-18-55/postfix-touch/02-footer-390x844.png",
-        "screens/2026-10-24T16-18-55/postfix-touch/03-characters-390x844.png",
-        "screens/2026-10-24T16-18-55/postfix-touch/04-game-390x844.png",
-        "screens/2026-10-24T16-18-55/postfix-touch/05-landing-360x740.png",
-        "screens/2026-10-24T16-18-55/postfix-touch/06-footer-360x740.png",
-        "screens/2026-10-24T16-18-55/postfix-touch/07-characters-360x740.png",
-        "screens/2026-10-24T16-18-55/postfix-touch/08-game-360x740.png",
-        "screens/2026-10-24T16-18-55/postfix-touch/09-landing-landscape-844x390.png",
-        "screens/2026-10-24T16-18-55/postfix-touch/10-footer-landscape-844x390.png",
-        "screens/2026-10-24T16-18-55/postfix-touch/11-characters-landscape-844x390.png",
-        "screens/2026-10-24T16-18-55/postfix-touch/12-game-landscape-844x390.png"
+        "screens/2026-10-24T22-59-52/postfix-touch/01-landing-390x844.png",
+        "screens/2026-10-24T22-59-52/postfix-touch/02-footer-390x844.png",
+        "screens/2026-10-24T22-59-52/postfix-touch/03-characters-390x844.png",
+        "screens/2026-10-24T22-59-52/postfix-touch/04-game-390x844.png",
+        "screens/2026-10-24T22-59-52/postfix-touch/05-landing-360x740.png",
+        "screens/2026-10-24T22-59-52/postfix-touch/06-footer-360x740.png",
+        "screens/2026-10-24T22-59-52/postfix-touch/07-characters-360x740.png",
+        "screens/2026-10-24T22-59-52/postfix-touch/08-game-360x740.png",
+        "screens/2026-10-24T22-59-52/postfix-touch/09-landing-landscape-844x390.png",
+        "screens/2026-10-24T22-59-52/postfix-touch/10-footer-landscape-844x390.png",
+        "screens/2026-10-24T22-59-52/postfix-touch/11-characters-landscape-844x390.png",
+        "screens/2026-10-24T22-59-52/postfix-touch/12-game-landscape-844x390.png"
       ],
       "notes": [],
       "fatal": null
@@ -3430,7 +3430,7 @@
         "dpr": 3,
         "mobile": true
       },
-      "startedAt": "2026-10-24T16:21:20.324Z",
+      "startedAt": "2026-10-24T23:02:17.326Z",
       "checks": [
         {
           "id": "pwa.manifest-link",
@@ -3601,13 +3601,9 @@
                 "installing": false
               }
             ],
-            "controller": {
-              "scriptURL": "http://127.0.0.1:4517/sw.js",
-              "state": "activated"
-            },
+            "controller": null,
             "cacheKeys": [
-              "brodilka-v18-shell",
-              "brodilka-v18-runtime"
+              "brodilka-v20-shell"
             ]
           }
         },
@@ -3628,13 +3624,9 @@
                 "installing": false
               }
             ],
-            "controller": {
-              "scriptURL": "http://127.0.0.1:4517/sw.js",
-              "state": "activated"
-            },
+            "controller": null,
             "cacheKeys": [
-              "brodilka-v18-shell",
-              "brodilka-v18-runtime"
+              "brodilka-v20-shell"
             ]
           }
         },
@@ -3675,8 +3667,8 @@
           "id": "pwa.sw-version",
           "status": "pass",
           "details": {
-            "version": "brodilka-v18",
-            "number": 18
+            "version": "brodilka-v20",
+            "number": 20
           }
         },
         {
@@ -3692,12 +3684,12 @@
           "status": "pass",
           "details": {
             "keys": [
-              "brodilka-v18-shell",
-              "brodilka-v18-runtime"
+              "brodilka-v20-shell",
+              "brodilka-v20-runtime"
             ],
             "details": [
               {
-                "key": "brodilka-v18-shell",
+                "key": "brodilka-v20-shell",
                 "count": 31,
                 "urls": [
                   "http://127.0.0.1:4517/",
@@ -3706,57 +3698,50 @@
                   "http://127.0.0.1:4517/css/styles.css",
                   "http://127.0.0.1:4517/css/game.css",
                   "http://127.0.0.1:4517/css/brand.css",
-                  "http://127.0.0.1:4517/js/config.js",
                   "http://127.0.0.1:4517/js/data.js",
-                  "http://127.0.0.1:4517/assets/share-promo.png",
+                  "http://127.0.0.1:4517/js/config.js",
                   "http://127.0.0.1:4517/js/pdf.js",
-                  "http://127.0.0.1:4517/assets/brand/ochakovo-logo.png",
                   "http://127.0.0.1:4517/js/app.js",
+                  "http://127.0.0.1:4517/assets/share-promo.png",
+                  "http://127.0.0.1:4517/assets/brand/ochakovo-logo.png",
                   "http://127.0.0.1:4517/assets/brand/ochakovo-logo-white.png",
                   "http://127.0.0.1:4517/assets/brand/ochakovo-mark.svg",
                   "http://127.0.0.1:4517/assets/brand/ornament.svg",
                   "http://127.0.0.1:4517/assets/mascot/splat.svg",
                   "http://127.0.0.1:4517/assets/mascot/pop.svg",
                   "http://127.0.0.1:4517/assets/icon-192.png",
-                  "http://127.0.0.1:4517/assets/icon-maskable-512.png",
                   "http://127.0.0.1:4517/assets/icon-512.png",
+                  "http://127.0.0.1:4517/assets/icon-maskable-512.png",
                   "http://127.0.0.1:4517/assets/apple-touch-icon.png",
-                  "http://127.0.0.1:4517/assets/app-icon.svg",
                   "http://127.0.0.1:4517/assets/mascot.svg",
                   "http://127.0.0.1:4517/assets/chief.svg",
-                  "http://127.0.0.1:4517/assets/mark.svg",
-                  "http://127.0.0.1:4517/assets/dasha.svg",
+                  "http://127.0.0.1:4517/assets/app-icon.svg",
                   "http://127.0.0.1:4517/assets/lev.svg",
-                  "http://127.0.0.1:4517/assets/hero-can.svg",
+                  "http://127.0.0.1:4517/assets/dasha.svg",
+                  "http://127.0.0.1:4517/assets/mark.svg",
                   "http://127.0.0.1:4517/assets/scene-brew.svg",
-                  "http://127.0.0.1:4517/assets/scene-line.svg"
+                  "http://127.0.0.1:4517/assets/hero-can.svg",
+                  "http://127.0.0.1:4517/assets/scene-lab.svg"
                 ]
               },
               {
-                "key": "brodilka-v18-runtime",
-                "count": 22,
+                "key": "brodilka-v20-runtime",
+                "count": 15,
                 "urls": [
-                  "http://127.0.0.1:4517/manifest.webmanifest",
-                  "http://127.0.0.1:4517/assets/icon-192.png",
-                  "http://127.0.0.1:4517/assets/icon-maskable-512.png",
-                  "http://127.0.0.1:4517/assets/icon-512.png",
-                  "http://127.0.0.1:4517/index.html",
-                  "http://127.0.0.1:4517/assets/apple-touch-icon.png",
-                  "http://127.0.0.1:4517/sw.js",
                   "http://127.0.0.1:4517/",
                   "http://127.0.0.1:4517/css/styles.css",
                   "http://127.0.0.1:4517/css/brand.css",
                   "http://127.0.0.1:4517/js/config.js",
-                  "http://127.0.0.1:4517/assets/brand/ochakovo-logo.png",
                   "http://127.0.0.1:4517/js/data.js",
                   "http://127.0.0.1:4517/js/pdf.js",
-                  "http://127.0.0.1:4517/assets/brand/ochakovo-mark.svg",
+                  "http://127.0.0.1:4517/assets/brand/ochakovo-logo.png",
                   "http://127.0.0.1:4517/css/game.css",
+                  "http://127.0.0.1:4517/assets/brand/ochakovo-mark.svg",
                   "http://127.0.0.1:4517/js/app.js",
+                  "http://127.0.0.1:4517/assets/brand/ochakovo-logo-white.png",
+                  "http://127.0.0.1:4517/assets/brand/ornament.svg",
                   "http://127.0.0.1:4517/assets/hero-can.svg",
                   "http://127.0.0.1:4517/assets/mascot.svg",
-                  "http://127.0.0.1:4517/assets/brand/ornament.svg",
-                  "http://127.0.0.1:4517/assets/brand/ochakovo-logo-white.png",
                   "http://127.0.0.1:4517/assets/app-icon.svg"
                 ]
               }
@@ -3767,10 +3752,10 @@
           "id": "pwa.cache-version",
           "status": "pass",
           "details": {
-            "expected": "brodilka-v18",
+            "expected": "brodilka-v20",
             "keys": [
-              "brodilka-v18-shell",
-              "brodilka-v18-runtime"
+              "brodilka-v20-shell",
+              "brodilka-v20-runtime"
             ]
           }
         },
@@ -3778,8 +3763,8 @@
           "id": "pwa.cache-no-stale",
           "status": "pass",
           "details": [
-            "brodilka-v18-shell",
-            "brodilka-v18-runtime"
+            "brodilka-v20-shell",
+            "brodilka-v20-runtime"
           ]
         },
         {
@@ -3792,31 +3777,30 @@
             "http://127.0.0.1:4517/css/styles.css",
             "http://127.0.0.1:4517/css/game.css",
             "http://127.0.0.1:4517/css/brand.css",
-            "http://127.0.0.1:4517/js/config.js",
             "http://127.0.0.1:4517/js/data.js",
-            "http://127.0.0.1:4517/assets/share-promo.png",
+            "http://127.0.0.1:4517/js/config.js",
             "http://127.0.0.1:4517/js/pdf.js",
-            "http://127.0.0.1:4517/assets/brand/ochakovo-logo.png",
             "http://127.0.0.1:4517/js/app.js",
+            "http://127.0.0.1:4517/assets/share-promo.png",
+            "http://127.0.0.1:4517/assets/brand/ochakovo-logo.png",
             "http://127.0.0.1:4517/assets/brand/ochakovo-logo-white.png",
             "http://127.0.0.1:4517/assets/brand/ochakovo-mark.svg",
             "http://127.0.0.1:4517/assets/brand/ornament.svg",
             "http://127.0.0.1:4517/assets/mascot/splat.svg",
             "http://127.0.0.1:4517/assets/mascot/pop.svg",
             "http://127.0.0.1:4517/assets/icon-192.png",
-            "http://127.0.0.1:4517/assets/icon-maskable-512.png",
-            "http://127.0.0.1:4517/assets/icon-512.png"
+            "http://127.0.0.1:4517/assets/icon-512.png",
+            "http://127.0.0.1:4517/assets/icon-maskable-512.png"
           ]
         },
         {
           "id": "pwa.cache-pdf-script",
           "status": "pass",
           "details": [
-            "http://127.0.0.1:4517/js/config.js",
             "http://127.0.0.1:4517/js/data.js",
+            "http://127.0.0.1:4517/js/config.js",
             "http://127.0.0.1:4517/js/pdf.js",
             "http://127.0.0.1:4517/js/app.js",
-            "http://127.0.0.1:4517/sw.js",
             "http://127.0.0.1:4517/js/config.js",
             "http://127.0.0.1:4517/js/data.js",
             "http://127.0.0.1:4517/js/pdf.js",
@@ -3868,9 +3852,9 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/pwa/01-standalone.png",
-        "screens/2026-10-24T16-18-55/pwa/02-offline-landing.png",
-        "screens/2026-10-24T16-18-55/pwa/03-offline-navigation.png"
+        "screens/2026-10-24T22-59-52/pwa/01-standalone.png",
+        "screens/2026-10-24T22-59-52/pwa/02-offline-landing.png",
+        "screens/2026-10-24T22-59-52/pwa/03-offline-navigation.png"
       ],
       "notes": [
         "display-mode emulation: {\"standalone\":false,\"browser\":true,\"bodyWidth\":390,\"hscroll\":false}",
@@ -3888,7 +3872,7 @@
         "dpr": 3,
         "mobile": true
       },
-      "startedAt": "2026-10-24T16:21:26.338Z",
+      "startedAt": "2026-10-24T23:02:23.414Z",
       "checks": [
         {
           "id": "pwa-fresh.reset",
@@ -3981,18 +3965,18 @@
           "id": "pwa-fresh.sw-version",
           "status": "pass",
           "details": {
-            "version": "brodilka-v18",
-            "number": 18
+            "version": "brodilka-v20",
+            "number": 20
           }
         },
         {
           "id": "pwa-fresh.cache-version",
           "status": "pass",
           "details": {
-            "expected": "brodilka-v18",
+            "expected": "brodilka-v20",
             "keys": [
-              "brodilka-v18-shell",
-              "brodilka-v18-runtime"
+              "brodilka-v20-shell",
+              "brodilka-v20-runtime"
             ]
           }
         },
@@ -4000,8 +3984,8 @@
           "id": "pwa-fresh.no-stale-cache",
           "status": "pass",
           "details": [
-            "brodilka-v18-shell",
-            "brodilka-v18-runtime"
+            "brodilka-v20-shell",
+            "brodilka-v20-runtime"
           ]
         },
         {
@@ -4009,12 +3993,12 @@
           "status": "pass",
           "details": [
             "http://127.0.0.1:4517/js/config.js",
-            "http://127.0.0.1:4517/js/pdf.js",
             "http://127.0.0.1:4517/js/data.js",
+            "http://127.0.0.1:4517/js/pdf.js",
             "http://127.0.0.1:4517/js/app.js",
-            "http://127.0.0.1:4517/js/pdf.js",
-            "http://127.0.0.1:4517/js/data.js",
             "http://127.0.0.1:4517/js/config.js",
+            "http://127.0.0.1:4517/js/data.js",
+            "http://127.0.0.1:4517/js/pdf.js",
             "http://127.0.0.1:4517/js/app.js",
             "http://127.0.0.1:4517/sw.js"
           ]
@@ -4061,7 +4045,7 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/pwa-fresh/01-offline-fresh.png"
+        "screens/2026-10-24T22-59-52/pwa-fresh/01-offline-fresh.png"
       ],
       "notes": [
         "install-кнопка: {\"present\":true,\"hidden\":false,\"text\":\"Установить\"}"
@@ -4078,7 +4062,7 @@
         "dpr": 3,
         "mobile": true
       },
-      "startedAt": "2026-10-24T16:21:31.691Z",
+      "startedAt": "2026-10-24T23:02:28.682Z",
       "checks": [
         {
           "id": "standalone.app-window",
@@ -4564,9 +4548,9 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/pwa-standalone/01-standalone-390.png",
-        "screens/2026-10-24T16-18-55/pwa-standalone/02-standalone-360.png",
-        "screens/2026-10-24T16-18-55/pwa-standalone/03-standalone-landscape.png"
+        "screens/2026-10-24T22-59-52/pwa-standalone/01-standalone-390.png",
+        "screens/2026-10-24T22-59-52/pwa-standalone/02-standalone-360.png",
+        "screens/2026-10-24T22-59-52/pwa-standalone/03-standalone-landscape.png"
       ],
       "notes": [
         "standalone viewport: outer=844, inner=844"
@@ -4583,7 +4567,7 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T16:21:37.174Z",
+      "startedAt": "2026-10-24T23:02:35.080Z",
       "checks": [
         {
           "id": "content-v2.data",
@@ -4717,7 +4701,7 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T16:21:40.617Z",
+      "startedAt": "2026-10-24T23:02:38.921Z",
       "checks": [
         {
           "id": "landing-v2-desktop.h1-no-eyebrow-overlap",
@@ -5056,12 +5040,12 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/landing-intro-v2/01-landing-desktop.png",
-        "screens/2026-10-24T16-18-55/landing-intro-v2/02-intro-desktop.png",
-        "screens/2026-10-24T16-18-55/landing-intro-v2/03-landing-mobile-390.png",
-        "screens/2026-10-24T16-18-55/landing-intro-v2/04-intro-mobile-390.png",
-        "screens/2026-10-24T16-18-55/landing-intro-v2/05-landing-mobile-360.png",
-        "screens/2026-10-24T16-18-55/landing-intro-v2/06-intro-mobile-360.png"
+        "screens/2026-10-24T22-59-52/landing-intro-v2/01-landing-desktop.png",
+        "screens/2026-10-24T22-59-52/landing-intro-v2/02-intro-desktop.png",
+        "screens/2026-10-24T22-59-52/landing-intro-v2/03-landing-mobile-390.png",
+        "screens/2026-10-24T22-59-52/landing-intro-v2/04-intro-mobile-390.png",
+        "screens/2026-10-24T22-59-52/landing-intro-v2/05-landing-mobile-360.png",
+        "screens/2026-10-24T22-59-52/landing-intro-v2/06-intro-mobile-360.png"
       ],
       "notes": [],
       "fatal": null
@@ -5076,7 +5060,7 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T16:21:51.804Z",
+      "startedAt": "2026-10-24T23:02:49.817Z",
       "checks": [
         {
           "id": "chat-desktop.container",
@@ -5537,14 +5521,14 @@
           "details": {
             "rect": {
               "left": 59,
-              "top": 689,
+              "top": 717,
               "right": 785,
-              "bottom": 716,
+              "bottom": 744,
               "height": 27
             },
             "panel": {
-              "top": 618,
-              "bottom": 1141
+              "top": 646,
+              "bottom": 1169
             },
             "sceneOverlap": false,
             "covered": false,
@@ -5558,9 +5542,9 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/chat-v2/01-chat-desktop.png",
-        "screens/2026-10-24T16-18-55/chat-v2/02-chat-mobile-390.png",
-        "screens/2026-10-24T16-18-55/chat-v2/03-chat-landscape.png"
+        "screens/2026-10-24T22-59-52/chat-v2/01-chat-desktop.png",
+        "screens/2026-10-24T22-59-52/chat-v2/02-chat-mobile-390.png",
+        "screens/2026-10-24T22-59-52/chat-v2/03-chat-landscape.png"
       ],
       "notes": [],
       "fatal": null
@@ -5575,7 +5559,7 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T16:22:04.994Z",
+      "startedAt": "2026-10-24T23:03:03.128Z",
       "checks": [
         {
           "id": "form-nofile.no-file-input",
@@ -5671,14 +5655,14 @@
         {
           "id": "form-nofile.submit-without-resume",
           "status": "pass",
-          "details": "HR-26-4586"
+          "details": "HR-26-2564"
         },
         {
           "id": "form-nofile.application-no-file",
           "status": "pass",
           "details": {
-            "id": "HR-26-4586",
-            "ticket": "HR-26-4586",
+            "id": "HR-26-2564",
+            "ticket": "HR-26-2564",
             "charId": "brewer",
             "vacancy": "Машинист оборудования",
             "name": "Без Файла",
@@ -5689,7 +5673,7 @@
             "city": "Москва",
             "resumeLink": "",
             "delivered": true,
-            "createdAt": "2026-10-24T16:22:17.461Z"
+            "createdAt": "2026-10-24T23:03:14.192Z"
           }
         },
         {
@@ -5709,9 +5693,9 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/form-nofile/01-form-nofile-desktop.png",
-        "screens/2026-10-24T16-18-55/form-nofile/02-form-nofile-mobile.png",
-        "screens/2026-10-24T16-18-55/form-nofile/03-form-nofile-success.png"
+        "screens/2026-10-24T22-59-52/form-nofile/01-form-nofile-desktop.png",
+        "screens/2026-10-24T22-59-52/form-nofile/02-form-nofile-mobile.png",
+        "screens/2026-10-24T22-59-52/form-nofile/03-form-nofile-success.png"
       ],
       "notes": [],
       "fatal": null
@@ -5726,13 +5710,13 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T16:22:18.416Z",
+      "startedAt": "2026-10-24T23:03:15.072Z",
       "checks": [
         {
           "id": "share-pdf.result",
           "status": "pass",
           "details": {
-            "code": "OCHK-FYNCELA3",
+            "code": "OCHK-SN2M5VUF",
             "stars": 3,
             "starsOff": 0,
             "hasResultScreen": true,
@@ -5743,20 +5727,20 @@
         {
           "id": "share-pdf.code-format",
           "status": "pass",
-          "details": "OCHK-FYNCELA3"
+          "details": "OCHK-SN2M5VUF"
         },
         {
           "id": "share-pdf.code-unique",
           "status": "pass",
           "details": {
-            "first": "OCHK-FYNCELA3",
-            "second": "OCHK-LLJWVS3U"
+            "first": "OCHK-SN2M5VUF",
+            "second": "OCHK-TJMH6EQG"
           }
         },
         {
           "id": "share-pdf.code-length",
           "status": "pass",
-          "details": "OCHK-LLJWVS3U"
+          "details": "OCHK-TJMH6EQG"
         },
         {
           "id": "share-pdf.crypto-random",
@@ -5853,7 +5837,7 @@
           "status": "pass",
           "details": {
             "text": "Сыграй в БРОДИЛКУ: квест Очаково о квасе и лимонадах. http://127.0.0.1:4517/",
-            "code": "OCHK-LLJWVS3U"
+            "code": "OCHK-TJMH6EQG"
           }
         },
         {
@@ -5882,15 +5866,15 @@
           "id": "share-pdf.pdf-downloaded",
           "status": "pass",
           "details": [
-            "ochakovo-zayavka-HR-26-5410.pdf"
+            "ochakovo-zayavka-HR-26-8809.pdf"
           ]
         },
         {
           "id": "share-pdf.pdf-valid",
           "status": "pass",
           "details": {
-            "file": "ochakovo-zayavka-HR-26-5410.pdf",
-            "size": 166758,
+            "file": "ochakovo-zayavka-HR-26-8809.pdf",
+            "size": 166954,
             "isPdf": true,
             "hasEof": true,
             "pages": 1,
@@ -5903,8 +5887,8 @@
           "id": "share-pdf.pdf-has-image",
           "status": "pass",
           "details": {
-            "file": "ochakovo-zayavka-HR-26-5410.pdf",
-            "size": 166758,
+            "file": "ochakovo-zayavka-HR-26-8809.pdf",
+            "size": 166954,
             "isPdf": true,
             "hasEof": true,
             "pages": 1,
@@ -5917,14 +5901,14 @@
           "id": "share-pdf.pdf-filename",
           "status": "pass",
           "details": {
-            "fileName": "ochakovo-zayavka-HR-26-5410.pdf",
-            "ticket": "Номер карточкиHR-26-5410Отправлено в HR"
+            "fileName": "ochakovo-zayavka-HR-26-8809.pdf",
+            "ticket": "Номер карточкиHR-26-8809Отправлено в HR"
           }
         },
         {
           "id": "share-pdf.pdf-not-txt",
           "status": "pass",
-          "details": "ochakovo-zayavka-HR-26-5410.pdf"
+          "details": "ochakovo-zayavka-HR-26-8809.pdf"
         },
         {
           "id": "share-pdf.console-clean",
@@ -5933,8 +5917,8 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/share-pdf/01-share-fallback.png",
-        "screens/2026-10-24T16-18-55/share-pdf/02-pdf-success.png"
+        "screens/2026-10-24T22-59-52/share-pdf/01-share-fallback.png",
+        "screens/2026-10-24T22-59-52/share-pdf/02-pdf-success.png"
       ],
       "notes": [],
       "fatal": null
@@ -5949,7 +5933,7 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T16:22:46.756Z",
+      "startedAt": "2026-10-24T23:03:42.680Z",
       "checks": [
         {
           "id": "art-v2.scene-brew.svg.load",
@@ -6171,9 +6155,9 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/art-v2/01-art-scene-brewer.png",
-        "screens/2026-10-24T16-18-55/art-v2/02-art-scene-packer.png",
-        "screens/2026-10-24T16-18-55/art-v2/03-art-scene-lab.png"
+        "screens/2026-10-24T22-59-52/art-v2/01-art-scene-brewer.png",
+        "screens/2026-10-24T22-59-52/art-v2/02-art-scene-packer.png",
+        "screens/2026-10-24T22-59-52/art-v2/03-art-scene-lab.png"
       ],
       "notes": [],
       "fatal": null
@@ -6188,7 +6172,7 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T16:22:56.656Z",
+      "startedAt": "2026-10-24T23:03:50.942Z",
       "checks": [
         {
           "id": "readability-desktop.landing-fonts",
@@ -6272,12 +6256,12 @@
               {
                 "text": "Совет ПузыряПорядок любой. Приз за каждую смену. Ошибки не страшно. Я видел много смен, волнуюсь всё равно. Ты не бери с",
                 "fontSize": 16,
-                "top": 299,
-                "textTop": 314,
+                "top": 298,
+                "textTop": 313,
                 "visible": true
               }
             ],
-            "gridTop": 447
+            "gridTop": 446
           }
         },
         {
@@ -6286,8 +6270,8 @@
           "details": {
             "text": "Совет ПузыряПорядок любой. Приз за каждую смену. Ошибки не страшно. Я видел много смен, волнуюсь всё равно. Ты не бери с",
             "fontSize": 16,
-            "top": 299,
-            "textTop": 314,
+            "top": 298,
+            "textTop": 313,
             "visible": true
           }
         },
@@ -6295,8 +6279,8 @@
           "id": "readability-mobile-390.advice-above-grid",
           "status": "pass",
           "details": {
-            "adviceTop": 299,
-            "gridTop": 447
+            "adviceTop": 298,
+            "gridTop": 446
           }
         },
         {
@@ -6406,12 +6390,12 @@
               {
                 "text": "Совет ПузыряПорядок любой. Приз за каждую смену. Ошибки не страшно. Я видел много смен, волнуюсь всё равно. Ты не бери с",
                 "fontSize": 16,
-                "top": 332,
-                "textTop": 348,
+                "top": 333,
+                "textTop": 349,
                 "visible": true
               }
             ],
-            "gridTop": 449
+            "gridTop": 450
           }
         },
         {
@@ -6420,8 +6404,8 @@
           "details": {
             "text": "Совет ПузыряПорядок любой. Приз за каждую смену. Ошибки не страшно. Я видел много смен, волнуюсь всё равно. Ты не бери с",
             "fontSize": 16,
-            "top": 332,
-            "textTop": 348,
+            "top": 333,
+            "textTop": 349,
             "visible": true
           }
         },
@@ -6429,8 +6413,8 @@
           "id": "readability-landscape.advice-above-grid",
           "status": "pass",
           "details": {
-            "adviceTop": 332,
-            "gridTop": 449
+            "adviceTop": 333,
+            "gridTop": 450
           }
         },
         {
@@ -6455,14 +6439,14 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/readability-v2/01-readability-characters-desktop.png",
-        "screens/2026-10-24T16-18-55/readability-v2/02-readability-game-desktop.png",
-        "screens/2026-10-24T16-18-55/readability-v2/03-readability-characters-mobile-390.png",
-        "screens/2026-10-24T16-18-55/readability-v2/04-readability-game-mobile-390.png",
-        "screens/2026-10-24T16-18-55/readability-v2/05-readability-characters-mobile-360.png",
-        "screens/2026-10-24T16-18-55/readability-v2/06-readability-game-mobile-360.png",
-        "screens/2026-10-24T16-18-55/readability-v2/07-readability-characters-landscape.png",
-        "screens/2026-10-24T16-18-55/readability-v2/08-readability-game-landscape.png"
+        "screens/2026-10-24T22-59-52/readability-v2/01-readability-characters-desktop.png",
+        "screens/2026-10-24T22-59-52/readability-v2/02-readability-game-desktop.png",
+        "screens/2026-10-24T22-59-52/readability-v2/03-readability-characters-mobile-390.png",
+        "screens/2026-10-24T22-59-52/readability-v2/04-readability-game-mobile-390.png",
+        "screens/2026-10-24T22-59-52/readability-v2/05-readability-characters-mobile-360.png",
+        "screens/2026-10-24T22-59-52/readability-v2/06-readability-game-mobile-360.png",
+        "screens/2026-10-24T22-59-52/readability-v2/07-readability-characters-landscape.png",
+        "screens/2026-10-24T22-59-52/readability-v2/08-readability-game-landscape.png"
       ],
       "notes": [],
       "fatal": null
@@ -6477,7 +6461,7 @@
         "dpr": 3,
         "mobile": true
       },
-      "startedAt": "2026-10-24T16:23:11.375Z",
+      "startedAt": "2026-10-24T23:04:05.191Z",
       "checks": [
         {
           "id": "final-fixes.scene-time-label",
@@ -6569,9 +6553,9 @@
             },
             "cta": {
               "left": 16,
-              "top": 557,
+              "top": 558,
               "right": 374,
-              "bottom": 615,
+              "bottom": 616,
               "width": 358,
               "height": 58
             }
@@ -6890,9 +6874,9 @@
             },
             "cta": {
               "left": 16,
-              "top": 544,
+              "top": 542,
               "right": 344,
-              "bottom": 602,
+              "bottom": 600,
               "width": 328,
               "height": 58
             }
@@ -7211,10 +7195,10 @@
             },
             "cta": {
               "left": 35,
-              "top": 533,
-              "right": 219,
-              "bottom": 591,
-              "width": 184,
+              "top": 534,
+              "right": 266,
+              "bottom": 592,
+              "width": 230,
               "height": 58
             }
           }
@@ -7482,10 +7466,10 @@
             },
             "cta": {
               "left": 60,
-              "top": 807,
-              "right": 244,
-              "bottom": 865,
-              "width": 184,
+              "top": 810,
+              "right": 291,
+              "bottom": 868,
+              "width": 230,
               "height": 58
             }
           }
@@ -7673,14 +7657,14 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/final-fixes/01-landing-390.png",
-        "screens/2026-10-24T16-18-55/final-fixes/02-game-hud-390.png",
-        "screens/2026-10-24T16-18-55/final-fixes/03-landing-360.png",
-        "screens/2026-10-24T16-18-55/final-fixes/04-game-hud-360.png",
-        "screens/2026-10-24T16-18-55/final-fixes/05-landing-landscape.png",
-        "screens/2026-10-24T16-18-55/final-fixes/06-game-hud-landscape.png",
-        "screens/2026-10-24T16-18-55/final-fixes/07-landing-desktop.png",
-        "screens/2026-10-24T16-18-55/final-fixes/08-game-hud-desktop.png"
+        "screens/2026-10-24T22-59-52/final-fixes/01-landing-390.png",
+        "screens/2026-10-24T22-59-52/final-fixes/02-game-hud-390.png",
+        "screens/2026-10-24T22-59-52/final-fixes/03-landing-360.png",
+        "screens/2026-10-24T22-59-52/final-fixes/04-game-hud-360.png",
+        "screens/2026-10-24T22-59-52/final-fixes/05-landing-landscape.png",
+        "screens/2026-10-24T22-59-52/final-fixes/06-game-hud-landscape.png",
+        "screens/2026-10-24T22-59-52/final-fixes/07-landing-desktop.png",
+        "screens/2026-10-24T22-59-52/final-fixes/08-game-hud-desktop.png"
       ],
       "notes": [],
       "fatal": null
@@ -7695,13 +7679,13 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T16:23:28.192Z",
+      "startedAt": "2026-10-24T23:04:21.434Z",
       "checks": [
         {
           "id": "design.brand-css-scoped",
           "status": "pass",
           "details": {
-            "rules": 399,
+            "rules": 405,
             "unscoped": []
           }
         },
@@ -7753,8 +7737,8 @@
           "id": "design.sw-version",
           "status": "pass",
           "details": {
-            "version": "brodilka-v18",
-            "number": 18
+            "version": "brodilka-v20",
+            "number": 20
           }
         },
         {
@@ -8840,14 +8824,14 @@
               "stepIndex": 0,
               "stars": 0,
               "rewardedSteps": [],
-              "startedAt": "2026-10-24T16:23:49.790Z"
+              "startedAt": "2026-10-24T23:04:40.728Z"
             },
             "after": {
               "charId": "brewer",
               "stepIndex": 0,
               "stars": 0,
               "rewardedSteps": [],
-              "startedAt": "2026-10-24T16:23:49.790Z"
+              "startedAt": "2026-10-24T23:04:40.728Z"
             }
           }
         },
@@ -8869,7 +8853,7 @@
             "stepIndex": 0,
             "stars": 0,
             "rewardedSteps": [],
-            "startedAt": "2026-10-24T16:23:49.790Z"
+            "startedAt": "2026-10-24T23:04:40.728Z"
           }
         },
         {
@@ -8936,26 +8920,26 @@
             "stepIndex": 0,
             "stars": 0,
             "rewardedSteps": [],
-            "startedAt": "2026-10-24T16:23:49.790Z"
+            "startedAt": "2026-10-24T23:04:40.728Z"
           }
         },
         {
           "id": "design.promo-present",
           "status": "pass",
           "details": {
-            "code": "OCHK-NECYSVUU",
-            "text": "OCHK-NECYSVUU",
-            "scrollWidth": 141,
-            "clientWidth": 141,
+            "code": "OCHK-38SHXWXF",
+            "text": "OCHK-38SHXWXF",
+            "scrollWidth": 142,
+            "clientWidth": 142,
             "overflow": "visible",
             "textOverflow": "clip",
             "clipped": false,
             "rect": {
-              "left": 125,
-              "right": 265,
+              "left": 124,
+              "right": 266,
               "top": 709,
               "bottom": 732,
-              "width": 141
+              "width": 142
             },
             "viewport": 390,
             "design": "brand",
@@ -8966,19 +8950,19 @@
           "id": "design.promo-not-clipped-390",
           "status": "pass",
           "details": {
-            "code": "OCHK-NECYSVUU",
-            "text": "OCHK-NECYSVUU",
-            "scrollWidth": 141,
-            "clientWidth": 141,
+            "code": "OCHK-38SHXWXF",
+            "text": "OCHK-38SHXWXF",
+            "scrollWidth": 142,
+            "clientWidth": 142,
             "overflow": "visible",
             "textOverflow": "clip",
             "clipped": false,
             "rect": {
-              "left": 125,
-              "right": 265,
+              "left": 124,
+              "right": 266,
               "top": 709,
               "bottom": 732,
-              "width": 141
+              "width": 142
             },
             "viewport": 390,
             "design": "brand",
@@ -8989,19 +8973,19 @@
           "id": "design.result-brand",
           "status": "pass",
           "details": {
-            "code": "OCHK-NECYSVUU",
-            "text": "OCHK-NECYSVUU",
-            "scrollWidth": 141,
-            "clientWidth": 141,
+            "code": "OCHK-38SHXWXF",
+            "text": "OCHK-38SHXWXF",
+            "scrollWidth": 142,
+            "clientWidth": 142,
             "overflow": "visible",
             "textOverflow": "clip",
             "clipped": false,
             "rect": {
-              "left": 125,
-              "right": 265,
+              "left": 124,
+              "right": 266,
               "top": 709,
               "bottom": 732,
-              "width": 141
+              "width": 142
             },
             "viewport": 390,
             "design": "brand",
@@ -9028,11 +9012,11 @@
           "id": "design.promo-not-clipped-360",
           "status": "pass",
           "details": {
-            "text": "OCHK-NECYSVUU",
-            "scrollWidth": 141,
-            "clientWidth": 141,
+            "text": "OCHK-38SHXWXF",
+            "scrollWidth": 142,
+            "clientWidth": 142,
             "clipped": false,
-            "right": 250,
+            "right": 251,
             "viewport": 360,
             "hscroll": false
           }
@@ -9104,8 +9088,8 @@
           "status": "pass",
           "details": {
             "keys": [
-              "brodilka-v18-shell",
-              "brodilka-v18-runtime"
+              "brodilka-v20-shell",
+              "brodilka-v20-runtime"
             ],
             "missing": []
           }
@@ -9150,28 +9134,28 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/design-theme/01-brand-landing-desktop.png",
-        "screens/2026-10-24T16-18-55/design-theme/02-brand-intro-desktop.png",
-        "screens/2026-10-24T16-18-55/design-theme/03-brand-characters-desktop.png",
-        "screens/2026-10-24T16-18-55/design-theme/04-brand-game-desktop.png",
-        "screens/2026-10-24T16-18-55/design-theme/05-brand-landing-mobile-390.png",
-        "screens/2026-10-24T16-18-55/design-theme/06-brand-intro-mobile-390.png",
-        "screens/2026-10-24T16-18-55/design-theme/07-brand-characters-mobile-390.png",
-        "screens/2026-10-24T16-18-55/design-theme/08-brand-game-mobile-390.png",
-        "screens/2026-10-24T16-18-55/design-theme/09-brand-landing-mobile-360.png",
-        "screens/2026-10-24T16-18-55/design-theme/10-brand-intro-mobile-360.png",
-        "screens/2026-10-24T16-18-55/design-theme/11-brand-characters-mobile-360.png",
-        "screens/2026-10-24T16-18-55/design-theme/12-brand-game-mobile-360.png",
-        "screens/2026-10-24T16-18-55/design-theme/13-brand-landing-landscape.png",
-        "screens/2026-10-24T16-18-55/design-theme/14-brand-intro-landscape.png",
-        "screens/2026-10-24T16-18-55/design-theme/15-brand-characters-landscape.png",
-        "screens/2026-10-24T16-18-55/design-theme/16-brand-game-landscape.png",
-        "screens/2026-10-24T16-18-55/design-theme/17-brodilka-characters-390.png",
-        "screens/2026-10-24T16-18-55/design-theme/18-brand-result-390.png",
-        "screens/2026-10-24T16-18-55/design-theme/19-brand-result-360.png",
-        "screens/2026-10-24T16-18-55/design-theme/20-brand-result-desktop.png",
-        "screens/2026-10-24T16-18-55/design-theme/21-brand-apply-desktop.png",
-        "screens/2026-10-24T16-18-55/design-theme/22-brand-offline.png"
+        "screens/2026-10-24T22-59-52/design-theme/01-brand-landing-desktop.png",
+        "screens/2026-10-24T22-59-52/design-theme/02-brand-intro-desktop.png",
+        "screens/2026-10-24T22-59-52/design-theme/03-brand-characters-desktop.png",
+        "screens/2026-10-24T22-59-52/design-theme/04-brand-game-desktop.png",
+        "screens/2026-10-24T22-59-52/design-theme/05-brand-landing-mobile-390.png",
+        "screens/2026-10-24T22-59-52/design-theme/06-brand-intro-mobile-390.png",
+        "screens/2026-10-24T22-59-52/design-theme/07-brand-characters-mobile-390.png",
+        "screens/2026-10-24T22-59-52/design-theme/08-brand-game-mobile-390.png",
+        "screens/2026-10-24T22-59-52/design-theme/09-brand-landing-mobile-360.png",
+        "screens/2026-10-24T22-59-52/design-theme/10-brand-intro-mobile-360.png",
+        "screens/2026-10-24T22-59-52/design-theme/11-brand-characters-mobile-360.png",
+        "screens/2026-10-24T22-59-52/design-theme/12-brand-game-mobile-360.png",
+        "screens/2026-10-24T22-59-52/design-theme/13-brand-landing-landscape.png",
+        "screens/2026-10-24T22-59-52/design-theme/14-brand-intro-landscape.png",
+        "screens/2026-10-24T22-59-52/design-theme/15-brand-characters-landscape.png",
+        "screens/2026-10-24T22-59-52/design-theme/16-brand-game-landscape.png",
+        "screens/2026-10-24T22-59-52/design-theme/17-brodilka-characters-390.png",
+        "screens/2026-10-24T22-59-52/design-theme/18-brand-result-390.png",
+        "screens/2026-10-24T22-59-52/design-theme/19-brand-result-360.png",
+        "screens/2026-10-24T22-59-52/design-theme/20-brand-result-desktop.png",
+        "screens/2026-10-24T22-59-52/design-theme/21-brand-apply-desktop.png",
+        "screens/2026-10-24T22-59-52/design-theme/22-brand-offline.png"
       ],
       "notes": [],
       "fatal": null
@@ -9186,7 +9170,7 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T16:24:21.466Z",
+      "startedAt": "2026-10-24T23:05:10.040Z",
       "checks": [
         {
           "id": "v14.hero-clean",
@@ -9311,13 +9295,13 @@
             "popLoaded": true,
             "splatPresent": true,
             "splatImgLoaded": true,
-            "code": "OCHK-XR3VBAA2",
+            "code": "OCHK-USPCA3GM",
             "codeRect": {
-              "left": 230,
+              "left": 227,
               "top": 916,
-              "right": 429,
+              "right": 432,
               "bottom": 948,
-              "width": 199,
+              "width": 205,
               "height": 32
             },
             "codeClipped": false,
@@ -9340,13 +9324,13 @@
             "popLoaded": true,
             "splatPresent": true,
             "splatImgLoaded": true,
-            "code": "OCHK-XR3VBAA2",
+            "code": "OCHK-USPCA3GM",
             "codeRect": {
-              "left": 230,
+              "left": 227,
               "top": 916,
-              "right": 429,
+              "right": 432,
               "bottom": 948,
-              "width": 199,
+              "width": 205,
               "height": 32
             },
             "codeClipped": false,
@@ -9369,13 +9353,13 @@
             "popLoaded": true,
             "splatPresent": true,
             "splatImgLoaded": true,
-            "code": "OCHK-XR3VBAA2",
+            "code": "OCHK-USPCA3GM",
             "codeRect": {
-              "left": 230,
+              "left": 227,
               "top": 916,
-              "right": 429,
+              "right": 432,
               "bottom": 948,
-              "width": 199,
+              "width": 205,
               "height": 32
             },
             "codeClipped": false,
@@ -9398,13 +9382,13 @@
             "popLoaded": true,
             "splatPresent": true,
             "splatImgLoaded": true,
-            "code": "OCHK-XR3VBAA2",
+            "code": "OCHK-USPCA3GM",
             "codeRect": {
-              "left": 230,
+              "left": 227,
               "top": 916,
-              "right": 429,
+              "right": 432,
               "bottom": 948,
-              "width": 199,
+              "width": 205,
               "height": 32
             },
             "codeClipped": false,
@@ -9427,13 +9411,13 @@
             "popLoaded": true,
             "splatPresent": true,
             "splatImgLoaded": true,
-            "code": "OCHK-XR3VBAA2",
+            "code": "OCHK-USPCA3GM",
             "codeRect": {
-              "left": 230,
+              "left": 227,
               "top": 916,
-              "right": 429,
+              "right": 432,
               "bottom": 948,
-              "width": 199,
+              "width": 205,
               "height": 32
             },
             "codeClipped": false,
@@ -9591,8 +9575,8 @@
           "id": "v14.storage-birthdate",
           "status": "pass",
           "details": {
-            "id": "HR-26-7808",
-            "ticket": "HR-26-7808",
+            "id": "HR-26-8967",
+            "ticket": "HR-26-8967",
             "charId": "brewer",
             "vacancy": "Машинист оборудования",
             "name": "Проверка Дат",
@@ -9603,15 +9587,15 @@
             "city": "Москва",
             "resumeLink": "",
             "delivered": true,
-            "createdAt": "2026-10-24T16:24:40.523Z"
+            "createdAt": "2026-10-24T23:05:28.462Z"
           }
         },
         {
           "id": "brand.pdf-valid",
           "status": "pass",
           "details": {
-            "file": "ochakovo-zayavka-HR-26-7808.pdf",
-            "size": 164101,
+            "file": "ochakovo-zayavka-HR-26-8967.pdf",
+            "size": 164112,
             "isPdf": true,
             "hasEof": true,
             "pages": 1,
@@ -9623,13 +9607,13 @@
         {
           "id": "brand.pdf-filename",
           "status": "pass",
-          "details": "ochakovo-zayavka-HR-26-7808.pdf"
+          "details": "ochakovo-zayavka-HR-26-8967.pdf"
         },
         {
           "id": "brand.pdf-image",
           "status": "pass",
           "details": {
-            "bytes": 163400
+            "bytes": 163411
           }
         },
         {
@@ -9644,7 +9628,7 @@
           "id": "v14.brodilka-result",
           "status": "pass",
           "details": {
-            "code": "OCHK-YKBJPKWC",
+            "code": "OCHK-DSMMB5RV",
             "clipped": false,
             "splat": true,
             "scene": true,
@@ -9655,8 +9639,8 @@
           "id": "brodilka.pdf-valid",
           "status": "pass",
           "details": {
-            "file": "ochakovo-zayavka-HR-26-1267.pdf",
-            "size": 169876,
+            "file": "ochakovo-zayavka-HR-26-9149.pdf",
+            "size": 169833,
             "isPdf": true,
             "hasEof": true,
             "pages": 1,
@@ -9668,21 +9652,21 @@
         {
           "id": "brodilka.pdf-filename",
           "status": "pass",
-          "details": "ochakovo-zayavka-HR-26-1267.pdf"
+          "details": "ochakovo-zayavka-HR-26-9149.pdf"
         },
         {
           "id": "brodilka.pdf-image",
           "status": "pass",
           "details": {
-            "bytes": 169175
+            "bytes": 169132
           }
         },
         {
           "id": "v14.pdf-theme-diff",
           "status": "pass",
           "details": {
-            "brand": 164101,
-            "brodilka": 169876
+            "brand": 164112,
+            "brodilka": 169833
           }
         },
         {
@@ -9710,7 +9694,7 @@
           "status": "pass",
           "details": {
             "running": 0,
-            "code": "OCHK-MQ528HPC",
+            "code": "OCHK-BVB65SW3",
             "codeClipped": false,
             "sceneGone": true,
             "hscroll": false
@@ -9720,8 +9704,8 @@
           "id": "v14.sw-version",
           "status": "pass",
           "details": {
-            "version": "brodilka-v18",
-            "number": 18
+            "version": "brodilka-v20",
+            "number": 20
           }
         },
         {
@@ -9729,8 +9713,8 @@
           "status": "pass",
           "details": {
             "keys": [
-              "brodilka-v18-shell",
-              "brodilka-v18-runtime"
+              "brodilka-v20-shell",
+              "brodilka-v20-runtime"
             ],
             "urls": [
               "http://127.0.0.1:4517/",
@@ -9743,8 +9727,8 @@
               "http://127.0.0.1:4517/js/data.js",
               "http://127.0.0.1:4517/js/pdf.js",
               "http://127.0.0.1:4517/assets/share-promo.png",
-              "http://127.0.0.1:4517/js/app.js",
               "http://127.0.0.1:4517/assets/brand/ochakovo-logo.png",
+              "http://127.0.0.1:4517/js/app.js",
               "http://127.0.0.1:4517/assets/brand/ochakovo-logo-white.png",
               "http://127.0.0.1:4517/assets/brand/ochakovo-mark.svg",
               "http://127.0.0.1:4517/assets/brand/ornament.svg",
@@ -9758,8 +9742,8 @@
               "http://127.0.0.1:4517/assets/mascot.svg",
               "http://127.0.0.1:4517/assets/chief.svg",
               "http://127.0.0.1:4517/assets/mark.svg",
-              "http://127.0.0.1:4517/assets/dasha.svg",
               "http://127.0.0.1:4517/assets/lev.svg",
+              "http://127.0.0.1:4517/assets/dasha.svg",
               "http://127.0.0.1:4517/assets/hero-can.svg",
               "http://127.0.0.1:4517/assets/scene-brew.svg",
               "http://127.0.0.1:4517/assets/scene-line.svg",
@@ -9778,16 +9762,16 @@
               "http://127.0.0.1:4517/assets/brand/ochakovo-logo.png",
               "http://127.0.0.1:4517/js/data.js",
               "http://127.0.0.1:4517/js/pdf.js",
-              "http://127.0.0.1:4517/css/game.css",
               "http://127.0.0.1:4517/assets/brand/ochakovo-mark.svg",
+              "http://127.0.0.1:4517/css/game.css",
               "http://127.0.0.1:4517/js/app.js",
               "http://127.0.0.1:4517/assets/hero-can.svg",
               "http://127.0.0.1:4517/assets/mascot.svg",
-              "http://127.0.0.1:4517/assets/brand/ornament.svg",
               "http://127.0.0.1:4517/assets/brand/ochakovo-logo-white.png",
+              "http://127.0.0.1:4517/assets/brand/ornament.svg",
               "http://127.0.0.1:4517/assets/app-icon.svg"
             ],
-            "swVersion": "brodilka-v18",
+            "swVersion": "brodilka-v20",
             "swTextOldMascot": false,
             "swTextRootMascot": true
           }
@@ -9798,8 +9782,8 @@
           "details": {
             "missing": [],
             "keys": [
-              "brodilka-v18-shell",
-              "brodilka-v18-runtime"
+              "brodilka-v20-shell",
+              "brodilka-v20-runtime"
             ]
           }
         },
@@ -9840,17 +9824,17 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/v14-final/01-v14-landing-brand.png",
-        "screens/2026-10-24T16-18-55/v14-final/02-v14-intro-mascot.png",
-        "screens/2026-10-24T16-18-55/v14-final/03-v14-chat-mascot.png",
-        "screens/2026-10-24T16-18-55/v14-final/04-v14-result-brand.png",
-        "screens/2026-10-24T16-18-55/v14-final/05-v14-result-settled.png",
-        "screens/2026-10-24T16-18-55/v14-final/06-v14-form-mascot.png",
-        "screens/2026-10-24T16-18-55/v14-final/07-v14-success-brand.png",
-        "screens/2026-10-24T16-18-55/v14-final/08-v14-result-brodilka-settled.png",
-        "screens/2026-10-24T16-18-55/v14-final/09-v14-success-brodilka.png",
-        "screens/2026-10-24T16-18-55/v14-final/10-v14-reduced-motion-result.png",
-        "screens/2026-10-24T16-18-55/v14-final/11-v14-offline.png"
+        "screens/2026-10-24T22-59-52/v14-final/01-v14-landing-brand.png",
+        "screens/2026-10-24T22-59-52/v14-final/02-v14-intro-mascot.png",
+        "screens/2026-10-24T22-59-52/v14-final/03-v14-chat-mascot.png",
+        "screens/2026-10-24T22-59-52/v14-final/04-v14-result-brand.png",
+        "screens/2026-10-24T22-59-52/v14-final/05-v14-result-settled.png",
+        "screens/2026-10-24T22-59-52/v14-final/06-v14-form-mascot.png",
+        "screens/2026-10-24T22-59-52/v14-final/07-v14-success-brand.png",
+        "screens/2026-10-24T22-59-52/v14-final/08-v14-result-brodilka-settled.png",
+        "screens/2026-10-24T22-59-52/v14-final/09-v14-success-brodilka.png",
+        "screens/2026-10-24T22-59-52/v14-final/10-v14-reduced-motion-result.png",
+        "screens/2026-10-24T22-59-52/v14-final/11-v14-offline.png"
       ],
       "notes": [],
       "fatal": null
@@ -9865,15 +9849,15 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T16:25:11.302Z",
+      "startedAt": "2026-10-24T23:06:00.266Z",
       "checks": [
         {
           "id": "v18.quick-landing-button",
           "status": "pass",
           "details": {
             "present": true,
-            "text": "Заполнить без игры",
-            "width": 204.171875,
+            "text": "Перейти к вакансиям",
+            "width": 215.359375,
             "height": 58,
             "visible": true
           }
@@ -9892,7 +9876,7 @@
               "lab"
             ],
             "roleValue": "brewer",
-            "roleLabel": "Направление *",
+            "roleLabel": "",
             "vacancyCard": false,
             "homeButton": true,
             "hasBackResult": false,
@@ -9913,7 +9897,7 @@
               "lab"
             ],
             "roleValue": "brewer",
-            "roleLabel": "Направление *",
+            "roleLabel": "",
             "vacancyCard": false,
             "homeButton": true,
             "hasBackResult": false,
@@ -9934,7 +9918,7 @@
               "lab"
             ],
             "roleValue": "brewer",
-            "roleLabel": "Направление *",
+            "roleLabel": "",
             "vacancyCard": false,
             "homeButton": true,
             "hasBackResult": false,
@@ -9955,7 +9939,7 @@
               "lab"
             ],
             "roleValue": "lab",
-            "roleLabel": "Направление *",
+            "roleLabel": "",
             "vacancyCard": false,
             "homeButton": true,
             "hasBackResult": false,
@@ -10012,8 +9996,8 @@
           "id": "v18.quick-pdf",
           "status": "pass",
           "details": {
-            "file": "ochakovo-zayavka-HR-26-1426.pdf",
-            "size": 162815,
+            "file": "ochakovo-zayavka-HR-26-9339.pdf",
+            "size": 162943,
             "isPdf": true,
             "hasEof": true,
             "pages": 1,
@@ -10045,7 +10029,7 @@
               "lab"
             ],
             "roleValue": "brewer",
-            "roleLabel": "Направление *",
+            "roleLabel": "",
             "vacancyCard": false,
             "homeButton": true,
             "hasBackResult": false,
@@ -10075,7 +10059,7 @@
               "lab"
             ],
             "roleValue": "brewer",
-            "roleLabel": "Направление *",
+            "roleLabel": "",
             "vacancyCard": false,
             "homeButton": true,
             "hasBackResult": false,
@@ -10335,12 +10319,1018 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T16-18-55/v18-final/01-v18-quick-success-desktop.png",
-        "screens/2026-10-24T16-18-55/v18-final/02-v18-quick-apply-brand-390.png",
-        "screens/2026-10-24T16-18-55/v18-final/03-v18-quick-apply-brodilka-360.png",
-        "screens/2026-10-24T16-18-55/v18-final/04-v18-dialogue-brand-1440.png",
-        "screens/2026-10-24T16-18-55/v18-final/05-v18-dialogue-brodilka-390.png",
-        "screens/2026-10-24T16-18-55/v18-final/06-v18-dialogue-brand-360.png"
+        "screens/2026-10-24T22-59-52/v18-final/01-v18-quick-success-desktop.png",
+        "screens/2026-10-24T22-59-52/v18-final/02-v18-quick-apply-brand-390.png",
+        "screens/2026-10-24T22-59-52/v18-final/03-v18-quick-apply-brodilka-360.png",
+        "screens/2026-10-24T22-59-52/v18-final/04-v18-dialogue-brand-1440.png",
+        "screens/2026-10-24T22-59-52/v18-final/05-v18-dialogue-brodilka-390.png",
+        "screens/2026-10-24T22-59-52/v18-final/06-v18-dialogue-brand-360.png"
+      ],
+      "notes": [],
+      "fatal": null
+    },
+    {
+      "id": "v19-final",
+      "title": "v19: мобильный Пузырь в потоке, CTA «смену-квест»/«вакансии»/«или», 3 карточки ролей, PWA v19",
+      "viewport": {
+        "id": "desktop",
+        "width": 1440,
+        "height": 1000,
+        "dpr": 1,
+        "mobile": false
+      },
+      "startedAt": "2026-10-24T23:06:25.878Z",
+      "checks": [
+        {
+          "id": "v19.landing-1440-brand.cta",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "hscroll": false,
+            "primaryText": "Начать смену-квест",
+            "quickText": "Перейти к вакансиям",
+            "orText": "или",
+            "orVisible": true,
+            "primaryRect": {
+              "left": 60,
+              "top": 810,
+              "right": 291,
+              "bottom": 868,
+              "width": 230,
+              "height": 58
+            },
+            "quickRect": {
+              "left": 363,
+              "top": 810,
+              "right": 578,
+              "bottom": 868,
+              "width": 215,
+              "height": 58
+            },
+            "orRect": {
+              "left": 315,
+              "top": 831,
+              "right": 339,
+              "bottom": 846,
+              "width": 24,
+              "height": 15
+            },
+            "ctaOverlap": false,
+            "noteRect": {
+              "left": 875,
+              "top": 809,
+              "right": 1129,
+              "bottom": 919,
+              "width": 254,
+              "height": 110
+            },
+            "guideRect": {
+              "left": 769,
+              "top": 809,
+              "right": 1129,
+              "bottom": 935,
+              "width": 360,
+              "height": 126
+            },
+            "artRect": {
+              "left": 775,
+              "top": 142,
+              "right": 1365,
+              "bottom": 951,
+              "width": 590,
+              "height": 809
+            },
+            "noteInArt": true,
+            "noteOverlapCta": false,
+            "noteInsideGuide": true,
+            "notePosition": "relative",
+            "viewport": 1425
+          }
+        },
+        {
+          "id": "v19.landing-1440-brand.no-hscroll",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "hscroll": false,
+            "primaryText": "Начать смену-квест",
+            "quickText": "Перейти к вакансиям",
+            "orText": "или",
+            "orVisible": true,
+            "primaryRect": {
+              "left": 60,
+              "top": 810,
+              "right": 291,
+              "bottom": 868,
+              "width": 230,
+              "height": 58
+            },
+            "quickRect": {
+              "left": 363,
+              "top": 810,
+              "right": 578,
+              "bottom": 868,
+              "width": 215,
+              "height": 58
+            },
+            "orRect": {
+              "left": 315,
+              "top": 831,
+              "right": 339,
+              "bottom": 846,
+              "width": 24,
+              "height": 15
+            },
+            "ctaOverlap": false,
+            "noteRect": {
+              "left": 875,
+              "top": 809,
+              "right": 1129,
+              "bottom": 919,
+              "width": 254,
+              "height": 110
+            },
+            "guideRect": {
+              "left": 769,
+              "top": 809,
+              "right": 1129,
+              "bottom": 935,
+              "width": 360,
+              "height": 126
+            },
+            "artRect": {
+              "left": 775,
+              "top": 142,
+              "right": 1365,
+              "bottom": 951,
+              "width": 590,
+              "height": 809
+            },
+            "noteInArt": true,
+            "noteOverlapCta": false,
+            "noteInsideGuide": true,
+            "notePosition": "relative",
+            "viewport": 1425
+          }
+        },
+        {
+          "id": "v19.landing-390-brand.cta",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "hscroll": false,
+            "primaryText": "Начать смену-квест",
+            "quickText": "Перейти к вакансиям",
+            "orText": "или",
+            "orVisible": true,
+            "primaryRect": {
+              "left": 16,
+              "top": 560,
+              "right": 374,
+              "bottom": 618,
+              "width": 358,
+              "height": 58
+            },
+            "quickRect": {
+              "left": 16,
+              "top": 668,
+              "right": 374,
+              "bottom": 726,
+              "width": 358,
+              "height": 58
+            },
+            "orRect": {
+              "left": 183,
+              "top": 636,
+              "right": 207,
+              "bottom": 650,
+              "width": 24,
+              "height": 15
+            },
+            "ctaOverlap": false,
+            "noteRect": {
+              "left": 108,
+              "top": 1179,
+              "right": 358,
+              "bottom": 1278,
+              "width": 250,
+              "height": 99
+            },
+            "guideRect": {
+              "left": 32,
+              "top": 1179,
+              "right": 358,
+              "bottom": 1278,
+              "width": 326,
+              "height": 99
+            },
+            "artRect": {
+              "left": 16,
+              "top": 875,
+              "right": 374,
+              "bottom": 1294,
+              "width": 358,
+              "height": 419
+            },
+            "noteInArt": true,
+            "noteOverlapCta": false,
+            "noteInsideGuide": true,
+            "notePosition": "relative",
+            "viewport": 390
+          }
+        },
+        {
+          "id": "v19.landing-390-brand.no-hscroll",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "hscroll": false,
+            "primaryText": "Начать смену-квест",
+            "quickText": "Перейти к вакансиям",
+            "orText": "или",
+            "orVisible": true,
+            "primaryRect": {
+              "left": 16,
+              "top": 560,
+              "right": 374,
+              "bottom": 618,
+              "width": 358,
+              "height": 58
+            },
+            "quickRect": {
+              "left": 16,
+              "top": 668,
+              "right": 374,
+              "bottom": 726,
+              "width": 358,
+              "height": 58
+            },
+            "orRect": {
+              "left": 183,
+              "top": 636,
+              "right": 207,
+              "bottom": 650,
+              "width": 24,
+              "height": 15
+            },
+            "ctaOverlap": false,
+            "noteRect": {
+              "left": 108,
+              "top": 1179,
+              "right": 358,
+              "bottom": 1278,
+              "width": 250,
+              "height": 99
+            },
+            "guideRect": {
+              "left": 32,
+              "top": 1179,
+              "right": 358,
+              "bottom": 1278,
+              "width": 326,
+              "height": 99
+            },
+            "artRect": {
+              "left": 16,
+              "top": 875,
+              "right": 374,
+              "bottom": 1294,
+              "width": 358,
+              "height": 419
+            },
+            "noteInArt": true,
+            "noteOverlapCta": false,
+            "noteInsideGuide": true,
+            "notePosition": "relative",
+            "viewport": 390
+          }
+        },
+        {
+          "id": "v19.landing-390-brand.guide-in-flow",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "hscroll": false,
+            "primaryText": "Начать смену-квест",
+            "quickText": "Перейти к вакансиям",
+            "orText": "или",
+            "orVisible": true,
+            "primaryRect": {
+              "left": 16,
+              "top": 560,
+              "right": 374,
+              "bottom": 618,
+              "width": 358,
+              "height": 58
+            },
+            "quickRect": {
+              "left": 16,
+              "top": 668,
+              "right": 374,
+              "bottom": 726,
+              "width": 358,
+              "height": 58
+            },
+            "orRect": {
+              "left": 183,
+              "top": 636,
+              "right": 207,
+              "bottom": 650,
+              "width": 24,
+              "height": 15
+            },
+            "ctaOverlap": false,
+            "noteRect": {
+              "left": 108,
+              "top": 1179,
+              "right": 358,
+              "bottom": 1278,
+              "width": 250,
+              "height": 99
+            },
+            "guideRect": {
+              "left": 32,
+              "top": 1179,
+              "right": 358,
+              "bottom": 1278,
+              "width": 326,
+              "height": 99
+            },
+            "artRect": {
+              "left": 16,
+              "top": 875,
+              "right": 374,
+              "bottom": 1294,
+              "width": 358,
+              "height": 419
+            },
+            "noteInArt": true,
+            "noteOverlapCta": false,
+            "noteInsideGuide": true,
+            "notePosition": "relative",
+            "viewport": 390
+          }
+        },
+        {
+          "id": "v19.landing-360-brodilka.cta",
+          "status": "pass",
+          "details": {
+            "design": "brodilka",
+            "hscroll": false,
+            "primaryText": "Начать смену-квест",
+            "quickText": "Перейти к вакансиям",
+            "orText": "или",
+            "orVisible": true,
+            "primaryRect": {
+              "left": 16,
+              "top": 186,
+              "right": 344,
+              "bottom": 244,
+              "width": 328,
+              "height": 58
+            },
+            "quickRect": {
+              "left": 16,
+              "top": 294,
+              "right": 344,
+              "bottom": 352,
+              "width": 328,
+              "height": 58
+            },
+            "orRect": {
+              "left": 171,
+              "top": 262,
+              "right": 189,
+              "bottom": 276,
+              "width": 19,
+              "height": 15
+            },
+            "ctaOverlap": false,
+            "noteRect": {
+              "left": 91,
+              "top": 837,
+              "right": 345,
+              "bottom": 945,
+              "width": 254,
+              "height": 107
+            },
+            "guideRect": {
+              "left": 16,
+              "top": 841,
+              "right": 344,
+              "bottom": 942,
+              "width": 328,
+              "height": 101
+            },
+            "artRect": {
+              "left": 16,
+              "top": 507,
+              "right": 344,
+              "bottom": 942,
+              "width": 328,
+              "height": 435
+            },
+            "noteInArt": true,
+            "noteOverlapCta": false,
+            "noteInsideGuide": true,
+            "notePosition": "relative",
+            "viewport": 360
+          }
+        },
+        {
+          "id": "v19.landing-360-brodilka.no-hscroll",
+          "status": "pass",
+          "details": {
+            "design": "brodilka",
+            "hscroll": false,
+            "primaryText": "Начать смену-квест",
+            "quickText": "Перейти к вакансиям",
+            "orText": "или",
+            "orVisible": true,
+            "primaryRect": {
+              "left": 16,
+              "top": 186,
+              "right": 344,
+              "bottom": 244,
+              "width": 328,
+              "height": 58
+            },
+            "quickRect": {
+              "left": 16,
+              "top": 294,
+              "right": 344,
+              "bottom": 352,
+              "width": 328,
+              "height": 58
+            },
+            "orRect": {
+              "left": 171,
+              "top": 262,
+              "right": 189,
+              "bottom": 276,
+              "width": 19,
+              "height": 15
+            },
+            "ctaOverlap": false,
+            "noteRect": {
+              "left": 91,
+              "top": 837,
+              "right": 345,
+              "bottom": 945,
+              "width": 254,
+              "height": 107
+            },
+            "guideRect": {
+              "left": 16,
+              "top": 841,
+              "right": 344,
+              "bottom": 942,
+              "width": 328,
+              "height": 101
+            },
+            "artRect": {
+              "left": 16,
+              "top": 507,
+              "right": 344,
+              "bottom": 942,
+              "width": 328,
+              "height": 435
+            },
+            "noteInArt": true,
+            "noteOverlapCta": false,
+            "noteInsideGuide": true,
+            "notePosition": "relative",
+            "viewport": 360
+          }
+        },
+        {
+          "id": "v19.landing-360-brodilka.guide-in-flow",
+          "status": "pass",
+          "details": {
+            "design": "brodilka",
+            "hscroll": false,
+            "primaryText": "Начать смену-квест",
+            "quickText": "Перейти к вакансиям",
+            "orText": "или",
+            "orVisible": true,
+            "primaryRect": {
+              "left": 16,
+              "top": 186,
+              "right": 344,
+              "bottom": 244,
+              "width": 328,
+              "height": 58
+            },
+            "quickRect": {
+              "left": 16,
+              "top": 294,
+              "right": 344,
+              "bottom": 352,
+              "width": 328,
+              "height": 58
+            },
+            "orRect": {
+              "left": 171,
+              "top": 262,
+              "right": 189,
+              "bottom": 276,
+              "width": 19,
+              "height": 15
+            },
+            "ctaOverlap": false,
+            "noteRect": {
+              "left": 91,
+              "top": 837,
+              "right": 345,
+              "bottom": 945,
+              "width": 254,
+              "height": 107
+            },
+            "guideRect": {
+              "left": 16,
+              "top": 841,
+              "right": 344,
+              "bottom": 942,
+              "width": 328,
+              "height": 101
+            },
+            "artRect": {
+              "left": 16,
+              "top": 507,
+              "right": 344,
+              "bottom": 942,
+              "width": 328,
+              "height": 435
+            },
+            "noteInArt": true,
+            "noteOverlapCta": false,
+            "noteInsideGuide": true,
+            "notePosition": "relative",
+            "viewport": 360
+          }
+        },
+        {
+          "id": "v19.landing-landscape-brand.cta",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "hscroll": false,
+            "primaryText": "Начать смену-квест",
+            "quickText": "Перейти к вакансиям",
+            "orText": "или",
+            "orVisible": true,
+            "primaryRect": {
+              "left": 35,
+              "top": 537,
+              "right": 266,
+              "bottom": 595,
+              "width": 230,
+              "height": 58
+            },
+            "quickRect": {
+              "left": 338,
+              "top": 537,
+              "right": 553,
+              "bottom": 595,
+              "width": 215,
+              "height": 58
+            },
+            "orRect": {
+              "left": 290,
+              "top": 559,
+              "right": 314,
+              "bottom": 573,
+              "width": 24,
+              "height": 15
+            },
+            "ctaOverlap": false,
+            "noteRect": {
+              "left": 241,
+              "top": 1020,
+              "right": 455,
+              "bottom": 1149,
+              "width": 214,
+              "height": 129
+            },
+            "guideRect": {
+              "left": 135,
+              "top": 1020,
+              "right": 455,
+              "bottom": 1165,
+              "width": 320,
+              "height": 145
+            },
+            "artRect": {
+              "left": 117,
+              "top": 674,
+              "right": 727,
+              "bottom": 1175,
+              "width": 610,
+              "height": 502
+            },
+            "noteInArt": true,
+            "noteOverlapCta": false,
+            "noteInsideGuide": true,
+            "notePosition": "relative",
+            "viewport": 844
+          }
+        },
+        {
+          "id": "v19.landing-landscape-brand.no-hscroll",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "hscroll": false,
+            "primaryText": "Начать смену-квест",
+            "quickText": "Перейти к вакансиям",
+            "orText": "или",
+            "orVisible": true,
+            "primaryRect": {
+              "left": 35,
+              "top": 537,
+              "right": 266,
+              "bottom": 595,
+              "width": 230,
+              "height": 58
+            },
+            "quickRect": {
+              "left": 338,
+              "top": 537,
+              "right": 553,
+              "bottom": 595,
+              "width": 215,
+              "height": 58
+            },
+            "orRect": {
+              "left": 290,
+              "top": 559,
+              "right": 314,
+              "bottom": 573,
+              "width": 24,
+              "height": 15
+            },
+            "ctaOverlap": false,
+            "noteRect": {
+              "left": 241,
+              "top": 1020,
+              "right": 455,
+              "bottom": 1149,
+              "width": 214,
+              "height": 129
+            },
+            "guideRect": {
+              "left": 135,
+              "top": 1020,
+              "right": 455,
+              "bottom": 1165,
+              "width": 320,
+              "height": 145
+            },
+            "artRect": {
+              "left": 117,
+              "top": 674,
+              "right": 727,
+              "bottom": 1175,
+              "width": 610,
+              "height": 502
+            },
+            "noteInArt": true,
+            "noteOverlapCta": false,
+            "noteInsideGuide": true,
+            "notePosition": "relative",
+            "viewport": 844
+          }
+        },
+        {
+          "id": "v19.roles-three",
+          "status": "pass",
+          "details": {
+            "count": 3,
+            "cards": [
+              {
+                "value": "brewer",
+                "selected": true,
+                "aria": "true",
+                "text": "ТОЧНЫЙ НАСТРОЙ Марк · Машинист оборудования Ведёшь оборудование квасного цеха: запускаешь, держишь режимы и передаёшь партию на розлив. Следишь за состоянием линии. Опыт не обязателен: научим.",
+                "img": true,
+                "rect": {
+                  "left": 372,
+                  "top": 510,
+                  "right": 593,
+                  "bottom": 622,
+                  "width": 221,
+                  "height": 113
+                }
+              },
+              {
+                "value": "packer",
+                "selected": false,
+                "aria": "false",
+                "text": "ЛОВКАЯ РУКА Даша · Оператор линии розлива Отвечаешь за линию, бракераж и паллеты. Линия разгоняется до 1000 бутылок в минуту, так что важны внимательность и скорость. Остальному научим.",
+                "img": true,
+                "rect": {
+                  "left": 602,
+                  "top": 510,
+                  "right": 823,
+                  "bottom": 622,
+                  "width": 221,
+                  "height": 113
+                }
+              },
+              {
+                "value": "lab",
+                "selected": false,
+                "aria": "false",
+                "text": "КОНТРОЛЬНЫЙ Лев · Лаборант контроля качества Проверяешь сырьё и готовую продукцию: кислотность, плотность, микробиологию. Работаешь с приборами и журналом. Точность важнее скорости.",
+                "img": true,
+                "rect": {
+                  "left": 832,
+                  "top": 510,
+                  "right": 1053,
+                  "bottom": 622,
+                  "width": 221,
+                  "height": 113
+                }
+              }
+            ],
+            "hiddenType": "hidden",
+            "hiddenValue": "brewer",
+            "hiddenId": "fieldRole",
+            "selectPresent": false,
+            "formBelowRoles": true,
+            "hscroll": false,
+            "postcard": true
+          }
+        },
+        {
+          "id": "v19.roles-content",
+          "status": "pass",
+          "details": [
+            {
+              "value": "brewer",
+              "selected": true,
+              "aria": "true",
+              "text": "ТОЧНЫЙ НАСТРОЙ Марк · Машинист оборудования Ведёшь оборудование квасного цеха: запускаешь, держишь режимы и передаёшь партию на розлив. Следишь за состоянием линии. Опыт не обязателен: научим.",
+              "img": true,
+              "rect": {
+                "left": 372,
+                "top": 510,
+                "right": 593,
+                "bottom": 622,
+                "width": 221,
+                "height": 113
+              }
+            },
+            {
+              "value": "packer",
+              "selected": false,
+              "aria": "false",
+              "text": "ЛОВКАЯ РУКА Даша · Оператор линии розлива Отвечаешь за линию, бракераж и паллеты. Линия разгоняется до 1000 бутылок в минуту, так что важны внимательность и скорость. Остальному научим.",
+              "img": true,
+              "rect": {
+                "left": 602,
+                "top": 510,
+                "right": 823,
+                "bottom": 622,
+                "width": 221,
+                "height": 113
+              }
+            },
+            {
+              "value": "lab",
+              "selected": false,
+              "aria": "false",
+              "text": "КОНТРОЛЬНЫЙ Лев · Лаборант контроля качества Проверяешь сырьё и готовую продукцию: кислотность, плотность, микробиологию. Работаешь с приборами и журналом. Точность важнее скорости.",
+              "img": true,
+              "rect": {
+                "left": 832,
+                "top": 510,
+                "right": 1053,
+                "bottom": 622,
+                "width": 221,
+                "height": 113
+              }
+            }
+          ]
+        },
+        {
+          "id": "v19.roles-desktop-grid",
+          "status": "pass",
+          "details": {
+            "tops": [
+              510
+            ],
+            "lefts": [
+              372,
+              602,
+              832
+            ],
+            "hscroll": false,
+            "formBelow": true
+          }
+        },
+        {
+          "id": "v19.roles-select-1",
+          "status": "pass",
+          "details": {
+            "hidden": "packer",
+            "cards": [
+              false,
+              true,
+              false
+            ]
+          }
+        },
+        {
+          "id": "v19.roles-select-2",
+          "status": "pass",
+          "details": {
+            "hidden": "lab",
+            "cards": [
+              false,
+              false,
+              true
+            ]
+          }
+        },
+        {
+          "id": "v19.roles-radiogroup",
+          "status": "pass",
+          "details": {
+            "groupRole": "radiogroup",
+            "allRadio": true,
+            "checked": 1,
+            "tabIndexes": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "v19.roles-keyboard-focus",
+          "status": "pass",
+          "details": {
+            "value": "brewer",
+            "focusVisible": true,
+            "outlineStyle": "solid",
+            "outlineWidth": "3px",
+            "outlineColor": "rgb(213, 0, 50)",
+            "disabled": false
+          }
+        },
+        {
+          "id": "v19.roles-keyboard-enter",
+          "status": "pass",
+          "details": {
+            "keyboard": "brewer",
+            "hidden": "brewer",
+            "cards": [
+              {
+                "value": "brewer",
+                "selected": true,
+                "aria": "true"
+              },
+              {
+                "value": "packer",
+                "selected": false,
+                "aria": "false"
+              },
+              {
+                "value": "lab",
+                "selected": false,
+                "aria": "false"
+              }
+            ]
+          }
+        },
+        {
+          "id": "v19.roles-success",
+          "status": "pass",
+          "details": {
+            "delivered": true,
+            "hasTicket": true,
+            "charId": "lab",
+            "vacancy": "Лаборант контроля качества",
+            "hscroll": false
+          }
+        },
+        {
+          "id": "v19.roles-data",
+          "status": "pass",
+          "details": {
+            "delivered": true,
+            "hasTicket": true,
+            "charId": "lab",
+            "vacancy": "Лаборант контроля качества",
+            "hscroll": false
+          }
+        },
+        {
+          "id": "v19.roles-pdf",
+          "status": "pass",
+          "details": {
+            "file": "ochakovo-zayavka-HR-26-9066.pdf",
+            "size": 161809,
+            "isPdf": true,
+            "hasEof": true,
+            "pages": 1,
+            "hasImage": true,
+            "hasJpeg": true,
+            "hasXref": true
+          }
+        },
+        {
+          "id": "v19.roles-mobile-390",
+          "status": "pass",
+          "details": {
+            "tops": [
+              426,
+              548,
+              669
+            ],
+            "hscroll": false,
+            "formBelow": true
+          }
+        },
+        {
+          "id": "v19.roles-mobile-390-select",
+          "status": "pass",
+          "details": {
+            "hidden": "packer",
+            "cards": [
+              {
+                "value": "brewer",
+                "selected": false,
+                "aria": "false"
+              },
+              {
+                "value": "packer",
+                "selected": true,
+                "aria": "true"
+              },
+              {
+                "value": "lab",
+                "selected": false,
+                "aria": "false"
+              }
+            ]
+          }
+        },
+        {
+          "id": "v19.roles-mobile-360",
+          "status": "pass",
+          "details": {
+            "tops": [
+              423,
+              545,
+              666
+            ],
+            "hscroll": false,
+            "formBelow": true
+          }
+        },
+        {
+          "id": "v19.roles-mobile-360-select",
+          "status": "pass",
+          "details": {
+            "hidden": "packer",
+            "cards": [
+              {
+                "value": "brewer",
+                "selected": false,
+                "aria": "false"
+              },
+              {
+                "value": "packer",
+                "selected": true,
+                "aria": "true"
+              },
+              {
+                "value": "lab",
+                "selected": false,
+                "aria": "false"
+              }
+            ]
+          }
+        },
+        {
+          "id": "v19-final.console-clean",
+          "status": "pass",
+          "details": null
+        }
+      ],
+      "screenshots": [
+        "screens/2026-10-24T22-59-52/v19-final/01-v19-landing-brand-1440.png",
+        "screens/2026-10-24T22-59-52/v19-final/02-v19-landing-brand-390.png",
+        "screens/2026-10-24T22-59-52/v19-final/03-v19-landing-brodilka-360.png",
+        "screens/2026-10-24T22-59-52/v19-final/04-v19-landing-brand-844.png",
+        "screens/2026-10-24T22-59-52/v19-final/05-v19-quick-roles-desktop.png",
+        "screens/2026-10-24T22-59-52/v19-final/06-v19-quick-roles-selected.png",
+        "screens/2026-10-24T22-59-52/v19-final/07-v19-quick-roles-keyboard.png",
+        "screens/2026-10-24T22-59-52/v19-final/08-v19-quick-success.png",
+        "screens/2026-10-24T22-59-52/v19-final/09-v19-quick-roles-brand-390.png",
+        "screens/2026-10-24T22-59-52/v19-final/10-v19-quick-roles-brodilka-360.png"
       ],
       "notes": [],
       "fatal": null

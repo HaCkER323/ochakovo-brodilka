@@ -733,7 +733,7 @@
     currentScreen = "landing";
     const activeChar = getActiveCharacter();
     const active = state.activeQuest && activeChar;
-    const primaryLabel = active ? "Продолжить смену" : (allCharactersDone() ? "Пройти ещё раз" : "Начать смену");
+    const primaryLabel = active ? "Продолжить смену-квест" : (allCharactersDone() ? "Пройти смену-квест ещё раз" : "Начать смену-квест");
     const primaryAction = active ? "resume-quest" : "start-quest";
     const metaText = active
       ? "Смена " + activeChar.order + " · " + escapeHtml(activeChar.name) + " · этап " + (state.activeQuest.stepIndex + 1) + " из " + activeChar.steps.length
@@ -772,7 +772,8 @@
             '<p class="hero-sub">Три смены, три характера, один завод: квас, лимонады и вода. Выбери героя, пройди смену и забери приз. <strong>Без лекций и тестов.</strong></p>' +
             '<div class="hero-actions">' +
               '<button class="btn btn-primary btn-lg" type="button" data-action="' + primaryAction + '">' + primaryLabel + " " + icon.arrow + "</button>" +
-              '<button class="btn btn-ghost btn-lg hero-quick" type="button" data-action="quick-apply">Заполнить без игры</button>' +
+              '<span class="hero-or" aria-hidden="true">или</span>' +
+              '<button class="btn btn-ghost btn-lg hero-quick" type="button" data-action="quick-apply">Перейти к вакансиям</button>' +
               '<span class="hero-meta">' + icon.clock + " " + metaText + "</span>" +
             "</div>" +
             '<div class="hero-tags">' + roleTags + "</div>" +
@@ -2216,6 +2217,27 @@
               : "") +
 
             '<div class="form-card">' +
+              (quick
+                ? '<div class="quick-roles">' +
+                    '<div class="quick-roles-head">' +
+                      '<span class="eyebrow">Направление</span>' +
+                      '<h2>Кем хочешь на завод?</h2>' +
+                      '<p>Играть не обязательно. Выбери роль и заполни карточку.</p>' +
+                    "</div>" +
+                    '<div class="quick-role-list" role="radiogroup" aria-label="Направление">' +
+                      CHARACTERS.map(function (item, index) {
+                        return '<button class="quick-role' + (index === 0 ? " is-selected" : "") + '" type="button" role="radio" aria-checked="' + (index === 0 ? "true" : "false") + '" data-quick-role="' + escapeHtml(item.id) + '">' +
+                          '<img src="' + escapeHtml(item.image) + '" alt="">' +
+                          '<span class="quick-role-body">' +
+                            '<span class="quick-role-tag">' + escapeHtml(item.tag) + "</span>" +
+                            "<b>" + escapeHtml(item.name) + " · " + escapeHtml(item.role) + "</b>" +
+                            "<span>" + escapeHtml(item.vacancy.about) + "</span>" +
+                          "</span>" +
+                        "</button>";
+                      }).join("") +
+                    "</div>" +
+                  "</div>"
+                : "") +
               '<div class="form-head">' +
                 "<div><h2>Карточка стажёра</h2><p>" + (quick
                   ? "Без игры и тестов. Заполни карточку, и она уйдёт в HR. Резюме не нужно."
@@ -2223,18 +2245,8 @@
                 '<span class="form-step">Стажёр / 01</span>' +
               "</div>" +
               '<form id="applyForm" data-char="' + char.id + '"' + (quick ? ' data-quick="true"' : "") + ' novalidate>' +
+                (quick ? '<input type="hidden" id="fieldRole" name="charId" value="' + escapeHtml(char.id) + '">' : "") +
                 '<div class="form-grid">' +
-                  (quick
-                    ? '<div class="field is-full">' +
-                        '<label for="fieldRole">Направление <span class="req">*</span></label>' +
-                        '<select id="fieldRole" name="charId">' +
-                          CHARACTERS.map(function (item) {
-                            return '<option value="' + escapeHtml(item.id) + '">' + escapeHtml(item.vacancy.title) + " · " + escapeHtml(item.vacancy.team) + "</option>";
-                          }).join("") +
-                        "</select>" +
-                        '<span class="field-hint">Можно выбрать любое. Это не тест.</span>' +
-                      "</div>"
-                    : "") +
                   '<div class="field is-full">' +
                     '<label for="fieldName">ФИО <span class="req">*</span></label>' +
                     '<input id="fieldName" name="name" type="text" autocomplete="name" placeholder="Иванов Иван Иванович" maxlength="80">' +
@@ -2302,6 +2314,22 @@
       const today = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
       birthInput.max = today;
     }
+    const roleInput = form.elements.charId;
+    const roleButtons = document.querySelectorAll("[data-quick-role]");
+    roleButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        const value = button.getAttribute("data-quick-role");
+        const selected = getCharacter(value);
+        if (roleInput) roleInput.value = value;
+        roleButtons.forEach(function (item) {
+          const active = item === button;
+          item.classList.toggle("is-selected", active);
+          item.setAttribute("aria-checked", active ? "true" : "false");
+        });
+        form.setAttribute("data-char", value);
+        if (selected) announce("Направление: " + selected.vacancy.title + ".");
+      });
+    });
     form.addEventListener("input", function (event) {
       const target = event.target;
       if (!target || !target.name) return;

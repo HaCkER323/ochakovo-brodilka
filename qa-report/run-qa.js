@@ -4434,6 +4434,191 @@ function extractPdfJpeg(buffer) {
   return null;
 }
 
+async function v19FinalScenario(page, report, driver) {
+  await page.configureDownloads(DOWNLOADS_DIR);
+  const data = await driver.loadData();
+  const characters = data.characters || [];
+  const target = characters[2] || characters[0];
+
+  const landingInfo = async () =>
+    page.eval(
+      `(() => {
+        const rect = (el) => { if (!el) return null; const r = el.getBoundingClientRect(); return { left: Math.round(r.left), top: Math.round(r.top), right: Math.round(r.right), bottom: Math.round(r.bottom), width: Math.round(r.width), height: Math.round(r.height) }; };
+        const intersect = (a, b) => !!(a && b && a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top);
+        const art = document.querySelector(".hero-art");
+        const note = document.querySelector(".hero-guide-note");
+        const guide = document.querySelector(".hero-guide");
+        const actions = document.querySelector(".hero-actions");
+        const tags = document.querySelector(".hero-tags");
+        const primary = document.querySelector('[data-action="start-quest"], [data-action="resume-quest"]');
+        const quick = document.querySelector('[data-action="quick-apply"]');
+        const or = document.querySelector(".hero-or");
+        const artRect = rect(art); const noteRect = rect(note); const guideRect = rect(guide);
+        const primaryRect = rect(primary); const quickRect = rect(quick); const orRect = rect(or);
+        return {
+          design: document.documentElement.getAttribute("data-design"),
+          hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+          primaryText: primary ? (primary.textContent || "").replace(/\\s+/g, " ").trim() : null,
+          quickText: quick ? (quick.textContent || "").replace(/\\s+/g, " ").trim() : null,
+          orText: or ? (or.textContent || "").trim() : null,
+          orVisible: !!(orRect && orRect.width > 0 && orRect.height > 0),
+          primaryRect, quickRect, orRect,
+          ctaOverlap: intersect(primaryRect, quickRect) || intersect(primaryRect, orRect) || intersect(quickRect, orRect),
+          noteRect, guideRect, artRect,
+          noteInArt: !!(noteRect && artRect && noteRect.left >= artRect.left - 8 && noteRect.right <= artRect.right + 8 && noteRect.top >= artRect.top - 8 && noteRect.bottom <= artRect.bottom + 8),
+          noteOverlapCta: intersect(noteRect, actions) || intersect(noteRect, tags),
+          noteInsideGuide: intersect(noteRect, guideRect),
+          notePosition: note ? getComputedStyle(note).position : null,
+          viewport: document.documentElement.clientWidth
+        };
+      })()`,
+      { awaitPromise: false }
+    );
+
+  const ctaAudit = async (label, viewport, design) => {
+    await page.setViewport(viewport);
+    await page.eval("try { localStorage.clear(); } catch (error) {}", { awaitPromise: false });
+    await page.navigate(page.baseUrl);
+    await page.waitScreen("landing");
+    if (design === "brodilka") {
+      await page.eval("window.scrollTo(0, document.body.scrollHeight)", { awaitPromise: false });
+      await page.click('[data-action="design-brodilka"]');
+      await sleep(250);
+      await page.eval("window.scrollTo(0, 0)", { awaitPromise: false });
+    }
+    await sleep(350);
+    const info = await landingInfo();
+    report.check(`v19.${label}.cta`, /смену-квест/i.test(String(info.primaryText)) && /Перейти к вакансиям/i.test(String(info.quickText)) && info.orText === "или" && info.orVisible && !info.ctaOverlap, info);
+    report.check(`v19.${label}.no-hscroll`, !info.hscroll && info.design === design, info);
+    if (viewport.width <= 720) {
+      report.check(`v19.${label}.guide-in-flow`, info.noteInArt && !info.noteOverlapCta, info);
+    }
+    await report.shot(page, `v19-landing-${design}-${viewport.width}`);
+  };
+  await ctaAudit("landing-1440-brand", { width: 1440, height: 1000, mobile: false, dpr: 1 }, "brand");
+  await ctaAudit("landing-390-brand", { width: 390, height: 844, mobile: true, dpr: 3 }, "brand");
+  await ctaAudit("landing-360-brodilka", { width: 360, height: 740, mobile: true, dpr: 3 }, "brodilka");
+  await ctaAudit("landing-landscape-brand", { width: 844, height: 390, mobile: true, dpr: 2 }, "brand");
+
+  const roleInfo = async () =>
+    page.eval(
+      `(() => {
+        const form = document.querySelector("#applyForm");
+        const roleInput = document.querySelector('input[name="charId"]');
+        const select = document.querySelector('select#fieldRole') || document.querySelector('select[name="charId"]');
+        const cards = Array.from(document.querySelectorAll("[data-quick-role]"));
+        const rect = (el) => { if (!el) return null; const r = el.getBoundingClientRect(); return { left: Math.round(r.left), top: Math.round(r.top), right: Math.round(r.right), bottom: Math.round(r.bottom), width: Math.round(r.width), height: Math.round(r.height) }; };
+        return {
+          count: cards.length,
+          cards: cards.map((card) => ({ value: card.getAttribute("data-quick-role"), selected: card.classList.contains("is-selected"), aria: card.getAttribute("aria-checked"), text: (card.innerText || "").replace(/\\s+/g, " ").trim().slice(0, 240), img: (() => { const img = card.querySelector("img"); return !!(img && img.complete && img.naturalWidth > 0); })(), rect: rect(card) })),
+          hiddenType: roleInput ? roleInput.type : null,
+          hiddenValue: roleInput ? roleInput.value : null,
+          hiddenId: roleInput ? roleInput.id : null,
+          selectPresent: !!select,
+          formBelowRoles: (() => { const roles = document.querySelector(".quick-role-list"); return !!(roles && form && form.getBoundingClientRect().top >= roles.getBoundingClientRect().bottom - 2); })(),
+          hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+          postcard: !!document.querySelector(".quick-roles-head")
+        };
+      })()`,
+      { awaitPromise: false }
+    );
+
+  await page.setViewport({ width: 1440, height: 1000, mobile: false, dpr: 1 });
+  await page.eval("try { localStorage.clear(); } catch (error) {}", { awaitPromise: false });
+  await page.navigate(page.baseUrl);
+  await page.waitScreen("landing");
+  await page.click('[data-action="quick-apply"]');
+  await page.waitScreen("apply");
+  await sleep(350);
+  let roles = await roleInfo();
+  const cardTops = [...new Set(roles.cards.map((card) => card.rect && card.rect.top))];
+  const cardLefts = [...new Set(roles.cards.map((card) => card.rect && card.rect.left))];
+  report.check("v19.roles-three", roles.count === 3 && roles.hiddenType === "hidden" && roles.hiddenId === "fieldRole" && !roles.selectPresent, roles);
+  report.check("v19.roles-content", roles.cards.every((card) => card.img && /\S/.test(card.text)) && roles.postcard && roles.cards[0].selected, roles.cards);
+  report.check("v19.roles-desktop-grid", cardTops.length === 1 && cardLefts.length === 3 && !roles.hscroll && roles.formBelowRoles, { tops: cardTops, lefts: cardLefts, hscroll: roles.hscroll, formBelow: roles.formBelowRoles });
+  await report.shot(page, "v19-quick-roles-desktop");
+  for (const index of [1, 2]) {
+    await page.eval(`(() => { const cards = document.querySelectorAll("[data-quick-role]"); if (cards[${index}]) cards[${index}].click(); return true; })()`, { awaitPromise: false });
+    await sleep(200);
+    roles = await roleInfo();
+    report.check(`v19.roles-select-${index}`, roles.hiddenValue === characters[index].id && roles.cards[index].selected && roles.cards.filter((card) => card.selected).length === 1, { hidden: roles.hiddenValue, cards: roles.cards.map((card) => card.selected) });
+  }
+  await report.shot(page, "v19-quick-roles-selected");
+  const radiogroup = await page.eval(
+    `(() => { const group = document.querySelector('.quick-role-list[role="radiogroup"]'); const cards = Array.from(document.querySelectorAll("[data-quick-role]")); return { groupRole: group ? group.getAttribute("role") : null, allRadio: cards.every((card) => card.getAttribute("role") === "radio"), checked: cards.filter((card) => card.getAttribute("aria-checked") === "true").length, tabIndexes: cards.map((card) => card.tabIndex) }; })()`,
+    { awaitPromise: false }
+  );
+  report.check("v19.roles-radiogroup", radiogroup.groupRole === "radiogroup" && radiogroup.allRadio && radiogroup.checked === 1, radiogroup);
+  let keyboardCard = null;
+  for (let attempt = 0; attempt < 30 && !keyboardCard; attempt += 1) {
+    await page.press("Tab");
+    keyboardCard = await page.eval(
+      `(() => { const el = document.activeElement; if (!el || !el.getAttribute || !el.getAttribute("data-quick-role")) return null; const style = getComputedStyle(el); return { value: el.getAttribute("data-quick-role"), focusVisible: el.matches(":focus-visible"), outlineStyle: style.outlineStyle, outlineWidth: style.outlineWidth, outlineColor: style.outlineColor, disabled: el.disabled }; })()`,
+      { awaitPromise: false }
+    );
+  }
+  report.check("v19.roles-keyboard-focus", !!keyboardCard && keyboardCard.focusVisible === true && keyboardCard.outlineStyle !== "none" && Number.parseFloat(keyboardCard.outlineWidth) > 0, keyboardCard);
+  if (keyboardCard) {
+    await page.press("Enter");
+    await sleep(250);
+    const afterKeyboard = await roleInfo();
+    report.check("v19.roles-keyboard-enter", afterKeyboard.hiddenValue === keyboardCard.value && afterKeyboard.cards.some((card) => card.value === keyboardCard.value && card.selected && card.aria === "true"), { keyboard: keyboardCard.value, hidden: afterKeyboard.hiddenValue, cards: afterKeyboard.cards.map((card) => ({ value: card.value, selected: card.selected, aria: card.aria })) });
+  } else {
+    report.check("v19.roles-keyboard-enter", false, { reason: "no focusable role card" });
+  }
+  await page.eval(`(() => { const card = document.querySelector('[data-quick-role="${target.id}"]'); if (card) card.click(); return true; })()`, { awaitPromise: false });
+  await sleep(200);
+  await report.shot(page, "v19-quick-roles-keyboard");
+  await driver.fillApplyForm({ birthDate: "1996-05-14", education: "МГУ", name: "Выбор Роли", phone: "+7 999 333-44-55", email: "roles@example.com", consent: true });
+  await driver.submitApplyForm();
+  await page.waitScreen("success", { timeout: 10000 });
+  const roleSuccess = await page.eval(
+    `(async () => { const s = JSON.parse(localStorage.getItem("ochakovo-brodilka-v1") || "{}"); const a = (s.applications || [])[0] || null; const text = document.body.innerText; return { delivered: /HR получил карточку|Карточка у HR|Карточка принята/i.test(text), hasTicket: /HR-\\d{2}-\\d{4}/.test(text), charId: a ? a.charId : null, vacancy: a ? a.vacancy : null, hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1 }; })()`,
+    { awaitPromise: true }
+  );
+  report.check("v19.roles-success", roleSuccess.delivered && roleSuccess.hasTicket && !roleSuccess.hscroll, roleSuccess);
+  report.check("v19.roles-data", roleSuccess.charId === target.id && String(roleSuccess.vacancy || "").includes(String(target.vacancy.title)), roleSuccess);
+  const pdfBefore = fs.readdirSync(DOWNLOADS_DIR);
+  await page.click('[data-action="download-application"]');
+  await sleep(400);
+  const pdfDownloaded = await page.waitForDownload({ existing: pdfBefore, timeout: 10000 }).catch(() => null);
+  const pdfFiles = (pdfDownloaded || []).filter((name) => name.endsWith(".pdf"));
+  if (pdfFiles.length) {
+    const pdfBuffer = await fsp.readFile(path.join(DOWNLOADS_DIR, pdfFiles[0])).catch(() => Buffer.alloc(0));
+    const pdf = inspectPdfBuffer(pdfBuffer, pdfFiles[0]);
+    report.check("v19.roles-pdf", pdf.isPdf && pdf.hasEof && pdf.pages >= 1 && pdf.hasImage, pdf);
+  } else {
+    report.check("v19.roles-pdf", false);
+  }
+  await report.shot(page, "v19-quick-success");
+
+  for (const viewport of [{ width: 390, height: 844, label: "390", design: "brand" }, { width: 360, height: 740, label: "360", design: "brodilka" }]) {
+    await page.setViewport({ width: viewport.width, height: viewport.height, mobile: true, dpr: 3 });
+    await page.eval("try { localStorage.clear(); } catch (error) {}", { awaitPromise: false });
+    await page.navigate(page.baseUrl);
+    await page.waitScreen("landing");
+    if (viewport.design === "brodilka") {
+      await page.eval("window.scrollTo(0, document.body.scrollHeight)", { awaitPromise: false });
+      await page.click('[data-action="design-brodilka"]');
+      await sleep(250);
+      await page.eval("window.scrollTo(0, 0)", { awaitPromise: false });
+    }
+    await page.click('[data-action="quick-apply"]');
+    await page.waitScreen("apply");
+    await sleep(350);
+    const mobileRoles = await roleInfo();
+    const tops = [...new Set(mobileRoles.cards.map((card) => card.rect && card.rect.top))];
+    report.check(`v19.roles-mobile-${viewport.label}`, mobileRoles.count === 3 && tops.length === 3 && !mobileRoles.hscroll && mobileRoles.formBelowRoles, { tops, hscroll: mobileRoles.hscroll, formBelow: mobileRoles.formBelowRoles });
+    await page.eval(`(() => { const cards = document.querySelectorAll("[data-quick-role]"); if (cards[1]) cards[1].click(); return true; })()`, { awaitPromise: false });
+    await sleep(200);
+    const mobileSelected = await roleInfo();
+    report.check(`v19.roles-mobile-${viewport.label}-select`, mobileSelected.hiddenValue === characters[1].id && mobileSelected.cards[1].selected && mobileSelected.cards.filter((card) => card.selected).length === 1 && mobileSelected.cards[1].aria === "true" && !mobileSelected.hscroll, { hidden: mobileSelected.hiddenValue, cards: mobileSelected.cards.map((card) => ({ value: card.value, selected: card.selected, aria: card.aria })) });
+    await report.shot(page, `v19-quick-roles-${viewport.design}-${viewport.label}`);
+  }
+
+  await checkConsole(page, report, "v19-final");
+}
+
 async function v18FinalScenario(page, report, driver) {
   await page.configureDownloads(DOWNLOADS_DIR);
   const data = await driver.loadData();
@@ -4445,12 +4630,14 @@ async function v18FinalScenario(page, report, driver) {
       `(() => {
         const form = document.querySelector("#applyForm");
         const role = document.querySelector("#fieldRole");
+        const isSelect = !!(role && role.tagName === "SELECT");
+        const cards = Array.from(document.querySelectorAll("[data-quick-role]"));
         return {
           eyebrow: (document.querySelector(".apply-head .eyebrow") || {}).textContent || "",
           title: (document.querySelector(".apply-head h1") || {}).textContent || "",
           quickAttr: form ? form.getAttribute("data-quick") : null,
-          rolePresent: !!role,
-          roleOptions: role ? Array.from(role.options).map((option) => option.value) : [],
+          rolePresent: !!role || cards.length > 0,
+          roleOptions: isSelect ? Array.from(role.options).map((option) => option.value) : cards.map((card) => card.getAttribute("data-quick-role")),
           roleValue: role ? role.value : null,
           roleLabel: (document.querySelector('label[for="fieldRole"]') || {}).textContent || "",
           vacancyCard: !!document.querySelector(".apply-grid .vacancy-card"),
@@ -4472,15 +4659,15 @@ async function v18FinalScenario(page, report, driver) {
     `(() => { const button = document.querySelector('[data-action="quick-apply"]'); if (!button) return { present: false }; const r = button.getBoundingClientRect(); return { present: true, text: (button.textContent || "").trim(), width: r.width, height: r.height, visible: r.width > 0 && r.height > 0 }; })()`,
     { awaitPromise: false }
   );
-  report.check("v18.quick-landing-button", landingQuick.present && landingQuick.visible && /Заполнить без игры/i.test(landingQuick.text), landingQuick);
+  report.check("v18.quick-landing-button", landingQuick.present && landingQuick.visible && /Заполнить без игры|Перейти к вакансиям/i.test(landingQuick.text), landingQuick);
   await page.click('[data-action="quick-apply"]');
   await page.waitScreen("apply");
   await sleep(350);
   let info = await quickInfo();
   report.check("v18.quick-screen", /Без мини-игры/i.test(info.eyebrow) && /Сразу/i.test(info.title) && info.quickAttr === "true", info);
-  report.check("v18.quick-role", info.rolePresent && info.roleOptions.length === characters.length && /\*/.test(info.roleLabel) && !info.vacancyCard, info);
+  report.check("v18.quick-role", info.rolePresent && info.roleOptions.length === characters.length && !info.vacancyCard, info);
   report.check("v18.quick-nav", info.homeButton && !info.hasBackResult && !info.hscroll, info);
-  await page.eval(`(() => { const select = document.querySelector("#fieldRole"); if (select) { select.value = ${JSON.stringify(chooseChar.id)}; select.dispatchEvent(new Event("change", { bubbles: true })); } return true; })()`, { awaitPromise: false });
+  await page.eval(`(() => { const card = document.querySelector('[data-quick-role="${chooseChar.id}"]'); if (card) card.click(); return true; })()`, { awaitPromise: false });
   info = await quickInfo();
   report.check("v18.quick-role-change", info.roleValue === chooseChar.id, info);
   await driver.submitApplyForm();
@@ -5206,6 +5393,12 @@ const SCENARIOS = [
     title: "v18: «Заполнить без игры» + направление, «Назад»/«К диалогу», 1440/390/360, обе темы, PDF",
     viewport: "desktop",
     run: v18FinalScenario
+  },
+  {
+    id: "v19-final",
+    title: "v19: мобильный Пузырь в потоке, CTA «смену-квест»/«вакансии»/«или», 3 карточки ролей, PWA v19",
+    viewport: "desktop",
+    run: v19FinalScenario
   }
 ];
 

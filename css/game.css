@@ -2327,6 +2327,106 @@ input[type="range"].ph-range {
   justify-content: center;
 }
 
+.quick-roles {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.quick-roles-head h2 {
+  margin: 7px 0 5px;
+  font-family: var(--font-display);
+  font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.02;
+}
+
+.quick-roles-head p {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.quick-role-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.quick-role {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  min-width: 0;
+  padding: 11px;
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  background: #fffdf7;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.16s, background 0.16s, transform 0.16s;
+}
+
+.quick-role:hover {
+  border-color: var(--forest);
+  transform: translateY(-1px);
+}
+
+.quick-role.is-selected {
+  border-color: var(--forest);
+  background: rgba(215, 243, 91, 0.24);
+  box-shadow: inset 0 0 0 1px var(--forest);
+}
+
+.quick-role:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+.quick-role img {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--paper);
+}
+
+.quick-role-body {
+  display: block;
+  min-width: 0;
+}
+
+.quick-role-tag {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.quick-role-body b {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  line-height: 1.1;
+}
+
+.quick-role-body > span:last-child {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.32;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 .vacancy-card {
   position: sticky;
   top: calc(var(--head-total) + 16px);
@@ -5335,5 +5435,20 @@ input[type="range"].ph-range {
   .promo-splat.is-copied .promo-splat-img,
   .promo-splat.is-copied .ticket-code {
     animation: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .quick-role-list {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-role img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .quick-role-body > span:last-child {
+    -webkit-line-clamp: 4;
   }
 }
