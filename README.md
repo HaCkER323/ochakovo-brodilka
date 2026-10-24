@@ -76,15 +76,24 @@ node serve.js
 
 ### Деплой на Render
 
-В репозитории есть `render.yaml`: web-сервис, Node, регион Frankfurt, постоянный диск на `/opt/render/project/src/data`, `HOST=0.0.0.0`, генерируемый `SESSION_SECRET` и пароль `ADMIN_PASSWORD`, который Render спросит при создании.
+В репозитории есть `render.yaml` с бесплатным web-сервисом: Node, регион Frankfurt, `HOST=0.0.0.0`, генерируемый `SESSION_SECRET` и пароль `ADMIN_PASSWORD`, который Render спросит при создании.
 
-1. Открой Render Dashboard → Blueprints → New Blueprint Instance.
-2. Подключи GitHub-репозиторий `HaCkER323/ochakovo-brodilka`, ветку `main`.
+1. Открой [Deploy to Render](https://render.com/deploy?repo=https://github.com/HaCkER323/ochakovo-brodilka).
+2. Подключи GitHub и выбери репозиторий `HaCkER323/ochakovo-brodilka`, ветку `main`.
 3. Render прочитает `render.yaml` и попросит `ADMIN_PASSWORD`.
-4. Выбери план Starter: на Free нет постоянного диска, отклики будут пропадать после рестарта.
-5. После деплоя проверь `/` и `/admin`, отправь тестовую заявку и выгрузи Excel.
+4. Дождись деплоя и проверь `/` и `/admin`.
 
-Если Blueprint не используется, создай Web Service вручную: runtime Node, build `npm install --omit=dev`, start `node serve.js`, добавь диск на `data`, задай `HOST=0.0.0.0` и `ADMIN_PASSWORD`.
+На Free у Render нет постоянного диска: `data/applications.json` живёт в контейнере и может исчезнуть при рестарте или засыпании сервиса. Для реального сбора откликов переключи план на Starter и добавь диск:
+
+```yaml
+plan: starter
+disk:
+  name: brodilka-data
+  mountPath: /opt/render/project/src/data
+  sizeGB: 1
+```
+
+Если Blueprint не используется, создай Web Service вручную: runtime Node, build `npm install --omit=dev`, start `node serve.js`, задай `HOST=0.0.0.0` и `ADMIN_PASSWORD`.
 
 ## Из чего собрано
 
