@@ -1,16 +1,16 @@
 /**
  * Конфигурация прототипа.
  *
- * Чтобы заявки уходили в реальную HR-систему, укажите URL вебхука.
- * Форма отправит multipart/form-data: name, phone, email, city, resumeLink,
- * consent, vacancy и charId. Файл резюме не передаётся.
+ * По умолчанию карточки уходят в локальный сервер (serve.js):
+ * POST /api/applications. Там же лежит скрытая админка /admin.
  *
- * Пример:
- * applyEndpoint: "https://hr.example.com/api/ochakovo/apply"
+ * Если поставить пустую строку, форма снова станет полностью локальной:
+ * заявка сохранится только в localStorage браузера.
  *
- * Если оставить пустым, форма работает в демо-режиме и сохраняет заявку
- * только в localStorage браузера.
+ * Для внешней HR-системы укажите её URL. Форма отправит JSON:
+ * name (ФИО), birthDate, education, phone, email, city, resumeLink,
+ * consent, vacancy, charId, source.
  */
 window.BRODILKA_CONFIG = {
-  applyEndpoint: ""
+  applyEndpoint: "/api/applications"
 };

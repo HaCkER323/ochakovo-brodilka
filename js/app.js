@@ -2395,19 +2395,23 @@
 
     try {
       if (endpoint) {
-        const body = new FormData();
-        body.append("name", data.name);
-        body.append("birthDate", data.birthDate);
-        body.append("education", data.education);
-        body.append("phone", data.phone);
-        body.append("email", data.email);
-        body.append("city", data.city);
-        body.append("resumeLink", data.resumeLink);
-        body.append("consent", "true");
-        body.append("vacancy", char.vacancy.title);
-        body.append("charId", char.id);
-        body.append("source", "brodilka-site");
-        const response = await fetch(endpoint, { method: "POST", body: body });
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: data.name,
+            birthDate: data.birthDate,
+            education: data.education,
+            phone: data.phone,
+            email: data.email,
+            city: data.city,
+            resumeLink: data.resumeLink,
+            consent: true,
+            vacancy: char.vacancy.title,
+            charId: char.id,
+            source: "brodilka-site"
+          })
+        });
         if (!response.ok) throw new Error("HR endpoint returned " + response.status);
         const payload = await response.json().catch(function () { return {}; });
         if (payload && (payload.ticket || payload.id)) ticket = payload.ticket || payload.id;

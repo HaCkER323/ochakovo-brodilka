@@ -1,0 +1,327 @@
+{
+  "base": "http://127.0.0.1:4517",
+  "cookie": "brodilka_admin=eyJleHAiOjE3OTI4ODQ5NTc1NzF9.7cLuR8FCDyM_lC3aapJGHp8wZ52-fUxbJ2jShZm4UdM",
+  "ticket": "HR-26-3357",
+  "expectedCount": 31,
+  "checks": [
+    {
+      "id": "site.index-200",
+      "status": "pass",
+      "details": 200
+    },
+    {
+      "id": "admin.page-200",
+      "status": "pass",
+      "details": 200
+    },
+    {
+      "id": "admin.noindex",
+      "status": "pass",
+      "details": {
+        "header": "noindex, nofollow"
+      }
+    },
+    {
+      "id": "hidden./data/applications.json",
+      "status": "pass",
+      "details": {
+        "status": 404,
+        "body": "Not found"
+      }
+    },
+    {
+      "id": "hidden./data/",
+      "status": "pass",
+      "details": {
+        "status": 404,
+        "body": "Not found"
+      }
+    },
+    {
+      "id": "hidden./server/store.js",
+      "status": "pass",
+      "details": {
+        "status": 404,
+        "body": "Not found"
+      }
+    },
+    {
+      "id": "hidden./server/xlsx.js",
+      "status": "pass",
+      "details": {
+        "status": 404,
+        "body": "Not found"
+      }
+    },
+    {
+      "id": "hidden./.admin-password",
+      "status": "pass",
+      "details": {
+        "status": 404,
+        "body": "Not found"
+      }
+    },
+    {
+      "id": "hidden./.git/config",
+      "status": "pass",
+      "details": {
+        "status": 404,
+        "body": "Not found"
+      }
+    },
+    {
+      "id": "admin.no-game-links",
+      "status": "pass",
+      "details": {
+        "index": false,
+        "app": false
+      }
+    },
+    {
+      "id": "admin.assets-load",
+      "status": "pass"
+    },
+    {
+      "id": "auth.state-401",
+      "status": "pass",
+      "details": 401
+    },
+    {
+      "id": "auth.export-401",
+      "status": "pass",
+      "details": 401
+    },
+    {
+      "id": "auth.wrong-password-401",
+      "status": "pass",
+      "details": 401
+    },
+    {
+      "id": "auth.login-200",
+      "status": "pass",
+      "details": {
+        "status": 200,
+        "cookie": "brodilka_admin=eyJleHAiO…"
+      }
+    },
+    {
+      "id": "auth.cookie-flags",
+      "status": "pass",
+      "details": "brodilka_admin=eyJleHAiOjE3OTI4ODQ5NTc1NzF9.7cLuR8FCDyM_lC3aapJGHp8wZ52-fUxbJ2jShZm4UdM; Path=/; HttpOnly; SameSite=Strict; Max-Age=28800"
+    },
+    {
+      "id": "auth.state-200",
+      "status": "pass",
+      "details": {
+        "status": 200,
+        "count": 0
+      }
+    },
+    {
+      "id": "export.empty-409",
+      "status": "pass",
+      "details": 409
+    },
+    {
+      "id": "api.bad-json-400",
+      "status": "pass",
+      "details": 400
+    },
+    {
+      "id": "auth.logout-clears-cookie",
+      "status": "pass",
+      "details": "brodilka_admin=; Path=/; HttpOnly; SameSite=Strict; Max-Age=0"
+    },
+    {
+      "id": "api.valid-201",
+      "status": "pass",
+      "details": {
+        "status": 201,
+        "body": {
+          "ok": true,
+          "ticket": "HR-26-3357",
+          "id": "2be95cff-e371-46dd-9fce-c4904e711aaf"
+        }
+      }
+    },
+    {
+      "id": "api.valid-ticket",
+      "status": "pass"
+    },
+    {
+      "id": "api.invalid-empty-400",
+      "status": "pass",
+      "details": {
+        "status": 400,
+        "fields": [
+          "name",
+          "birthDate",
+          "phone",
+          "email",
+          "consent"
+        ]
+      }
+    },
+    {
+      "id": "api.invalid-future-birthdate-400",
+      "status": "pass",
+      "details": {
+        "status": 400,
+        "fields": [
+          "birthDate"
+        ]
+      }
+    },
+    {
+      "id": "api.invalid-old-birthdate-400",
+      "status": "pass",
+      "details": {
+        "status": 400,
+        "fields": [
+          "birthDate"
+        ]
+      }
+    },
+    {
+      "id": "api.invalid-bad-email-400",
+      "status": "pass",
+      "details": {
+        "status": 400,
+        "fields": [
+          "email"
+        ]
+      }
+    },
+    {
+      "id": "api.invalid-short-phone-400",
+      "status": "pass",
+      "details": {
+        "status": 400,
+        "fields": [
+          "phone"
+        ]
+      }
+    },
+    {
+      "id": "api.invalid-no-consent-400",
+      "status": "pass",
+      "details": {
+        "status": 400,
+        "fields": [
+          "consent"
+        ]
+      }
+    },
+    {
+      "id": "api.empty-fields",
+      "status": "pass",
+      "details": {
+        "name": true,
+        "birthDate": true,
+        "phone": true,
+        "email": true,
+        "consent": true
+      }
+    },
+    {
+      "id": "api.rate-limit-30",
+      "status": "pass",
+      "details": {
+        "created": 30,
+        "lastStatus": 429
+      }
+    },
+    {
+      "id": "auth.rate-limit-login",
+      "status": "pass",
+      "details": {
+        "failures": 8,
+        "lastStatus": 429
+      }
+    },
+    {
+      "id": "auth.success-login-no-429",
+      "status": "pass",
+      "details": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "id": "auth.success-resets-failures",
+      "status": "pass",
+      "details": [
+        401,
+        401,
+        401,
+        401,
+        401,
+        401,
+        200,
+        401,
+        401,
+        401,
+        401,
+        401,
+        401
+      ]
+    },
+    {
+      "id": "store.persisted",
+      "status": "pass",
+      "details": {
+        "onDisk": 31
+      }
+    },
+    {
+      "id": "store.fields",
+      "status": "pass",
+      "details": {
+        "name": "Иванов Иван Иванович",
+        "birthDate": "1996-05-14",
+        "education": "МГУ",
+        "phone": "+7 999 123-45-67",
+        "email": "ivan@example.com",
+        "city": "Москва",
+        "resumeLink": "https://hh.ru/resume/qa",
+        "vacancy": "Машинист оборудования",
+        "charId": "brewer",
+        "source": "qa-test",
+        "consent": true,
+        "id": "2be95cff-e371-46dd-9fce-c4904e711aaf",
+        "ticket": "HR-26-3357",
+        "createdAt": "2026-10-24T15:35:57.640Z",
+        "status": "new"
+      }
+    },
+    {
+      "id": "admin.state-latest-6",
+      "status": "pass",
+      "details": {
+        "count": 31,
+        "latest": 6
+      }
+    },
+    {
+      "id": "admin.latest-newest-first",
+      "status": "pass",
+      "details": [
+        "2026-10-24T15:35:58.046Z",
+        "2026-10-24T15:35:58.038Z",
+        "2026-10-24T15:35:58.031Z",
+        "2026-10-24T15:35:58.017Z",
+        "2026-10-24T15:35:58.010Z",
+        "2026-10-24T15:35:58.004Z"
+      ]
+    }
+  ],
+  "createdAt": "2026-10-24T15:35:58.344Z"
+}

@@ -1,0 +1,90 @@
+{
+  "file": "C:\\Users\\alexa\\Documents\\deepseek-harness\\default-workspace\\ochakovo-brodilka\\qa-report\\artifacts\\downloads-admin\\ochakovo-applications-2026-10-24.xlsx",
+  "checks": [
+    {
+      "id": "xlsx.file",
+      "status": "pass",
+      "details": "ochakovo-applications-2026-10-24.xlsx"
+    },
+    {
+      "id": "xlsx.single-sheet",
+      "status": "pass",
+      "details": [
+        "Отклики"
+      ]
+    },
+    {
+      "id": "xlsx.headers-13",
+      "status": "pass",
+      "details": [
+        "№",
+        "Дата отклика",
+        "ФИО",
+        "Дата рождения",
+        "Телефон",
+        "Email",
+        "Город",
+        "ВУЗ / колледж",
+        "Вакансия",
+        "Номер карточки",
+        "Резюме",
+        "Согласие",
+        "Статус"
+      ]
+    },
+    {
+      "id": "xlsx.rows",
+      "status": "pass",
+      "details": {
+        "max_row": 32,
+        "expected": 32
+      }
+    },
+    {
+      "id": "xlsx.cyrillic",
+      "status": "pass",
+      "details": "Иванов Иван Иванович"
+    },
+    {
+      "id": "xlsx.values-filled",
+      "status": "pass",
+      "details": [
+        "1",
+        "24.10.2026 18:35",
+        "Иванов Иван Иванович",
+        "14.05.1996",
+        "+7 999 123-45-67",
+        "ivan@example.com",
+        "Москва",
+        "МГУ",
+        "Машинист оборудования",
+        "HR-26-3357",
+        "https://hh.ru/resume/qa",
+        "да",
+        "Новый"
+      ]
+    },
+    {
+      "id": "xlsx.birthdate-format",
+      "status": "pass",
+      "details": "14.05.1996"
+    },
+    {
+      "id": "xlsx.consent-status",
+      "status": "pass",
+      "details": {
+        "consent": "да",
+        "status": "Новый"
+      }
+    },
+    {
+      "id": "xlsx.tickets",
+      "status": "pass",
+      "details": [
+        "HR-26-3357",
+        "HR-26-2011",
+        "HR-26-4508"
+      ]
+    }
+  ]
+}

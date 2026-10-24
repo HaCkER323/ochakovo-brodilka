@@ -1,0 +1,91 @@
+:root {
+  --red: #d50032;
+  --dark: #1a1a1a;
+  --muted: #626262;
+  --line: #a2aaad;
+  --bg: #f4f4f4;
+  --white: #ffffff;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--dark);
+  font: 15px/1.45 "Proxima Nova", "Segoe UI", Tahoma, Arial, sans-serif;
+}
+.admin-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 64px;
+  padding: 12px 22px;
+  border-bottom: 2px solid var(--red);
+  background: var(--white);
+}
+.admin-head b { display: block; font-size: 16px; letter-spacing: .05em; }
+.admin-head span { display: block; color: var(--muted); font-size: 12px; }
+.admin-main { width: min(960px, 100%); margin: 0 auto; padding: 36px 22px 64px; }
+.login-card, .panel { background: var(--white); border-top: 3px solid var(--red); padding: 26px; }
+.login-card { max-width: 440px; margin: 8vh auto 0; }
+.kicker { margin: 0 0 8px; color: var(--red); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+h1, h2 { margin: 0; font-size: 28px; line-height: 1.1; }
+h2 { font-size: 18px; margin: 26px 0 12px; }
+.lead { margin: 12px 0 22px; color: var(--muted); }
+label { display: block; margin-bottom: 6px; font-size: 12px; font-weight: 700; }
+input {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--dark);
+  font: inherit;
+}
+input:focus { outline: 2px solid var(--red); outline-offset: 1px; }
+.btn {
+  min-height: 46px;
+  padding: 11px 18px;
+  border: 1px solid var(--red);
+  background: var(--red);
+  color: var(--white);
+  font: 700 13px/1 "Proxima Nova", "Segoe UI", Tahoma, Arial, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.btn:hover { background: #ab2328; border-color: #ab2328; }
+.btn:disabled { opacity: .45; cursor: default; }
+#loginForm .btn { width: 100%; margin-top: 14px; }
+.error { min-height: 18px; margin: 8px 0 0; color: var(--red); font-size: 13px; }
+.panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+.count { margin: 0; font-size: 38px; font-weight: 800; line-height: 1; }
+.count span:last-child { font-size: 14px; font-weight: 500; color: var(--muted); }
+.link { border: 0; background: none; color: var(--muted); font: inherit; text-decoration: underline; cursor: pointer; }
+.preview { display: grid; gap: 8px; }
+.preview:empty::before { content: "Пока пусто"; color: var(--muted); font-size: 14px; }
+.card {
+  display: grid;
+  grid-template-columns: minmax(180px, 1.2fr) minmax(160px, 1fr) auto;
+  gap: 12px;
+  align-items: start;
+  padding: 12px 14px;
+  border: 1px solid #dcdcdc;
+  background: var(--white);
+}
+.card b { display: block; font-size: 14px; }
+.card span, .card small { display: block; color: var(--muted); font-size: 12px; }
+.card .vacancy { color: var(--dark); font-weight: 600; }
+.card .ticket { margin-top: 2px; color: var(--red); font-size: 11px; font-weight: 700; }
+.card .contact { text-align: right; }
+.export-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 26px; padding-top: 20px; border-top: 1px solid #dcdcdc; }
+.note { max-width: 390px; margin: 0; color: var(--muted); font-size: 12px; }
+@media (max-width: 640px) {
+  .admin-main { padding: 20px 14px 40px; }
+  .login-card, .panel { padding: 18px; }
+  .card { grid-template-columns: 1fr; gap: 6px; }
+  .card .contact { text-align: left; }
+  .count { font-size: 32px; }
+  .export-row .btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }

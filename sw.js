@@ -4,7 +4,7 @@
    Р Р°Р±РѕС‚Р°РµС‚ С‚РѕР»СЊРєРѕ РїРѕ http(s); РЅР° file:// РЅРµ СЂРµРіРёСЃС‚СЂРёСЂСѓРµС‚СЃСЏ.
    ========================================================= */
 
-const VERSION = "brodilka-v15";
+const VERSION = "brodilka-v17";
 const SHELL_CACHE = VERSION + "-shell";
 const RUNTIME_CACHE = VERSION + "-runtime";
 
@@ -146,6 +146,19 @@ self.addEventListener("fetch", function (event) {
   }
   if (url.origin !== self.location.origin) return;
 
+  /* Админка и API не проходят через SW: там пароль, cookie и персональные данные. */
+  const pathname = url.pathname;
+  if (
+    pathname === "/admin" ||
+    pathname === "/admin/" ||
+    pathname === "/admin.html" ||
+    pathname === "/admin.css" ||
+    pathname === "/admin.js" ||
+    pathname.startsWith("/api/")
+  ) {
+    return;
+  }
+
   if (request.mode === "navigate") {
     event.respondWith(networkFirst(request, "./index.html"));
     return;
@@ -164,5 +177,7 @@ self.addEventListener("fetch", function (event) {
 
   event.respondWith(cacheFirst(request));
 });
+
+
 
 

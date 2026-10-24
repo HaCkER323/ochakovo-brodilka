@@ -1,20 +1,20 @@
 {
-  "runId": "2026-10-24T14-52-38",
-  "startedAt": "2026-10-24T14:52:38.168Z",
-  "finishedAt": "2026-10-24T14:54:37.814Z",
+  "runId": "2026-10-24T15-32-29",
+  "startedAt": "2026-10-24T15:32:29.885Z",
+  "finishedAt": "2026-10-24T15:34:54.163Z",
   "env": {
-    "runId": "2026-10-24T14-52-38",
+    "runId": "2026-10-24T15-32-29",
     "node": "v24.17.0",
     "platform": "win32",
     "browser": "Edg/155.0.4283.62",
     "browserPath": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
-    "baseUrl": "http://127.0.0.1:62103",
+    "baseUrl": "http://127.0.0.1:4517",
     "headed": false
   },
   "summary": {
-    "scenarios": 5,
-    "checks": 223,
-    "passed": 222,
+    "scenarios": 6,
+    "checks": 213,
+    "passed": 212,
     "failed": 0,
     "warned": 0,
     "skipped": 1,
@@ -22,6 +22,286 @@
     "failures": []
   },
   "scenarios": [
+    {
+      "id": "mobile-reload",
+      "title": "Reload/продолжение, маршруты 2–3, звёзды (mobile 390)",
+      "viewport": {
+        "id": "mobile",
+        "width": 390,
+        "height": 844,
+        "dpr": 3,
+        "mobile": true
+      },
+      "startedAt": "2026-10-24T15:32:30.631Z",
+      "checks": [
+        {
+          "id": "reload.active-quest-saved",
+          "status": "pass",
+          "details": {
+            "charId": "packer",
+            "stepIndex": 1,
+            "stars": 1,
+            "rewardedSteps": [
+              0
+            ],
+            "startedAt": "2026-10-24T15:32:33.357Z"
+          }
+        },
+        {
+          "id": "reload.resume-cta",
+          "status": "pass",
+          "details": [
+            {
+              "action": "resume-quest",
+              "text": "Продолжить смену"
+            },
+            {
+              "action": "resume-quest",
+              "text": "Продолжить смену"
+            }
+          ]
+        },
+        {
+          "id": "reload-landing.no-horizontal-scroll",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "reload-landing.tap-targets",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "reload.resumed-step",
+          "status": "pass",
+          "details": "НА КАРТУ\n✓\nБРАКЕРАЖ\n2\nСТОП-ЛИНИЯ\n3\nПАЛЛЕТА\nФ\nФИНИШ\n02 / 03"
+        },
+        {
+          "id": "switch.modal-open",
+          "status": "pass",
+          "details": {
+            "open": true,
+            "title": "Начать другую?",
+            "text": "Путь за Даша сбросится на этапе 2. Пройти можно заново, но прогресс этой смены пропадёт."
+          }
+        },
+        {
+          "id": "switch.cancel-keeps-progress",
+          "status": "pass",
+          "details": {
+            "charId": "packer",
+            "stepIndex": 1,
+            "stars": 1,
+            "rewardedSteps": [
+              0
+            ],
+            "startedAt": "2026-10-24T15:32:33.357Z"
+          }
+        },
+        {
+          "id": "route-packer.stars-3",
+          "status": "pass",
+          "details": {
+            "on": 3,
+            "off": 0
+          }
+        },
+        {
+          "id": "result-packer.no-horizontal-scroll",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "result-packer.tap-targets",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "result-packer.confetti-present",
+          "status": "pass",
+          "details": {
+            "present": true,
+            "count": 54,
+            "position": "absolute",
+            "pointerEvents": "none",
+            "confettiZ": 0,
+            "contentZ": 2,
+            "contentPosition": "relative",
+            "titleCovered": false,
+            "ticketCovered": false,
+            "titleRect": {
+              "left": 32,
+              "top": 153,
+              "right": 358,
+              "bottom": 245,
+              "width": 326,
+              "height": 92
+            },
+            "ticketRect": {
+              "left": 16,
+              "top": 423,
+              "right": 374,
+              "bottom": 887,
+              "width": 358,
+              "height": 464
+            }
+          }
+        },
+        {
+          "id": "result-packer.confetti-in-background",
+          "status": "pass",
+          "details": {
+            "present": true,
+            "count": 54,
+            "position": "absolute",
+            "pointerEvents": "none",
+            "confettiZ": 0,
+            "contentZ": 2,
+            "contentPosition": "relative",
+            "titleCovered": false,
+            "ticketCovered": false,
+            "titleRect": {
+              "left": 32,
+              "top": 153,
+              "right": 358,
+              "bottom": 245,
+              "width": 326,
+              "height": 92
+            },
+            "ticketRect": {
+              "left": 16,
+              "top": 423,
+              "right": 374,
+              "bottom": 887,
+              "width": 358,
+              "height": 464
+            }
+          }
+        },
+        {
+          "id": "result-packer.confetti-no-text-cover",
+          "status": "pass",
+          "details": {
+            "present": true,
+            "count": 54,
+            "position": "absolute",
+            "pointerEvents": "none",
+            "confettiZ": 0,
+            "contentZ": 2,
+            "contentPosition": "relative",
+            "titleCovered": false,
+            "ticketCovered": false,
+            "titleRect": {
+              "left": 32,
+              "top": 153,
+              "right": 358,
+              "bottom": 245,
+              "width": 326,
+              "height": 92
+            },
+            "ticketRect": {
+              "left": 16,
+              "top": 423,
+              "right": 374,
+              "bottom": 887,
+              "width": 358,
+              "height": 464
+            }
+          }
+        },
+        {
+          "id": "result-packer.confetti-no-card-cover",
+          "status": "pass",
+          "details": {
+            "present": true,
+            "count": 54,
+            "position": "absolute",
+            "pointerEvents": "none",
+            "confettiZ": 0,
+            "contentZ": 2,
+            "contentPosition": "relative",
+            "titleCovered": false,
+            "ticketCovered": false,
+            "titleRect": {
+              "left": 32,
+              "top": 153,
+              "right": 358,
+              "bottom": 245,
+              "width": 326,
+              "height": 92
+            },
+            "ticketRect": {
+              "left": 16,
+              "top": 423,
+              "right": 374,
+              "bottom": 887,
+              "width": 358,
+              "height": 464
+            }
+          }
+        },
+        {
+          "id": "route-lab.stars-2-after-mistake",
+          "status": "pass",
+          "details": {
+            "on": 2,
+            "off": 1
+          }
+        },
+        {
+          "id": "result-lab.no-horizontal-scroll",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "result-lab.tap-targets",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "characters.stars-visible",
+          "status": "pass",
+          "details": [
+            {
+              "text": "СМЕНА 01\nТОЧНЫЙ НАСТРОЙ\nМАРК\n27 лет\nМАШИНИСТ ОБОРУДОВАНИЯ\nЗакваска\nБрожение\nКонтроль\n★★★\nПойти с Марк",
+              "stars": 0
+            },
+            {
+              "text": "СМЕНА 02\nЛОВКАЯ РУКА\nДАША\n24 лет\nОПЕРАТОР ЛИНИИ РОЗЛИВА\nБракераж\nСтоп-линия\nПаллета\n★★★\nПройти снова",
+              "stars": 3
+            },
+            {
+              "text": "СМЕНА 03\nКОНТРОЛЬНЫЙ\nЛЕВ\n26 лет\nЛАБОРАНТ КОНТРОЛЯ КАЧЕСТВА\nКислотность\nПробы\nВердикт\n★★★\nПройти снова",
+              "stars": 2
+            }
+          ]
+        },
+        {
+          "id": "characters-completed.no-horizontal-scroll",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "characters-completed.tap-targets",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "mobile-reload.console-clean",
+          "status": "pass",
+          "details": null
+        }
+      ],
+      "screenshots": [
+        "screens/2026-10-24T15-32-29/mobile-reload/01-before-reload.png",
+        "screens/2026-10-24T15-32-29/mobile-reload/02-reload-landing.png",
+        "screens/2026-10-24T15-32-29/mobile-reload/03-result-packer.png",
+        "screens/2026-10-24T15-32-29/mobile-reload/04-result-lab.png",
+        "screens/2026-10-24T15-32-29/mobile-reload/05-characters-completed.png"
+      ],
+      "notes": [],
+      "fatal": null
+    },
     {
       "id": "pwa",
       "title": "PWA: манифест, SW, кэш, offline, meta/safe-area",
@@ -32,14 +312,14 @@
         "dpr": 3,
         "mobile": true
       },
-      "startedAt": "2026-10-24T14:52:38.874Z",
+      "startedAt": "2026-10-24T15:32:55.941Z",
       "checks": [
         {
           "id": "pwa.manifest-link",
           "status": "pass",
           "details": [
             {
-              "href": "http://127.0.0.1:62103/manifest.webmanifest",
+              "href": "http://127.0.0.1:4517/manifest.webmanifest",
               "raw": "manifest.webmanifest"
             }
           ]
@@ -135,7 +415,7 @@
           "id": "pwa.start-url",
           "status": "pass",
           "details": {
-            "url": "http://127.0.0.1:62103/index.html",
+            "url": "http://127.0.0.1:4517/index.html",
             "status": 200
           }
         },
@@ -148,7 +428,7 @@
           "id": "pwa.apple-touch-icon-load",
           "status": "pass",
           "details": {
-            "href": "http://127.0.0.1:62103/assets/apple-touch-icon.png",
+            "href": "http://127.0.0.1:4517/assets/apple-touch-icon.png",
             "status": 200,
             "bytes": 36304,
             "type": "image/png"
@@ -183,7 +463,7 @@
           "id": "pwa.safe-area-css",
           "status": "pass",
           "details": [
-            "http://127.0.0.1:62103/css/styles.css"
+            "http://127.0.0.1:4517/css/styles.css"
           ]
         },
         {
@@ -194,18 +474,22 @@
             "count": 1,
             "registrations": [
               {
-                "scope": "http://127.0.0.1:62103/",
+                "scope": "http://127.0.0.1:4517/",
                 "active": {
-                  "scriptURL": "http://127.0.0.1:62103/sw.js",
+                  "scriptURL": "http://127.0.0.1:4517/sw.js",
                   "state": "activated"
                 },
                 "waiting": false,
                 "installing": false
               }
             ],
-            "controller": null,
+            "controller": {
+              "scriptURL": "http://127.0.0.1:4517/sw.js",
+              "state": "activated"
+            },
             "cacheKeys": [
-              "brodilka-v15-shell"
+              "brodilka-v17-shell",
+              "brodilka-v17-runtime"
             ]
           }
         },
@@ -217,18 +501,22 @@
             "count": 1,
             "registrations": [
               {
-                "scope": "http://127.0.0.1:62103/",
+                "scope": "http://127.0.0.1:4517/",
                 "active": {
-                  "scriptURL": "http://127.0.0.1:62103/sw.js",
+                  "scriptURL": "http://127.0.0.1:4517/sw.js",
                   "state": "activated"
                 },
                 "waiting": false,
                 "installing": false
               }
             ],
-            "controller": null,
+            "controller": {
+              "scriptURL": "http://127.0.0.1:4517/sw.js",
+              "state": "activated"
+            },
             "cacheKeys": [
-              "brodilka-v15-shell"
+              "brodilka-v17-shell",
+              "brodilka-v17-runtime"
             ]
           }
         },
@@ -237,9 +525,9 @@
           "status": "pass",
           "details": [
             {
-              "scope": "http://127.0.0.1:62103/",
+              "scope": "http://127.0.0.1:4517/",
               "active": {
-                "scriptURL": "http://127.0.0.1:62103/sw.js",
+                "scriptURL": "http://127.0.0.1:4517/sw.js",
                 "state": "activated"
               },
               "waiting": false,
@@ -252,7 +540,7 @@
           "status": "pass",
           "details": {
             "status": 200,
-            "contentType": "text/javascript; charset=utf-8"
+            "contentType": "application/javascript; charset=utf-8"
           }
         },
         {
@@ -269,16 +557,16 @@
           "id": "pwa.sw-version",
           "status": "pass",
           "details": {
-            "version": "brodilka-v15",
-            "number": 15
+            "version": "brodilka-v17",
+            "number": 17
           }
         },
         {
           "id": "pwa.sw-controller",
           "status": "pass",
           "details": {
-            "controller": "http://127.0.0.1:62103/sw.js",
-            "active": "http://127.0.0.1:62103/sw.js"
+            "controller": "http://127.0.0.1:4517/sw.js",
+            "active": "http://127.0.0.1:4517/sw.js"
           }
         },
         {
@@ -286,65 +574,72 @@
           "status": "pass",
           "details": {
             "keys": [
-              "brodilka-v15-shell",
-              "brodilka-v15-runtime"
+              "brodilka-v17-shell",
+              "brodilka-v17-runtime"
             ],
             "details": [
               {
-                "key": "brodilka-v15-shell",
+                "key": "brodilka-v17-shell",
                 "count": 31,
                 "urls": [
-                  "http://127.0.0.1:62103/",
-                  "http://127.0.0.1:62103/index.html",
-                  "http://127.0.0.1:62103/manifest.webmanifest",
-                  "http://127.0.0.1:62103/css/styles.css",
-                  "http://127.0.0.1:62103/css/game.css",
-                  "http://127.0.0.1:62103/css/brand.css",
-                  "http://127.0.0.1:62103/js/config.js",
-                  "http://127.0.0.1:62103/js/data.js",
-                  "http://127.0.0.1:62103/assets/share-promo.png",
-                  "http://127.0.0.1:62103/js/pdf.js",
-                  "http://127.0.0.1:62103/js/app.js",
-                  "http://127.0.0.1:62103/assets/brand/ochakovo-logo.png",
-                  "http://127.0.0.1:62103/assets/brand/ochakovo-logo-white.png",
-                  "http://127.0.0.1:62103/assets/brand/ochakovo-mark.svg",
-                  "http://127.0.0.1:62103/assets/brand/ornament.svg",
-                  "http://127.0.0.1:62103/assets/mascot/splat.svg",
-                  "http://127.0.0.1:62103/assets/mascot/pop.svg",
-                  "http://127.0.0.1:62103/assets/icon-192.png",
-                  "http://127.0.0.1:62103/assets/icon-512.png",
-                  "http://127.0.0.1:62103/assets/icon-maskable-512.png",
-                  "http://127.0.0.1:62103/assets/apple-touch-icon.png",
-                  "http://127.0.0.1:62103/assets/app-icon.svg",
-                  "http://127.0.0.1:62103/assets/mascot.svg",
-                  "http://127.0.0.1:62103/assets/chief.svg",
-                  "http://127.0.0.1:62103/assets/mark.svg",
-                  "http://127.0.0.1:62103/assets/dasha.svg",
-                  "http://127.0.0.1:62103/assets/lev.svg",
-                  "http://127.0.0.1:62103/assets/hero-can.svg",
-                  "http://127.0.0.1:62103/assets/scene-brew.svg",
-                  "http://127.0.0.1:62103/assets/scene-line.svg"
+                  "http://127.0.0.1:4517/index.html",
+                  "http://127.0.0.1:4517/",
+                  "http://127.0.0.1:4517/manifest.webmanifest",
+                  "http://127.0.0.1:4517/css/styles.css",
+                  "http://127.0.0.1:4517/css/game.css",
+                  "http://127.0.0.1:4517/css/brand.css",
+                  "http://127.0.0.1:4517/js/config.js",
+                  "http://127.0.0.1:4517/js/data.js",
+                  "http://127.0.0.1:4517/js/pdf.js",
+                  "http://127.0.0.1:4517/assets/share-promo.png",
+                  "http://127.0.0.1:4517/js/app.js",
+                  "http://127.0.0.1:4517/assets/brand/ochakovo-logo.png",
+                  "http://127.0.0.1:4517/assets/brand/ochakovo-logo-white.png",
+                  "http://127.0.0.1:4517/assets/brand/ochakovo-mark.svg",
+                  "http://127.0.0.1:4517/assets/brand/ornament.svg",
+                  "http://127.0.0.1:4517/assets/mascot/pop.svg",
+                  "http://127.0.0.1:4517/assets/mascot/splat.svg",
+                  "http://127.0.0.1:4517/assets/icon-192.png",
+                  "http://127.0.0.1:4517/assets/icon-512.png",
+                  "http://127.0.0.1:4517/assets/icon-maskable-512.png",
+                  "http://127.0.0.1:4517/assets/apple-touch-icon.png",
+                  "http://127.0.0.1:4517/assets/app-icon.svg",
+                  "http://127.0.0.1:4517/assets/mascot.svg",
+                  "http://127.0.0.1:4517/assets/chief.svg",
+                  "http://127.0.0.1:4517/assets/mark.svg",
+                  "http://127.0.0.1:4517/assets/dasha.svg",
+                  "http://127.0.0.1:4517/assets/lev.svg",
+                  "http://127.0.0.1:4517/assets/hero-can.svg",
+                  "http://127.0.0.1:4517/assets/scene-brew.svg",
+                  "http://127.0.0.1:4517/assets/scene-line.svg"
                 ]
               },
               {
-                "key": "brodilka-v15-runtime",
-                "count": 15,
+                "key": "brodilka-v17-runtime",
+                "count": 22,
                 "urls": [
-                  "http://127.0.0.1:62103/",
-                  "http://127.0.0.1:62103/css/styles.css",
-                  "http://127.0.0.1:62103/css/brand.css",
-                  "http://127.0.0.1:62103/js/config.js",
-                  "http://127.0.0.1:62103/assets/brand/ochakovo-logo.png",
-                  "http://127.0.0.1:62103/js/data.js",
-                  "http://127.0.0.1:62103/js/pdf.js",
-                  "http://127.0.0.1:62103/css/game.css",
-                  "http://127.0.0.1:62103/assets/brand/ochakovo-mark.svg",
-                  "http://127.0.0.1:62103/js/app.js",
-                  "http://127.0.0.1:62103/assets/brand/ochakovo-logo-white.png",
-                  "http://127.0.0.1:62103/assets/brand/ornament.svg",
-                  "http://127.0.0.1:62103/assets/hero-can.svg",
-                  "http://127.0.0.1:62103/assets/mascot.svg",
-                  "http://127.0.0.1:62103/assets/app-icon.svg"
+                  "http://127.0.0.1:4517/manifest.webmanifest",
+                  "http://127.0.0.1:4517/assets/icon-192.png",
+                  "http://127.0.0.1:4517/assets/icon-maskable-512.png",
+                  "http://127.0.0.1:4517/assets/icon-512.png",
+                  "http://127.0.0.1:4517/index.html",
+                  "http://127.0.0.1:4517/assets/apple-touch-icon.png",
+                  "http://127.0.0.1:4517/sw.js",
+                  "http://127.0.0.1:4517/",
+                  "http://127.0.0.1:4517/css/styles.css",
+                  "http://127.0.0.1:4517/css/brand.css",
+                  "http://127.0.0.1:4517/js/config.js",
+                  "http://127.0.0.1:4517/assets/brand/ochakovo-logo.png",
+                  "http://127.0.0.1:4517/js/data.js",
+                  "http://127.0.0.1:4517/js/pdf.js",
+                  "http://127.0.0.1:4517/css/game.css",
+                  "http://127.0.0.1:4517/assets/brand/ochakovo-mark.svg",
+                  "http://127.0.0.1:4517/js/app.js",
+                  "http://127.0.0.1:4517/assets/brand/ornament.svg",
+                  "http://127.0.0.1:4517/assets/brand/ochakovo-logo-white.png",
+                  "http://127.0.0.1:4517/assets/hero-can.svg",
+                  "http://127.0.0.1:4517/assets/mascot.svg",
+                  "http://127.0.0.1:4517/assets/app-icon.svg"
                 ]
               }
             ]
@@ -354,10 +649,10 @@
           "id": "pwa.cache-version",
           "status": "pass",
           "details": {
-            "expected": "brodilka-v15",
+            "expected": "brodilka-v17",
             "keys": [
-              "brodilka-v15-shell",
-              "brodilka-v15-runtime"
+              "brodilka-v17-shell",
+              "brodilka-v17-runtime"
             ]
           }
         },
@@ -365,55 +660,56 @@
           "id": "pwa.cache-no-stale",
           "status": "pass",
           "details": [
-            "brodilka-v15-shell",
-            "brodilka-v15-runtime"
+            "brodilka-v17-shell",
+            "brodilka-v17-runtime"
           ]
         },
         {
           "id": "pwa.cache-shell",
           "status": "pass",
           "details": [
-            "http://127.0.0.1:62103/",
-            "http://127.0.0.1:62103/index.html",
-            "http://127.0.0.1:62103/manifest.webmanifest",
-            "http://127.0.0.1:62103/css/styles.css",
-            "http://127.0.0.1:62103/css/game.css",
-            "http://127.0.0.1:62103/css/brand.css",
-            "http://127.0.0.1:62103/js/config.js",
-            "http://127.0.0.1:62103/js/data.js",
-            "http://127.0.0.1:62103/assets/share-promo.png",
-            "http://127.0.0.1:62103/js/pdf.js",
-            "http://127.0.0.1:62103/js/app.js",
-            "http://127.0.0.1:62103/assets/brand/ochakovo-logo.png",
-            "http://127.0.0.1:62103/assets/brand/ochakovo-logo-white.png",
-            "http://127.0.0.1:62103/assets/brand/ochakovo-mark.svg",
-            "http://127.0.0.1:62103/assets/brand/ornament.svg",
-            "http://127.0.0.1:62103/assets/mascot/splat.svg",
-            "http://127.0.0.1:62103/assets/mascot/pop.svg",
-            "http://127.0.0.1:62103/assets/icon-192.png",
-            "http://127.0.0.1:62103/assets/icon-512.png",
-            "http://127.0.0.1:62103/assets/icon-maskable-512.png"
+            "http://127.0.0.1:4517/index.html",
+            "http://127.0.0.1:4517/",
+            "http://127.0.0.1:4517/manifest.webmanifest",
+            "http://127.0.0.1:4517/css/styles.css",
+            "http://127.0.0.1:4517/css/game.css",
+            "http://127.0.0.1:4517/css/brand.css",
+            "http://127.0.0.1:4517/js/config.js",
+            "http://127.0.0.1:4517/js/data.js",
+            "http://127.0.0.1:4517/js/pdf.js",
+            "http://127.0.0.1:4517/assets/share-promo.png",
+            "http://127.0.0.1:4517/js/app.js",
+            "http://127.0.0.1:4517/assets/brand/ochakovo-logo.png",
+            "http://127.0.0.1:4517/assets/brand/ochakovo-logo-white.png",
+            "http://127.0.0.1:4517/assets/brand/ochakovo-mark.svg",
+            "http://127.0.0.1:4517/assets/brand/ornament.svg",
+            "http://127.0.0.1:4517/assets/mascot/pop.svg",
+            "http://127.0.0.1:4517/assets/mascot/splat.svg",
+            "http://127.0.0.1:4517/assets/icon-192.png",
+            "http://127.0.0.1:4517/assets/icon-512.png",
+            "http://127.0.0.1:4517/assets/icon-maskable-512.png"
           ]
         },
         {
           "id": "pwa.cache-pdf-script",
           "status": "pass",
           "details": [
-            "http://127.0.0.1:62103/js/config.js",
-            "http://127.0.0.1:62103/js/data.js",
-            "http://127.0.0.1:62103/js/pdf.js",
-            "http://127.0.0.1:62103/js/app.js",
-            "http://127.0.0.1:62103/js/config.js",
-            "http://127.0.0.1:62103/js/data.js",
-            "http://127.0.0.1:62103/js/pdf.js",
-            "http://127.0.0.1:62103/js/app.js"
+            "http://127.0.0.1:4517/js/config.js",
+            "http://127.0.0.1:4517/js/data.js",
+            "http://127.0.0.1:4517/js/pdf.js",
+            "http://127.0.0.1:4517/js/app.js",
+            "http://127.0.0.1:4517/sw.js",
+            "http://127.0.0.1:4517/js/config.js",
+            "http://127.0.0.1:4517/js/data.js",
+            "http://127.0.0.1:4517/js/pdf.js",
+            "http://127.0.0.1:4517/js/app.js"
           ]
         },
         {
           "id": "pwa.cache-share-image",
           "status": "pass",
           "details": [
-            "http://127.0.0.1:62103/assets/share-promo.png"
+            "http://127.0.0.1:4517/assets/share-promo.png"
           ]
         },
         {
@@ -454,9 +750,9 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T14-52-38/pwa/01-standalone.png",
-        "screens/2026-10-24T14-52-38/pwa/02-offline-landing.png",
-        "screens/2026-10-24T14-52-38/pwa/03-offline-navigation.png"
+        "screens/2026-10-24T15-32-29/pwa/01-standalone.png",
+        "screens/2026-10-24T15-32-29/pwa/02-offline-landing.png",
+        "screens/2026-10-24T15-32-29/pwa/03-offline-navigation.png"
       ],
       "notes": [
         "display-mode emulation: {\"standalone\":false,\"browser\":true,\"bodyWidth\":390,\"hscroll\":false}",
@@ -474,7 +770,7 @@
         "dpr": 3,
         "mobile": true
       },
-      "startedAt": "2026-10-24T14:52:45.402Z",
+      "startedAt": "2026-10-24T15:33:01.589Z",
       "checks": [
         {
           "id": "pwa-fresh.reset",
@@ -489,7 +785,7 @@
           "id": "pwa-fresh.sw-reregister",
           "status": "pass",
           "details": {
-            "active": "http://127.0.0.1:62103/sw.js",
+            "active": "http://127.0.0.1:4517/sw.js",
             "installing": false,
             "waiting": false
           }
@@ -498,8 +794,8 @@
           "id": "pwa-fresh.controller",
           "status": "pass",
           "details": {
-            "controller": "http://127.0.0.1:62103/sw.js",
-            "active": "http://127.0.0.1:62103/sw.js"
+            "controller": "http://127.0.0.1:4517/sw.js",
+            "active": "http://127.0.0.1:4517/sw.js"
           }
         },
         {
@@ -567,18 +863,18 @@
           "id": "pwa-fresh.sw-version",
           "status": "pass",
           "details": {
-            "version": "brodilka-v15",
-            "number": 15
+            "version": "brodilka-v17",
+            "number": 17
           }
         },
         {
           "id": "pwa-fresh.cache-version",
           "status": "pass",
           "details": {
-            "expected": "brodilka-v15",
+            "expected": "brodilka-v17",
             "keys": [
-              "brodilka-v15-shell",
-              "brodilka-v15-runtime"
+              "brodilka-v17-shell",
+              "brodilka-v17-runtime"
             ]
           }
         },
@@ -586,30 +882,30 @@
           "id": "pwa-fresh.no-stale-cache",
           "status": "pass",
           "details": [
-            "brodilka-v15-shell",
-            "brodilka-v15-runtime"
+            "brodilka-v17-shell",
+            "brodilka-v17-runtime"
           ]
         },
         {
           "id": "pwa-fresh.cache-pdf-script",
           "status": "pass",
           "details": [
-            "http://127.0.0.1:62103/js/config.js",
-            "http://127.0.0.1:62103/js/pdf.js",
-            "http://127.0.0.1:62103/js/data.js",
-            "http://127.0.0.1:62103/js/app.js",
-            "http://127.0.0.1:62103/js/config.js",
-            "http://127.0.0.1:62103/js/data.js",
-            "http://127.0.0.1:62103/js/pdf.js",
-            "http://127.0.0.1:62103/js/app.js",
-            "http://127.0.0.1:62103/sw.js"
+            "http://127.0.0.1:4517/js/config.js",
+            "http://127.0.0.1:4517/js/data.js",
+            "http://127.0.0.1:4517/js/pdf.js",
+            "http://127.0.0.1:4517/js/app.js",
+            "http://127.0.0.1:4517/js/config.js",
+            "http://127.0.0.1:4517/js/data.js",
+            "http://127.0.0.1:4517/js/pdf.js",
+            "http://127.0.0.1:4517/js/app.js",
+            "http://127.0.0.1:4517/sw.js"
           ]
         },
         {
           "id": "pwa-fresh.cache-share-image",
           "status": "pass",
           "details": [
-            "http://127.0.0.1:62103/assets/share-promo.png"
+            "http://127.0.0.1:4517/assets/share-promo.png"
           ]
         },
         {
@@ -647,7 +943,7 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T14-52-38/pwa-fresh/01-offline-fresh.png"
+        "screens/2026-10-24T15-32-29/pwa-fresh/01-offline-fresh.png"
       ],
       "notes": [
         "install-кнопка: {\"present\":true,\"hidden\":false,\"text\":\"Установить\"}"
@@ -655,8 +951,8 @@
       "fatal": null
     },
     {
-      "id": "landing-intro-v2",
-      "title": "Лендинг/интро v2: интервалы, бейдж, 0%/Enter, in-place интро, левый спикер",
+      "id": "form-nofile",
+      "title": "Форма без файла: нет file-input, ссылка необязательна, обязанности вакансии",
       "viewport": {
         "id": "desktop",
         "width": 1440,
@@ -664,351 +960,143 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T14:52:50.569Z",
+      "startedAt": "2026-10-24T15:33:06.606Z",
       "checks": [
         {
-          "id": "landing-v2-desktop.h1-no-eyebrow-overlap",
+          "id": "form-nofile.no-file-input",
           "status": "pass",
           "details": {
-            "eyebrow": {},
-            "h1": {}
+            "fileInputs": 0,
+            "fileField": false
           }
         },
         {
-          "id": "landing-v2-desktop.no-phone-meta",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "landing-v2-desktop.no-test-phrase",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "landing-v2-desktop.guide-size",
-          "status": "pass",
-          "details": 14
-        },
-        {
-          "id": "landing-v2-desktop.badge",
-          "status": "pass",
-          "details": {
-            "text": "Первая смена · 7 минут",
-            "fontSize": 12,
-            "rect": {}
-          }
-        },
-        {
-          "id": "landing-v2-desktop.no-age-badge",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "landing-v2-desktop.no-enter-hints",
-          "status": "pass",
-          "details": {
-            "kbd": 0
-          }
-        },
-        {
-          "id": "landing-v2-desktop.no-hscroll",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "landing-v2-desktop.micro-font",
+          "id": "form-nofile.no-attach-text",
           "status": "pass",
           "details": []
         },
         {
-          "id": "landing-v2.desktop.hero-sub-font",
+          "id": "form-nofile.card-title",
           "status": "pass",
-          "details": 20
+          "details": "ПОСЛЕДНИЙ ШАГ\nОТКЛИК\nНА СМЕНУ.\nНАЗАД К РЕЗУЛЬТАТУ\nВАКАНСИЯ ОТКРЫТА\nМАШИНИСТ ОБОРУДОВАНИЯ\n\nКВАСНОЙ ЦЕХ\n\nЛОКАЦИЯ\nМосква · Очаково\nГРАФИК\nсменный график, 5/2\nОПЛАТ"
         },
         {
-          "id": "landing-v2-desktop.intro-present",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "landing-v2-desktop.intro-5-steps",
-          "status": "pass",
-          "details": 5
-        },
-        {
-          "id": "landing-v2-desktop.intro-left-speaker",
-          "status": "pass",
-          "details": [
-            {
-              "index": 0,
-              "expected": "narrator",
-              "leftOk": true
-            },
-            {
-              "index": 1,
-              "expected": "bubble",
-              "leftOk": true
-            },
-            {
-              "index": 2,
-              "expected": "chief",
-              "leftOk": true
-            },
-            {
-              "index": 3,
-              "expected": "bubble",
-              "leftOk": true
-            },
-            {
-              "index": 4,
-              "expected": "chief",
-              "leftOk": true
-            }
-          ]
-        },
-        {
-          "id": "landing-v2-desktop.intro-in-place",
-          "status": "pass",
-          "details": []
-        },
-        {
-          "id": "landing-v2-desktop.intro-no-scroll",
-          "status": "pass",
-          "details": []
-        },
-        {
-          "id": "landing-v2-desktop.console-clean",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "landing-v2-mobile-390.h1-no-eyebrow-overlap",
+          "id": "form-nofile.birthdate-required",
           "status": "pass",
           "details": {
-            "eyebrow": {},
-            "h1": {}
+            "birthDate": {
+              "present": true,
+              "required": false,
+              "min": "1900-01-01",
+              "type": "date"
+            },
+            "label": "Дата рождения *"
           }
         },
         {
-          "id": "landing-v2-mobile-390.no-phone-meta",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "landing-v2-mobile-390.no-test-phrase",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "landing-v2-mobile-390.guide-size",
-          "status": "pass",
-          "details": 14
-        },
-        {
-          "id": "landing-v2-mobile-390.badge",
+          "id": "form-nofile.education-optional",
           "status": "pass",
           "details": {
-            "text": "Первая смена · 7 минут",
-            "fontSize": 12,
-            "rect": {}
+            "education": {
+              "present": true,
+              "required": false
+            },
+            "label": "ВУЗ или колледж необязательно"
           }
         },
         {
-          "id": "landing-v2-mobile-390.no-age-badge",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "landing-v2-mobile-390.no-enter-hints",
+          "id": "form-nofile.resume-link-optional",
           "status": "pass",
           "details": {
-            "kbd": 0
+            "linkInput": true,
+            "required": false
           }
         },
         {
-          "id": "landing-v2-mobile-390.no-hscroll",
+          "id": "form-nofile.resume-link-label",
           "status": "pass",
-          "details": null
+          "details": "Ссылка на резюме необязательно"
         },
         {
-          "id": "landing-v2-mobile-390.micro-font",
-          "status": "pass",
-          "details": []
-        },
-        {
-          "id": "landing-v2-mobile-390.intro-present",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "landing-v2-mobile-390.intro-5-steps",
-          "status": "pass",
-          "details": 5
-        },
-        {
-          "id": "landing-v2-mobile-390.intro-left-speaker",
-          "status": "pass",
-          "details": [
-            {
-              "index": 0,
-              "expected": "narrator",
-              "leftOk": true
-            },
-            {
-              "index": 1,
-              "expected": "bubble",
-              "leftOk": true
-            },
-            {
-              "index": 2,
-              "expected": "chief",
-              "leftOk": true
-            },
-            {
-              "index": 3,
-              "expected": "bubble",
-              "leftOk": true
-            },
-            {
-              "index": 4,
-              "expected": "chief",
-              "leftOk": true
-            }
-          ]
-        },
-        {
-          "id": "landing-v2-mobile-390.intro-in-place",
-          "status": "pass",
-          "details": []
-        },
-        {
-          "id": "landing-v2-mobile-390.intro-no-scroll",
-          "status": "pass",
-          "details": []
-        },
-        {
-          "id": "landing-v2-mobile-390.console-clean",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "landing-v2-mobile-360.h1-no-eyebrow-overlap",
+          "id": "form-nofile.vacancy-responsibilities",
           "status": "pass",
           "details": {
-            "eyebrow": {},
-            "h1": {}
+            "expected": [
+              "Запускаешь оборудование и выводишь режимы",
+              "Следишь за давлением и температурой",
+              "Готовишь линию к розливу и держишь её в чистоте"
+            ],
+            "missing": [],
+            "rendered": [
+              "Запускаешь оборудование и выводишь режимы",
+              "Следишь за давлением и температурой",
+              "Готовишь линию к розливу и держишь её в чистоте",
+              "Официальное оформление",
+              "ДМС",
+              "Столовая",
+              "Общежитие в Москве"
+            ]
           }
         },
         {
-          "id": "landing-v2-mobile-360.no-phone-meta",
+          "id": "form-nofile.vacancy-meta",
           "status": "pass",
-          "details": null
+          "details": "ВАКАНСИЯ ОТКРЫТА\nМАШИНИСТ ОБОРУДОВАНИЯ\n\nКВАСНОЙ ЦЕХ\n\nЛОКАЦИЯ\nМосква · Очаково\nГРАФИК\nсменный график, 5/2\nОПЛАТА\nобсуждае"
         },
         {
-          "id": "landing-v2-mobile-360.no-test-phrase",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "landing-v2-mobile-360.guide-size",
-          "status": "pass",
-          "details": 14
-        },
-        {
-          "id": "landing-v2-mobile-360.badge",
+          "id": "form-nofile.mobile-layout",
           "status": "pass",
           "details": {
-            "text": "Первая смена · 7 минут",
-            "fontSize": 12,
-            "rect": {}
+            "hscroll": false,
+            "fileInputs": 0,
+            "submitVisible": true,
+            "linkVisible": true
           }
         },
         {
-          "id": "landing-v2-mobile-360.no-age-badge",
+          "id": "form-nofile.submit-without-resume",
           "status": "pass",
-          "details": null
+          "details": "HR-26-5653"
         },
         {
-          "id": "landing-v2-mobile-360.no-enter-hints",
+          "id": "form-nofile.application-no-file",
           "status": "pass",
           "details": {
-            "kbd": 0
+            "id": "HR-26-5653",
+            "ticket": "HR-26-5653",
+            "charId": "brewer",
+            "vacancy": "Машинист оборудования",
+            "name": "Без Файла",
+            "birthDate": "1996-05-14",
+            "education": "МГУ",
+            "phone": "+7 999 555-44-33",
+            "email": "nofile@example.com",
+            "city": "Москва",
+            "resumeLink": "",
+            "delivered": true,
+            "createdAt": "2026-10-24T15:33:17.418Z"
           }
         },
         {
-          "id": "landing-v2-mobile-360.no-hscroll",
+          "id": "form-nofile.application-birthdate",
           "status": "pass",
-          "details": null
+          "details": "1996-05-14"
         },
         {
-          "id": "landing-v2-mobile-360.micro-font",
+          "id": "form-nofile.application-education",
           "status": "pass",
-          "details": []
+          "details": "МГУ"
         },
         {
-          "id": "landing-v2-mobile-360.intro-present",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "landing-v2-mobile-360.intro-5-steps",
-          "status": "pass",
-          "details": 5
-        },
-        {
-          "id": "landing-v2-mobile-360.intro-left-speaker",
-          "status": "pass",
-          "details": [
-            {
-              "index": 0,
-              "expected": "narrator",
-              "leftOk": true
-            },
-            {
-              "index": 1,
-              "expected": "bubble",
-              "leftOk": true
-            },
-            {
-              "index": 2,
-              "expected": "chief",
-              "leftOk": true
-            },
-            {
-              "index": 3,
-              "expected": "bubble",
-              "leftOk": true
-            },
-            {
-              "index": 4,
-              "expected": "chief",
-              "leftOk": true
-            }
-          ]
-        },
-        {
-          "id": "landing-v2-mobile-360.intro-in-place",
-          "status": "pass",
-          "details": []
-        },
-        {
-          "id": "landing-v2-mobile-360.intro-no-scroll",
-          "status": "pass",
-          "details": []
-        },
-        {
-          "id": "landing-v2-mobile-360.console-clean",
+          "id": "form-nofile.console-clean",
           "status": "pass",
           "details": null
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T14-52-38/landing-intro-v2/01-landing-desktop.png",
-        "screens/2026-10-24T14-52-38/landing-intro-v2/02-intro-desktop.png",
-        "screens/2026-10-24T14-52-38/landing-intro-v2/03-landing-mobile-390.png",
-        "screens/2026-10-24T14-52-38/landing-intro-v2/04-intro-mobile-390.png",
-        "screens/2026-10-24T14-52-38/landing-intro-v2/05-landing-mobile-360.png",
-        "screens/2026-10-24T14-52-38/landing-intro-v2/06-intro-mobile-360.png"
+        "screens/2026-10-24T15-32-29/form-nofile/01-form-nofile-desktop.png",
+        "screens/2026-10-24T15-32-29/form-nofile/02-form-nofile-mobile.png",
+        "screens/2026-10-24T15-32-29/form-nofile/03-form-nofile-success.png"
       ],
       "notes": [],
       "fatal": null
@@ -1023,7 +1111,7 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T14:53:00.994Z",
+      "startedAt": "2026-10-24T15:33:18.255Z",
       "checks": [
         {
           "id": "design.brand-css-scoped",
@@ -1081,8 +1169,8 @@
           "id": "design.sw-version",
           "status": "pass",
           "details": {
-            "version": "brodilka-v15",
-            "number": 15
+            "version": "brodilka-v17",
+            "number": 17
           }
         },
         {
@@ -2168,14 +2256,14 @@
               "stepIndex": 0,
               "stars": 0,
               "rewardedSteps": [],
-              "startedAt": "2026-10-24T14:53:19.882Z"
+              "startedAt": "2026-10-24T15:33:37.029Z"
             },
             "after": {
               "charId": "brewer",
               "stepIndex": 0,
               "stars": 0,
               "rewardedSteps": [],
-              "startedAt": "2026-10-24T14:53:19.882Z"
+              "startedAt": "2026-10-24T15:33:37.029Z"
             }
           }
         },
@@ -2197,7 +2285,7 @@
             "stepIndex": 0,
             "stars": 0,
             "rewardedSteps": [],
-            "startedAt": "2026-10-24T14:53:19.882Z"
+            "startedAt": "2026-10-24T15:33:37.029Z"
           }
         },
         {
@@ -2264,26 +2352,26 @@
             "stepIndex": 0,
             "stars": 0,
             "rewardedSteps": [],
-            "startedAt": "2026-10-24T14:53:19.882Z"
+            "startedAt": "2026-10-24T15:33:37.029Z"
           }
         },
         {
           "id": "design.promo-present",
           "status": "pass",
           "details": {
-            "code": "OCHK-SKBS7286",
-            "text": "OCHK-SKBS7286",
-            "scrollWidth": 133,
-            "clientWidth": 133,
+            "code": "OCHK-LA3WKJR4",
+            "text": "OCHK-LA3WKJR4",
+            "scrollWidth": 140,
+            "clientWidth": 140,
             "overflow": "visible",
             "textOverflow": "clip",
             "clipped": false,
             "rect": {
-              "left": 129,
-              "right": 261,
+              "left": 125,
+              "right": 265,
               "top": 709,
               "bottom": 732,
-              "width": 133
+              "width": 140
             },
             "viewport": 390,
             "design": "brand",
@@ -2294,19 +2382,19 @@
           "id": "design.promo-not-clipped-390",
           "status": "pass",
           "details": {
-            "code": "OCHK-SKBS7286",
-            "text": "OCHK-SKBS7286",
-            "scrollWidth": 133,
-            "clientWidth": 133,
+            "code": "OCHK-LA3WKJR4",
+            "text": "OCHK-LA3WKJR4",
+            "scrollWidth": 140,
+            "clientWidth": 140,
             "overflow": "visible",
             "textOverflow": "clip",
             "clipped": false,
             "rect": {
-              "left": 129,
-              "right": 261,
+              "left": 125,
+              "right": 265,
               "top": 709,
               "bottom": 732,
-              "width": 133
+              "width": 140
             },
             "viewport": 390,
             "design": "brand",
@@ -2317,19 +2405,19 @@
           "id": "design.result-brand",
           "status": "pass",
           "details": {
-            "code": "OCHK-SKBS7286",
-            "text": "OCHK-SKBS7286",
-            "scrollWidth": 133,
-            "clientWidth": 133,
+            "code": "OCHK-LA3WKJR4",
+            "text": "OCHK-LA3WKJR4",
+            "scrollWidth": 140,
+            "clientWidth": 140,
             "overflow": "visible",
             "textOverflow": "clip",
             "clipped": false,
             "rect": {
-              "left": 129,
-              "right": 261,
+              "left": 125,
+              "right": 265,
               "top": 709,
               "bottom": 732,
-              "width": 133
+              "width": 140
             },
             "viewport": 390,
             "design": "brand",
@@ -2356,11 +2444,11 @@
           "id": "design.promo-not-clipped-360",
           "status": "pass",
           "details": {
-            "text": "OCHK-SKBS7286",
-            "scrollWidth": 133,
-            "clientWidth": 133,
+            "text": "OCHK-LA3WKJR4",
+            "scrollWidth": 140,
+            "clientWidth": 140,
             "clipped": false,
-            "right": 246,
+            "right": 250,
             "viewport": 360,
             "hscroll": false
           }
@@ -2432,8 +2520,8 @@
           "status": "pass",
           "details": {
             "keys": [
-              "brodilka-v15-shell",
-              "brodilka-v15-runtime"
+              "brodilka-v17-shell",
+              "brodilka-v17-runtime"
             ],
             "missing": []
           }
@@ -2478,28 +2566,28 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T14-52-38/design-theme/01-brand-landing-desktop.png",
-        "screens/2026-10-24T14-52-38/design-theme/02-brand-intro-desktop.png",
-        "screens/2026-10-24T14-52-38/design-theme/03-brand-characters-desktop.png",
-        "screens/2026-10-24T14-52-38/design-theme/04-brand-game-desktop.png",
-        "screens/2026-10-24T14-52-38/design-theme/05-brand-landing-mobile-390.png",
-        "screens/2026-10-24T14-52-38/design-theme/06-brand-intro-mobile-390.png",
-        "screens/2026-10-24T14-52-38/design-theme/07-brand-characters-mobile-390.png",
-        "screens/2026-10-24T14-52-38/design-theme/08-brand-game-mobile-390.png",
-        "screens/2026-10-24T14-52-38/design-theme/09-brand-landing-mobile-360.png",
-        "screens/2026-10-24T14-52-38/design-theme/10-brand-intro-mobile-360.png",
-        "screens/2026-10-24T14-52-38/design-theme/11-brand-characters-mobile-360.png",
-        "screens/2026-10-24T14-52-38/design-theme/12-brand-game-mobile-360.png",
-        "screens/2026-10-24T14-52-38/design-theme/13-brand-landing-landscape.png",
-        "screens/2026-10-24T14-52-38/design-theme/14-brand-intro-landscape.png",
-        "screens/2026-10-24T14-52-38/design-theme/15-brand-characters-landscape.png",
-        "screens/2026-10-24T14-52-38/design-theme/16-brand-game-landscape.png",
-        "screens/2026-10-24T14-52-38/design-theme/17-brodilka-characters-390.png",
-        "screens/2026-10-24T14-52-38/design-theme/18-brand-result-390.png",
-        "screens/2026-10-24T14-52-38/design-theme/19-brand-result-360.png",
-        "screens/2026-10-24T14-52-38/design-theme/20-brand-result-desktop.png",
-        "screens/2026-10-24T14-52-38/design-theme/21-brand-apply-desktop.png",
-        "screens/2026-10-24T14-52-38/design-theme/22-brand-offline.png"
+        "screens/2026-10-24T15-32-29/design-theme/01-brand-landing-desktop.png",
+        "screens/2026-10-24T15-32-29/design-theme/02-brand-intro-desktop.png",
+        "screens/2026-10-24T15-32-29/design-theme/03-brand-characters-desktop.png",
+        "screens/2026-10-24T15-32-29/design-theme/04-brand-game-desktop.png",
+        "screens/2026-10-24T15-32-29/design-theme/05-brand-landing-mobile-390.png",
+        "screens/2026-10-24T15-32-29/design-theme/06-brand-intro-mobile-390.png",
+        "screens/2026-10-24T15-32-29/design-theme/07-brand-characters-mobile-390.png",
+        "screens/2026-10-24T15-32-29/design-theme/08-brand-game-mobile-390.png",
+        "screens/2026-10-24T15-32-29/design-theme/09-brand-landing-mobile-360.png",
+        "screens/2026-10-24T15-32-29/design-theme/10-brand-intro-mobile-360.png",
+        "screens/2026-10-24T15-32-29/design-theme/11-brand-characters-mobile-360.png",
+        "screens/2026-10-24T15-32-29/design-theme/12-brand-game-mobile-360.png",
+        "screens/2026-10-24T15-32-29/design-theme/13-brand-landing-landscape.png",
+        "screens/2026-10-24T15-32-29/design-theme/14-brand-intro-landscape.png",
+        "screens/2026-10-24T15-32-29/design-theme/15-brand-characters-landscape.png",
+        "screens/2026-10-24T15-32-29/design-theme/16-brand-game-landscape.png",
+        "screens/2026-10-24T15-32-29/design-theme/17-brodilka-characters-390.png",
+        "screens/2026-10-24T15-32-29/design-theme/18-brand-result-390.png",
+        "screens/2026-10-24T15-32-29/design-theme/19-brand-result-360.png",
+        "screens/2026-10-24T15-32-29/design-theme/20-brand-result-desktop.png",
+        "screens/2026-10-24T15-32-29/design-theme/21-brand-apply-desktop.png",
+        "screens/2026-10-24T15-32-29/design-theme/22-brand-offline.png"
       ],
       "notes": [],
       "fatal": null
@@ -2514,7 +2602,7 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-24T14:53:48.752Z",
+      "startedAt": "2026-10-24T15:34:06.062Z",
       "checks": [
         {
           "id": "v14.hero-clean",
@@ -2639,13 +2727,13 @@
             "popLoaded": true,
             "splatPresent": true,
             "splatImgLoaded": true,
-            "code": "OCHK-3ST7LB5L",
+            "code": "OCHK-6SGBD9ER",
             "codeRect": {
-              "left": 237,
+              "left": 232,
               "top": 916,
-              "right": 422,
+              "right": 427,
               "bottom": 948,
-              "width": 185,
+              "width": 194,
               "height": 32
             },
             "codeClipped": false,
@@ -2668,13 +2756,13 @@
             "popLoaded": true,
             "splatPresent": true,
             "splatImgLoaded": true,
-            "code": "OCHK-3ST7LB5L",
+            "code": "OCHK-6SGBD9ER",
             "codeRect": {
-              "left": 237,
+              "left": 232,
               "top": 916,
-              "right": 422,
+              "right": 427,
               "bottom": 948,
-              "width": 185,
+              "width": 194,
               "height": 32
             },
             "codeClipped": false,
@@ -2697,13 +2785,13 @@
             "popLoaded": true,
             "splatPresent": true,
             "splatImgLoaded": true,
-            "code": "OCHK-3ST7LB5L",
+            "code": "OCHK-6SGBD9ER",
             "codeRect": {
-              "left": 237,
+              "left": 232,
               "top": 916,
-              "right": 422,
+              "right": 427,
               "bottom": 948,
-              "width": 185,
+              "width": 194,
               "height": 32
             },
             "codeClipped": false,
@@ -2726,13 +2814,13 @@
             "popLoaded": true,
             "splatPresent": true,
             "splatImgLoaded": true,
-            "code": "OCHK-3ST7LB5L",
+            "code": "OCHK-6SGBD9ER",
             "codeRect": {
-              "left": 237,
+              "left": 232,
               "top": 916,
-              "right": 422,
+              "right": 427,
               "bottom": 948,
-              "width": 185,
+              "width": 194,
               "height": 32
             },
             "codeClipped": false,
@@ -2755,13 +2843,13 @@
             "popLoaded": true,
             "splatPresent": true,
             "splatImgLoaded": true,
-            "code": "OCHK-3ST7LB5L",
+            "code": "OCHK-6SGBD9ER",
             "codeRect": {
-              "left": 237,
+              "left": 232,
               "top": 916,
-              "right": 422,
+              "right": 427,
               "bottom": 948,
-              "width": 185,
+              "width": 194,
               "height": 32
             },
             "codeClipped": false,
@@ -2919,8 +3007,8 @@
           "id": "v14.storage-birthdate",
           "status": "pass",
           "details": {
-            "id": "HR-24-1707",
-            "ticket": "HR-24-1707",
+            "id": "HR-26-8042",
+            "ticket": "HR-26-8042",
             "charId": "brewer",
             "vacancy": "Машинист оборудования",
             "name": "Проверка Дат",
@@ -2930,16 +3018,16 @@
             "email": "date@example.com",
             "city": "Москва",
             "resumeLink": "",
-            "delivered": false,
-            "createdAt": "2026-10-24T14:54:08.040Z"
+            "delivered": true,
+            "createdAt": "2026-10-24T15:34:24.526Z"
           }
         },
         {
           "id": "brand.pdf-valid",
           "status": "pass",
           "details": {
-            "file": "ochakovo-zayavka-HR-24-1707.pdf",
-            "size": 163670,
+            "file": "ochakovo-zayavka-HR-26-8042.pdf",
+            "size": 164144,
             "isPdf": true,
             "hasEof": true,
             "pages": 1,
@@ -2951,13 +3039,13 @@
         {
           "id": "brand.pdf-filename",
           "status": "pass",
-          "details": "ochakovo-zayavka-HR-24-1707.pdf"
+          "details": "ochakovo-zayavka-HR-26-8042.pdf"
         },
         {
           "id": "brand.pdf-image",
           "status": "pass",
           "details": {
-            "bytes": 162969
+            "bytes": 163443
           }
         },
         {
@@ -2972,7 +3060,7 @@
           "id": "v14.brodilka-result",
           "status": "pass",
           "details": {
-            "code": "OCHK-XLBPE44H",
+            "code": "OCHK-56UQC2DW",
             "clipped": false,
             "splat": true,
             "scene": true,
@@ -2983,8 +3071,8 @@
           "id": "brodilka.pdf-valid",
           "status": "pass",
           "details": {
-            "file": "ochakovo-zayavka-HR-24-4862.pdf",
-            "size": 170415,
+            "file": "ochakovo-zayavka-HR-26-7396.pdf",
+            "size": 170085,
             "isPdf": true,
             "hasEof": true,
             "pages": 1,
@@ -2996,21 +3084,21 @@
         {
           "id": "brodilka.pdf-filename",
           "status": "pass",
-          "details": "ochakovo-zayavka-HR-24-4862.pdf"
+          "details": "ochakovo-zayavka-HR-26-7396.pdf"
         },
         {
           "id": "brodilka.pdf-image",
           "status": "pass",
           "details": {
-            "bytes": 169714
+            "bytes": 169384
           }
         },
         {
           "id": "v14.pdf-theme-diff",
           "status": "pass",
           "details": {
-            "brand": 163670,
-            "brodilka": 170415
+            "brand": 164144,
+            "brodilka": 170085
           }
         },
         {
@@ -3038,7 +3126,7 @@
           "status": "pass",
           "details": {
             "running": 0,
-            "code": "OCHK-TUHPX49R",
+            "code": "OCHK-JKQZXHLB",
             "codeClipped": false,
             "sceneGone": true,
             "hscroll": false
@@ -3048,8 +3136,8 @@
           "id": "v14.sw-version",
           "status": "pass",
           "details": {
-            "version": "brodilka-v15",
-            "number": 15
+            "version": "brodilka-v17",
+            "number": 17
           }
         },
         {
@@ -3057,65 +3145,65 @@
           "status": "pass",
           "details": {
             "keys": [
-              "brodilka-v15-shell",
-              "brodilka-v15-runtime"
+              "brodilka-v17-shell",
+              "brodilka-v17-runtime"
             ],
             "urls": [
-              "http://127.0.0.1:62103/",
-              "http://127.0.0.1:62103/index.html",
-              "http://127.0.0.1:62103/manifest.webmanifest",
-              "http://127.0.0.1:62103/css/styles.css",
-              "http://127.0.0.1:62103/css/brand.css",
-              "http://127.0.0.1:62103/css/game.css",
-              "http://127.0.0.1:62103/js/config.js",
-              "http://127.0.0.1:62103/js/data.js",
-              "http://127.0.0.1:62103/js/pdf.js",
-              "http://127.0.0.1:62103/assets/share-promo.png",
-              "http://127.0.0.1:62103/assets/brand/ochakovo-logo.png",
-              "http://127.0.0.1:62103/js/app.js",
-              "http://127.0.0.1:62103/assets/brand/ochakovo-logo-white.png",
-              "http://127.0.0.1:62103/assets/brand/ochakovo-mark.svg",
-              "http://127.0.0.1:62103/assets/brand/ornament.svg",
-              "http://127.0.0.1:62103/assets/mascot/splat.svg",
-              "http://127.0.0.1:62103/assets/icon-192.png",
-              "http://127.0.0.1:62103/assets/mascot/pop.svg",
-              "http://127.0.0.1:62103/assets/icon-512.png",
-              "http://127.0.0.1:62103/assets/icon-maskable-512.png",
-              "http://127.0.0.1:62103/assets/apple-touch-icon.png",
-              "http://127.0.0.1:62103/assets/app-icon.svg",
-              "http://127.0.0.1:62103/assets/mascot.svg",
-              "http://127.0.0.1:62103/assets/chief.svg",
-              "http://127.0.0.1:62103/assets/mark.svg",
-              "http://127.0.0.1:62103/assets/dasha.svg",
-              "http://127.0.0.1:62103/assets/lev.svg",
-              "http://127.0.0.1:62103/assets/hero-can.svg",
-              "http://127.0.0.1:62103/assets/scene-brew.svg",
-              "http://127.0.0.1:62103/assets/scene-line.svg",
-              "http://127.0.0.1:62103/assets/scene-lab.svg",
-              "http://127.0.0.1:62103/assets/scene-brew.svg",
-              "http://127.0.0.1:62103/assets/icon-192.png",
-              "http://127.0.0.1:62103/assets/mark.svg",
-              "http://127.0.0.1:62103/assets/dasha.svg",
-              "http://127.0.0.1:62103/assets/lev.svg",
-              "http://127.0.0.1:62103/assets/mascot/pop.svg",
-              "http://127.0.0.1:62103/assets/mascot/splat.svg",
-              "http://127.0.0.1:62103/",
-              "http://127.0.0.1:62103/css/styles.css",
-              "http://127.0.0.1:62103/css/brand.css",
-              "http://127.0.0.1:62103/js/config.js",
-              "http://127.0.0.1:62103/assets/brand/ochakovo-logo.png",
-              "http://127.0.0.1:62103/js/data.js",
-              "http://127.0.0.1:62103/js/pdf.js",
-              "http://127.0.0.1:62103/css/game.css",
-              "http://127.0.0.1:62103/assets/brand/ochakovo-mark.svg",
-              "http://127.0.0.1:62103/js/app.js",
-              "http://127.0.0.1:62103/assets/hero-can.svg",
-              "http://127.0.0.1:62103/assets/mascot.svg",
-              "http://127.0.0.1:62103/assets/brand/ornament.svg",
-              "http://127.0.0.1:62103/assets/brand/ochakovo-logo-white.png",
-              "http://127.0.0.1:62103/assets/app-icon.svg"
+              "http://127.0.0.1:4517/index.html",
+              "http://127.0.0.1:4517/",
+              "http://127.0.0.1:4517/manifest.webmanifest",
+              "http://127.0.0.1:4517/css/styles.css",
+              "http://127.0.0.1:4517/css/game.css",
+              "http://127.0.0.1:4517/css/brand.css",
+              "http://127.0.0.1:4517/js/config.js",
+              "http://127.0.0.1:4517/js/data.js",
+              "http://127.0.0.1:4517/js/pdf.js",
+              "http://127.0.0.1:4517/js/app.js",
+              "http://127.0.0.1:4517/assets/share-promo.png",
+              "http://127.0.0.1:4517/assets/brand/ochakovo-logo.png",
+              "http://127.0.0.1:4517/assets/brand/ochakovo-logo-white.png",
+              "http://127.0.0.1:4517/assets/brand/ochakovo-mark.svg",
+              "http://127.0.0.1:4517/assets/brand/ornament.svg",
+              "http://127.0.0.1:4517/assets/mascot/splat.svg",
+              "http://127.0.0.1:4517/assets/icon-192.png",
+              "http://127.0.0.1:4517/assets/mascot/pop.svg",
+              "http://127.0.0.1:4517/assets/icon-512.png",
+              "http://127.0.0.1:4517/assets/icon-maskable-512.png",
+              "http://127.0.0.1:4517/assets/apple-touch-icon.png",
+              "http://127.0.0.1:4517/assets/app-icon.svg",
+              "http://127.0.0.1:4517/assets/chief.svg",
+              "http://127.0.0.1:4517/assets/mark.svg",
+              "http://127.0.0.1:4517/assets/mascot.svg",
+              "http://127.0.0.1:4517/assets/dasha.svg",
+              "http://127.0.0.1:4517/assets/lev.svg",
+              "http://127.0.0.1:4517/assets/hero-can.svg",
+              "http://127.0.0.1:4517/assets/scene-brew.svg",
+              "http://127.0.0.1:4517/assets/scene-line.svg",
+              "http://127.0.0.1:4517/assets/scene-lab.svg",
+              "http://127.0.0.1:4517/assets/scene-brew.svg",
+              "http://127.0.0.1:4517/assets/icon-192.png",
+              "http://127.0.0.1:4517/assets/mark.svg",
+              "http://127.0.0.1:4517/assets/dasha.svg",
+              "http://127.0.0.1:4517/assets/lev.svg",
+              "http://127.0.0.1:4517/assets/mascot/pop.svg",
+              "http://127.0.0.1:4517/assets/mascot/splat.svg",
+              "http://127.0.0.1:4517/",
+              "http://127.0.0.1:4517/css/styles.css",
+              "http://127.0.0.1:4517/css/brand.css",
+              "http://127.0.0.1:4517/js/config.js",
+              "http://127.0.0.1:4517/assets/brand/ochakovo-logo.png",
+              "http://127.0.0.1:4517/js/data.js",
+              "http://127.0.0.1:4517/js/pdf.js",
+              "http://127.0.0.1:4517/css/game.css",
+              "http://127.0.0.1:4517/assets/brand/ochakovo-mark.svg",
+              "http://127.0.0.1:4517/js/app.js",
+              "http://127.0.0.1:4517/assets/hero-can.svg",
+              "http://127.0.0.1:4517/assets/mascot.svg",
+              "http://127.0.0.1:4517/assets/brand/ornament.svg",
+              "http://127.0.0.1:4517/assets/brand/ochakovo-logo-white.png",
+              "http://127.0.0.1:4517/assets/app-icon.svg"
             ],
-            "swVersion": "brodilka-v15",
+            "swVersion": "brodilka-v17",
             "swTextOldMascot": false,
             "swTextRootMascot": true
           }
@@ -3126,8 +3214,8 @@
           "details": {
             "missing": [],
             "keys": [
-              "brodilka-v15-shell",
-              "brodilka-v15-runtime"
+              "brodilka-v17-shell",
+              "brodilka-v17-runtime"
             ]
           }
         },
@@ -3135,12 +3223,12 @@
           "id": "v14.cache-root-mascot",
           "status": "pass",
           "details": [
-            "http://127.0.0.1:62103/assets/mascot/splat.svg",
-            "http://127.0.0.1:62103/assets/mascot/pop.svg",
-            "http://127.0.0.1:62103/assets/mascot.svg",
-            "http://127.0.0.1:62103/assets/mascot/pop.svg",
-            "http://127.0.0.1:62103/assets/mascot/splat.svg",
-            "http://127.0.0.1:62103/assets/mascot.svg"
+            "http://127.0.0.1:4517/assets/mascot/splat.svg",
+            "http://127.0.0.1:4517/assets/mascot/pop.svg",
+            "http://127.0.0.1:4517/assets/mascot.svg",
+            "http://127.0.0.1:4517/assets/mascot/pop.svg",
+            "http://127.0.0.1:4517/assets/mascot/splat.svg",
+            "http://127.0.0.1:4517/assets/mascot.svg"
           ]
         },
         {
@@ -3168,17 +3256,17 @@
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T14-52-38/v14-final/01-v14-landing-brand.png",
-        "screens/2026-10-24T14-52-38/v14-final/02-v14-intro-mascot.png",
-        "screens/2026-10-24T14-52-38/v14-final/03-v14-chat-mascot.png",
-        "screens/2026-10-24T14-52-38/v14-final/04-v14-result-brand.png",
-        "screens/2026-10-24T14-52-38/v14-final/05-v14-result-settled.png",
-        "screens/2026-10-24T14-52-38/v14-final/06-v14-form-mascot.png",
-        "screens/2026-10-24T14-52-38/v14-final/07-v14-success-brand.png",
-        "screens/2026-10-24T14-52-38/v14-final/08-v14-result-brodilka-settled.png",
-        "screens/2026-10-24T14-52-38/v14-final/09-v14-success-brodilka.png",
-        "screens/2026-10-24T14-52-38/v14-final/10-v14-reduced-motion-result.png",
-        "screens/2026-10-24T14-52-38/v14-final/11-v14-offline.png"
+        "screens/2026-10-24T15-32-29/v14-final/01-v14-landing-brand.png",
+        "screens/2026-10-24T15-32-29/v14-final/02-v14-intro-mascot.png",
+        "screens/2026-10-24T15-32-29/v14-final/03-v14-chat-mascot.png",
+        "screens/2026-10-24T15-32-29/v14-final/04-v14-result-brand.png",
+        "screens/2026-10-24T15-32-29/v14-final/05-v14-result-settled.png",
+        "screens/2026-10-24T15-32-29/v14-final/06-v14-form-mascot.png",
+        "screens/2026-10-24T15-32-29/v14-final/07-v14-success-brand.png",
+        "screens/2026-10-24T15-32-29/v14-final/08-v14-result-brodilka-settled.png",
+        "screens/2026-10-24T15-32-29/v14-final/09-v14-success-brodilka.png",
+        "screens/2026-10-24T15-32-29/v14-final/10-v14-reduced-motion-result.png",
+        "screens/2026-10-24T15-32-29/v14-final/11-v14-offline.png"
       ],
       "notes": [],
       "fatal": null

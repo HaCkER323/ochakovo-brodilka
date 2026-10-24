@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#D50032">
+  <title>БРОДИЛКА · отклики</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="admin-head">
+    <img src="assets/brand/ochakovo-mark.svg" alt="" width="32" height="32">
+    <div>
+      <b>БРОДИЛКА</b>
+      <span>отклики на смену</span>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <section class="login-card" id="loginView">
+      <p class="kicker">Скрытая страница</p>
+      <h1>Вход</h1>
+      <p class="lead">Ссылка не опубликована на сайте. Пароль выдаётся команде.</p>
+      <form id="loginForm">
+        <label for="password">Пароль</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+        <p class="error" id="loginError" role="alert"></p>
+        <button class="btn" type="submit">Войти</button>
+      </form>
+    </section>
+
+    <section class="panel" id="panelView" hidden>
+      <div class="panel-head">
+        <div>
+          <p class="kicker">Все отклики</p>
+          <p class="count"><span id="count">0</span> <span id="countWord">откликов</span></p>
+        </div>
+        <button class="link" type="button" id="logoutBtn">Выйти</button>
+      </div>
+
+      <h2>Последние</h2>
+      <div class="preview" id="preview"></div>
+
+      <div class="export-row">
+        <button class="btn" type="button" id="exportBtn">Выгрузить все в Excel</button>
+        <p class="note">После скачивания все выгруженные отклики удаляются с сайта. Отменить это нельзя.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>

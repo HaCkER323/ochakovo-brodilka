@@ -1,0 +1,166 @@
+{
+  "base": "http://127.0.0.1:4517",
+  "sw": {
+    "count": 1,
+    "controller": true,
+    "version": "brodilka-v17"
+  },
+  "countBeforeExport": 31,
+  "xlsxFile": "C:\\Users\\alexa\\Documents\\deepseek-harness\\default-workspace\\ochakovo-brodilka\\qa-report\\artifacts\\downloads-admin\\ochakovo-applications-2026-10-24.xlsx",
+  "cachedUrls": [],
+  "checks": [
+    {
+      "id": "sw.v17",
+      "status": "pass",
+      "details": {
+        "count": 1,
+        "controller": true,
+        "version": "brodilka-v17"
+      }
+    },
+    {
+      "id": "admin.ui-noindex",
+      "status": "pass",
+      "details": {
+        "robots": "noindex, nofollow",
+        "title": "БРОДИЛКА · отклики",
+        "gameLinks": []
+      }
+    },
+    {
+      "id": "admin.ui-no-game-nav",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "admin.ui-login",
+      "status": "pass",
+      "details": {
+        "panelVisible": true,
+        "count": "31",
+        "countWord": "отклик",
+        "previewCount": 6,
+        "previewText": [
+          "Rate Limit 29 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-6640 +7 999 123-45-67 ivan@example.com",
+          "Rate Limit 28 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-1766 +7 999 123-45-67 ivan@example.com",
+          "Rate Limit 27 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-5815 +7 999 123-45-67 ivan@example.com",
+          "Rate Limit 26 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-8328 +7 999 123-45-67 ivan@example.com",
+          "Rate Limit 25 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-6855 +7 999 123-45-67 ivan@example.com",
+          "Rate Limit 24 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-3642 +7 999 123-45-67 ivan@example.com"
+        ],
+        "buttons": [
+          "Выйти",
+          "Выгрузить все в Excel"
+        ],
+        "stateCount": 31,
+        "stateLatest": 6,
+        "hasFilters": false,
+        "hscroll": false,
+        "exportVisible": true,
+        "countWordsSource": null
+      }
+    },
+    {
+      "id": "admin.ui-count",
+      "status": "pass",
+      "details": {
+        "count": "31",
+        "stateCount": 31
+      }
+    },
+    {
+      "id": "admin.ui-preview-6",
+      "status": "pass",
+      "details": {
+        "previewCount": 6,
+        "stateLatest": 6,
+        "previewText": [
+          "Rate Limit 29 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-6640 +7 999 123-45-67 ivan@example.com",
+          "Rate Limit 28 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-1766 +7 999 123-45-67 ivan@example.com"
+        ]
+      }
+    },
+    {
+      "id": "admin.ui-preview-order",
+      "status": "pass",
+      "details": {
+        "latest": 6
+      }
+    },
+    {
+      "id": "admin.ui-no-extra-actions",
+      "status": "pass",
+      "details": {
+        "buttons": [
+          "Выйти",
+          "Выгрузить все в Excel"
+        ],
+        "hasFilters": false
+      }
+    },
+    {
+      "id": "admin.ui-mobile",
+      "status": "pass",
+      "details": {
+        "hscroll": false,
+        "exportVisible": true
+      }
+    },
+    {
+      "id": "admin.ui-countword",
+      "status": "pass",
+      "details": {
+        "count": "31",
+        "word": "отклик",
+        "expected": "отклик"
+      }
+    },
+    {
+      "id": "admin.not-cached-by-sw",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "admin.assets-not-cached",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "admin.export-download",
+      "status": "pass",
+      "details": {
+        "files": [
+          "ochakovo-applications-2026-10-24.xlsx"
+        ],
+        "existing": [
+          "ochakovo-applications-2026-10-24.xlsx"
+        ]
+      }
+    },
+    {
+      "id": "admin.export-clears",
+      "status": "pass",
+      "details": {
+        "stateCount": 0,
+        "uiCount": "0",
+        "countWord": "откликов",
+        "exportDisabled": true
+      }
+    },
+    {
+      "id": "admin.export-disk-empty",
+      "status": "pass",
+      "details": {
+        "diskCount": 0
+      }
+    },
+    {
+      "id": "site.after-export",
+      "status": "pass",
+      "details": {
+        "hasApp": true,
+        "design": "brand"
+      }
+    }
+  ]
+}

@@ -10,3 +10,9 @@ qa-report/artifacts/run-*.json
 
 # Local logs
 *.log
+
+# Local applications and admin password
+data/
+.admin-password
+.env
+

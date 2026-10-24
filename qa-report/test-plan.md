@@ -1,4 +1,4 @@
-﻿# QA test plan — «БРОДИЛКА» PWA (квас / лимонады)
+# QA test plan — «БРОДИЛКА» PWA (квас / лимонады)
 
 **Задача:** task-4 (QA-стенд и тест-план) → далее task-5 (финальная регрессия).
 **Статус документа:** актуален для новой версии (PWA про квас/лимонады, без пива). Production-код переделывается другими агентами; результаты прогонов на старой сборке в этот план не входят и финальными багами не считаются.
@@ -97,6 +97,7 @@ node qa-report/run-qa.js --url=http://127.0.0.1:8080 --browser="C:\...\msedge.ex
 | S31 | Финальные фиксы: HUD в 2 строки без наезда 01/03 на «Финиш», badge top-right, scene-stamp скрыт ≤680, header-counter интро, время сцены 07:40–16:10 | F | F | F | F | AUTO |
 | S32 | Брендовая тема v10: default brand, переключатель Очаково/БРОДИЛКА, persist/reload без сброса, цвета/логотип/паттерн, промокод на 390/360, машинист оборудования, PWA v10 | F | F | F | F | AUTO |
 | S33 | v14: чистый brand-hero без растровых паттернов, Пузырь 24–120px, pop→splat с промокодом (~1.6с), карточка стажёра (ФИО/ДР/ВУЗ), PDF в обеих темах, reduced-motion, PWA v14 | F | F | — | — | AUTO |
+| S34 | Сервер v16/v17: API заявок 201/400/429, auth cookie/rate limit + сброс успехом, /admin noindex, скрытые /data//server/, 6 последних, XLSX 13 колонок + удаление, PWA v17, кэш админки/API закрыт | F | F | F | F | AUTO + openpyxl |
 
 ### v14: Пузырь, форма стажёра, splat, reduced-motion (task-27)
 
@@ -317,3 +318,18 @@ node qa-report/run-qa.js --url=http://127.0.0.1:8080 --browser="C:\...\msedge.ex
 | обновлённые `content-guard`, `desktop-full`, `pwa`, `pwa-fresh`, `postfix-touch` | новый контент-гард (0%/beer/Enter), PDF вместо txt, уникальные коды, SW > v5, кэш pdf.js/share-promo, тач-таргеты |
 
 Запуск после готовности: `node qa-report/run-qa.js --scenario=...`; полный прогон — все сценарии, перед ним обязательно свежий профиль/unregister SW.
+
+### Сервер v16: отклики, админка, Excel (task-32)
+
+Стенд: `PORT=4517 ADMIN_PASSWORD=qa-admin-password node serve.js` (не статический харнесс).
+
+- [ ] T1 API: валидная заявка → 201 + тикет `HR-YY-NNNN`, запись в `data/applications.json`; невалидные (пусто/будущая дата/1899/плохой email/короткий телефон/consent=false) → 400 с полями; кривой JSON → 400.
+- [ ] T2 Скрытность: `/admin` 200 + `X-Robots-Tag: noindex` + meta robots; нет ссылок `/admin` из `index.html`/`app.js`; `/data/*`, `/server/*`, `/.admin-password`, `/.git/*` → 404.
+- [ ] T3 Auth: `/api/admin/state` и `/api/admin/export` без cookie → 401; неверный пароль → 401; верный → cookie `HttpOnly; SameSite=Strict; Path=/`; logout очищает cookie; rate limit логина 8 попыток/10 мин.
+- [ ] T4 Rate limit заявок: 30/час на IP, 31-я → 429.
+- [ ] T5 Админка: count + форма слова (отклик/отклика/откликов), ровно 6 последних preview (новые сверху), только вход/выход/экспорт, нет фильтров/редактирования/точечного удаления; мобильная вёрстка без hscroll.
+- [ ] T6 Excel: POST export → 200 `application/vnd...sheet`, `.xlsx` открывается openpyxl, один лист «Отклики», 13 колонок, все поля/кириллица/даты; после отдачи count=0 в state/UI/на диске; пустой экспорт → 409.
+- [ ] T7 PWA v16: SW active, offline reload, manifest/installability; `/admin`, `admin.*` и `/api/admin/state` **не попадают в Cache Storage** (иначе PII и стухший count).
+- [ ] T8 Форма с сайта против сервера: успех «HR получил карточку», карточка в data, PDF; все 3 маршрута, обе темы, 1440/390/360.
+
+Скрипты: `qa-report/server-qa.js`, `qa-report/server-admin-qa.js`, `qa-report/validate_xlsx.py`.
