@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-design="brand">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0C3B28">
+  <meta name="theme-color" content="#D50032" id="themeColor">
   <meta name="color-scheme" content="light">
   <meta name="description" content="БРОДИЛКА — интерактивный квест Очаково о первой смене на заводе кваса, лимонадов и воды. Выбери героя, пройди путь и получи приз.">
   <meta name="application-name" content="БРОДИЛКА">
@@ -11,6 +11,20 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="БРОДИЛКА">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <script>
+    (function () {
+      var design = "brand";
+      try {
+        var saved = window.localStorage.getItem("ochakovo-brodilka-design");
+        if (saved === "brodilka" || saved === "brand") design = saved;
+      } catch (error) {
+        /* localStorage может быть недоступен */
+      }
+      document.documentElement.setAttribute("data-design", design);
+      var theme = document.getElementById("themeColor");
+      if (theme) theme.setAttribute("content", design === "brodilka" ? "#0C3B28" : "#D50032");
+    })();
+  </script>
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:title" content="БРОДИЛКА — квест о первой смене на Очаково">
@@ -22,6 +36,7 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/brand.css">
 </head>
 <body>
   <a class="skip-link" href="#app">Перейти к игре</a>
@@ -29,6 +44,8 @@
 
   <header class="site-head">
     <button class="brand" type="button" data-action="home" aria-label="БРОДИЛКА — на главную">
+      <img class="brand-mark" src="assets/brand/ochakovo-mark.svg" alt="" width="32" height="32">
+      <img class="brand-logo" src="assets/brand/ochakovo-logo.png" alt="">
       <span class="brand-ochakovo">ОЧАКОВО</span>
       <span class="brand-sep" aria-hidden="true"></span>
       <span class="brand-project">БРОДИЛКА<sup>®</sup></span>

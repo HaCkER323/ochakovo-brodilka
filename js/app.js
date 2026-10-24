@@ -6,6 +6,8 @@
   const SPEAKERS = DATA.speakers;
   const CHARACTERS = DATA.characters;
   const STORAGE_KEY = "ochakovo-brodilka-v1";
+  const DESIGN_KEY = "ochakovo-brodilka-design";
+  const DESIGN_DEFAULT = "brand";
   const app = document.getElementById("app");
   const toastEl = document.getElementById("toast");
   const modalRoot = document.getElementById("modalRoot");
@@ -671,7 +673,52 @@
           '<span class="footer-dot"></span>' +
           '<button class="footer-reset" type="button" data-action="reset-progress">Сбросить прогресс</button>' +
         "</div>" +
+        designSwitchMarkup() +
       "</footer>"
+    );
+  }
+
+  /* -------------------------------------------------------
+     Design switch (Очаково / БРОДИЛКА)
+     ------------------------------------------------------- */
+
+  function currentDesign() {
+    const value = document.documentElement.getAttribute("data-design");
+    return value === "brodilka" ? "brodilka" : DESIGN_DEFAULT;
+  }
+
+  function designThemeColor(design) {
+    return design === "brodilka" ? "#0C3B28" : "#D50032";
+  }
+
+  function applyDesign(design, persist) {
+    const next = design === "brodilka" ? "brodilka" : "brand";
+    document.documentElement.setAttribute("data-design", next);
+    const theme = document.getElementById("themeColor");
+    if (theme) theme.setAttribute("content", designThemeColor(next));
+    const buttons = document.querySelectorAll(".design-switch-btn");
+    Array.prototype.forEach.call(buttons, function (button) {
+      const active = button.getAttribute("data-design-value") === next;
+      button.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+    if (persist !== false) {
+      try {
+        window.localStorage.setItem(DESIGN_KEY, next);
+      } catch (error) {
+        /* localStorage может быть недоступен */
+      }
+    }
+  }
+
+  function designSwitchMarkup() {
+    const design = currentDesign();
+    const isBrand = design === "brand";
+    return (
+      '<div class="design-switch" role="group" aria-label="Оформление сайта">' +
+        '<span class="design-switch-label">Дизайн</span>' +
+        '<button class="design-switch-btn" type="button" data-action="design-brand" data-design-value="brand" aria-pressed="' + (isBrand ? "true" : "false") + '">Очаково</button>' +
+        '<button class="design-switch-btn" type="button" data-action="design-brodilka" data-design-value="brodilka" aria-pressed="' + (isBrand ? "false" : "true") + '">БРОДИЛКА</button>' +
+      "</div>"
     );
   }
 
@@ -2464,6 +2511,20 @@
         window.location.reload();
         break;
 
+      case "design-brand":
+        if (currentDesign() !== "brand") {
+          applyDesign("brand");
+          showToast("Оформление: Очаково");
+        }
+        break;
+
+      case "design-brodilka":
+        if (currentDesign() !== "brodilka") {
+          applyDesign("brodilka");
+          showToast("Оформление: БРОДИЛКА");
+        }
+        break;
+
       case "start-quest":
         if (state.activeQuest) {
           currentScreen = "game";
@@ -2754,6 +2815,7 @@
     window.history.scrollRestoration = "manual";
   }
   applySoundState();
+  applyDesign(currentDesign(), false);
   initPwa();
   if (!DATA || !Array.isArray(CHARACTERS) || !CHARACTERS.length || !SPEAKERS) {
     renderFatal();

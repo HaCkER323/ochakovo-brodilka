@@ -1,0 +1,1812 @@
+/* =========================================================
+   БРОДИЛКА × ОЧАКОВО — брендовый дизайн (brandbook)
+   Все правила строго под html[data-design="brand"].
+   Базовый (наш) дизайн при data-design="brodilka" не меняется.
+   ========================================================= */
+
+html[data-design="brand"] {
+  --brand-red: #d50032;
+  --brand-red-dark: #ab2328;
+  --brand-ink: #1a1a1a;
+  --brand-gray: #626262;
+  --brand-silver: #a2aaad;
+  --brand-line: #e3e3e3;
+  --brand-bg: #f4f4f4;
+  --brand-success: #84bd00;
+
+  --ink: #1a1a1a;
+  --forest: #ab2328;
+  --forest-2: #8f1c21;
+  --green: #d50032;
+  --lime: #d50032;
+  --lime-soft: #fce8ec;
+  --cream: #ffffff;
+  --paper: #ffffff;
+  --orange: #d50032;
+  --yellow: #a2aaad;
+  --mint: #f4f4f4;
+  --muted: #626262;
+  --line: rgba(26, 26, 26, 0.16);
+  --line-strong: rgba(26, 26, 26, 0.34);
+  --font-display: "Proxima Nova", "Segoe UI", Tahoma, Arial, sans-serif;
+  --font-body: "Proxima Nova", "Segoe UI", Tahoma, Arial, sans-serif;
+  --font-mono: "Proxima Nova", "Segoe UI", Tahoma, Arial, sans-serif;
+  --shadow: none;
+}
+
+html[data-design="brand"] body {
+  background: #ffffff;
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] ::selection {
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+html[data-design="brand"] :focus-visible {
+  outline: 3px solid var(--brand-red);
+  outline-offset: 3px;
+}
+
+html[data-design="brand"] .grain {
+  display: none;
+}
+
+/* --- Шапка и логотип --- */
+html[data-design="brand"] .site-head {
+  background: #ffffff;
+  border-bottom: 2px solid var(--brand-red);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+html[data-design="brand"] .brand {
+  gap: 10px;
+}
+
+html[data-design="brand"] .brand-logo {
+  display: block;
+  width: auto;
+  height: 34px;
+  max-width: 210px;
+  object-fit: contain;
+}
+
+html[data-design="brand"] .brand-mark {
+  display: block;
+  width: 34px;
+  height: 34px;
+}
+
+html[data-design="brand"] .brand-ochakovo,
+html[data-design="brand"] .brand-sep,
+html[data-design="brand"] .brand-project {
+  display: none;
+}
+
+html[data-design="brand"] .head-status {
+  color: var(--brand-gray);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+html[data-design="brand"] .head-status .hs-dot {
+  background: var(--brand-red);
+}
+
+html[data-design="brand"] .head-status .hs-strong {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .head-status .hs-stars {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .sound-btn {
+  border-color: var(--brand-silver);
+  border-radius: 0;
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .sound-btn:hover {
+  background: var(--brand-ink);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .install-btn {
+  border: 1px solid var(--brand-red);
+  border-radius: 0;
+  background: var(--brand-red);
+  color: #ffffff;
+  box-shadow: none;
+  font-family: var(--font-body);
+  letter-spacing: 0.08em;
+}
+
+html[data-design="brand"] .install-btn:hover {
+  background: var(--brand-red-dark);
+  transform: none;
+}
+
+/* --- Типографика --- */
+html[data-design="brand"] .display,
+html[data-design="brand"] .hero-title,
+html[data-design="brand"] .result-title,
+html[data-design="brand"] .brand-project,
+html[data-design="brand"] .how-card h3,
+html[data-design="brand"] .char-name h3,
+html[data-design="brand"] .quest-title,
+html[data-design="brand"] .feedback-title,
+html[data-design="brand"] .task-prompt,
+html[data-design="brand"] .vacancy-card h2,
+html[data-design="brand"] .success-card h1,
+html[data-design="brand"] .form-head h2,
+html[data-design="brand"] .modal-card h3 {
+  font-stretch: normal;
+  letter-spacing: -0.02em;
+}
+
+html[data-design="brand"] .display {
+  font-size: clamp(46px, 6.2vw, 96px);
+  line-height: 0.94;
+}
+
+html[data-design="brand"] .display em {
+  color: var(--brand-red);
+  font-style: normal;
+}
+
+html[data-design="brand"] .eyebrow {
+  color: var(--brand-red);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+
+html[data-design="brand"] .eyebrow::before {
+  background: var(--brand-red);
+  box-shadow: none;
+  border-radius: 0;
+}
+
+html[data-design="brand"] .mono-label,
+html[data-design="brand"] .icon-link {
+  font-family: var(--font-mono);
+  letter-spacing: 0.11em;
+}
+
+html[data-design="brand"] .icon-link {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .icon-link:hover {
+  color: var(--brand-red);
+}
+
+/* --- Кнопки: плоские, прямые --- */
+html[data-design="brand"] .btn {
+  border-radius: 0;
+  border: 1px solid var(--brand-ink);
+  box-shadow: none;
+  background: #ffffff;
+  color: var(--brand-ink);
+  font-family: var(--font-body);
+  font-weight: 700;
+}
+
+html[data-design="brand"] .btn:hover {
+  transform: none;
+  box-shadow: none;
+  background: var(--brand-bg);
+}
+
+html[data-design="brand"] .btn:active {
+  transform: none;
+  box-shadow: none;
+}
+
+html[data-design="brand"] .btn-primary {
+  border-color: var(--brand-red);
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .btn-primary:hover {
+  background: var(--brand-red-dark);
+  border-color: var(--brand-red-dark);
+}
+
+html[data-design="brand"] .btn-dark {
+  border-color: var(--brand-ink);
+  background: var(--brand-ink);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .btn-dark:hover {
+  background: #000000;
+}
+
+html[data-design="brand"] .btn-orange {
+  background: var(--brand-red);
+  border-color: var(--brand-red);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .btn-ghost {
+  border-color: var(--brand-silver);
+  background: #ffffff;
+  color: var(--brand-ink);
+  box-shadow: none;
+}
+
+html[data-design="brand"] .btn-ghost:hover {
+  border-color: var(--brand-red);
+  background: #ffffff;
+  color: var(--brand-red);
+}
+
+/* --- Лендинг --- */
+html[data-design="brand"] .landing {
+  background: #ffffff;
+}
+
+html[data-design="brand"] .landing::before,
+html[data-design="brand"] .landing::after {
+  display: none;
+}
+
+html[data-design="brand"] .hero-title {
+  color: var(--brand-ink);
+  font-size: clamp(56px, 7.4vw, 118px);
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+}
+
+html[data-design="brand"] .hero-title .accent {
+  margin-top: 0.08em;
+  padding: 0.04em 0.12em 0.08em;
+  background: var(--brand-red);
+  color: #ffffff;
+  line-height: 1.02;
+  transform: none;
+}
+
+html[data-design="brand"] .hero-title .line span {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .hero-sub {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .hero-sub strong {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .hero-meta {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .hero-meta svg {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .hero-tag {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .hero-art {
+  position: relative;
+  min-height: 480px;
+  padding: 26px;
+  overflow: hidden;
+  border: none;
+  background-color: var(--brand-red);
+  background-image: url("../assets/brand/pattern-white.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+html[data-design="brand"] .hero-art::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border: 0;
+  border-radius: 0;
+  background: rgba(213, 0, 50, 0.55);
+  transform: none;
+}
+
+html[data-design="brand"] .hero-art::after {
+  display: none;
+}
+
+html[data-design="brand"] .hero-can {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 470px);
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.28));
+  animation: none;
+}
+
+html[data-design="brand"] .hero-guide {
+  z-index: 4;
+}
+
+html[data-design="brand"] .hero-guide-note {
+  margin-bottom: 16px;
+  border: 1px solid var(--brand-ink);
+  background: #ffffff;
+  color: var(--brand-ink);
+  box-shadow: none;
+  transform: none;
+  font-size: 14px;
+}
+
+html[data-design="brand"] .hero-guide-note::before {
+  display: none;
+}
+
+html[data-design="brand"] .hero-side-note {
+  z-index: 5;
+  border: 1px solid var(--brand-red);
+  border-radius: 0;
+  background: var(--brand-red);
+  color: #ffffff;
+  box-shadow: none;
+  transform: none;
+  font-size: 12px;
+}
+
+html[data-design="brand"] .hero-side-note .dot {
+  background: #ffffff;
+}
+
+html[data-design="brand"] .marquee {
+  border-top: 1px solid var(--brand-ink);
+  border-bottom: 1px solid var(--brand-ink);
+  background: var(--brand-ink);
+  color: #ffffff;
+  transform: none;
+}
+
+html[data-design="brand"] .marquee-group {
+  font-family: var(--font-body);
+  letter-spacing: 0.05em;
+}
+
+html[data-design="brand"] .marquee-group .star {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .how {
+  background: #ffffff;
+}
+
+html[data-design="brand"] .how-card {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+html[data-design="brand"] .how-card:nth-child(2) {
+  background: var(--brand-bg);
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .how-card:nth-child(2) p {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .how-card:nth-child(3) {
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .how-card:nth-child(3) p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+html[data-design="brand"] .how-card p {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .how-icon {
+  color: var(--brand-red);
+  opacity: 0.2;
+}
+
+html[data-design="brand"] .how-card:nth-child(2) .how-icon {
+  opacity: 0.2;
+}
+
+html[data-design="brand"] .how-card:nth-child(3) .how-icon {
+  color: #ffffff;
+  opacity: 0.3;
+}
+
+html[data-design="brand"] .how-reward {
+  border: 1px solid var(--brand-silver);
+  border-top: 4px solid var(--brand-red);
+  border-radius: 0;
+  background: #ffffff;
+}
+
+html[data-design="brand"] .how-reward-icon {
+  border: none;
+  border-radius: 0;
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+/* --- Подвал и переключатель --- */
+html[data-design="brand"] .site-footer {
+  border-top: 4px solid var(--brand-red);
+  background: var(--brand-bg);
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .footer-mark {
+  color: var(--brand-red);
+  font-family: var(--font-body);
+  letter-spacing: 0.04em;
+}
+
+html[data-design="brand"] .site-footer a {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .footer-dot {
+  background: var(--brand-silver);
+}
+
+html[data-design="brand"] .footer-reset {
+  border-bottom-color: var(--brand-silver);
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .footer-reset:hover {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .design-switch-label {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .design-switch-btn {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .design-switch-btn:hover {
+  border-color: var(--brand-red);
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .design-switch-btn[aria-pressed="true"] {
+  border-color: var(--brand-red);
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+/* --- Интро --- */
+html[data-design="brand"] .intro-screen {
+  background: var(--brand-bg);
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .intro-bg {
+  opacity: 0.1;
+}
+
+html[data-design="brand"] .intro-bg img {
+  filter: grayscale(1) contrast(0.9);
+}
+
+html[data-design="brand"] .intro-bg::after {
+  background: none;
+}
+
+html[data-design="brand"] .intro-top {
+  border-bottom: 1px solid rgba(26, 26, 26, 0.12);
+}
+
+html[data-design="brand"] .intro-counter {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .intro-counter strong {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .intro-progress {
+  background: #e3e3e3;
+}
+
+html[data-design="brand"] .intro-progress i {
+  background: var(--brand-red);
+}
+
+html[data-design="brand"] .intro-skip {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .intro-skip:hover {
+  background: var(--brand-bg);
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .intro-speaker-media::before {
+  border-color: rgba(213, 0, 50, 0.45);
+}
+
+html[data-design="brand"] .intro-speaker-img {
+  border-color: rgba(213, 0, 50, 0.35);
+  filter: drop-shadow(0 16px 26px rgba(26, 26, 26, 0.18));
+}
+
+html[data-design="brand"] .intro-monogram {
+  border: 2px solid var(--brand-red);
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--brand-red);
+  box-shadow: none;
+}
+
+html[data-design="brand"] .intro-speaker-tag {
+  border: 1px solid var(--brand-ink);
+  background: #ffffff;
+  color: var(--brand-ink);
+  box-shadow: none;
+  transform: none;
+}
+
+html[data-design="brand"] .intro-speaker-kicker {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .intro-speaker-role {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .dialogue-card {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+  color: var(--brand-ink);
+  box-shadow: none;
+}
+
+html[data-design="brand"] .dialogue-card::before {
+  border-color: var(--brand-line);
+}
+
+html[data-design="brand"] .intro-quote-mark {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .dialogue-text {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .dialogue-text .hl {
+  background: linear-gradient(transparent 60%, #fce8ec 60%);
+}
+
+html[data-design="brand"] .intro-footnote {
+  color: var(--brand-silver);
+}
+
+/* --- Выбор героя --- */
+html[data-design="brand"] .character-screen {
+  background: #ffffff;
+}
+
+html[data-design="brand"] .character-screen::before {
+  display: none;
+}
+
+html[data-design="brand"] .character-guide {
+  border: 1px solid var(--brand-silver);
+  border-left: 4px solid var(--brand-red);
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+html[data-design="brand"] .character-guide-label {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .character-guide p {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .character-guide img {
+  filter: none;
+}
+
+html[data-design="brand"] .all-done-banner {
+  border: none;
+  border-radius: 0;
+  background: var(--brand-red);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+html[data-design="brand"] .all-done-banner .mono-label {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+html[data-design="brand"] .character-card {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+html[data-design="brand"] .character-card:hover {
+  border-color: var(--brand-red);
+  transform: none;
+  box-shadow: none;
+}
+
+html[data-design="brand"] .char-media {
+  border-bottom: 1px solid var(--brand-silver);
+  background: var(--brand-bg);
+}
+
+html[data-design="brand"] .character-card:hover .char-media > img {
+  transform: none;
+}
+
+html[data-design="brand"] .char-num {
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .char-status {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .char-status.is-done {
+  border-color: var(--brand-red);
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .char-status.is-active {
+  border-color: var(--brand-red-dark);
+  background: var(--brand-red-dark);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .char-tag {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .char-role,
+html[data-design="brand"] .char-age {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .char-quote {
+  border-top-color: var(--brand-line);
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .char-route li {
+  border-color: var(--brand-silver);
+  border-radius: 0;
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .char-route li + li::before {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .char-stars {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .char-stars .off {
+  color: #d6d6d6;
+}
+
+html[data-design="brand"] .char-stamp {
+  border-color: var(--brand-red);
+  color: var(--brand-red);
+}
+
+/* --- Игра --- */
+html[data-design="brand"] .game-screen {
+  background: var(--brand-bg) !important;
+}
+
+html[data-design="brand"] .game-hud {
+  border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+}
+
+html[data-design="brand"] .hud-back,
+html[data-design="brand"] .icon-link {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .hud-accuracy {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .hud-stars {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .hud-stars .off {
+  color: #d6d6d6;
+}
+
+html[data-design="brand"] .hud-score {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .route-dot {
+  border: 1px solid var(--brand-silver);
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .route-stop.is-done .route-dot {
+  border-color: var(--brand-red-dark);
+  background: var(--brand-red-dark);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .route-stop.is-active .route-dot {
+  border-color: var(--brand-red);
+  background: var(--brand-red);
+  color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(213, 0, 50, 0.16);
+  transform: none;
+}
+
+html[data-design="brand"] .route-stop.is-active .route-label {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .route-label {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .route-line {
+  border-top-color: var(--brand-silver);
+}
+
+html[data-design="brand"] .route-line.is-done {
+  border-top-color: var(--brand-red);
+}
+
+html[data-design="brand"] .scene-panel {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: var(--brand-ink);
+  box-shadow: none;
+}
+
+html[data-design="brand"] .scene-panel::after {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.34) 0%, rgba(0, 0, 0, 0) 32%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.8) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0) 50%);
+}
+
+html[data-design="brand"] .location-chip {
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 0;
+  background: rgba(26, 26, 26, 0.72);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .location-chip::before {
+  border-radius: 0;
+  background: var(--brand-red);
+  box-shadow: none;
+}
+
+html[data-design="brand"] .scene-stamp {
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+  transform: none;
+}
+
+html[data-design="brand"] .scene-index {
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.5);
+  opacity: 0.22;
+}
+
+html[data-design="brand"] .scene-caption {
+  border-left: 4px solid var(--brand-red);
+  background: rgba(26, 26, 26, 0.86);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .scene-caption strong {
+  color: #ffffff;
+}
+
+html[data-design="brand"] .quest-panel {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+html[data-design="brand"] .quest-panel::before {
+  color: var(--brand-red);
+  opacity: 0.04;
+}
+
+html[data-design="brand"] .quest-panel::after {
+  display: none;
+}
+
+html[data-design="brand"] .step-meta {
+  border-bottom-color: var(--brand-line);
+}
+
+html[data-design="brand"] .step-meta-left {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .step-meta-left .step-bullet {
+  background: var(--brand-red);
+  border-radius: 0;
+}
+
+html[data-design="brand"] .step-meta-right {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .quest-title {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .chat-msg-body {
+  border: 1px solid var(--brand-line);
+  border-radius: 0;
+  background: var(--brand-bg);
+  box-shadow: none;
+}
+
+html[data-design="brand"] .chat-msg.is-own .chat-msg-body {
+  border-color: #f3c2cc;
+  background: #fce8ec;
+}
+
+html[data-design="brand"] .chat-msg-head strong {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .chat-msg-head span {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .chat-avatar {
+  border: 1px solid var(--brand-silver);
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+html[data-design="brand"] .chat-text {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .chat-text .hl {
+  background: linear-gradient(transparent 60%, #fce8ec 60%);
+}
+
+html[data-design="brand"] .chat-actions {
+  border-top-color: var(--brand-line);
+}
+
+html[data-design="brand"] .task-eyebrow {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .task-sub {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .task-counter {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .pick-card,
+html[data-design="brand"] .sort-card,
+html[data-design="brand"] .choice-btn,
+html[data-design="brand"] .sample-card {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+}
+
+html[data-design="brand"] .pick-card:hover,
+html[data-design="brand"] .sort-card:hover,
+html[data-design="brand"] .choice-btn:hover,
+html[data-design="brand"] .sample-card:hover {
+  border-color: var(--brand-red);
+  background: #ffffff;
+  transform: none;
+}
+
+html[data-design="brand"] .pick-code,
+html[data-design="brand"] .sort-num,
+html[data-design="brand"] .choice-letter {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: var(--brand-bg);
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .pick-card.is-selected,
+html[data-design="brand"] .choice-btn.is-correct,
+html[data-design="brand"] .sample-card.is-correct {
+  border-color: var(--brand-red);
+  background: #fce8ec;
+  box-shadow: none;
+}
+
+html[data-design="brand"] .pick-card.is-selected .pick-code {
+  border-color: var(--brand-red);
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .pick-card.is-selected .pick-check {
+  border-color: var(--brand-red);
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .pick-card.is-wrong,
+html[data-design="brand"] .sort-card.is-wrong,
+html[data-design="brand"] .choice-btn.is-wrong,
+html[data-design="brand"] .sample-card.is-wrong {
+  border-color: var(--brand-red-dark);
+  background: #fce8ec;
+}
+
+html[data-design="brand"] .choice-btn.is-correct,
+html[data-design="brand"] .sample-card.is-correct {
+  border-color: var(--brand-success);
+  background: #eef5dc;
+}
+
+html[data-design="brand"] .sort-card.is-picked {
+  border-color: var(--brand-red);
+  background: var(--brand-red);
+  color: #ffffff;
+  opacity: 1;
+}
+
+html[data-design="brand"] .sort-card.is-picked .sort-num {
+  border-color: #ffffff;
+  background: #ffffff;
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .sort-card.is-picked .sort-copy small {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+html[data-design="brand"] .sort-progress .sp-step.is-filled {
+  border-color: var(--brand-red);
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .ph-scale {
+  background: linear-gradient(90deg, #a2aaad 0%, #d50032 32%, #d50032 40%, #84bd00 50%, #d50032 60%, #d50032 68%, #a2aaad 100%);
+}
+
+html[data-design="brand"] .ph-target {
+  border-color: var(--brand-ink);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+html[data-design="brand"] .ph-target::before {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .ph-marker {
+  background: var(--brand-red);
+  box-shadow: 0 0 0 3px #ffffff;
+}
+
+html[data-design="brand"] .ph-marker::after {
+  border-color: var(--brand-red);
+  background: #ffffff;
+}
+
+html[data-design="brand"] input[type="range"].ph-range {
+  accent-color: var(--brand-red);
+}
+
+html[data-design="brand"] .inline-feedback {
+  border: 1px solid var(--brand-red);
+  border-radius: 0;
+  background: #fce8ec;
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .inline-feedback.is-error {
+  border-color: var(--brand-red-dark);
+  background: #fce8ec;
+  color: var(--brand-red-dark);
+}
+
+html[data-design="brand"] .inline-feedback.is-good {
+  border-color: var(--brand-success);
+  background: #eef5dc;
+  color: #3f5a00;
+}
+
+html[data-design="brand"] .defect-status i {
+  border-radius: 0;
+  background: var(--brand-success);
+  box-shadow: none;
+}
+
+html[data-design="brand"] .timer-fill,
+html[data-design="brand"] .round-dots i.is-passed {
+  background: var(--brand-red);
+}
+
+html[data-design="brand"] .timer-fill.is-low {
+  background: var(--brand-red-dark);
+}
+
+html[data-design="brand"] .conveyor {
+  border-color: var(--brand-ink);
+  background:
+    repeating-linear-gradient(90deg, transparent 0, transparent 18px, rgba(255, 255, 255, 0.06) 18px, rgba(255, 255, 255, 0.06) 20px),
+    #1a1a1a;
+}
+
+html[data-design="brand"] .bottle-body {
+  background: linear-gradient(90deg, #1a1a1a, #626262 48%, #1a1a1a);
+}
+
+html[data-design="brand"] .bottle-fill {
+  background: linear-gradient(90deg, #8f1c21, #d50032 45%, #8f1c21);
+}
+
+html[data-design="brand"] .bottle-neck {
+  background: linear-gradient(90deg, #1a1a1a, #626262 55%, #1a1a1a);
+}
+
+html[data-design="brand"] .bottle-label {
+  border-color: var(--brand-ink);
+  background: #ffffff;
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .bottle-btn.is-correct {
+  border-color: var(--brand-red);
+  background: rgba(213, 0, 50, 0.12);
+}
+
+html[data-design="brand"] .bottle-btn.is-correct::after {
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .ph-controls .btn,
+html[data-design="brand"] .task-footer .btn {
+  border-color: var(--brand-silver);
+}
+
+html[data-design="brand"] .feedback-mark {
+  border: none;
+  border-radius: 0;
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .feedback-mark .check {
+  border-radius: 0;
+  background: #ffffff;
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .fact-card {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: var(--brand-bg);
+}
+
+html[data-design="brand"] .fact-card::before {
+  border-radius: 0;
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .fact-label {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .fact-card p {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .feedback-stars {
+  color: var(--brand-red);
+}
+
+/* --- Финал --- */
+html[data-design="brand"] .result-screen {
+  background: #ffffff;
+}
+
+html[data-design="brand"] .result-screen::before {
+  display: none;
+}
+
+html[data-design="brand"] .result-head {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(24px, 3.6vw, 46px);
+  border: none;
+  background-color: var(--brand-red);
+  background-image: url("../assets/brand/pattern-white.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+
+html[data-design="brand"] .result-head::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: rgba(213, 0, 50, 0.6);
+}
+
+html[data-design="brand"] .result-head > * {
+  position: relative;
+  z-index: 1;
+}
+
+html[data-design="brand"] .result-kicker {
+  color: #ffffff;
+}
+
+html[data-design="brand"] .result-kicker::before {
+  background: #ffffff;
+}
+
+html[data-design="brand"] .result-title {
+  color: #ffffff;
+  font-size: clamp(56px, 7.6vw, 118px);
+  line-height: 0.9;
+}
+
+html[data-design="brand"] .result-title span {
+  color: #ffffff;
+}
+
+html[data-design="brand"] .result-sub {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+html[data-design="brand"] .result-head-stars {
+  color: #ffffff;
+}
+
+html[data-design="brand"] .result-head-stars small {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+html[data-design="brand"] .reward-ticket {
+  border: 1px solid var(--brand-silver);
+  border-top: 4px solid var(--brand-red);
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+html[data-design="brand"] .reward-ticket::before,
+html[data-design="brand"] .reward-ticket::after {
+  display: none;
+}
+
+html[data-design="brand"] .ticket-label {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .ticket-num {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .ticket-value strong {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .ticket-value span {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .ticket-code-label {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .ticket-code-row {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: var(--brand-bg);
+}
+
+html[data-design="brand"] .ticket-code {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .copy-btn {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .copy-btn:hover {
+  color: var(--brand-red-dark);
+}
+
+html[data-design="brand"] .ticket-note {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .result-story {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+html[data-design="brand"] .result-story-label {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .result-story-label::before {
+  background: var(--brand-red);
+  border-radius: 0;
+}
+
+html[data-design="brand"] .result-story h2 {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .result-story p {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .result-stat {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .result-stat b {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .vacancy-mini {
+  border: 1px solid var(--brand-ink);
+  border-radius: 0;
+  background: var(--brand-ink);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .vacancy-mini-icon {
+  border-color: var(--brand-red);
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .vacancy-mini-label,
+html[data-design="brand"] .vacancy-mini-meta {
+  color: var(--brand-silver);
+}
+
+html[data-design="brand"] .result-badge {
+  border: 1px solid var(--brand-silver);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .result-badge.is-done {
+  border-color: var(--brand-red);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .result-alt {
+  border-top-color: var(--brand-line);
+}
+
+html[data-design="brand"] .result-alt p {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .all-complete {
+  border: 1px solid var(--brand-silver);
+  border-left: 4px solid var(--brand-success);
+  border-radius: 0;
+  background: var(--brand-bg);
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .all-complete span {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .confetti i {
+  background: var(--brand-red) !important;
+}
+
+html[data-design="brand"] .confetti i:nth-child(3n) {
+  background: var(--brand-ink) !important;
+}
+
+html[data-design="brand"] .confetti i:nth-child(4n) {
+  background: var(--brand-silver) !important;
+}
+
+html[data-design="brand"] .confetti i:nth-child(5n) {
+  background: var(--brand-red-dark) !important;
+}
+
+html[data-design="brand"] .confetti i:nth-child(7n) {
+  background: var(--brand-success) !important;
+}
+
+/* --- Заявка --- */
+html[data-design="brand"] .apply-screen {
+  background: var(--brand-bg) !important;
+}
+
+html[data-design="brand"] .vacancy-card {
+  border: 1px solid var(--brand-ink);
+  border-radius: 0;
+  background: var(--brand-ink);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+html[data-design="brand"] .vacancy-card-top::after {
+  display: none;
+}
+
+html[data-design="brand"] .vacancy-label {
+  color: #ffffff;
+}
+
+html[data-design="brand"] .vacancy-label::before {
+  background: var(--brand-red);
+  border-radius: 0;
+}
+
+html[data-design="brand"] .vacancy-card h2 {
+  color: #ffffff;
+}
+
+html[data-design="brand"] .vacancy-role {
+  color: var(--brand-silver);
+}
+
+html[data-design="brand"] .vacancy-meta-list {
+  border-top-color: rgba(255, 255, 255, 0.18);
+  border-bottom-color: rgba(255, 255, 255, 0.18);
+}
+
+html[data-design="brand"] .vacancy-meta-row span {
+  color: var(--brand-silver);
+}
+
+html[data-design="brand"] .vacancy-meta-row b {
+  color: #ffffff;
+}
+
+html[data-design="brand"] .vacancy-card-section {
+  border-top-color: rgba(255, 255, 255, 0.18);
+}
+
+html[data-design="brand"] .vacancy-section-title {
+  color: #ffffff;
+}
+
+html[data-design="brand"] .vacancy-list li {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+html[data-design="brand"] .vacancy-list li::before {
+  background: var(--brand-red);
+}
+
+html[data-design="brand"] .vacancy-card-bottom {
+  background: rgba(0, 0, 0, 0.22);
+}
+
+html[data-design="brand"] .vacancy-perk {
+  border-color: rgba(255, 255, 255, 0.32);
+  color: rgba(255, 255, 255, 0.86);
+}
+
+html[data-design="brand"] .vacancy-disclaimer {
+  color: var(--brand-silver);
+}
+
+html[data-design="brand"] .form-card {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+html[data-design="brand"] .form-head {
+  border-bottom-color: var(--brand-line);
+}
+
+html[data-design="brand"] .form-head h2 {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .form-head p {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .form-step {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .field label {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .field label .req {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .field label .optional {
+  color: var(--brand-silver);
+}
+
+html[data-design="brand"] .field input[type="text"],
+html[data-design="brand"] .field input[type="tel"],
+html[data-design="brand"] .field input[type="email"],
+html[data-design="brand"] .field input[type="url"],
+html[data-design="brand"] .field textarea {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .field input:focus,
+html[data-design="brand"] .field textarea:focus {
+  border-color: var(--brand-red);
+  box-shadow: 0 0 0 1px var(--brand-red);
+}
+
+html[data-design="brand"] .field input::placeholder {
+  color: var(--brand-silver);
+}
+
+html[data-design="brand"] .field-hint {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .field-error {
+  color: var(--brand-red-dark);
+}
+
+html[data-design="brand"] .field.has-error input,
+html[data-design="brand"] .field.has-error textarea {
+  border-color: var(--brand-red-dark);
+  background: #fce8ec;
+}
+
+html[data-design="brand"] .consent {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .consent input {
+  accent-color: var(--brand-red);
+}
+
+html[data-design="brand"] .consent.has-error {
+  color: var(--brand-red-dark);
+}
+
+html[data-design="brand"] .form-error-general {
+  border: 1px solid var(--brand-red-dark);
+  border-radius: 0;
+  background: #fce8ec;
+  color: var(--brand-red-dark);
+}
+
+html[data-design="brand"] .form-note {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .apply-head .display {
+  color: var(--brand-ink);
+}
+
+/* --- Экран успеха --- */
+html[data-design="brand"] .success-screen {
+  background: var(--brand-bg) !important;
+}
+
+html[data-design="brand"] .success-card {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+html[data-design="brand"] .success-icon {
+  border: none;
+  border-radius: 0;
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .success-card .mono-label {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .success-card h1 {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .success-card > p {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .success-ticket {
+  border: 1px dashed var(--brand-silver);
+  border-radius: 0;
+  background: var(--brand-bg);
+}
+
+html[data-design="brand"] .success-ticket span {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .success-ticket .status-chip {
+  border: 1px solid var(--brand-red);
+  border-radius: 0;
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .success-step {
+  border-top-color: var(--brand-line);
+}
+
+html[data-design="brand"] .success-step span {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .success-step p,
+html[data-design="brand"] .success-note {
+  color: var(--brand-gray);
+}
+
+/* --- Модалка, тосты, прочее --- */
+html[data-design="brand"] .modal-backdrop {
+  background: rgba(26, 26, 26, 0.62);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+html[data-design="brand"] .modal-card {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+html[data-design="brand"] .modal-card .mono-label {
+  color: var(--brand-red);
+}
+
+html[data-design="brand"] .modal-card p {
+  color: var(--brand-gray);
+}
+
+html[data-design="brand"] .toast {
+  border: 1px solid var(--brand-ink);
+  border-radius: 0;
+  background: var(--brand-ink);
+  color: #ffffff;
+  box-shadow: none;
+  font-family: var(--font-body);
+}
+
+html[data-design="brand"] .skip-link {
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+html[data-design="brand"] .fatal-card {
+  border: 1px solid var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+html[data-design="brand"] .noscript {
+  background: #ffffff;
+  color: var(--brand-ink);
+}
+
+/* --- Брендовые адаптивные правки --- */
+@media (max-width: 980px) {
+  html[data-design="brand"] .brand-logo {
+    height: 30px;
+    max-width: 178px;
+  }
+
+  html[data-design="brand"] .brand-mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  html[data-design="brand"] .hero-art {
+    min-height: 400px;
+  }
+
+  html[data-design="brand"] .hero-can {
+    width: min(82%, 400px);
+  }
+
+  html[data-design="brand"] .result-head {
+    padding: 26px 20px;
+  }
+
+  html[data-design="brand"] .result-title {
+    font-size: clamp(48px, 10vw, 82px);
+  }
+}
+
+@media (max-width: 680px) {
+  html[data-design="brand"] .brand-logo {
+    height: 26px;
+    max-width: 150px;
+  }
+
+  html[data-design="brand"] .brand-mark {
+    width: 26px;
+    height: 26px;
+  }
+
+  html[data-design="brand"] .hero-art {
+    min-height: 330px;
+    padding: 16px;
+  }
+
+  html[data-design="brand"] .hero-can {
+    width: min(76%, 300px);
+  }
+
+  html[data-design="brand"] .hero-title {
+    font-size: clamp(42px, 13.6vw, 66px);
+  }
+
+  html[data-design="brand"] .hero-side-note {
+    margin-bottom: 8px;
+  }
+
+  html[data-design="brand"] .hero-guide-note {
+    max-width: 220px;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.38;
+  }
+
+  html[data-design="brand"] .result-head {
+    padding: 20px 16px;
+    margin-bottom: 18px;
+  }
+
+  html[data-design="brand"] .result-title {
+    font-size: clamp(40px, 12.6vw, 60px);
+    line-height: 0.94;
+  }
+
+  html[data-design="brand"] .result-head-stars {
+    font-size: 20px;
+  }
+
+  html[data-design="brand"] .reward-ticket {
+    padding: 20px;
+  }
+
+  html[data-design="brand"] .ticket-value strong {
+    font-size: clamp(70px, 20vw, 96px);
+  }
+
+  html[data-design="brand"] .ticket-code {
+    font-size: 18px;
+  }
+
+  html[data-design="brand"] .vacancy-card-top {
+    padding: 20px 16px 16px;
+  }
+
+  html[data-design="brand"] .vacancy-card-section,
+  html[data-design="brand"] .vacancy-card-bottom {
+    padding: 16px;
+  }
+
+  html[data-design="brand"] .form-card {
+    padding: 18px 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  html[data-design="brand"] .brand-logo {
+    height: 22px;
+    max-width: 126px;
+  }
+
+  html[data-design="brand"] .brand-mark {
+    width: 22px;
+    height: 22px;
+  }
+
+  html[data-design="brand"] .hero-title {
+    font-size: clamp(38px, 13vw, 54px);
+  }
+
+  html[data-design="brand"] .ticket-code {
+    font-size: 15px;
+    letter-spacing: 0.03em;
+  }
+
+  html[data-design="brand"] .ticket-code-row {
+    gap: 6px;
+    padding: 10px;
+  }
+
+  html[data-design="brand"] .copy-btn {
+    flex: 0 0 auto;
+    padding: 6px;
+    font-size: 9px;
+  }
+}
+
+/* Длинный промокод должен быть виден целиком и на 390, и на 360. */
+@media (max-width: 680px) {
+  html[data-design="brand"] .ticket-code {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 16px;
+    letter-spacing: 0.03em;
+  }
+
+  html[data-design="brand"] .copy-btn {
+    flex: 0 0 auto;
+  }
+}

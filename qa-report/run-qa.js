@@ -3111,9 +3111,11 @@ async function contentGuardScenario(page, report, driver) {
   }
 
   const rolesText = allRendered;
-  report.check("content.role-kvasovar", /квасовар/i.test(rolesText));
+  report.check("content.role-machinist", /машинист оборудования/i.test(rolesText));
+  report.check("content.no-kvasovar", !/квасовар/i.test(rolesText), (rolesText.match(/квасовар\S*/gi) || []).slice(0, 5));
   report.check("content.role-line-operator", /оператор линии/i.test(rolesText));
   report.check("content.role-lab", /лаборант/i.test(rolesText));
+  report.check("content.sources-no-kvasovar", !/квасовар/i.test(allSources), (allSources.match(/квасовар\S*/gi) || []).slice(0, 5));
   report.check("content.no-age-badge", !/(?<!\d)0\s*%/.test(allRendered) && !/18\s*\+/.test(allRendered), { zeroPercent: /(?<!\d)0\s*%/.test(allRendered), eighteen: /18\s*\+/.test(allRendered) });
   report.check("content.sources-no-beer", !/пив|18\s*\+|хмел/i.test(allSources));
   report.check("content.sources-no-age-markers", !/(?<!\d)0\s*%|безалкогольн/i.test(allSources));
@@ -4062,6 +4064,323 @@ async function readabilityV2Scenario(page, report, driver) {
 
 
 
+async function designThemeScenario(page, report, driver) {
+  const DESIGN_KEY = "ochakovo-brodilka-design";
+  const data = await driver.loadData();
+  const characters = (data && data.characters) || [];
+  const mark = characters[0];
+
+  const readDesign = () =>
+    page.eval(
+      `(() => {
+        const rect = (el) => { if (!el) return null; const r = el.getBoundingClientRect(); return { left: Math.round(r.left), top: Math.round(r.top), right: Math.round(r.right), bottom: Math.round(r.bottom), width: Math.round(r.width), height: Math.round(r.height) }; };
+        const logo = document.querySelector('.brand-logo');
+        const logoStyle = logo ? getComputedStyle(logo) : null;
+        const logoRect = rect(logo);
+        const mark = document.querySelector('.brand-mark');
+        const mascots = Array.from(document.querySelectorAll('img[src*="mascot"]')).map((img) => ({ src: img.getAttribute('src'), filter: getComputedStyle(img).filter, naturalWidth: img.naturalWidth, visible: rect(img).width > 0 }));
+        const primary = document.querySelector('.btn-primary');
+        const footer = document.querySelector('.site-footer');
+        const switchButtons = Array.from(document.querySelectorAll('.design-switch-btn'));
+        const tokens = getComputedStyle(document.documentElement);
+        return {
+          design: document.documentElement.getAttribute('data-design'),
+          theme: (document.querySelector('meta[name="theme-color"]') || {}).content || null,
+          bodyBg: getComputedStyle(document.body).backgroundColor,
+          primaryBg: primary ? getComputedStyle(primary).backgroundColor : null,
+          primaryColor: primary ? getComputedStyle(primary).color : null,
+          footerBg: footer ? getComputedStyle(footer).backgroundColor : null,
+          logo: logo ? { display: logoStyle.display, visibility: logoStyle.visibility, opacity: logoStyle.opacity, src: logo.getAttribute('src'), naturalWidth: logo.naturalWidth, rect: logoRect } : null,
+          brandMark: mark ? { src: mark.getAttribute('src'), visible: rect(mark).width > 0 } : null,
+          switch: {
+            count: switchButtons.length,
+            brandPressed: switchButtons.filter((b) => b.getAttribute('data-design-value') === 'brand').map((b) => b.getAttribute('aria-pressed')),
+            brodilkaPressed: switchButtons.filter((b) => b.getAttribute('data-design-value') === 'brodilka').map((b) => b.getAttribute('aria-pressed'))
+          },
+          mascots,
+          tokens: { lime: tokens.getPropertyValue('--lime').trim(), forest: tokens.getPropertyValue('--forest').trim(), cream: tokens.getPropertyValue('--cream').trim(), orange: tokens.getPropertyValue('--orange').trim() },
+          hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+          storedDesign: (() => { try { return localStorage.getItem(${JSON.stringify(DESIGN_KEY)}); } catch (error) { return 'err'; } })()
+        };
+      })()`,
+      { awaitPromise: false }
+    );
+
+  const clickDesign = async (value) => {
+    await page.eval("window.scrollTo(0, document.body.scrollHeight)", { awaitPromise: false });
+    await sleep(150);
+    await page.click(`[data-action="design-${value}"]`);
+    await sleep(300);
+  };
+
+  // --- 1. Статика: brand.css строго под [data-design="brand"], brand assets 200 ---
+  const brandCss = (await page.fetchTexts(["css/brand.css"]))[0];
+  const cssText = String((brandCss && brandCss.text) || "");
+  const preludes = [...cssText.matchAll(/([^{}]+)\{/g)]
+    .map((match) => match[1].trim())
+    .filter((prelude) => prelude && !prelude.startsWith("@") && !prelude.includes("@media") && !prelude.includes("@supports") && !prelude.startsWith("/*") && !/^(from|to|\d+(?:\.\d+)?%)$/.test(prelude));
+  const unscoped = preludes.filter((prelude) => !prelude.includes('html[data-design="brand"]'));
+  report.check("design.brand-css-scoped", preludes.length > 50 && unscoped.length === 0, { rules: preludes.length, unscoped: unscoped.slice(0, 8) });
+
+  const brandAssetPaths = [
+    "assets/brand/ochakovo-logo.png",
+    "assets/brand/ochakovo-logo-white.png",
+    "assets/brand/ochakovo-mark.svg",
+    "assets/brand/pattern-red.jpg",
+    "assets/brand/pattern-white.jpg",
+    "assets/brand/brand-preview.png"
+  ];
+  const brandAssets = await page.eval(
+    `Promise.all(${JSON.stringify(brandAssetPaths)}.map(async (path) => {
+      try { const response = await fetch(path, { cache: "no-store" }); const blob = await response.blob(); return { path, status: response.status, bytes: blob.size, type: blob.type }; }
+      catch (error) { return { path, status: 0, error: String(error) }; }
+    }))`,
+    { awaitPromise: true }
+  );
+  report.check("design.brand-assets-200", brandAssets.every((asset) => asset.status === 200 && asset.bytes > 0), brandAssets);
+
+  const manifest = await page.eval(`fetch("manifest.webmanifest", { cache: "no-store" }).then((response) => response.json())`, { awaitPromise: true }).catch(() => null);
+  report.check("design.manifest-colors", !!manifest && manifest.theme_color === "#D50032" && manifest.background_color === "#FFFFFF", manifest ? { theme: manifest.theme_color, background: manifest.background_color } : null);
+
+  const swText = await page.eval(`fetch("sw.js", { cache: "no-store" }).then((response) => response.text())`, { awaitPromise: true });
+  const swInfo = parseSwVersion(swText);
+  report.check("design.sw-version", swInfo.number !== null && swInfo.number >= 10, swInfo);
+  report.check("design.brand-css-cached-config", /brand\.css/.test(swText) && /assets\/brand\//.test(swText), { brandCss: /brand\.css/.test(swText), brandAssets: /assets\/brand\//.test(swText) });
+  report.check("design.brand-preview-not-cached", !/brand-preview/.test(swText));
+
+  // --- 2. Default brand на 4 viewport: лендинг, интро, герои, игра ---
+  const viewports = [
+    { width: 1440, height: 1000, mobile: false, label: "desktop" },
+    { width: 390, height: 844, mobile: true, label: "mobile-390" },
+    { width: 360, height: 740, mobile: true, label: "mobile-360" },
+    { width: 844, height: 390, mobile: true, label: "landscape" }
+  ];
+  for (const viewport of viewports) {
+    await page.setViewport({ width: viewport.width, height: viewport.height, mobile: viewport.mobile, dpr: viewport.mobile ? 3 : 1 });
+    await page.eval("try { localStorage.clear(); } catch (error) {}", { awaitPromise: false });
+    await page.navigate(page.baseUrl);
+    await page.waitScreen("landing");
+    await sleep(400);
+    let info = await readDesign();
+    report.check(`design-${viewport.label}.default-brand`, info.design === "brand" && info.theme === "#D50032" && info.bodyBg === "rgb(255, 255, 255)", info);
+    report.check(`design-${viewport.label}.brand-logo-visible`, !!info.logo && info.logo.display !== "none" && info.logo.visibility !== "hidden" && Number(info.logo.opacity) > 0.5 && info.logo.rect.width > 20 && info.logo.naturalWidth > 0, info.logo);
+    report.check(`design-${viewport.label}.brand-red-cta`, info.primaryBg === "rgb(213, 0, 50)", { primaryBg: info.primaryBg, primaryColor: info.primaryColor });
+    report.check(`design-${viewport.label}.switch-present`, info.switch.count === 2 && info.switch.brandPressed[0] === "true" && info.switch.brodilkaPressed[0] === "false", info.switch);
+    report.check(`design-${viewport.label}.mascot-present`, info.mascots.some((mascot) => mascot.src && mascot.src.includes("mascot") && mascot.visible && mascot.naturalWidth > 0 && !/grayscale|sepia|hue-rotate|invert|brightness\(0\)/.test(String(mascot.filter))), info.mascots);
+    report.check(`design-${viewport.label}.brand-no-hscroll`, !info.hscroll);
+    await report.shot(page, `brand-landing-${viewport.label}`);
+
+    await page.click('[data-action="start-quest"]');
+    await sleep(300);
+    if ((await page.screen()) === "intro") {
+      info = await readDesign();
+      report.check(`design-${viewport.label}.intro-brand`, info.design === "brand" && info.theme === "#D50032" && info.primaryBg === "rgb(213, 0, 50)", info);
+      await report.shot(page, `brand-intro-${viewport.label}`);
+      await page.click('[data-action="intro-skip"]');
+    }
+    await page.waitScreen("characters");
+    info = await readDesign();
+    report.check(`design-${viewport.label}.characters-brand`, info.design === "brand" && info.theme === "#D50032" && info.bodyBg === "rgb(255, 255, 255)", info);
+    report.check(`design-${viewport.label}.characters-switch-footer`, info.switch.count === 2);
+    await report.shot(page, `brand-characters-${viewport.label}`);
+
+    await driver.selectCharacter(mark.id);
+    await page.waitScreen("game");
+    await sleep(300);
+    if (await page.exists('[data-action="next-beat"]')) {
+      await page.click('[data-action="next-beat"]');
+      await sleep(300);
+    }
+    const gameInfo = await page.eval(
+      `(() => ({
+        design: document.documentElement.getAttribute('data-design'),
+        theme: (document.querySelector('meta[name="theme-color"]') || {}).content,
+        chat: !!document.querySelector('.chat-list'),
+        mascot: Array.from(document.querySelectorAll('img[src*="mascot"]')).some((img) => img.getBoundingClientRect().width > 0 && !/grayscale|sepia|hue-rotate|invert|brightness\\(0\\)/.test(getComputedStyle(img).filter)),
+        mascotInChat: Array.from(document.querySelectorAll('.chat-list img[src*="mascot"]')).some((img) => img.getBoundingClientRect().width > 0),
+        hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
+      }))()`,
+      { awaitPromise: false }
+    );
+    report.check(`design-${viewport.label}.game-brand`, gameInfo.design === "brand" && gameInfo.theme === "#D50032" && gameInfo.chat === true && gameInfo.mascot === true && gameInfo.hscroll === false, gameInfo);
+    report.check(`design-${viewport.label}.mascot-in-chat`, gameInfo.mascotInChat === true, gameInfo);
+    await report.shot(page, `brand-game-${viewport.label}`);
+    await driver.goToCharacters();
+  }
+
+  // --- 3. Переключение темы: persist, reload без сброса прогресса, возврат ---
+  await page.setViewport({ width: 390, height: 844, mobile: true, dpr: 3 });
+  await page.eval("try { localStorage.clear(); } catch (error) {}", { awaitPromise: false });
+  await page.navigate(page.baseUrl);
+  await page.waitScreen("landing");
+  await page.click('[data-action="start-quest"]');
+  await sleep(300);
+  if ((await page.screen()) === "intro") await page.click('[data-action="intro-skip"]');
+  await page.waitScreen("characters");
+  await driver.selectCharacter(mark.id);
+  await page.waitScreen("game");
+  await page.click('[data-action="next-beat"]');
+  await sleep(300);
+  await page.click('[data-action="game-back"]');
+  await page.waitScreen("characters");
+  const questBefore = (await page.storage()).state && (await page.storage()).state.activeQuest;
+  const stepsBefore = questBefore ? questBefore.stepIndex : null;
+
+  await clickDesign("brodilka");
+  let info = await readDesign();
+  report.check("design-switch.brodilka", info.design === "brodilka" && info.theme === "#0C3B28" && info.logo.display === "none", info);
+  report.check("design-switch.brodilka-tokens", info.tokens.lime === "#d7f35b" && info.tokens.forest === "#0c3b28" && info.tokens.cream === "#f3eedf" && info.tokens.orange === "#ff6b3d", info.tokens);
+  report.check("design-switch.brodilka-cta", info.primaryBg === "rgb(215, 243, 91)", info.primaryBg);
+  report.check("design-switch.persist-localstorage", info.storedDesign === "brodilka", info.storedDesign);
+  report.check("design-switch.aria-pressed", info.switch.brodilkaPressed[0] === "true" && info.switch.brandPressed[0] === "false", info.switch);
+  const questAfterSwitch = (await page.storage()).state && (await page.storage()).state.activeQuest;
+  report.check("design-switch.no-state-reset", !!questAfterSwitch && questAfterSwitch.charId === mark.id && questAfterSwitch.stepIndex === stepsBefore, { before: questBefore, after: questAfterSwitch });
+  await report.shot(page, "brodilka-characters-390");
+
+  await page.reload();
+  await page.waitScreen("landing");
+  await sleep(400);
+  info = await readDesign();
+  const ctaAfterReload = await page.eval(
+    `(() => ({ design: document.documentElement.getAttribute('data-design'), resume: !!document.querySelector('[data-action="resume-quest"]'), stored: (() => { try { return localStorage.getItem(${JSON.stringify(DESIGN_KEY)}); } catch (e) { return 'err'; } })() }))()`,
+    { awaitPromise: false }
+  );
+  report.check("design-switch.reload-persists", info.design === "brodilka" && info.theme === "#0C3B28" && ctaAfterReload.resume === true && ctaAfterReload.stored === "brodilka", { design: info.design, theme: info.theme, ...ctaAfterReload });
+  const questAfterReload = (await page.storage()).state && (await page.storage()).state.activeQuest;
+  report.check("design-switch.reload-keeps-progress", !!questAfterReload && questAfterReload.charId === mark.id && questAfterReload.stepIndex === stepsBefore, questAfterReload);
+
+  await page.click('[data-action="resume-quest"]');
+  await page.waitScreen("game");
+  await page.click('[data-action="game-back"]');
+  await page.waitScreen("characters");
+  await clickDesign("brand");
+  info = await readDesign();
+  report.check("design-switch.back-to-brand", info.design === "brand" && info.theme === "#D50032" && info.storedDesign === "brand" && info.logo.display !== "none", info);
+  const stateAfterBack = (await page.storage()).state;
+  report.check("design-switch.back-keeps-progress", !!(stateAfterBack && stateAfterBack.activeQuest && stateAfterBack.activeQuest.charId === mark.id), stateAfterBack && stateAfterBack.activeQuest);
+
+  // --- 4. Промокод не обрезан на 390/360, финал/заявка в brand ---
+  await page.click('[data-action="game-back"]').catch(() => {});
+  await page.waitScreen("characters").catch(() => {});
+  await page.eval("try { localStorage.clear(); } catch (error) {}", { awaitPromise: false });
+  await page.navigate(page.baseUrl);
+  await page.waitScreen("landing");
+  await driver.completeRoute(mark.id);
+  await page.waitScreen("result");
+  const promo = await page.eval(
+    `(() => {
+      const el = document.querySelector('#promoCode, .ticket-code');
+      const code = el ? el.textContent.trim() : null;
+      if (!el) return { missing: true };
+      const rect = el.getBoundingClientRect();
+      const style = getComputedStyle(el);
+      return {
+        code,
+        text: el.innerText.trim(),
+        scrollWidth: el.scrollWidth,
+        clientWidth: el.clientWidth,
+        overflow: style.overflow,
+        textOverflow: style.textOverflow,
+        clipped: el.scrollWidth > el.clientWidth + 1 || el.textContent.trim().endsWith("…"),
+        rect: { left: Math.round(rect.left), right: Math.round(rect.right), top: Math.round(rect.top), bottom: Math.round(rect.bottom), width: Math.round(rect.width) },
+        viewport: document.documentElement.clientWidth,
+        design: document.documentElement.getAttribute('data-design'),
+        theme: (document.querySelector('meta[name="theme-color"]') || {}).content
+      };
+    })()`,
+    { awaitPromise: false }
+  );
+  report.check("design.promo-present", !!promo && !promo.missing && !!promo.code && promo.code.length >= 6, promo);
+  report.check("design.promo-not-clipped-390", promo.clipped === false && promo.rect.left >= 0 && promo.rect.right <= promo.viewport + 1, promo);
+  report.check("design.result-brand", promo.design === "brand" && promo.theme === "#D50032", promo);
+  const resultText = await page.eval("document.body.innerText", { awaitPromise: false });
+  report.check("design.role-machinist-result", /машинист оборудования/i.test(resultText) && !/квасовар/i.test(resultText), (resultText.match(/машинист[^\n]*|квасовар[^\n]*/gi) || []).slice(0, 4));
+  const resultConfetti = await page.eval(
+    `(() => { const c = document.querySelector('.result-screen .confetti, .confetti'); return { count: c ? c.querySelectorAll('i').length : 0, z: c ? getComputedStyle(c).zIndex : null }; })()`,
+    { awaitPromise: false }
+  );
+  report.check("design.result-confetti-bg", !!resultConfetti.count && Number(resultConfetti.z) === 0, resultConfetti);
+  await report.shot(page, "brand-result-390");
+
+  await page.setViewport({ width: 360, height: 740, mobile: true, dpr: 3 });
+  await sleep(400);
+  const promo360 = await page.eval(
+    `(() => { const el = document.querySelector('#promoCode, .ticket-code'); if (!el) return null; const r = el.getBoundingClientRect(); return { text: el.innerText.trim(), scrollWidth: el.scrollWidth, clientWidth: el.clientWidth, clipped: el.scrollWidth > el.clientWidth + 1 || el.textContent.trim().endsWith("…"), right: Math.round(r.right), viewport: document.documentElement.clientWidth, hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1 }; })()`,
+    { awaitPromise: false }
+  );
+  report.check("design.promo-not-clipped-360", !!promo360 && promo360.clipped === false && promo360.right <= promo360.viewport + 1 && promo360.hscroll === false, promo360);
+  await report.shot(page, "brand-result-360");
+
+  await page.setViewport({ width: 1440, height: 1000, mobile: false, dpr: 1 });
+  await sleep(400);
+  await report.shot(page, "brand-result-desktop");
+  await page.click('[data-action="open-apply"]');
+  await page.waitScreen("apply");
+  await sleep(300);
+  const applyInfo = await readDesign();
+  report.check("design.apply-brand", applyInfo.design === "brand" && applyInfo.theme === "#D50032", applyInfo);
+  report.check("design.apply-no-hscroll", !applyInfo.hscroll);
+  await report.shot(page, "brand-apply-desktop");
+  const vacancyText = await page.eval(`(() => String((document.querySelector('.vacancy-card, aside') || {}).innerText || ''))()`, { awaitPromise: false });
+  report.check("design.role-machinist-apply", /машинист оборудования/i.test(vacancyText) && !/квасовар/i.test(vacancyText), String(vacancyText).slice(0, 300));
+
+  // --- 5. PWA v10: кэш brand-ассетов, brand-preview не кэшируется, offline ---
+  await page.navigate(page.baseUrl);
+  await page.waitScreen("landing");
+  await page.waitForSelector("#app");
+  await waitUntil(
+    async () => {
+      const info = await page.eval(
+        `(async () => {
+          const registrations = await navigator.serviceWorker.getRegistrations();
+          return { count: registrations.length, active: registrations.some((r) => !!r.active), controller: !!navigator.serviceWorker.controller };
+        })()`,
+        { awaitPromise: true }
+      ).catch(() => null);
+      return info && info.count > 0 && info.active ? info : null;
+    },
+    { timeout: 15000, interval: 300, label: "brand SW registration" }
+  ).catch(() => report.note("SW не зарегистрировался в design-theme"));
+  await page.reload();
+  await page.waitScreen("landing");
+  await sleep(1200);
+  const cached = await page.eval(
+    `(async () => {
+      const urls = [];
+      for (const key of await caches.keys()) {
+        const cache = await caches.open(key);
+        for (const request of await cache.keys()) urls.push(request.url);
+      }
+      return { keys: await caches.keys(), urls };
+    })()`,
+    { awaitPromise: true }
+  ).catch(() => ({ keys: [], urls: [] }));
+  report.check("design.pwa-cache-brand", ["brand.css", "ochakovo-logo.png", "ochakovo-mark.svg", "pattern-red.jpg", "pattern-white.jpg"].every((needle) => cached.urls.some((url) => url.includes(needle))), { keys: cached.keys, missing: ["brand.css", "ochakovo-logo.png", "ochakovo-mark.svg", "pattern-red.jpg", "pattern-white.jpg"].filter((needle) => !cached.urls.some((url) => url.includes(needle))) });
+  const brandReferences = await page.fetchTexts(["index.html", "css/brand.css"]);
+  report.check(
+    "design.brand-preview-not-referenced",
+    brandReferences.every((file) => !/brand-preview/i.test(String(file.text || ""))),
+    brandReferences.map((file) => ({ file: file.file, referenced: /brand-preview/i.test(String(file.text || "")) }))
+  );
+  await page.setOffline(true);
+  await page.reload({ timeout: 25000 }).catch((error) => report.note("offline brand reload: " + error.message));
+  await sleep(800);
+  const offline = await page.eval(
+    `(() => ({ hasApp: !!document.querySelector('[data-action="start-quest"], [data-action="resume-quest"], #app'), design: document.documentElement.getAttribute('data-design'), body: (document.body ? document.body.innerText : '').slice(0, 80) }))()`,
+    { awaitPromise: false }
+  );
+  report.check("design.pwa-offline-brand", offline.hasApp === true && offline.design === "brand", offline);
+  await report.shot(page, "brand-offline");
+  await page.setOffline(false);
+  await page.reload().catch(() => {});
+  await page.waitScreen("landing").catch(() => {});
+
+  // --- 6. Брендинг: «квасовар» не встречается в видимом UI/README, машинист есть ---
+  const readme = await page.fetchTexts(["README.md"]).catch(() => []);
+  report.check("design.readme-no-kvasovar", readme.length > 0 && !/квасовар/i.test(String(readme[0].text || "")), (String((readme[0] || {}).text || "").match(/квасовар\S*/gi) || []).slice(0, 5));
+  await checkConsole(page, report, "design-theme");
+}
+
 async function finalFixesScenario(page, report, driver) {
   const data = await driver.loadData();
   const characters = (data && data.characters) || [];
@@ -4307,6 +4626,12 @@ const SCENARIOS = [
     title: "Финальные фиксы: HUD в 2 строки, бейдж top-right, скрытый scene-stamp, intro counter, 07:40–16:10",
     viewport: "mobile",
     run: finalFixesScenario
+  },
+  {
+    id: "design-theme",
+    title: "Брендовая тема: default brand, переключатель, persist/reload, промокод, PWA v10",
+    viewport: "desktop",
+    run: designThemeScenario
   }
 ];
 

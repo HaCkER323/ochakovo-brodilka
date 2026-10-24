@@ -1,30 +1,30 @@
 {
-  "runId": "2026-10-24T09-31-54",
-  "startedAt": "2026-10-24T09:31:54.787Z",
-  "finishedAt": "2026-10-24T09:32:17.724Z",
+  "runId": "2026-10-24T12-59-36",
+  "startedAt": "2026-10-24T12:59:36.788Z",
+  "finishedAt": "2026-10-24T13:00:47.291Z",
   "env": {
-    "runId": "2026-10-24T09-31-54",
+    "runId": "2026-10-24T12-59-36",
     "node": "v24.17.0",
     "platform": "win32",
     "browser": "Edg/155.0.4283.62",
     "browserPath": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
-    "baseUrl": "http://127.0.0.1:49935",
+    "baseUrl": "http://127.0.0.1:56059",
     "headed": false
   },
   "summary": {
-    "scenarios": 1,
-    "checks": 47,
-    "passed": 47,
+    "scenarios": 4,
+    "checks": 176,
+    "passed": 175,
     "failed": 0,
     "warned": 0,
-    "skipped": 0,
+    "skipped": 1,
     "fatal": 0,
     "failures": []
   },
   "scenarios": [
     {
-      "id": "final-fixes",
-      "title": "Финальные фиксы: HUD в 2 строки, бейдж top-right, скрытый scene-stamp, intro counter, 07:40–16:10",
+      "id": "pwa",
+      "title": "PWA: манифест, SW, кэш, offline, meta/safe-area",
       "viewport": {
         "id": "mobile",
         "width": 390,
@@ -32,1210 +32,2483 @@
         "dpr": 3,
         "mobile": true
       },
-      "startedAt": "2026-10-24T09:31:55.644Z",
+      "startedAt": "2026-10-24T12:59:37.545Z",
       "checks": [
         {
-          "id": "final-fixes.scene-time-label",
+          "id": "pwa.manifest-link",
           "status": "pass",
-          "details": {
-            "hasStart": true,
-            "hasEnd": true
-          }
-        },
-        {
-          "id": "final-fixes-390.badge",
-          "status": "pass",
-          "details": {
-            "text": "Первая смена · 7 минут",
-            "position": "relative",
-            "rect": {
-              "left": 179,
-              "top": 95,
-              "right": 375,
-              "bottom": 141,
-              "width": 195,
-              "height": 47
-            },
-            "inHeroArt": false
-          }
-        },
-        {
-          "id": "final-fixes-390.badge-position",
-          "status": "pass",
-          "details": {
-            "text": "Первая смена · 7 минут",
-            "position": "relative",
-            "rect": {
-              "left": 179,
-              "top": 95,
-              "right": 375,
-              "bottom": 141,
-              "width": 195,
-              "height": 47
-            },
-            "inHeroArt": false
-          }
-        },
-        {
-          "id": "final-fixes-390.badge-right",
-          "status": "pass",
-          "details": {
-            "text": "Первая смена · 7 минут",
-            "position": "relative",
-            "rect": {
-              "left": 179,
-              "top": 95,
-              "right": 375,
-              "bottom": 141,
-              "width": 195,
-              "height": 47
-            },
-            "inHeroArt": false
-          }
-        },
-        {
-          "id": "final-fixes-390.badge-outside-hero-art",
-          "status": "pass",
-          "details": {
-            "text": "Первая смена · 7 минут",
-            "position": "relative",
-            "rect": {
-              "left": 179,
-              "top": 95,
-              "right": 375,
-              "bottom": 141,
-              "width": 195,
-              "height": 47
-            },
-            "inHeroArt": false
-          }
-        },
-        {
-          "id": "final-fixes-390.badge-above-cta",
-          "status": "pass",
-          "details": {
-            "badge": {
-              "left": 179,
-              "top": 95,
-              "right": 375,
-              "bottom": 141,
-              "width": 195,
-              "height": 47
-            },
-            "cta": {
-              "left": 16,
-              "top": 575,
-              "right": 374,
-              "bottom": 633,
-              "width": 358,
-              "height": 58
+          "details": [
+            {
+              "href": "http://127.0.0.1:56059/manifest.webmanifest",
+              "raw": "manifest.webmanifest"
             }
+          ]
+        },
+        {
+          "id": "pwa.manifest-status",
+          "status": "pass",
+          "details": 200
+        },
+        {
+          "id": "pwa.manifest-json",
+          "status": "pass",
+          "details": "application/manifest+json; charset=utf-8"
+        },
+        {
+          "id": "pwa.cdp-manifest-errors",
+          "status": "pass",
+          "details": []
+        },
+        {
+          "id": "pwa.manifest-required-fields",
+          "status": "pass",
+          "details": {
+            "missing": [],
+            "display": "standalone"
           }
         },
         {
-          "id": "final-fixes-390.intro-header-counter",
+          "id": "pwa.manifest-display",
           "status": "pass",
-          "details": {
-            "before": {
-              "header": "Введение1 / 5",
-              "counter": "01 / 05"
+          "details": "standalone"
+        },
+        {
+          "id": "pwa.manifest-icons-sizes",
+          "status": "pass",
+          "details": [
+            "192x192",
+            "512x512",
+            "512x512"
+          ]
+        },
+        {
+          "id": "pwa.manifest-maskable",
+          "status": "pass",
+          "details": [
+            "any",
+            "any",
+            "maskable"
+          ]
+        },
+        {
+          "id": "pwa.icons-load",
+          "status": "pass",
+          "details": [
+            {
+              "src": "assets/icon-192.png",
+              "sizes": "192x192",
+              "purpose": "any",
+              "status": 200,
+              "type": "image/png",
+              "bytes": 35208,
+              "width": 192,
+              "height": 192
             },
-            "after": {
-              "header": "Введение2 / 5",
-              "counter": "02 / 05",
-              "sameHeaderNode": true
+            {
+              "src": "assets/icon-512.png",
+              "sizes": "512x512",
+              "purpose": "any",
+              "status": 200,
+              "type": "image/png",
+              "bytes": 138468,
+              "width": 512,
+              "height": 512
+            },
+            {
+              "src": "assets/icon-maskable-512.png",
+              "sizes": "512x512",
+              "purpose": "maskable",
+              "status": 200,
+              "type": "image/png",
+              "bytes": 113714,
+              "width": 512,
+              "height": 512
             }
-          }
+          ]
         },
         {
-          "id": "final-fixes-390.hud-present",
+          "id": "pwa.icons-dimensions",
+          "status": "pass",
+          "details": []
+        },
+        {
+          "id": "pwa.start-url",
           "status": "pass",
           "details": {
-            "hud": {
-              "left": 10,
-              "top": 70,
-              "right": 380,
-              "bottom": 172,
-              "width": 370,
-              "height": 102
-            },
-            "back": {
-              "left": 10,
-              "top": 74,
-              "right": 75,
-              "bottom": 118,
-              "width": 65,
-              "height": 44
-            },
-            "score": {
-              "left": 323,
-              "top": 83,
-              "right": 380,
-              "bottom": 109,
-              "width": 57,
-              "height": 27
-            },
-            "route": {
-              "left": 10,
-              "top": 125,
-              "right": 380,
-              "bottom": 168,
-              "width": 370,
-              "height": 43
-            },
-            "finish": {
-              "left": 351,
-              "top": 125,
-              "right": 380,
-              "bottom": 168,
-              "width": 30,
-              "height": 43
-            },
-            "routeSecondRow": true,
-            "scoreFinishOverlap": false,
-            "routeWithinHud": true,
-            "wrap": "nowrap"
+            "url": "http://127.0.0.1:56059/index.html",
+            "status": 200
           }
         },
         {
-          "id": "final-fixes-390.hud-score-no-finish-overlap",
+          "id": "pwa.manifest-scope",
+          "status": "pass",
+          "details": "./"
+        },
+        {
+          "id": "pwa.apple-touch-icon-load",
           "status": "pass",
           "details": {
-            "hud": {
-              "left": 10,
-              "top": 70,
-              "right": 380,
-              "bottom": 172,
-              "width": 370,
-              "height": 102
-            },
-            "back": {
-              "left": 10,
-              "top": 74,
-              "right": 75,
-              "bottom": 118,
-              "width": 65,
-              "height": 44
-            },
-            "score": {
-              "left": 323,
-              "top": 83,
-              "right": 380,
-              "bottom": 109,
-              "width": 57,
-              "height": 27
-            },
-            "route": {
-              "left": 10,
-              "top": 125,
-              "right": 380,
-              "bottom": 168,
-              "width": 370,
-              "height": 43
-            },
-            "finish": {
-              "left": 351,
-              "top": 125,
-              "right": 380,
-              "bottom": 168,
-              "width": 30,
-              "height": 43
-            },
-            "routeSecondRow": true,
-            "scoreFinishOverlap": false,
-            "routeWithinHud": true,
-            "wrap": "nowrap"
+            "href": "http://127.0.0.1:56059/assets/apple-touch-icon.png",
+            "status": 200,
+            "bytes": 36304,
+            "type": "image/png"
           }
         },
         {
-          "id": "final-fixes-390.hud-route-fits",
+          "id": "pwa.meta-theme-color",
           "status": "pass",
-          "details": {
-            "hud": {
-              "left": 10,
-              "top": 70,
-              "right": 380,
-              "bottom": 172,
-              "width": 370,
-              "height": 102
-            },
-            "back": {
-              "left": 10,
-              "top": 74,
-              "right": 75,
-              "bottom": 118,
-              "width": 65,
-              "height": 44
-            },
-            "score": {
-              "left": 323,
-              "top": 83,
-              "right": 380,
-              "bottom": 109,
-              "width": 57,
-              "height": 27
-            },
-            "route": {
-              "left": 10,
-              "top": 125,
-              "right": 380,
-              "bottom": 168,
-              "width": 370,
-              "height": 43
-            },
-            "finish": {
-              "left": 351,
-              "top": 125,
-              "right": 380,
-              "bottom": 168,
-              "width": 30,
-              "height": 43
-            },
-            "routeSecondRow": true,
-            "scoreFinishOverlap": false,
-            "routeWithinHud": true,
-            "wrap": "nowrap"
-          }
+          "details": "#D50032"
         },
         {
-          "id": "final-fixes-390.hud-two-rows",
+          "id": "pwa.meta-apple-capable",
           "status": "pass",
-          "details": {
-            "hud": {
-              "left": 10,
-              "top": 70,
-              "right": 380,
-              "bottom": 172,
-              "width": 370,
-              "height": 102
-            },
-            "back": {
-              "left": 10,
-              "top": 74,
-              "right": 75,
-              "bottom": 118,
-              "width": 65,
-              "height": 44
-            },
-            "score": {
-              "left": 323,
-              "top": 83,
-              "right": 380,
-              "bottom": 109,
-              "width": 57,
-              "height": 27
-            },
-            "route": {
-              "left": 10,
-              "top": 125,
-              "right": 380,
-              "bottom": 168,
-              "width": 370,
-              "height": 43
-            },
-            "finish": {
-              "left": 351,
-              "top": 125,
-              "right": 380,
-              "bottom": 168,
-              "width": 30,
-              "height": 43
-            },
-            "routeSecondRow": true,
-            "scoreFinishOverlap": false,
-            "routeWithinHud": true,
-            "wrap": "nowrap"
-          }
+          "details": "yes"
         },
         {
-          "id": "final-fixes-390.scene-stamp-hidden",
+          "id": "pwa.meta-apple-status",
           "status": "pass",
-          "details": {
-            "display": "none",
-            "visibility": "visible",
-            "width": 0,
-            "height": 0,
-            "text": "Смена 01 · Этап 01 / 03"
-          }
+          "details": "default"
         },
         {
-          "id": "final-fixes-390.console-clean",
+          "id": "pwa.meta-apple-icon",
           "status": "pass",
           "details": null
         },
         {
-          "id": "final-fixes-360.badge",
+          "id": "pwa.meta-viewport-fit",
+          "status": "pass",
+          "details": "width=device-width, initial-scale=1, viewport-fit=cover"
+        },
+        {
+          "id": "pwa.safe-area-css",
+          "status": "pass",
+          "details": [
+            "http://127.0.0.1:56059/css/styles.css"
+          ]
+        },
+        {
+          "id": "pwa.sw-supported",
           "status": "pass",
           "details": {
-            "text": "Первая смена · 7 минут",
-            "position": "relative",
-            "rect": {
-              "left": 149,
-              "top": 95,
-              "right": 345,
-              "bottom": 141,
-              "width": 195,
-              "height": 47
+            "supported": true,
+            "count": 1,
+            "registrations": [
+              {
+                "scope": "http://127.0.0.1:56059/",
+                "active": {
+                  "scriptURL": "http://127.0.0.1:56059/sw.js",
+                  "state": "activated"
+                },
+                "waiting": false,
+                "installing": false
+              }
+            ],
+            "controller": {
+              "scriptURL": "http://127.0.0.1:56059/sw.js",
+              "state": "activated"
             },
-            "inHeroArt": false
+            "cacheKeys": [
+              "brodilka-v11-shell",
+              "brodilka-v11-runtime"
+            ]
           }
         },
         {
-          "id": "final-fixes-360.badge-position",
+          "id": "pwa.sw-registered",
           "status": "pass",
           "details": {
-            "text": "Первая смена · 7 минут",
-            "position": "relative",
-            "rect": {
-              "left": 149,
-              "top": 95,
-              "right": 345,
-              "bottom": 141,
-              "width": 195,
-              "height": 47
+            "supported": true,
+            "count": 1,
+            "registrations": [
+              {
+                "scope": "http://127.0.0.1:56059/",
+                "active": {
+                  "scriptURL": "http://127.0.0.1:56059/sw.js",
+                  "state": "activated"
+                },
+                "waiting": false,
+                "installing": false
+              }
+            ],
+            "controller": {
+              "scriptURL": "http://127.0.0.1:56059/sw.js",
+              "state": "activated"
             },
-            "inHeroArt": false
+            "cacheKeys": [
+              "brodilka-v11-shell",
+              "brodilka-v11-runtime"
+            ]
           }
         },
         {
-          "id": "final-fixes-360.badge-right",
+          "id": "pwa.sw-active",
           "status": "pass",
-          "details": {
-            "text": "Первая смена · 7 минут",
-            "position": "relative",
-            "rect": {
-              "left": 149,
-              "top": 95,
-              "right": 345,
-              "bottom": 141,
-              "width": 195,
-              "height": 47
-            },
-            "inHeroArt": false
-          }
-        },
-        {
-          "id": "final-fixes-360.badge-outside-hero-art",
-          "status": "pass",
-          "details": {
-            "text": "Первая смена · 7 минут",
-            "position": "relative",
-            "rect": {
-              "left": 149,
-              "top": 95,
-              "right": 345,
-              "bottom": 141,
-              "width": 195,
-              "height": 47
-            },
-            "inHeroArt": false
-          }
-        },
-        {
-          "id": "final-fixes-360.badge-above-cta",
-          "status": "pass",
-          "details": {
-            "badge": {
-              "left": 149,
-              "top": 95,
-              "right": 345,
-              "bottom": 141,
-              "width": 195,
-              "height": 47
-            },
-            "cta": {
-              "left": 16,
-              "top": 559,
-              "right": 344,
-              "bottom": 617,
-              "width": 328,
-              "height": 58
+          "details": [
+            {
+              "scope": "http://127.0.0.1:56059/",
+              "active": {
+                "scriptURL": "http://127.0.0.1:56059/sw.js",
+                "state": "activated"
+              },
+              "waiting": false,
+              "installing": false
             }
-          }
+          ]
         },
         {
-          "id": "final-fixes-360.intro-header-counter",
+          "id": "pwa.sw-script-200",
           "status": "pass",
           "details": {
-            "before": {
-              "header": "Введение1 / 5",
-              "counter": "01 / 05"
-            },
-            "after": {
-              "header": "Введение2 / 5",
-              "counter": "02 / 05",
-              "sameHeaderNode": true
-            }
+            "status": 200,
+            "contentType": "text/javascript; charset=utf-8"
           }
         },
         {
-          "id": "final-fixes-360.hud-present",
+          "id": "pwa.sw-has-fetch",
           "status": "pass",
-          "details": {
-            "hud": {
-              "left": 10,
-              "top": 70,
-              "right": 350,
-              "bottom": 172,
-              "width": 340,
-              "height": 102
-            },
-            "back": {
-              "left": 10,
-              "top": 74,
-              "right": 75,
-              "bottom": 118,
-              "width": 65,
-              "height": 44
-            },
-            "score": {
-              "left": 293,
-              "top": 83,
-              "right": 350,
-              "bottom": 109,
-              "width": 57,
-              "height": 27
-            },
-            "route": {
-              "left": 10,
-              "top": 125,
-              "right": 350,
-              "bottom": 168,
-              "width": 340,
-              "height": 43
-            },
-            "finish": {
-              "left": 321,
-              "top": 125,
-              "right": 350,
-              "bottom": 168,
-              "width": 30,
-              "height": 43
-            },
-            "routeSecondRow": true,
-            "scoreFinishOverlap": false,
-            "routeWithinHud": true,
-            "wrap": "nowrap"
-          }
+          "details": "/* =========================================================\n   БРОДИЛКА — service worker\n   Кэширует оболочку, отдаёт о"
         },
         {
-          "id": "final-fixes-360.hud-score-no-finish-overlap",
-          "status": "pass",
-          "details": {
-            "hud": {
-              "left": 10,
-              "top": 70,
-              "right": 350,
-              "bottom": 172,
-              "width": 340,
-              "height": 102
-            },
-            "back": {
-              "left": 10,
-              "top": 74,
-              "right": 75,
-              "bottom": 118,
-              "width": 65,
-              "height": 44
-            },
-            "score": {
-              "left": 293,
-              "top": 83,
-              "right": 350,
-              "bottom": 109,
-              "width": 57,
-              "height": 27
-            },
-            "route": {
-              "left": 10,
-              "top": 125,
-              "right": 350,
-              "bottom": 168,
-              "width": 340,
-              "height": 43
-            },
-            "finish": {
-              "left": 321,
-              "top": 125,
-              "right": 350,
-              "bottom": 168,
-              "width": 30,
-              "height": 43
-            },
-            "routeSecondRow": true,
-            "scoreFinishOverlap": false,
-            "routeWithinHud": true,
-            "wrap": "nowrap"
-          }
-        },
-        {
-          "id": "final-fixes-360.hud-route-fits",
-          "status": "pass",
-          "details": {
-            "hud": {
-              "left": 10,
-              "top": 70,
-              "right": 350,
-              "bottom": 172,
-              "width": 340,
-              "height": 102
-            },
-            "back": {
-              "left": 10,
-              "top": 74,
-              "right": 75,
-              "bottom": 118,
-              "width": 65,
-              "height": 44
-            },
-            "score": {
-              "left": 293,
-              "top": 83,
-              "right": 350,
-              "bottom": 109,
-              "width": 57,
-              "height": 27
-            },
-            "route": {
-              "left": 10,
-              "top": 125,
-              "right": 350,
-              "bottom": 168,
-              "width": 340,
-              "height": 43
-            },
-            "finish": {
-              "left": 321,
-              "top": 125,
-              "right": 350,
-              "bottom": 168,
-              "width": 30,
-              "height": 43
-            },
-            "routeSecondRow": true,
-            "scoreFinishOverlap": false,
-            "routeWithinHud": true,
-            "wrap": "nowrap"
-          }
-        },
-        {
-          "id": "final-fixes-360.hud-two-rows",
-          "status": "pass",
-          "details": {
-            "hud": {
-              "left": 10,
-              "top": 70,
-              "right": 350,
-              "bottom": 172,
-              "width": 340,
-              "height": 102
-            },
-            "back": {
-              "left": 10,
-              "top": 74,
-              "right": 75,
-              "bottom": 118,
-              "width": 65,
-              "height": 44
-            },
-            "score": {
-              "left": 293,
-              "top": 83,
-              "right": 350,
-              "bottom": 109,
-              "width": 57,
-              "height": 27
-            },
-            "route": {
-              "left": 10,
-              "top": 125,
-              "right": 350,
-              "bottom": 168,
-              "width": 340,
-              "height": 43
-            },
-            "finish": {
-              "left": 321,
-              "top": 125,
-              "right": 350,
-              "bottom": 168,
-              "width": 30,
-              "height": 43
-            },
-            "routeSecondRow": true,
-            "scoreFinishOverlap": false,
-            "routeWithinHud": true,
-            "wrap": "nowrap"
-          }
-        },
-        {
-          "id": "final-fixes-360.scene-stamp-hidden",
-          "status": "pass",
-          "details": {
-            "display": "none",
-            "visibility": "visible",
-            "width": 0,
-            "height": 0,
-            "text": "Смена 01 · Этап 01 / 03"
-          }
-        },
-        {
-          "id": "final-fixes-360.console-clean",
+          "id": "pwa.sw-cache-strategy",
           "status": "pass",
           "details": null
         },
         {
-          "id": "final-fixes-landscape.badge",
+          "id": "pwa.sw-version",
           "status": "pass",
           "details": {
-            "text": "Первая смена · 7 минут",
-            "position": "absolute",
-            "rect": {
-              "left": 587,
-              "top": 86,
-              "right": 809,
-              "bottom": 139,
-              "width": 222,
-              "height": 53
-            },
-            "inHeroArt": false
+            "version": "brodilka-v11",
+            "number": 11
           }
         },
         {
-          "id": "final-fixes-landscape.badge-position",
+          "id": "pwa.sw-controller",
           "status": "pass",
           "details": {
-            "text": "Первая смена · 7 минут",
-            "position": "absolute",
-            "rect": {
-              "left": 587,
-              "top": 86,
-              "right": 809,
-              "bottom": 139,
-              "width": 222,
-              "height": 53
-            },
-            "inHeroArt": false
+            "controller": "http://127.0.0.1:56059/sw.js",
+            "active": "http://127.0.0.1:56059/sw.js"
           }
         },
         {
-          "id": "final-fixes-landscape.badge-right",
+          "id": "pwa.cache-populated",
           "status": "pass",
           "details": {
-            "text": "Первая смена · 7 минут",
-            "position": "absolute",
-            "rect": {
-              "left": 587,
-              "top": 86,
-              "right": 809,
-              "bottom": 139,
-              "width": 222,
-              "height": 53
-            },
-            "inHeroArt": false
+            "keys": [
+              "brodilka-v11-shell",
+              "brodilka-v11-runtime"
+            ],
+            "details": [
+              {
+                "key": "brodilka-v11-shell",
+                "count": 30,
+                "urls": [
+                  "http://127.0.0.1:56059/",
+                  "http://127.0.0.1:56059/index.html",
+                  "http://127.0.0.1:56059/manifest.webmanifest",
+                  "http://127.0.0.1:56059/css/styles.css",
+                  "http://127.0.0.1:56059/css/game.css",
+                  "http://127.0.0.1:56059/css/brand.css",
+                  "http://127.0.0.1:56059/js/config.js",
+                  "http://127.0.0.1:56059/js/data.js",
+                  "http://127.0.0.1:56059/js/pdf.js",
+                  "http://127.0.0.1:56059/assets/share-promo.png",
+                  "http://127.0.0.1:56059/assets/brand/ochakovo-logo.png",
+                  "http://127.0.0.1:56059/js/app.js",
+                  "http://127.0.0.1:56059/assets/brand/ochakovo-logo-white.png",
+                  "http://127.0.0.1:56059/assets/brand/ochakovo-mark.svg",
+                  "http://127.0.0.1:56059/assets/brand/pattern-red.jpg",
+                  "http://127.0.0.1:56059/assets/brand/pattern-white.jpg",
+                  "http://127.0.0.1:56059/assets/icon-192.png",
+                  "http://127.0.0.1:56059/assets/icon-512.png",
+                  "http://127.0.0.1:56059/assets/icon-maskable-512.png",
+                  "http://127.0.0.1:56059/assets/apple-touch-icon.png",
+                  "http://127.0.0.1:56059/assets/app-icon.svg",
+                  "http://127.0.0.1:56059/assets/mascot.svg",
+                  "http://127.0.0.1:56059/assets/chief.svg",
+                  "http://127.0.0.1:56059/assets/mark.svg",
+                  "http://127.0.0.1:56059/assets/dasha.svg",
+                  "http://127.0.0.1:56059/assets/lev.svg",
+                  "http://127.0.0.1:56059/assets/hero-can.svg",
+                  "http://127.0.0.1:56059/assets/scene-brew.svg",
+                  "http://127.0.0.1:56059/assets/scene-line.svg",
+                  "http://127.0.0.1:56059/assets/scene-lab.svg"
+                ]
+              },
+              {
+                "key": "brodilka-v11-runtime",
+                "count": 21,
+                "urls": [
+                  "http://127.0.0.1:56059/manifest.webmanifest",
+                  "http://127.0.0.1:56059/assets/icon-192.png",
+                  "http://127.0.0.1:56059/assets/icon-maskable-512.png",
+                  "http://127.0.0.1:56059/assets/icon-512.png",
+                  "http://127.0.0.1:56059/index.html",
+                  "http://127.0.0.1:56059/assets/apple-touch-icon.png",
+                  "http://127.0.0.1:56059/sw.js",
+                  "http://127.0.0.1:56059/",
+                  "http://127.0.0.1:56059/css/styles.css",
+                  "http://127.0.0.1:56059/css/brand.css",
+                  "http://127.0.0.1:56059/js/config.js",
+                  "http://127.0.0.1:56059/assets/brand/ochakovo-logo.png",
+                  "http://127.0.0.1:56059/js/data.js",
+                  "http://127.0.0.1:56059/js/pdf.js",
+                  "http://127.0.0.1:56059/css/game.css",
+                  "http://127.0.0.1:56059/assets/brand/ochakovo-mark.svg",
+                  "http://127.0.0.1:56059/js/app.js",
+                  "http://127.0.0.1:56059/assets/hero-can.svg",
+                  "http://127.0.0.1:56059/assets/mascot.svg",
+                  "http://127.0.0.1:56059/assets/brand/pattern-white.jpg",
+                  "http://127.0.0.1:56059/assets/app-icon.svg"
+                ]
+              }
+            ]
           }
         },
         {
-          "id": "final-fixes-landscape.badge-outside-hero-art",
+          "id": "pwa.cache-version",
           "status": "pass",
           "details": {
-            "text": "Первая смена · 7 минут",
-            "position": "absolute",
-            "rect": {
-              "left": 587,
-              "top": 86,
-              "right": 809,
-              "bottom": 139,
-              "width": 222,
-              "height": 53
-            },
-            "inHeroArt": false
+            "expected": "brodilka-v11",
+            "keys": [
+              "brodilka-v11-shell",
+              "brodilka-v11-runtime"
+            ]
           }
         },
         {
-          "id": "final-fixes-landscape.badge-above-cta",
+          "id": "pwa.cache-no-stale",
+          "status": "pass",
+          "details": [
+            "brodilka-v11-shell",
+            "brodilka-v11-runtime"
+          ]
+        },
+        {
+          "id": "pwa.cache-shell",
+          "status": "pass",
+          "details": [
+            "http://127.0.0.1:56059/",
+            "http://127.0.0.1:56059/index.html",
+            "http://127.0.0.1:56059/manifest.webmanifest",
+            "http://127.0.0.1:56059/css/styles.css",
+            "http://127.0.0.1:56059/css/game.css",
+            "http://127.0.0.1:56059/css/brand.css",
+            "http://127.0.0.1:56059/js/config.js",
+            "http://127.0.0.1:56059/js/data.js",
+            "http://127.0.0.1:56059/js/pdf.js",
+            "http://127.0.0.1:56059/assets/share-promo.png",
+            "http://127.0.0.1:56059/assets/brand/ochakovo-logo.png",
+            "http://127.0.0.1:56059/js/app.js",
+            "http://127.0.0.1:56059/assets/brand/ochakovo-logo-white.png",
+            "http://127.0.0.1:56059/assets/brand/ochakovo-mark.svg",
+            "http://127.0.0.1:56059/assets/brand/pattern-red.jpg",
+            "http://127.0.0.1:56059/assets/brand/pattern-white.jpg",
+            "http://127.0.0.1:56059/assets/icon-192.png",
+            "http://127.0.0.1:56059/assets/icon-512.png",
+            "http://127.0.0.1:56059/assets/icon-maskable-512.png",
+            "http://127.0.0.1:56059/assets/apple-touch-icon.png"
+          ]
+        },
+        {
+          "id": "pwa.cache-pdf-script",
+          "status": "pass",
+          "details": [
+            "http://127.0.0.1:56059/js/config.js",
+            "http://127.0.0.1:56059/js/data.js",
+            "http://127.0.0.1:56059/js/pdf.js",
+            "http://127.0.0.1:56059/js/app.js",
+            "http://127.0.0.1:56059/sw.js",
+            "http://127.0.0.1:56059/js/config.js",
+            "http://127.0.0.1:56059/js/data.js",
+            "http://127.0.0.1:56059/js/pdf.js",
+            "http://127.0.0.1:56059/js/app.js"
+          ]
+        },
+        {
+          "id": "pwa.cache-share-image",
+          "status": "pass",
+          "details": [
+            "http://127.0.0.1:56059/assets/share-promo.png"
+          ]
+        },
+        {
+          "id": "pwa.offline-pdf-script",
+          "status": "pass",
+          "details": true
+        },
+        {
+          "id": "pwa.standalone-emulation",
+          "status": "skip",
+          "details": "браузер не применил эмуляцию display-mode (проверить вручную в установленном режиме); manifest.display проверен отдельно"
+        },
+        {
+          "id": "pwa.offline-reload-renders",
           "status": "pass",
           "details": {
-            "badge": {
-              "left": 587,
-              "top": 86,
-              "right": 809,
-              "bottom": 139,
-              "width": 222,
-              "height": 53
-            },
-            "cta": {
-              "left": 35,
-              "top": 651,
-              "right": 219,
-              "bottom": 709,
-              "width": 184,
-              "height": 58
-            }
+            "readyState": "complete",
+            "bodyText": "Перейти к игре\nПЕРВАЯ СМЕНА · 7 МИНУТ\nИНТЕРАКТИВНЫЙ КВЕСТ · ПЕРВАЯ СМЕНА\nЗАЙДИ\nНА ЗАВОД.\nНЕ НА\nЭКСКУРСИЮ.\n\nТри смены. Три характера. Один завод, где делают квас, лимонады и воду. Выбери героя, пройди ",
+            "hasApp": true,
+            "h1": "ЗАЙДИ\nНА ЗАВОД.\nНЕ НА\nЭКСКУРСИЮ.",
+            "storageKeys": []
           }
         },
         {
-          "id": "final-fixes-landscape.intro-header-counter",
+          "id": "pwa.offline-navigation",
           "status": "pass",
-          "details": {
-            "before": {
-              "header": "Введение1 / 5",
-              "counter": "01 / 05"
-            },
-            "after": {
-              "header": "Введение2 / 5",
-              "counter": "02 / 05",
-              "sameHeaderNode": true
-            }
-          }
+          "details": "intro"
         },
         {
-          "id": "final-fixes-landscape.hud-present",
-          "status": "pass",
-          "details": {
-            "hud": {
-              "left": 35,
-              "top": 82,
-              "right": 809,
-              "bottom": 142,
-              "width": 773,
-              "height": 60
-            },
-            "back": {
-              "left": 35,
-              "top": 96,
-              "right": 114,
-              "bottom": 128,
-              "width": 78,
-              "height": 32
-            },
-            "score": {
-              "left": 741,
-              "top": 96,
-              "right": 809,
-              "bottom": 128,
-              "width": 67,
-              "height": 32
-            },
-            "route": {
-              "left": 122,
-              "top": 86,
-              "right": 616,
-              "bottom": 138,
-              "width": 494,
-              "height": 52
-            },
-            "finish": {
-              "left": 380,
-              "top": 86,
-              "right": 444,
-              "bottom": 136,
-              "width": 64,
-              "height": 50
-            },
-            "routeSecondRow": false,
-            "scoreFinishOverlap": false,
-            "routeWithinHud": true,
-            "wrap": "nowrap"
-          }
-        },
-        {
-          "id": "final-fixes-landscape.hud-score-no-finish-overlap",
-          "status": "pass",
-          "details": {
-            "hud": {
-              "left": 35,
-              "top": 82,
-              "right": 809,
-              "bottom": 142,
-              "width": 773,
-              "height": 60
-            },
-            "back": {
-              "left": 35,
-              "top": 96,
-              "right": 114,
-              "bottom": 128,
-              "width": 78,
-              "height": 32
-            },
-            "score": {
-              "left": 741,
-              "top": 96,
-              "right": 809,
-              "bottom": 128,
-              "width": 67,
-              "height": 32
-            },
-            "route": {
-              "left": 122,
-              "top": 86,
-              "right": 616,
-              "bottom": 138,
-              "width": 494,
-              "height": 52
-            },
-            "finish": {
-              "left": 380,
-              "top": 86,
-              "right": 444,
-              "bottom": 136,
-              "width": 64,
-              "height": 50
-            },
-            "routeSecondRow": false,
-            "scoreFinishOverlap": false,
-            "routeWithinHud": true,
-            "wrap": "nowrap"
-          }
-        },
-        {
-          "id": "final-fixes-landscape.hud-route-fits",
-          "status": "pass",
-          "details": {
-            "hud": {
-              "left": 35,
-              "top": 82,
-              "right": 809,
-              "bottom": 142,
-              "width": 773,
-              "height": 60
-            },
-            "back": {
-              "left": 35,
-              "top": 96,
-              "right": 114,
-              "bottom": 128,
-              "width": 78,
-              "height": 32
-            },
-            "score": {
-              "left": 741,
-              "top": 96,
-              "right": 809,
-              "bottom": 128,
-              "width": 67,
-              "height": 32
-            },
-            "route": {
-              "left": 122,
-              "top": 86,
-              "right": 616,
-              "bottom": 138,
-              "width": 494,
-              "height": 52
-            },
-            "finish": {
-              "left": 380,
-              "top": 86,
-              "right": 444,
-              "bottom": 136,
-              "width": 64,
-              "height": 50
-            },
-            "routeSecondRow": false,
-            "scoreFinishOverlap": false,
-            "routeWithinHud": true,
-            "wrap": "nowrap"
-          }
-        },
-        {
-          "id": "final-fixes-landscape.scene-stamp-visible",
-          "status": "pass",
-          "details": {
-            "display": "block",
-            "visibility": "visible",
-            "width": 167,
-            "height": 31,
-            "text": "Смена 01 · Этап 01 / 03"
-          }
-        },
-        {
-          "id": "final-fixes-landscape.console-clean",
+          "id": "pwa.console-clean",
           "status": "pass",
           "details": null
         },
         {
-          "id": "final-fixes-desktop.badge",
+          "id": "pwa.network-clean",
+          "status": "pass",
+          "details": []
+        }
+      ],
+      "screenshots": [
+        "screens/2026-10-24T12-59-36/pwa/01-standalone.png",
+        "screens/2026-10-24T12-59-36/pwa/02-offline-landing.png",
+        "screens/2026-10-24T12-59-36/pwa/03-offline-navigation.png"
+      ],
+      "notes": [
+        "display-mode emulation: {\"standalone\":false,\"browser\":true,\"bodyWidth\":390,\"hscroll\":false}",
+        "Установочные критерии PWA: manifest + иконки 192/512 + SW с fetch. Полноценная установка через UI в headless не проверяется — см. ручной чек-лист."
+      ],
+      "fatal": null
+    },
+    {
+      "id": "pwa-fresh",
+      "title": "PWA на свежем профиле: unregister SW, installability, иконки 192/512/maskable/180",
+      "viewport": {
+        "id": "mobile",
+        "width": 390,
+        "height": 844,
+        "dpr": 3,
+        "mobile": true
+      },
+      "startedAt": "2026-10-24T12:59:44.027Z",
+      "checks": [
+        {
+          "id": "pwa-fresh.reset",
           "status": "pass",
           "details": {
-            "text": "Первая смена · 7 минут",
-            "position": "absolute",
-            "rect": {
-              "left": 1143,
-              "top": 108,
-              "right": 1365,
-              "bottom": 161,
-              "width": 222,
-              "height": 53
-            },
-            "inHeroArt": false
+            "supported": true,
+            "registrations": 0,
+            "caches": 0
           }
         },
         {
-          "id": "final-fixes-desktop.badge-position",
+          "id": "pwa-fresh.sw-reregister",
           "status": "pass",
           "details": {
-            "text": "Первая смена · 7 минут",
-            "position": "absolute",
-            "rect": {
-              "left": 1143,
-              "top": 108,
-              "right": 1365,
-              "bottom": 161,
-              "width": 222,
-              "height": 53
-            },
-            "inHeroArt": false
+            "active": "http://127.0.0.1:56059/sw.js",
+            "installing": false,
+            "waiting": false
           }
         },
         {
-          "id": "final-fixes-desktop.badge-right",
+          "id": "pwa-fresh.controller",
           "status": "pass",
           "details": {
-            "text": "Первая смена · 7 минут",
-            "position": "absolute",
-            "rect": {
-              "left": 1143,
-              "top": 108,
-              "right": 1365,
-              "bottom": 161,
-              "width": 222,
-              "height": 53
-            },
-            "inHeroArt": false
+            "controller": "http://127.0.0.1:56059/sw.js",
+            "active": "http://127.0.0.1:56059/sw.js"
           }
         },
         {
-          "id": "final-fixes-desktop.badge-outside-hero-art",
+          "id": "pwa-fresh.manifest-errors",
           "status": "pass",
-          "details": {
-            "text": "Первая смена · 7 минут",
-            "position": "absolute",
-            "rect": {
-              "left": 1143,
-              "top": 108,
-              "right": 1365,
-              "bottom": 161,
-              "width": 222,
-              "height": 53
-            },
-            "inHeroArt": false
-          }
+          "details": []
         },
         {
-          "id": "final-fixes-desktop.badge-above-cta",
+          "id": "pwa-fresh.installability-errors",
           "status": "pass",
-          "details": {
-            "badge": {
-              "left": 1143,
-              "top": 108,
-              "right": 1365,
-              "bottom": 161,
-              "width": 222,
-              "height": 53
+          "details": []
+        },
+        {
+          "id": "pwa-fresh.icons-200",
+          "status": "pass",
+          "details": [
+            {
+              "url": "assets/icon-192.png",
+              "expect": 192,
+              "label": "192",
+              "status": 200,
+              "type": "image/png",
+              "bytes": 35208,
+              "width": 192,
+              "height": 192
             },
-            "cta": {
-              "left": 60,
-              "top": 796,
-              "right": 244,
-              "bottom": 854,
-              "width": 184,
-              "height": 58
+            {
+              "url": "assets/icon-512.png",
+              "expect": 512,
+              "label": "512",
+              "status": 200,
+              "type": "image/png",
+              "bytes": 138468,
+              "width": 512,
+              "height": 512
+            },
+            {
+              "url": "assets/icon-maskable-512.png",
+              "expect": 512,
+              "label": "maskable-512",
+              "status": 200,
+              "type": "image/png",
+              "bytes": 113714,
+              "width": 512,
+              "height": 512
+            },
+            {
+              "url": "assets/apple-touch-icon.png",
+              "expect": 180,
+              "label": "apple-180",
+              "status": 200,
+              "type": "image/png",
+              "bytes": 36304,
+              "width": 180,
+              "height": 180
             }
+          ]
+        },
+        {
+          "id": "pwa-fresh.icons-dimensions",
+          "status": "pass",
+          "details": []
+        },
+        {
+          "id": "pwa-fresh.sw-version",
+          "status": "pass",
+          "details": {
+            "version": "brodilka-v11",
+            "number": 11
           }
         },
         {
-          "id": "final-fixes-desktop.intro-header-counter",
+          "id": "pwa-fresh.cache-version",
           "status": "pass",
           "details": {
-            "before": {
-              "header": "Введение1 / 5",
-              "counter": "01 / 05"
+            "expected": "brodilka-v11",
+            "keys": [
+              "brodilka-v11-shell",
+              "brodilka-v11-runtime"
+            ]
+          }
+        },
+        {
+          "id": "pwa-fresh.no-stale-cache",
+          "status": "pass",
+          "details": [
+            "brodilka-v11-shell",
+            "brodilka-v11-runtime"
+          ]
+        },
+        {
+          "id": "pwa-fresh.cache-pdf-script",
+          "status": "pass",
+          "details": [
+            "http://127.0.0.1:56059/js/config.js",
+            "http://127.0.0.1:56059/js/pdf.js",
+            "http://127.0.0.1:56059/js/data.js",
+            "http://127.0.0.1:56059/js/app.js",
+            "http://127.0.0.1:56059/js/config.js",
+            "http://127.0.0.1:56059/js/data.js",
+            "http://127.0.0.1:56059/js/pdf.js",
+            "http://127.0.0.1:56059/js/app.js",
+            "http://127.0.0.1:56059/sw.js"
+          ]
+        },
+        {
+          "id": "pwa-fresh.cache-share-image",
+          "status": "pass",
+          "details": [
+            "http://127.0.0.1:56059/assets/share-promo.png"
+          ]
+        },
+        {
+          "id": "pwa-fresh.install-button",
+          "status": "pass",
+          "details": {
+            "present": true,
+            "hidden": false,
+            "text": "Установить"
+          }
+        },
+        {
+          "id": "pwa-fresh.offline-reload",
+          "status": "pass",
+          "details": {
+            "readyState": "complete",
+            "hasApp": true,
+            "body": "Перейти к игре\nПЕРВАЯ СМЕНА · 7 МИНУТ\nИНТЕРАКТИВНЫЙ КВЕСТ · ПЕРВАЯ СМЕНА\nЗАЙДИ\nНА ЗАВОД.\nНЕ НА\nЭКСКУРСИЮ.\n\nТри смены. Тр"
+          }
+        },
+        {
+          "id": "pwa-fresh.offline-pdf-script",
+          "status": "pass",
+          "details": true
+        },
+        {
+          "id": "pwa-fresh.console-clean",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "pwa-fresh.network-clean",
+          "status": "pass",
+          "details": []
+        }
+      ],
+      "screenshots": [
+        "screens/2026-10-24T12-59-36/pwa-fresh/01-offline-fresh.png"
+      ],
+      "notes": [
+        "install-кнопка: {\"present\":true,\"hidden\":false,\"text\":\"Установить\"}"
+      ],
+      "fatal": null
+    },
+    {
+      "id": "landing-intro-v2",
+      "title": "Лендинг/интро v2: интервалы, бейдж, 0%/Enter, in-place интро, левый спикер",
+      "viewport": {
+        "id": "desktop",
+        "width": 1440,
+        "height": 1000,
+        "dpr": 1,
+        "mobile": false
+      },
+      "startedAt": "2026-10-24T12:59:48.917Z",
+      "checks": [
+        {
+          "id": "landing-v2-desktop.h1-no-eyebrow-overlap",
+          "status": "pass",
+          "details": {
+            "eyebrow": {},
+            "h1": {}
+          }
+        },
+        {
+          "id": "landing-v2-desktop.no-phone-meta",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-desktop.no-test-phrase",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-desktop.guide-size",
+          "status": "pass",
+          "details": 14
+        },
+        {
+          "id": "landing-v2-desktop.badge",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "fontSize": 12,
+            "rect": {}
+          }
+        },
+        {
+          "id": "landing-v2-desktop.no-age-badge",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-desktop.no-enter-hints",
+          "status": "pass",
+          "details": {
+            "kbd": 0
+          }
+        },
+        {
+          "id": "landing-v2-desktop.no-hscroll",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-desktop.micro-font",
+          "status": "pass",
+          "details": []
+        },
+        {
+          "id": "landing-v2.desktop.hero-sub-font",
+          "status": "pass",
+          "details": 20
+        },
+        {
+          "id": "landing-v2-desktop.intro-present",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-desktop.intro-5-steps",
+          "status": "pass",
+          "details": 5
+        },
+        {
+          "id": "landing-v2-desktop.intro-left-speaker",
+          "status": "pass",
+          "details": [
+            {
+              "index": 0,
+              "expected": "narrator",
+              "leftOk": true
             },
-            "after": {
-              "header": "Введение2 / 5",
-              "counter": "02 / 05",
-              "sameHeaderNode": true
+            {
+              "index": 1,
+              "expected": "bubble",
+              "leftOk": true
+            },
+            {
+              "index": 2,
+              "expected": "chief",
+              "leftOk": true
+            },
+            {
+              "index": 3,
+              "expected": "bubble",
+              "leftOk": true
+            },
+            {
+              "index": 4,
+              "expected": "chief",
+              "leftOk": true
             }
-          }
+          ]
         },
         {
-          "id": "final-fixes-desktop.hud-present",
+          "id": "landing-v2-desktop.intro-in-place",
+          "status": "pass",
+          "details": []
+        },
+        {
+          "id": "landing-v2-desktop.intro-no-scroll",
+          "status": "pass",
+          "details": []
+        },
+        {
+          "id": "landing-v2-desktop.console-clean",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-mobile-390.h1-no-eyebrow-overlap",
           "status": "pass",
           "details": {
-            "hud": {
-              "left": 60,
-              "top": 86,
-              "right": 1380,
-              "bottom": 145,
-              "width": 1319,
-              "height": 59
-            },
-            "back": {
-              "left": 60,
-              "top": 100,
-              "right": 139,
-              "bottom": 131,
-              "width": 78,
-              "height": 32
-            },
-            "score": {
-              "left": 1312,
-              "top": 100,
-              "right": 1380,
-              "bottom": 131,
-              "width": 67,
-              "height": 32
-            },
-            "route": {
-              "left": 574,
-              "top": 90,
-              "right": 866,
-              "bottom": 141,
-              "width": 292,
-              "height": 51
-            },
-            "finish": {
-              "left": 790,
-              "top": 90,
-              "right": 866,
-              "bottom": 141,
-              "width": 76,
-              "height": 51
-            },
-            "routeSecondRow": false,
-            "scoreFinishOverlap": false,
-            "routeWithinHud": true,
-            "wrap": "nowrap"
+            "eyebrow": {},
+            "h1": {}
           }
         },
         {
-          "id": "final-fixes-desktop.hud-score-no-finish-overlap",
+          "id": "landing-v2-mobile-390.no-phone-meta",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-mobile-390.no-test-phrase",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-mobile-390.guide-size",
+          "status": "pass",
+          "details": 14
+        },
+        {
+          "id": "landing-v2-mobile-390.badge",
           "status": "pass",
           "details": {
-            "hud": {
-              "left": 60,
-              "top": 86,
-              "right": 1380,
-              "bottom": 145,
-              "width": 1319,
-              "height": 59
-            },
-            "back": {
-              "left": 60,
-              "top": 100,
-              "right": 139,
-              "bottom": 131,
-              "width": 78,
-              "height": 32
-            },
-            "score": {
-              "left": 1312,
-              "top": 100,
-              "right": 1380,
-              "bottom": 131,
-              "width": 67,
-              "height": 32
-            },
-            "route": {
-              "left": 574,
-              "top": 90,
-              "right": 866,
-              "bottom": 141,
-              "width": 292,
-              "height": 51
-            },
-            "finish": {
-              "left": 790,
-              "top": 90,
-              "right": 866,
-              "bottom": 141,
-              "width": 76,
-              "height": 51
-            },
-            "routeSecondRow": false,
-            "scoreFinishOverlap": false,
-            "routeWithinHud": true,
-            "wrap": "nowrap"
+            "text": "Первая смена · 7 минут",
+            "fontSize": 12,
+            "rect": {}
           }
         },
         {
-          "id": "final-fixes-desktop.hud-route-fits",
+          "id": "landing-v2-mobile-390.no-age-badge",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-mobile-390.no-enter-hints",
           "status": "pass",
           "details": {
-            "hud": {
-              "left": 60,
-              "top": 86,
-              "right": 1380,
-              "bottom": 145,
-              "width": 1319,
-              "height": 59
-            },
-            "back": {
-              "left": 60,
-              "top": 100,
-              "right": 139,
-              "bottom": 131,
-              "width": 78,
-              "height": 32
-            },
-            "score": {
-              "left": 1312,
-              "top": 100,
-              "right": 1380,
-              "bottom": 131,
-              "width": 67,
-              "height": 32
-            },
-            "route": {
-              "left": 574,
-              "top": 90,
-              "right": 866,
-              "bottom": 141,
-              "width": 292,
-              "height": 51
-            },
-            "finish": {
-              "left": 790,
-              "top": 90,
-              "right": 866,
-              "bottom": 141,
-              "width": 76,
-              "height": 51
-            },
-            "routeSecondRow": false,
-            "scoreFinishOverlap": false,
-            "routeWithinHud": true,
-            "wrap": "nowrap"
+            "kbd": 0
           }
         },
         {
-          "id": "final-fixes-desktop.scene-stamp-visible",
+          "id": "landing-v2-mobile-390.no-hscroll",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-mobile-390.micro-font",
+          "status": "pass",
+          "details": []
+        },
+        {
+          "id": "landing-v2-mobile-390.intro-present",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-mobile-390.intro-5-steps",
+          "status": "pass",
+          "details": 5
+        },
+        {
+          "id": "landing-v2-mobile-390.intro-left-speaker",
+          "status": "pass",
+          "details": [
+            {
+              "index": 0,
+              "expected": "narrator",
+              "leftOk": true
+            },
+            {
+              "index": 1,
+              "expected": "bubble",
+              "leftOk": true
+            },
+            {
+              "index": 2,
+              "expected": "chief",
+              "leftOk": true
+            },
+            {
+              "index": 3,
+              "expected": "bubble",
+              "leftOk": true
+            },
+            {
+              "index": 4,
+              "expected": "chief",
+              "leftOk": true
+            }
+          ]
+        },
+        {
+          "id": "landing-v2-mobile-390.intro-in-place",
+          "status": "pass",
+          "details": []
+        },
+        {
+          "id": "landing-v2-mobile-390.intro-no-scroll",
+          "status": "pass",
+          "details": []
+        },
+        {
+          "id": "landing-v2-mobile-390.console-clean",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-mobile-360.h1-no-eyebrow-overlap",
           "status": "pass",
           "details": {
-            "display": "block",
-            "visibility": "visible",
-            "width": 181,
-            "height": 32,
-            "text": "Смена 01 · Этап 01 / 03"
+            "eyebrow": {},
+            "h1": {}
           }
         },
         {
-          "id": "final-fixes-desktop.console-clean",
+          "id": "landing-v2-mobile-360.no-phone-meta",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-mobile-360.no-test-phrase",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-mobile-360.guide-size",
+          "status": "pass",
+          "details": 14
+        },
+        {
+          "id": "landing-v2-mobile-360.badge",
+          "status": "pass",
+          "details": {
+            "text": "Первая смена · 7 минут",
+            "fontSize": 12,
+            "rect": {}
+          }
+        },
+        {
+          "id": "landing-v2-mobile-360.no-age-badge",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-mobile-360.no-enter-hints",
+          "status": "pass",
+          "details": {
+            "kbd": 0
+          }
+        },
+        {
+          "id": "landing-v2-mobile-360.no-hscroll",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-mobile-360.micro-font",
+          "status": "pass",
+          "details": []
+        },
+        {
+          "id": "landing-v2-mobile-360.intro-present",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "landing-v2-mobile-360.intro-5-steps",
+          "status": "pass",
+          "details": 5
+        },
+        {
+          "id": "landing-v2-mobile-360.intro-left-speaker",
+          "status": "pass",
+          "details": [
+            {
+              "index": 0,
+              "expected": "narrator",
+              "leftOk": true
+            },
+            {
+              "index": 1,
+              "expected": "bubble",
+              "leftOk": true
+            },
+            {
+              "index": 2,
+              "expected": "chief",
+              "leftOk": true
+            },
+            {
+              "index": 3,
+              "expected": "bubble",
+              "leftOk": true
+            },
+            {
+              "index": 4,
+              "expected": "chief",
+              "leftOk": true
+            }
+          ]
+        },
+        {
+          "id": "landing-v2-mobile-360.intro-in-place",
+          "status": "pass",
+          "details": []
+        },
+        {
+          "id": "landing-v2-mobile-360.intro-no-scroll",
+          "status": "pass",
+          "details": []
+        },
+        {
+          "id": "landing-v2-mobile-360.console-clean",
           "status": "pass",
           "details": null
         }
       ],
       "screenshots": [
-        "screens/2026-10-24T09-31-54/final-fixes/01-landing-390.png",
-        "screens/2026-10-24T09-31-54/final-fixes/02-game-hud-390.png",
-        "screens/2026-10-24T09-31-54/final-fixes/03-landing-360.png",
-        "screens/2026-10-24T09-31-54/final-fixes/04-game-hud-360.png",
-        "screens/2026-10-24T09-31-54/final-fixes/05-landing-landscape.png",
-        "screens/2026-10-24T09-31-54/final-fixes/06-game-hud-landscape.png",
-        "screens/2026-10-24T09-31-54/final-fixes/07-landing-desktop.png",
-        "screens/2026-10-24T09-31-54/final-fixes/08-game-hud-desktop.png"
+        "screens/2026-10-24T12-59-36/landing-intro-v2/01-landing-desktop.png",
+        "screens/2026-10-24T12-59-36/landing-intro-v2/02-intro-desktop.png",
+        "screens/2026-10-24T12-59-36/landing-intro-v2/03-landing-mobile-390.png",
+        "screens/2026-10-24T12-59-36/landing-intro-v2/04-intro-mobile-390.png",
+        "screens/2026-10-24T12-59-36/landing-intro-v2/05-landing-mobile-360.png",
+        "screens/2026-10-24T12-59-36/landing-intro-v2/06-intro-mobile-360.png"
+      ],
+      "notes": [],
+      "fatal": null
+    },
+    {
+      "id": "design-theme",
+      "title": "Брендовая тема: default brand, переключатель, persist/reload, промокод, PWA v10",
+      "viewport": {
+        "id": "desktop",
+        "width": 1440,
+        "height": 1000,
+        "dpr": 1,
+        "mobile": false
+      },
+      "startedAt": "2026-10-24T12:59:59.096Z",
+      "checks": [
+        {
+          "id": "design.brand-css-scoped",
+          "status": "pass",
+          "details": {
+            "rules": 326,
+            "unscoped": []
+          }
+        },
+        {
+          "id": "design.brand-assets-200",
+          "status": "pass",
+          "details": [
+            {
+              "path": "assets/brand/ochakovo-logo.png",
+              "status": 200,
+              "bytes": 43593,
+              "type": "image/png"
+            },
+            {
+              "path": "assets/brand/ochakovo-logo-white.png",
+              "status": 200,
+              "bytes": 45240,
+              "type": "image/png"
+            },
+            {
+              "path": "assets/brand/ochakovo-mark.svg",
+              "status": 200,
+              "bytes": 571,
+              "type": "image/svg+xml"
+            },
+            {
+              "path": "assets/brand/pattern-red.jpg",
+              "status": 200,
+              "bytes": 139216,
+              "type": "image/jpeg"
+            },
+            {
+              "path": "assets/brand/pattern-white.jpg",
+              "status": 200,
+              "bytes": 146597,
+              "type": "image/jpeg"
+            },
+            {
+              "path": "assets/brand/brand-preview.png",
+              "status": 200,
+              "bytes": 545490,
+              "type": "image/png"
+            }
+          ]
+        },
+        {
+          "id": "design.manifest-colors",
+          "status": "pass",
+          "details": {
+            "theme": "#D50032",
+            "background": "#FFFFFF"
+          }
+        },
+        {
+          "id": "design.sw-version",
+          "status": "pass",
+          "details": {
+            "version": "brodilka-v11",
+            "number": 11
+          }
+        },
+        {
+          "id": "design.brand-css-cached-config",
+          "status": "pass",
+          "details": {
+            "brandCss": true,
+            "brandAssets": true
+          }
+        },
+        {
+          "id": "design.brand-preview-not-cached",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "design-desktop.default-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "bodyBg": "rgb(255, 255, 255)",
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)",
+            "footerBg": "rgb(244, 244, 244)",
+            "logo": {
+              "display": "block",
+              "visibility": "visible",
+              "opacity": "1",
+              "src": "assets/brand/ochakovo-logo.png",
+              "naturalWidth": 640,
+              "rect": {
+                "left": 104,
+                "top": 18,
+                "right": 235,
+                "bottom": 52,
+                "width": 130,
+                "height": 34
+              }
+            },
+            "brandMark": {
+              "src": "assets/brand/ochakovo-mark.svg",
+              "visible": true
+            },
+            "switch": {
+              "count": 2,
+              "brandPressed": [
+                "true"
+              ],
+              "brodilkaPressed": [
+                "false"
+              ]
+            },
+            "mascots": [
+              {
+                "src": "assets/mascot.svg",
+                "filter": "drop-shadow(rgba(16, 37, 26, 0.18) 2px 5px 0px)",
+                "naturalWidth": 420,
+                "visible": true
+              }
+            ],
+            "tokens": {
+              "lime": "#d50032",
+              "forest": "#ab2328",
+              "cream": "#ffffff",
+              "orange": "#d50032"
+            },
+            "hscroll": false,
+            "storedDesign": null
+          }
+        },
+        {
+          "id": "design-desktop.brand-logo-visible",
+          "status": "pass",
+          "details": {
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "src": "assets/brand/ochakovo-logo.png",
+            "naturalWidth": 640,
+            "rect": {
+              "left": 104,
+              "top": 18,
+              "right": 235,
+              "bottom": 52,
+              "width": 130,
+              "height": 34
+            }
+          }
+        },
+        {
+          "id": "design-desktop.brand-red-cta",
+          "status": "pass",
+          "details": {
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)"
+          }
+        },
+        {
+          "id": "design-desktop.switch-present",
+          "status": "pass",
+          "details": {
+            "count": 2,
+            "brandPressed": [
+              "true"
+            ],
+            "brodilkaPressed": [
+              "false"
+            ]
+          }
+        },
+        {
+          "id": "design-desktop.mascot-present",
+          "status": "pass",
+          "details": [
+            {
+              "src": "assets/mascot.svg",
+              "filter": "drop-shadow(rgba(16, 37, 26, 0.18) 2px 5px 0px)",
+              "naturalWidth": 420,
+              "visible": true
+            }
+          ]
+        },
+        {
+          "id": "design-desktop.brand-no-hscroll",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "design-desktop.intro-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "bodyBg": "rgb(255, 255, 255)",
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)",
+            "footerBg": null,
+            "logo": {
+              "display": "block",
+              "visibility": "visible",
+              "opacity": "1",
+              "src": "assets/brand/ochakovo-logo.png",
+              "naturalWidth": 640,
+              "rect": {
+                "left": 104,
+                "top": 18,
+                "right": 235,
+                "bottom": 52,
+                "width": 130,
+                "height": 34
+              }
+            },
+            "brandMark": {
+              "src": "assets/brand/ochakovo-mark.svg",
+              "visible": true
+            },
+            "switch": {
+              "count": 0,
+              "brandPressed": [],
+              "brodilkaPressed": []
+            },
+            "mascots": [],
+            "tokens": {
+              "lime": "#d50032",
+              "forest": "#ab2328",
+              "cream": "#ffffff",
+              "orange": "#d50032"
+            },
+            "hscroll": false,
+            "storedDesign": null
+          }
+        },
+        {
+          "id": "design-desktop.characters-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "bodyBg": "rgb(255, 255, 255)",
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)",
+            "footerBg": "rgb(244, 244, 244)",
+            "logo": {
+              "display": "block",
+              "visibility": "visible",
+              "opacity": "1",
+              "src": "assets/brand/ochakovo-logo.png",
+              "naturalWidth": 640,
+              "rect": {
+                "left": 104,
+                "top": 18,
+                "right": 235,
+                "bottom": 52,
+                "width": 130,
+                "height": 34
+              }
+            },
+            "brandMark": {
+              "src": "assets/brand/ochakovo-mark.svg",
+              "visible": true
+            },
+            "switch": {
+              "count": 2,
+              "brandPressed": [
+                "true"
+              ],
+              "brodilkaPressed": [
+                "false"
+              ]
+            },
+            "mascots": [
+              {
+                "src": "assets/mascot.svg",
+                "filter": "none",
+                "naturalWidth": 420,
+                "visible": true
+              }
+            ],
+            "tokens": {
+              "lime": "#d50032",
+              "forest": "#ab2328",
+              "cream": "#ffffff",
+              "orange": "#d50032"
+            },
+            "hscroll": false,
+            "storedDesign": null
+          }
+        },
+        {
+          "id": "design-desktop.characters-switch-footer",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "design-desktop.game-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "chat": true,
+            "mascot": true,
+            "mascotInChat": true,
+            "hscroll": false
+          }
+        },
+        {
+          "id": "design-desktop.mascot-in-chat",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "chat": true,
+            "mascot": true,
+            "mascotInChat": true,
+            "hscroll": false
+          }
+        },
+        {
+          "id": "design-mobile-390.default-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "bodyBg": "rgb(255, 255, 255)",
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)",
+            "footerBg": "rgb(244, 244, 244)",
+            "logo": {
+              "display": "block",
+              "visibility": "visible",
+              "opacity": "1",
+              "src": "assets/brand/ochakovo-logo.png",
+              "naturalWidth": 640,
+              "rect": {
+                "left": 48,
+                "top": 19,
+                "right": 132,
+                "bottom": 41,
+                "width": 84,
+                "height": 22
+              }
+            },
+            "brandMark": {
+              "src": "assets/brand/ochakovo-mark.svg",
+              "visible": true
+            },
+            "switch": {
+              "count": 2,
+              "brandPressed": [
+                "true"
+              ],
+              "brodilkaPressed": [
+                "false"
+              ]
+            },
+            "mascots": [
+              {
+                "src": "assets/mascot.svg",
+                "filter": "drop-shadow(rgba(16, 37, 26, 0.18) 2px 5px 0px)",
+                "naturalWidth": 420,
+                "visible": true
+              }
+            ],
+            "tokens": {
+              "lime": "#d50032",
+              "forest": "#ab2328",
+              "cream": "#ffffff",
+              "orange": "#d50032"
+            },
+            "hscroll": false,
+            "storedDesign": null
+          }
+        },
+        {
+          "id": "design-mobile-390.brand-logo-visible",
+          "status": "pass",
+          "details": {
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "src": "assets/brand/ochakovo-logo.png",
+            "naturalWidth": 640,
+            "rect": {
+              "left": 48,
+              "top": 19,
+              "right": 132,
+              "bottom": 41,
+              "width": 84,
+              "height": 22
+            }
+          }
+        },
+        {
+          "id": "design-mobile-390.brand-red-cta",
+          "status": "pass",
+          "details": {
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)"
+          }
+        },
+        {
+          "id": "design-mobile-390.switch-present",
+          "status": "pass",
+          "details": {
+            "count": 2,
+            "brandPressed": [
+              "true"
+            ],
+            "brodilkaPressed": [
+              "false"
+            ]
+          }
+        },
+        {
+          "id": "design-mobile-390.mascot-present",
+          "status": "pass",
+          "details": [
+            {
+              "src": "assets/mascot.svg",
+              "filter": "drop-shadow(rgba(16, 37, 26, 0.18) 2px 5px 0px)",
+              "naturalWidth": 420,
+              "visible": true
+            }
+          ]
+        },
+        {
+          "id": "design-mobile-390.brand-no-hscroll",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "design-mobile-390.intro-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "bodyBg": "rgb(255, 255, 255)",
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)",
+            "footerBg": null,
+            "logo": {
+              "display": "block",
+              "visibility": "visible",
+              "opacity": "1",
+              "src": "assets/brand/ochakovo-logo.png",
+              "naturalWidth": 640,
+              "rect": {
+                "left": 48,
+                "top": 19,
+                "right": 132,
+                "bottom": 41,
+                "width": 84,
+                "height": 22
+              }
+            },
+            "brandMark": {
+              "src": "assets/brand/ochakovo-mark.svg",
+              "visible": true
+            },
+            "switch": {
+              "count": 0,
+              "brandPressed": [],
+              "brodilkaPressed": []
+            },
+            "mascots": [],
+            "tokens": {
+              "lime": "#d50032",
+              "forest": "#ab2328",
+              "cream": "#ffffff",
+              "orange": "#d50032"
+            },
+            "hscroll": false,
+            "storedDesign": null
+          }
+        },
+        {
+          "id": "design-mobile-390.characters-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "bodyBg": "rgb(255, 255, 255)",
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)",
+            "footerBg": "rgb(244, 244, 244)",
+            "logo": {
+              "display": "block",
+              "visibility": "visible",
+              "opacity": "1",
+              "src": "assets/brand/ochakovo-logo.png",
+              "naturalWidth": 640,
+              "rect": {
+                "left": 48,
+                "top": 19,
+                "right": 132,
+                "bottom": 41,
+                "width": 84,
+                "height": 22
+              }
+            },
+            "brandMark": {
+              "src": "assets/brand/ochakovo-mark.svg",
+              "visible": true
+            },
+            "switch": {
+              "count": 2,
+              "brandPressed": [
+                "true"
+              ],
+              "brodilkaPressed": [
+                "false"
+              ]
+            },
+            "mascots": [
+              {
+                "src": "assets/mascot.svg",
+                "filter": "none",
+                "naturalWidth": 420,
+                "visible": true
+              }
+            ],
+            "tokens": {
+              "lime": "#d50032",
+              "forest": "#ab2328",
+              "cream": "#ffffff",
+              "orange": "#d50032"
+            },
+            "hscroll": false,
+            "storedDesign": null
+          }
+        },
+        {
+          "id": "design-mobile-390.characters-switch-footer",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "design-mobile-390.game-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "chat": true,
+            "mascot": true,
+            "mascotInChat": true,
+            "hscroll": false
+          }
+        },
+        {
+          "id": "design-mobile-390.mascot-in-chat",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "chat": true,
+            "mascot": true,
+            "mascotInChat": true,
+            "hscroll": false
+          }
+        },
+        {
+          "id": "design-mobile-360.default-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "bodyBg": "rgb(255, 255, 255)",
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)",
+            "footerBg": "rgb(244, 244, 244)",
+            "logo": {
+              "display": "block",
+              "visibility": "visible",
+              "opacity": "1",
+              "src": "assets/brand/ochakovo-logo.png",
+              "naturalWidth": 640,
+              "rect": {
+                "left": 48,
+                "top": 19,
+                "right": 132,
+                "bottom": 41,
+                "width": 84,
+                "height": 22
+              }
+            },
+            "brandMark": {
+              "src": "assets/brand/ochakovo-mark.svg",
+              "visible": true
+            },
+            "switch": {
+              "count": 2,
+              "brandPressed": [
+                "true"
+              ],
+              "brodilkaPressed": [
+                "false"
+              ]
+            },
+            "mascots": [
+              {
+                "src": "assets/mascot.svg",
+                "filter": "drop-shadow(rgba(16, 37, 26, 0.18) 2px 5px 0px)",
+                "naturalWidth": 420,
+                "visible": true
+              }
+            ],
+            "tokens": {
+              "lime": "#d50032",
+              "forest": "#ab2328",
+              "cream": "#ffffff",
+              "orange": "#d50032"
+            },
+            "hscroll": false,
+            "storedDesign": null
+          }
+        },
+        {
+          "id": "design-mobile-360.brand-logo-visible",
+          "status": "pass",
+          "details": {
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "src": "assets/brand/ochakovo-logo.png",
+            "naturalWidth": 640,
+            "rect": {
+              "left": 48,
+              "top": 19,
+              "right": 132,
+              "bottom": 41,
+              "width": 84,
+              "height": 22
+            }
+          }
+        },
+        {
+          "id": "design-mobile-360.brand-red-cta",
+          "status": "pass",
+          "details": {
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)"
+          }
+        },
+        {
+          "id": "design-mobile-360.switch-present",
+          "status": "pass",
+          "details": {
+            "count": 2,
+            "brandPressed": [
+              "true"
+            ],
+            "brodilkaPressed": [
+              "false"
+            ]
+          }
+        },
+        {
+          "id": "design-mobile-360.mascot-present",
+          "status": "pass",
+          "details": [
+            {
+              "src": "assets/mascot.svg",
+              "filter": "drop-shadow(rgba(16, 37, 26, 0.18) 2px 5px 0px)",
+              "naturalWidth": 420,
+              "visible": true
+            }
+          ]
+        },
+        {
+          "id": "design-mobile-360.brand-no-hscroll",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "design-mobile-360.intro-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "bodyBg": "rgb(255, 255, 255)",
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)",
+            "footerBg": null,
+            "logo": {
+              "display": "block",
+              "visibility": "visible",
+              "opacity": "1",
+              "src": "assets/brand/ochakovo-logo.png",
+              "naturalWidth": 640,
+              "rect": {
+                "left": 48,
+                "top": 19,
+                "right": 132,
+                "bottom": 41,
+                "width": 84,
+                "height": 22
+              }
+            },
+            "brandMark": {
+              "src": "assets/brand/ochakovo-mark.svg",
+              "visible": true
+            },
+            "switch": {
+              "count": 0,
+              "brandPressed": [],
+              "brodilkaPressed": []
+            },
+            "mascots": [],
+            "tokens": {
+              "lime": "#d50032",
+              "forest": "#ab2328",
+              "cream": "#ffffff",
+              "orange": "#d50032"
+            },
+            "hscroll": false,
+            "storedDesign": null
+          }
+        },
+        {
+          "id": "design-mobile-360.characters-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "bodyBg": "rgb(255, 255, 255)",
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)",
+            "footerBg": "rgb(244, 244, 244)",
+            "logo": {
+              "display": "block",
+              "visibility": "visible",
+              "opacity": "1",
+              "src": "assets/brand/ochakovo-logo.png",
+              "naturalWidth": 640,
+              "rect": {
+                "left": 48,
+                "top": 19,
+                "right": 132,
+                "bottom": 41,
+                "width": 84,
+                "height": 22
+              }
+            },
+            "brandMark": {
+              "src": "assets/brand/ochakovo-mark.svg",
+              "visible": true
+            },
+            "switch": {
+              "count": 2,
+              "brandPressed": [
+                "true"
+              ],
+              "brodilkaPressed": [
+                "false"
+              ]
+            },
+            "mascots": [
+              {
+                "src": "assets/mascot.svg",
+                "filter": "none",
+                "naturalWidth": 420,
+                "visible": true
+              }
+            ],
+            "tokens": {
+              "lime": "#d50032",
+              "forest": "#ab2328",
+              "cream": "#ffffff",
+              "orange": "#d50032"
+            },
+            "hscroll": false,
+            "storedDesign": null
+          }
+        },
+        {
+          "id": "design-mobile-360.characters-switch-footer",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "design-mobile-360.game-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "chat": true,
+            "mascot": true,
+            "mascotInChat": true,
+            "hscroll": false
+          }
+        },
+        {
+          "id": "design-mobile-360.mascot-in-chat",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "chat": true,
+            "mascot": true,
+            "mascotInChat": true,
+            "hscroll": false
+          }
+        },
+        {
+          "id": "design-landscape.default-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "bodyBg": "rgb(255, 255, 255)",
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)",
+            "footerBg": "rgb(244, 244, 244)",
+            "logo": {
+              "display": "block",
+              "visibility": "visible",
+              "opacity": "1",
+              "src": "assets/brand/ochakovo-logo.png",
+              "naturalWidth": 640,
+              "rect": {
+                "left": 75,
+                "top": 20,
+                "right": 190,
+                "bottom": 50,
+                "width": 115,
+                "height": 30
+              }
+            },
+            "brandMark": {
+              "src": "assets/brand/ochakovo-mark.svg",
+              "visible": true
+            },
+            "switch": {
+              "count": 2,
+              "brandPressed": [
+                "true"
+              ],
+              "brodilkaPressed": [
+                "false"
+              ]
+            },
+            "mascots": [
+              {
+                "src": "assets/mascot.svg",
+                "filter": "drop-shadow(rgba(16, 37, 26, 0.18) 2px 5px 0px)",
+                "naturalWidth": 420,
+                "visible": true
+              }
+            ],
+            "tokens": {
+              "lime": "#d50032",
+              "forest": "#ab2328",
+              "cream": "#ffffff",
+              "orange": "#d50032"
+            },
+            "hscroll": false,
+            "storedDesign": null
+          }
+        },
+        {
+          "id": "design-landscape.brand-logo-visible",
+          "status": "pass",
+          "details": {
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "src": "assets/brand/ochakovo-logo.png",
+            "naturalWidth": 640,
+            "rect": {
+              "left": 75,
+              "top": 20,
+              "right": 190,
+              "bottom": 50,
+              "width": 115,
+              "height": 30
+            }
+          }
+        },
+        {
+          "id": "design-landscape.brand-red-cta",
+          "status": "pass",
+          "details": {
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)"
+          }
+        },
+        {
+          "id": "design-landscape.switch-present",
+          "status": "pass",
+          "details": {
+            "count": 2,
+            "brandPressed": [
+              "true"
+            ],
+            "brodilkaPressed": [
+              "false"
+            ]
+          }
+        },
+        {
+          "id": "design-landscape.mascot-present",
+          "status": "pass",
+          "details": [
+            {
+              "src": "assets/mascot.svg",
+              "filter": "drop-shadow(rgba(16, 37, 26, 0.18) 2px 5px 0px)",
+              "naturalWidth": 420,
+              "visible": true
+            }
+          ]
+        },
+        {
+          "id": "design-landscape.brand-no-hscroll",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "design-landscape.intro-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "bodyBg": "rgb(255, 255, 255)",
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)",
+            "footerBg": null,
+            "logo": {
+              "display": "block",
+              "visibility": "visible",
+              "opacity": "1",
+              "src": "assets/brand/ochakovo-logo.png",
+              "naturalWidth": 640,
+              "rect": {
+                "left": 75,
+                "top": 20,
+                "right": 190,
+                "bottom": 50,
+                "width": 115,
+                "height": 30
+              }
+            },
+            "brandMark": {
+              "src": "assets/brand/ochakovo-mark.svg",
+              "visible": true
+            },
+            "switch": {
+              "count": 0,
+              "brandPressed": [],
+              "brodilkaPressed": []
+            },
+            "mascots": [],
+            "tokens": {
+              "lime": "#d50032",
+              "forest": "#ab2328",
+              "cream": "#ffffff",
+              "orange": "#d50032"
+            },
+            "hscroll": false,
+            "storedDesign": null
+          }
+        },
+        {
+          "id": "design-landscape.characters-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "bodyBg": "rgb(255, 255, 255)",
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)",
+            "footerBg": "rgb(244, 244, 244)",
+            "logo": {
+              "display": "block",
+              "visibility": "visible",
+              "opacity": "1",
+              "src": "assets/brand/ochakovo-logo.png",
+              "naturalWidth": 640,
+              "rect": {
+                "left": 75,
+                "top": 20,
+                "right": 190,
+                "bottom": 50,
+                "width": 115,
+                "height": 30
+              }
+            },
+            "brandMark": {
+              "src": "assets/brand/ochakovo-mark.svg",
+              "visible": true
+            },
+            "switch": {
+              "count": 2,
+              "brandPressed": [
+                "true"
+              ],
+              "brodilkaPressed": [
+                "false"
+              ]
+            },
+            "mascots": [
+              {
+                "src": "assets/mascot.svg",
+                "filter": "none",
+                "naturalWidth": 420,
+                "visible": true
+              }
+            ],
+            "tokens": {
+              "lime": "#d50032",
+              "forest": "#ab2328",
+              "cream": "#ffffff",
+              "orange": "#d50032"
+            },
+            "hscroll": false,
+            "storedDesign": null
+          }
+        },
+        {
+          "id": "design-landscape.characters-switch-footer",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "design-landscape.game-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "chat": true,
+            "mascot": true,
+            "mascotInChat": true,
+            "hscroll": false
+          }
+        },
+        {
+          "id": "design-landscape.mascot-in-chat",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "chat": true,
+            "mascot": true,
+            "mascotInChat": true,
+            "hscroll": false
+          }
+        },
+        {
+          "id": "design-switch.brodilka",
+          "status": "pass",
+          "details": {
+            "design": "brodilka",
+            "theme": "#0C3B28",
+            "bodyBg": "rgb(243, 238, 223)",
+            "primaryBg": "rgb(215, 243, 91)",
+            "primaryColor": "rgb(16, 37, 26)",
+            "footerBg": "rgb(12, 59, 40)",
+            "logo": {
+              "display": "none",
+              "visibility": "visible",
+              "opacity": "1",
+              "src": "assets/brand/ochakovo-logo.png",
+              "naturalWidth": 640,
+              "rect": {
+                "left": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "width": 0,
+                "height": 0
+              }
+            },
+            "brandMark": {
+              "src": "assets/brand/ochakovo-mark.svg",
+              "visible": false
+            },
+            "switch": {
+              "count": 2,
+              "brandPressed": [
+                "false"
+              ],
+              "brodilkaPressed": [
+                "true"
+              ]
+            },
+            "mascots": [
+              {
+                "src": "assets/mascot.svg",
+                "filter": "drop-shadow(rgba(16, 37, 26, 0.2) 2px 4px 0px)",
+                "naturalWidth": 420,
+                "visible": true
+              }
+            ],
+            "tokens": {
+              "lime": "#d7f35b",
+              "forest": "#0c3b28",
+              "cream": "#f3eedf",
+              "orange": "#ff6b3d"
+            },
+            "hscroll": false,
+            "storedDesign": "brodilka"
+          }
+        },
+        {
+          "id": "design-switch.brodilka-tokens",
+          "status": "pass",
+          "details": {
+            "lime": "#d7f35b",
+            "forest": "#0c3b28",
+            "cream": "#f3eedf",
+            "orange": "#ff6b3d"
+          }
+        },
+        {
+          "id": "design-switch.brodilka-cta",
+          "status": "pass",
+          "details": "rgb(215, 243, 91)"
+        },
+        {
+          "id": "design-switch.persist-localstorage",
+          "status": "pass",
+          "details": "brodilka"
+        },
+        {
+          "id": "design-switch.aria-pressed",
+          "status": "pass",
+          "details": {
+            "count": 2,
+            "brandPressed": [
+              "false"
+            ],
+            "brodilkaPressed": [
+              "true"
+            ]
+          }
+        },
+        {
+          "id": "design-switch.no-state-reset",
+          "status": "pass",
+          "details": {
+            "before": {
+              "charId": "brewer",
+              "stepIndex": 0,
+              "stars": 0,
+              "rewardedSteps": [],
+              "startedAt": "2026-10-24T13:00:17.779Z"
+            },
+            "after": {
+              "charId": "brewer",
+              "stepIndex": 0,
+              "stars": 0,
+              "rewardedSteps": [],
+              "startedAt": "2026-10-24T13:00:17.779Z"
+            }
+          }
+        },
+        {
+          "id": "design-switch.reload-persists",
+          "status": "pass",
+          "details": {
+            "design": "brodilka",
+            "theme": "#0C3B28",
+            "resume": true,
+            "stored": "brodilka"
+          }
+        },
+        {
+          "id": "design-switch.reload-keeps-progress",
+          "status": "pass",
+          "details": {
+            "charId": "brewer",
+            "stepIndex": 0,
+            "stars": 0,
+            "rewardedSteps": [],
+            "startedAt": "2026-10-24T13:00:17.779Z"
+          }
+        },
+        {
+          "id": "design-switch.back-to-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "bodyBg": "rgb(255, 255, 255)",
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)",
+            "footerBg": "rgb(244, 244, 244)",
+            "logo": {
+              "display": "block",
+              "visibility": "visible",
+              "opacity": "1",
+              "src": "assets/brand/ochakovo-logo.png",
+              "naturalWidth": 640,
+              "rect": {
+                "left": 48,
+                "top": 19,
+                "right": 132,
+                "bottom": 41,
+                "width": 84,
+                "height": 22
+              }
+            },
+            "brandMark": {
+              "src": "assets/brand/ochakovo-mark.svg",
+              "visible": true
+            },
+            "switch": {
+              "count": 2,
+              "brandPressed": [
+                "true"
+              ],
+              "brodilkaPressed": [
+                "false"
+              ]
+            },
+            "mascots": [
+              {
+                "src": "assets/mascot.svg",
+                "filter": "none",
+                "naturalWidth": 420,
+                "visible": true
+              }
+            ],
+            "tokens": {
+              "lime": "#d50032",
+              "forest": "#ab2328",
+              "cream": "#ffffff",
+              "orange": "#d50032"
+            },
+            "hscroll": false,
+            "storedDesign": "brand"
+          }
+        },
+        {
+          "id": "design-switch.back-keeps-progress",
+          "status": "pass",
+          "details": {
+            "charId": "brewer",
+            "stepIndex": 0,
+            "stars": 0,
+            "rewardedSteps": [],
+            "startedAt": "2026-10-24T13:00:17.779Z"
+          }
+        },
+        {
+          "id": "design.promo-present",
+          "status": "pass",
+          "details": {
+            "code": "OCHK-8C8WQTPQ",
+            "text": "OCHK-8C8WQTPQ",
+            "scrollWidth": 192,
+            "clientWidth": 192,
+            "overflow": "hidden",
+            "textOverflow": "ellipsis",
+            "clipped": false,
+            "rect": {
+              "left": 48,
+              "right": 240,
+              "top": 677,
+              "bottom": 700,
+              "width": 192
+            },
+            "viewport": 390,
+            "design": "brand",
+            "theme": "#D50032"
+          }
+        },
+        {
+          "id": "design.promo-not-clipped-390",
+          "status": "pass",
+          "details": {
+            "code": "OCHK-8C8WQTPQ",
+            "text": "OCHK-8C8WQTPQ",
+            "scrollWidth": 192,
+            "clientWidth": 192,
+            "overflow": "hidden",
+            "textOverflow": "ellipsis",
+            "clipped": false,
+            "rect": {
+              "left": 48,
+              "right": 240,
+              "top": 677,
+              "bottom": 700,
+              "width": 192
+            },
+            "viewport": 390,
+            "design": "brand",
+            "theme": "#D50032"
+          }
+        },
+        {
+          "id": "design.result-brand",
+          "status": "pass",
+          "details": {
+            "code": "OCHK-8C8WQTPQ",
+            "text": "OCHK-8C8WQTPQ",
+            "scrollWidth": 192,
+            "clientWidth": 192,
+            "overflow": "hidden",
+            "textOverflow": "ellipsis",
+            "clipped": false,
+            "rect": {
+              "left": 48,
+              "right": 240,
+              "top": 677,
+              "bottom": 700,
+              "width": 192
+            },
+            "viewport": 390,
+            "design": "brand",
+            "theme": "#D50032"
+          }
+        },
+        {
+          "id": "design.role-machinist-result",
+          "status": "pass",
+          "details": [
+            "МАШИНИСТ ОБОРУДОВАНИЯ",
+            "МАШИНИСТ ОБОРУДОВАНИЯ"
+          ]
+        },
+        {
+          "id": "design.result-confetti-bg",
+          "status": "pass",
+          "details": {
+            "count": 54,
+            "z": "0"
+          }
+        },
+        {
+          "id": "design.promo-not-clipped-360",
+          "status": "pass",
+          "details": {
+            "text": "OCHK-8C8WQTPQ",
+            "scrollWidth": 162,
+            "clientWidth": 162,
+            "clipped": false,
+            "right": 210,
+            "viewport": 360,
+            "hscroll": false
+          }
+        },
+        {
+          "id": "design.apply-brand",
+          "status": "pass",
+          "details": {
+            "design": "brand",
+            "theme": "#D50032",
+            "bodyBg": "rgb(255, 255, 255)",
+            "primaryBg": "rgb(213, 0, 50)",
+            "primaryColor": "rgb(255, 255, 255)",
+            "footerBg": null,
+            "logo": {
+              "display": "block",
+              "visibility": "visible",
+              "opacity": "1",
+              "src": "assets/brand/ochakovo-logo.png",
+              "naturalWidth": 640,
+              "rect": {
+                "left": 104,
+                "top": 18,
+                "right": 235,
+                "bottom": 52,
+                "width": 130,
+                "height": 34
+              }
+            },
+            "brandMark": {
+              "src": "assets/brand/ochakovo-mark.svg",
+              "visible": true
+            },
+            "switch": {
+              "count": 0,
+              "brandPressed": [],
+              "brodilkaPressed": []
+            },
+            "mascots": [],
+            "tokens": {
+              "lime": "#d50032",
+              "forest": "#ab2328",
+              "cream": "#ffffff",
+              "orange": "#d50032"
+            },
+            "hscroll": false,
+            "storedDesign": null
+          }
+        },
+        {
+          "id": "design.apply-no-hscroll",
+          "status": "pass",
+          "details": null
+        },
+        {
+          "id": "design.role-machinist-apply",
+          "status": "pass",
+          "details": "ВАКАНСИЯ ОТКРЫТА\nМАШИНИСТ ОБОРУДОВАНИЯ\n\nКВАСНОЙ ЦЕХ\n\nЛОКАЦИЯ\nМосква · Очаково\nГРАФИК\nсменный график, 5/2\nОПЛАТА\nобсуждается на интервью\nЧТО БУДЕШЬ ДЕЛАТЬ\nЗапускаешь оборудование и выводишь режимы\nСледишь за давлением и температурой\nГотовишь линию к розливу и держишь её в чистоте\nУСЛОВИЯ\nОфициальное "
+        },
+        {
+          "id": "design.pwa-cache-brand",
+          "status": "pass",
+          "details": {
+            "keys": [
+              "brodilka-v11-shell",
+              "brodilka-v11-runtime"
+            ],
+            "missing": []
+          }
+        },
+        {
+          "id": "design.brand-preview-not-referenced",
+          "status": "pass",
+          "details": [
+            {
+              "file": "index.html",
+              "referenced": false
+            },
+            {
+              "file": "css/brand.css",
+              "referenced": false
+            }
+          ]
+        },
+        {
+          "id": "design.pwa-offline-brand",
+          "status": "pass",
+          "details": {
+            "hasApp": true,
+            "design": "brand",
+            "body": "Перейти к игре\nПЕРВАЯ СМЕНА · 7 МИНУТ\nИНТЕРАКТИВНЫЙ КВЕСТ · ПЕРВАЯ СМЕНА\nЗАЙДИ\nН"
+          }
+        },
+        {
+          "id": "design.readme-no-kvasovar",
+          "status": "pass",
+          "details": []
+        },
+        {
+          "id": "design-theme.console-clean",
+          "status": "pass",
+          "details": null
+        }
+      ],
+      "screenshots": [
+        "screens/2026-10-24T12-59-36/design-theme/01-brand-landing-desktop.png",
+        "screens/2026-10-24T12-59-36/design-theme/02-brand-intro-desktop.png",
+        "screens/2026-10-24T12-59-36/design-theme/03-brand-characters-desktop.png",
+        "screens/2026-10-24T12-59-36/design-theme/04-brand-game-desktop.png",
+        "screens/2026-10-24T12-59-36/design-theme/05-brand-landing-mobile-390.png",
+        "screens/2026-10-24T12-59-36/design-theme/06-brand-intro-mobile-390.png",
+        "screens/2026-10-24T12-59-36/design-theme/07-brand-characters-mobile-390.png",
+        "screens/2026-10-24T12-59-36/design-theme/08-brand-game-mobile-390.png",
+        "screens/2026-10-24T12-59-36/design-theme/09-brand-landing-mobile-360.png",
+        "screens/2026-10-24T12-59-36/design-theme/10-brand-intro-mobile-360.png",
+        "screens/2026-10-24T12-59-36/design-theme/11-brand-characters-mobile-360.png",
+        "screens/2026-10-24T12-59-36/design-theme/12-brand-game-mobile-360.png",
+        "screens/2026-10-24T12-59-36/design-theme/13-brand-landing-landscape.png",
+        "screens/2026-10-24T12-59-36/design-theme/14-brand-intro-landscape.png",
+        "screens/2026-10-24T12-59-36/design-theme/15-brand-characters-landscape.png",
+        "screens/2026-10-24T12-59-36/design-theme/16-brand-game-landscape.png",
+        "screens/2026-10-24T12-59-36/design-theme/17-brodilka-characters-390.png",
+        "screens/2026-10-24T12-59-36/design-theme/18-brand-result-390.png",
+        "screens/2026-10-24T12-59-36/design-theme/19-brand-result-360.png",
+        "screens/2026-10-24T12-59-36/design-theme/20-brand-result-desktop.png",
+        "screens/2026-10-24T12-59-36/design-theme/21-brand-apply-desktop.png",
+        "screens/2026-10-24T12-59-36/design-theme/22-brand-offline.png"
       ],
       "notes": [],
       "fatal": null

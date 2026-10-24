@@ -4,7 +4,7 @@
    Работает только по http(s); на file:// не регистрируется.
    ========================================================= */
 
-const VERSION = "brodilka-v9";
+const VERSION = "brodilka-v11";
 const SHELL_CACHE = VERSION + "-shell";
 const RUNTIME_CACHE = VERSION + "-runtime";
 
@@ -16,11 +16,17 @@ const SHELL = [
   "./manifest.webmanifest",
   "./css/styles.css",
   "./css/game.css",
+  "./css/brand.css",
   "./js/config.js",
   "./js/data.js",
   "./js/pdf.js",
   "./js/app.js",
   "./assets/share-promo.png",
+  "./assets/brand/ochakovo-logo.png",
+  "./assets/brand/ochakovo-logo-white.png",
+  "./assets/brand/ochakovo-mark.svg",
+  "./assets/brand/pattern-red.jpg",
+  "./assets/brand/pattern-white.jpg",
   "./assets/icon-192.png",
   "./assets/icon-512.png",
   "./assets/icon-maskable-512.png",

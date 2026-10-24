@@ -3228,3 +3228,73 @@ h4 {
     margin: 0 0 4px auto;
   }
 }
+
+/* =========================================================
+   Переключатель дизайна (общие стили, работает в обоих)
+   ========================================================= */
+
+.brand-mark,
+.brand-logo {
+  display: none;
+}
+
+.design-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.design-switch-label {
+  color: rgba(243, 238, 223, 0.55);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.design-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid rgba(243, 238, 223, 0.45);
+  border-radius: 0;
+  background: transparent;
+  color: var(--cream);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 0.16s, color 0.16s, border-color 0.16s;
+}
+
+.design-switch-btn:hover {
+  border-color: var(--lime);
+  color: var(--lime);
+}
+
+.design-switch-btn[aria-pressed="true"] {
+  border-color: var(--lime);
+  background: var(--lime);
+  color: var(--ink);
+}
+
+@media (max-width: 680px) {
+  .site-footer .design-switch {
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .design-switch-btn {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .design-switch-label {
+    width: 100%;
+  }
+}
