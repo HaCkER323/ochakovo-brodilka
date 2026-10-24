@@ -4434,6 +4434,200 @@ function extractPdfJpeg(buffer) {
   return null;
 }
 
+async function v18FinalScenario(page, report, driver) {
+  await page.configureDownloads(DOWNLOADS_DIR);
+  const data = await driver.loadData();
+  const characters = data.characters || [];
+  const mark = characters[0];
+  const chooseChar = characters[2] || characters[0];
+  const quickInfo = async () =>
+    page.eval(
+      `(() => {
+        const form = document.querySelector("#applyForm");
+        const role = document.querySelector("#fieldRole");
+        return {
+          eyebrow: (document.querySelector(".apply-head .eyebrow") || {}).textContent || "",
+          title: (document.querySelector(".apply-head h1") || {}).textContent || "",
+          quickAttr: form ? form.getAttribute("data-quick") : null,
+          rolePresent: !!role,
+          roleOptions: role ? Array.from(role.options).map((option) => option.value) : [],
+          roleValue: role ? role.value : null,
+          roleLabel: (document.querySelector('label[for="fieldRole"]') || {}).textContent || "",
+          vacancyCard: !!document.querySelector(".apply-grid .vacancy-card"),
+          homeButton: !!document.querySelector('[data-action="home"]'),
+          hasBackResult: !!document.querySelector('[data-action="back-result"]'),
+          hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
+        };
+      })()`,
+      { awaitPromise: false }
+    );
+
+  // 1) Лендинг → быстрый отклик без игры (desktop brand)
+  await page.setViewport({ width: 1440, height: 1000, mobile: false, dpr: 1 });
+  await page.eval("try { localStorage.clear(); } catch (error) {}", { awaitPromise: false });
+  await page.navigate(page.baseUrl);
+  await page.waitScreen("landing");
+  await sleep(500);
+  const landingQuick = await page.eval(
+    `(() => { const button = document.querySelector('[data-action="quick-apply"]'); if (!button) return { present: false }; const r = button.getBoundingClientRect(); return { present: true, text: (button.textContent || "").trim(), width: r.width, height: r.height, visible: r.width > 0 && r.height > 0 }; })()`,
+    { awaitPromise: false }
+  );
+  report.check("v18.quick-landing-button", landingQuick.present && landingQuick.visible && /Заполнить без игры/i.test(landingQuick.text), landingQuick);
+  await page.click('[data-action="quick-apply"]');
+  await page.waitScreen("apply");
+  await sleep(350);
+  let info = await quickInfo();
+  report.check("v18.quick-screen", /Без мини-игры/i.test(info.eyebrow) && /Сразу/i.test(info.title) && info.quickAttr === "true", info);
+  report.check("v18.quick-role", info.rolePresent && info.roleOptions.length === characters.length && /\*/.test(info.roleLabel) && !info.vacancyCard, info);
+  report.check("v18.quick-nav", info.homeButton && !info.hasBackResult && !info.hscroll, info);
+  await page.eval(`(() => { const select = document.querySelector("#fieldRole"); if (select) { select.value = ${JSON.stringify(chooseChar.id)}; select.dispatchEvent(new Event("change", { bubbles: true })); } return true; })()`, { awaitPromise: false });
+  info = await quickInfo();
+  report.check("v18.quick-role-change", info.roleValue === chooseChar.id, info);
+  await driver.submitApplyForm();
+  await sleep(300);
+  const emptyForm = await driver.formState();
+  report.check("v18.quick-empty-errors", emptyForm.errors.length >= 4, emptyForm.errors);
+  await driver.fillApplyForm({ birthDate: "1996-05-14", education: "МГУ", name: "Быстрый Отклик", phone: "+7 999 222-33-44", email: "quick@example.com", consent: true });
+  await driver.submitApplyForm();
+  await page.waitScreen("success", { timeout: 10000 });
+  const successInfo = await page.eval(
+    `(async () => {
+      const storage = JSON.parse(localStorage.getItem("ochakovo-brodilka-v1") || "{}");
+      const application = (storage.applications || [])[0] || null;
+      const text = document.body.innerText;
+      return {
+        delivered: /HR получил карточку|Карточка сохранена/i.test(text),
+        hasTicket: /HR-\\d{2}-\\d{4}/.test(text),
+        home: !!document.querySelector('[data-action="home"]'),
+        charId: application ? application.charId : null,
+        vacancy: application ? application.vacancy : null,
+        hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
+      };
+    })()`,
+    { awaitPromise: true }
+  );
+  report.check("v18.quick-success", successInfo.delivered && successInfo.hasTicket && successInfo.home && !successInfo.hscroll, successInfo);
+  report.check("v18.quick-data", successInfo.charId === chooseChar.id && String(successInfo.vacancy || "").includes(String(chooseChar.vacancy.title)), successInfo);
+  const pdfBefore = fs.readdirSync(DOWNLOADS_DIR);
+  await page.click('[data-action="download-application"]');
+  await sleep(400);
+  const downloaded = await page.waitForDownload({ existing: pdfBefore, timeout: 10000 }).catch(() => null);
+  const pdfFiles = (downloaded || []).filter((name) => name.endsWith(".pdf"));
+  if (pdfFiles && pdfFiles.length) {
+    const pdfBuffer = await fsp.readFile(path.join(DOWNLOADS_DIR, pdfFiles[0])).catch(() => Buffer.alloc(0));
+    const pdf = inspectPdfBuffer(pdfBuffer, pdfFiles[0]);
+    report.check("v18.quick-pdf", pdf.isPdf && pdf.hasEof && pdf.pages >= 1 && pdf.hasImage, pdf);
+  } else {
+    report.check("v18.quick-pdf", false, { toast: await page.text("#toast") });
+  }
+  await report.shot(page, "v18-quick-success-desktop");
+  await page.click('[data-action="home"]');
+  await page.waitScreen("landing");
+
+  // 2) Мобильный быстрый отклик и обе темы
+  for (const viewport of [{ width: 390, height: 844, label: "390", design: "brand" }, { width: 360, height: 740, label: "360", design: "brodilka" }]) {
+    await page.setViewport({ width: viewport.width, height: viewport.height, mobile: true, dpr: 3 });
+    await page.eval("try { localStorage.clear(); } catch (error) {}", { awaitPromise: false });
+    await page.navigate(page.baseUrl);
+    await page.waitScreen("landing");
+    if (viewport.design === "brodilka") {
+      await page.eval("window.scrollTo(0, document.body.scrollHeight)", { awaitPromise: false });
+      await page.click('[data-action="design-brodilka"]');
+      await sleep(300);
+      await page.eval("window.scrollTo(0, 0)", { awaitPromise: false });
+    }
+    const quickVisible = await page.eval(`(() => { const b = document.querySelector('[data-action="quick-apply"]'); if (!b) return null; const r = b.getBoundingClientRect(); return { visible: r.width > 0 && r.height > 0, hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1, design: document.documentElement.getAttribute("data-design") }; })()`, { awaitPromise: false });
+    report.check(`v18.quick-mobile-${viewport.label}-button`, !!quickVisible && quickVisible.visible && !quickVisible.hscroll && quickVisible.design === viewport.design, quickVisible);
+    await page.click('[data-action="quick-apply"]');
+    await page.waitScreen("apply");
+    await sleep(300);
+    const mobileInfo = await quickInfo();
+    report.check(`v18.quick-mobile-${viewport.label}`, mobileInfo.rolePresent && mobileInfo.roleOptions.length === characters.length && !mobileInfo.hscroll, mobileInfo);
+    await report.shot(page, `v18-quick-apply-${viewport.design}-${viewport.label}`);
+  }
+
+  // 3) Диалоги: «Назад» и «К диалогу» на 1440/390/360, обе темы
+  const dialogueAudit = async (label, viewport, design) => {
+    await page.setViewport({ width: viewport.width, height: viewport.height, mobile: viewport.mobile, dpr: viewport.dpr });
+    await page.eval("try { localStorage.clear(); } catch (error) {}", { awaitPromise: false });
+    await page.navigate(page.baseUrl);
+    await page.waitScreen("landing");
+    if (design === "brodilka") {
+      await page.eval("window.scrollTo(0, document.body.scrollHeight)", { awaitPromise: false });
+      await page.click('[data-action="design-brodilka"]');
+      await sleep(250);
+      await page.eval("window.scrollTo(0, 0)", { awaitPromise: false });
+    }
+    await page.click('[data-action="start-quest"]');
+    await sleep(300);
+    if ((await page.screen()) === "intro") await page.click('[data-action="intro-skip"]');
+    await page.waitScreen("characters");
+    await driver.selectCharacter(mark.id);
+    await page.waitScreen("game");
+    await sleep(300);
+    const chatInfo = async () =>
+      page.eval(
+        `(() => {
+          const back = document.getElementById("chatBackBtn");
+          const next = document.getElementById("chatNextBtn");
+          const rect = (el) => { if (!el) return null; const r = el.getBoundingClientRect(); return { left: r.left, top: r.top, right: r.right, bottom: r.bottom, width: r.width, height: r.height }; };
+          const b = rect(back); const n = rect(next);
+          return {
+            design: document.documentElement.getAttribute("data-design"),
+            backPresent: !!back, backDisabled: back ? back.disabled : null, backVisible: !!(b && b.width > 0 && b.height > 0),
+            nextText: next ? (next.textContent || "").trim() : null,
+            overlap: !!(b && n && b.left < n.right && b.right > n.left && b.top < n.bottom && b.bottom > n.top),
+            chatCount: document.querySelectorAll("#chatList .chat-message, #chatList .chat-row, #chatList > *").length,
+            stepMeta: (document.querySelector(".step-meta") || {}).textContent || "",
+            hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
+          };
+        })()`,
+        { awaitPromise: false }
+      );
+    const first = await chatInfo();
+    report.check(`v18.${label}.back-disabled-first`, first.backPresent && first.backDisabled === true && first.backVisible && !first.overlap && !first.hscroll, first);
+    await page.click("#chatNextBtn");
+    await sleep(300);
+    const second = await chatInfo();
+    report.check(`v18.${label}.back-enabled`, second.backDisabled === false && second.backVisible, second);
+    const messagesBeforeBack = second.chatCount;
+    await page.click("#chatBackBtn");
+    await sleep(300);
+    const third = await chatInfo();
+    report.check(`v18.${label}.back-works`, third.backDisabled === true && third.chatCount < messagesBeforeBack, { before: messagesBeforeBack, after: third.chatCount, third });
+    await page.click("#chatNextBtn");
+    await sleep(250);
+    let guard = 0;
+    while ((await page.exists("#chatNextBtn")) && guard < 8) {
+      await page.click("#chatNextBtn");
+      await sleep(280);
+      guard += 1;
+    }
+    await page.waitScreen("game");
+    const taskInfo = await page.eval(
+      `(() => {
+        const back = document.querySelector('[data-action="back-dialogue"]');
+        const r = back ? back.getBoundingClientRect() : null;
+        return { present: !!back, visible: !!(r && r.width > 0 && r.height > 0), stepMeta: (document.querySelector(".step-meta") || {}).textContent || "", hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1 };
+      })()`,
+      { awaitPromise: false }
+    );
+    report.check(`v18.${label}.task-back-dialogue`, taskInfo.present && taskInfo.visible && !taskInfo.hscroll, taskInfo);
+    await page.click('[data-action="back-dialogue"]');
+    await sleep(350);
+    const backInDialogue = await chatInfo();
+    const stepAfter = backInDialogue.stepMeta;
+    report.check(`v18.${label}.back-to-dialogue`, backInDialogue.backPresent && backInDialogue.backDisabled === false && backInDialogue.chatCount >= 2 && !backInDialogue.hscroll, backInDialogue);
+    report.check(`v18.${label}.progress-preserved`, String(taskInfo.stepMeta).trim() === String(stepAfter).trim(), { before: taskInfo.stepMeta, after: stepAfter });
+    await report.shot(page, `v18-dialogue-${design}-${viewport.width}`);
+  };
+  await dialogueAudit("dialogue-1440-brand", { width: 1440, height: 1000, mobile: false, dpr: 1 }, "brand");
+  await dialogueAudit("dialogue-390-brodilka", { width: 390, height: 844, mobile: true, dpr: 3 }, "brodilka");
+  await dialogueAudit("dialogue-360-brand", { width: 360, height: 740, mobile: true, dpr: 3 }, "brand");
+
+  await checkConsole(page, report, "v18-final");
+}
+
 async function v14FinalScenario(page, report, driver, context) {
   await page.configureDownloads(DOWNLOADS_DIR);
   const data = await driver.loadData();
@@ -5006,6 +5200,12 @@ const SCENARIOS = [
     title: "v14: чистый hero, новый Пузырь 24–120, splat/промокод, форма стажёра, PDF обе темы, reduced-motion, PWA v14",
     viewport: "desktop",
     run: v14FinalScenario
+  },
+  {
+    id: "v18-final",
+    title: "v18: «Заполнить без игры» + направление, «Назад»/«К диалогу», 1440/390/360, обе темы, PDF",
+    viewport: "desktop",
+    run: v18FinalScenario
   }
 ];
 

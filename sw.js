@@ -4,7 +4,7 @@
    Р Р°Р±РѕС‚Р°РµС‚ С‚РѕР»СЊРєРѕ РїРѕ http(s); РЅР° file:// РЅРµ СЂРµРіРёСЃС‚СЂРёСЂСѓРµС‚СЃСЏ.
    ========================================================= */
 
-const VERSION = "brodilka-v17";
+const VERSION = "brodilka-v18";
 const SHELL_CACHE = VERSION + "-shell";
 const RUNTIME_CACHE = VERSION + "-runtime";
 
@@ -177,6 +177,7 @@ self.addEventListener("fetch", function (event) {
 
   event.respondWith(cacheFirst(request));
 });
+
 
 
 

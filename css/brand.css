@@ -1502,14 +1502,16 @@ html[data-design="brand"] .field input[type="text"],
 html[data-design="brand"] .field input[type="tel"],
 html[data-design="brand"] .field input[type="email"],
 html[data-design="brand"] .field input[type="url"],
+html[data-design="brand"] .field select,
 html[data-design="brand"] .field textarea {
   border: 1px solid var(--brand-silver);
   border-radius: 0;
-  background: #ffffff;
+  background-color: #ffffff;
   color: var(--brand-ink);
 }
 
 html[data-design="brand"] .field input:focus,
+html[data-design="brand"] .field select:focus,
 html[data-design="brand"] .field textarea:focus {
   border-color: var(--brand-red);
   box-shadow: 0 0 0 1px var(--brand-red);

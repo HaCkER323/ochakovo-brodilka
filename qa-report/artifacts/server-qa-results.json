@@ -1,13 +1,20 @@
 {
   "base": "http://127.0.0.1:4517",
-  "cookie": "brodilka_admin=eyJleHAiOjE3OTI4ODQ5NTc1NzF9.7cLuR8FCDyM_lC3aapJGHp8wZ52-fUxbJ2jShZm4UdM",
-  "ticket": "HR-26-3357",
+  "cookie": "brodilka_admin=eyJleHAiOjE3OTI4ODgwMDkxNjl9.EicO5pGC4FXLESWhi-35IucMWO-DDlruG5x5fy8s_zw",
+  "ticket": "HR-26-9859",
   "expectedCount": 31,
   "checks": [
     {
       "id": "site.index-200",
       "status": "pass",
       "details": 200
+    },
+    {
+      "id": "site.sw-v18",
+      "status": "pass",
+      "details": {
+        "version": "brodilka-v18"
+      }
     },
     {
       "id": "admin.page-200",
@@ -107,7 +114,7 @@
     {
       "id": "auth.cookie-flags",
       "status": "pass",
-      "details": "brodilka_admin=eyJleHAiOjE3OTI4ODQ5NTc1NzF9.7cLuR8FCDyM_lC3aapJGHp8wZ52-fUxbJ2jShZm4UdM; Path=/; HttpOnly; SameSite=Strict; Max-Age=28800"
+      "details": "brodilka_admin=eyJleHAiOjE3OTI4ODgwMDkxNjl9.EicO5pGC4FXLESWhi-35IucMWO-DDlruG5x5fy8s_zw; Path=/; HttpOnly; SameSite=Strict; Max-Age=28800"
     },
     {
       "id": "auth.state-200",
@@ -139,8 +146,8 @@
         "status": 201,
         "body": {
           "ok": true,
-          "ticket": "HR-26-3357",
-          "id": "2be95cff-e371-46dd-9fce-c4904e711aaf"
+          "ticket": "HR-26-9859",
+          "id": "ea2eba17-2439-4ae5-a490-d7c624379574"
         }
       }
     },
@@ -296,9 +303,9 @@
         "charId": "brewer",
         "source": "qa-test",
         "consent": true,
-        "id": "2be95cff-e371-46dd-9fce-c4904e711aaf",
-        "ticket": "HR-26-3357",
-        "createdAt": "2026-10-24T15:35:57.640Z",
+        "id": "ea2eba17-2439-4ae5-a490-d7c624379574",
+        "ticket": "HR-26-9859",
+        "createdAt": "2026-10-24T16:26:49.249Z",
         "status": "new"
       }
     },
@@ -314,14 +321,14 @@
       "id": "admin.latest-newest-first",
       "status": "pass",
       "details": [
-        "2026-10-24T15:35:58.046Z",
-        "2026-10-24T15:35:58.038Z",
-        "2026-10-24T15:35:58.031Z",
-        "2026-10-24T15:35:58.017Z",
-        "2026-10-24T15:35:58.010Z",
-        "2026-10-24T15:35:58.004Z"
+        "2026-10-24T16:26:49.665Z",
+        "2026-10-24T16:26:49.650Z",
+        "2026-10-24T16:26:49.634Z",
+        "2026-10-24T16:26:49.610Z",
+        "2026-10-24T16:26:49.603Z",
+        "2026-10-24T16:26:49.594Z"
       ]
     }
   ],
-  "createdAt": "2026-10-24T15:35:58.344Z"
+  "createdAt": "2026-10-24T16:26:50.050Z"
 }

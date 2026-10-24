@@ -3,19 +3,19 @@
   "sw": {
     "count": 1,
     "controller": true,
-    "version": "brodilka-v17"
+    "version": "brodilka-v18"
   },
   "countBeforeExport": 31,
   "xlsxFile": "C:\\Users\\alexa\\Documents\\deepseek-harness\\default-workspace\\ochakovo-brodilka\\qa-report\\artifacts\\downloads-admin\\ochakovo-applications-2026-10-24.xlsx",
   "cachedUrls": [],
   "checks": [
     {
-      "id": "sw.v17",
+      "id": "sw.version",
       "status": "pass",
       "details": {
         "count": 1,
         "controller": true,
-        "version": "brodilka-v17"
+        "version": "brodilka-v18"
       }
     },
     {
@@ -41,12 +41,12 @@
         "countWord": "отклик",
         "previewCount": 6,
         "previewText": [
-          "Rate Limit 29 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-6640 +7 999 123-45-67 ivan@example.com",
-          "Rate Limit 28 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-1766 +7 999 123-45-67 ivan@example.com",
-          "Rate Limit 27 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-5815 +7 999 123-45-67 ivan@example.com",
-          "Rate Limit 26 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-8328 +7 999 123-45-67 ivan@example.com",
-          "Rate Limit 25 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-6855 +7 999 123-45-67 ivan@example.com",
-          "Rate Limit 24 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-3642 +7 999 123-45-67 ivan@example.com"
+          "Rate Limit 29 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-2555 +7 999 123-45-67 ivan@example.com",
+          "Rate Limit 28 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-3411 +7 999 123-45-67 ivan@example.com",
+          "Rate Limit 27 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-4446 +7 999 123-45-67 ivan@example.com",
+          "Rate Limit 26 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-7762 +7 999 123-45-67 ivan@example.com",
+          "Rate Limit 25 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-7067 +7 999 123-45-67 ivan@example.com",
+          "Rate Limit 24 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-2572 +7 999 123-45-67 ivan@example.com"
         ],
         "buttons": [
           "Выйти",
@@ -75,8 +75,8 @@
         "previewCount": 6,
         "stateLatest": 6,
         "previewText": [
-          "Rate Limit 29 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-6640 +7 999 123-45-67 ivan@example.com",
-          "Rate Limit 28 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-1766 +7 999 123-45-67 ivan@example.com"
+          "Rate Limit 29 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-2555 +7 999 123-45-67 ivan@example.com",
+          "Rate Limit 28 ДР: 14.05.1996 · Москва МГУ Машинист оборудования HR-26-3411 +7 999 123-45-67 ivan@example.com"
         ]
       }
     },

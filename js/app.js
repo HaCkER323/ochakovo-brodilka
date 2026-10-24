@@ -772,6 +772,7 @@
             '<p class="hero-sub">Три смены, три характера, один завод: квас, лимонады и вода. Выбери героя, пройди смену и забери приз. <strong>Без лекций и тестов.</strong></p>' +
             '<div class="hero-actions">' +
               '<button class="btn btn-primary btn-lg" type="button" data-action="' + primaryAction + '">' + primaryLabel + " " + icon.arrow + "</button>" +
+              '<button class="btn btn-ghost btn-lg hero-quick" type="button" data-action="quick-apply">Заполнить без игры</button>' +
               '<span class="hero-meta">' + icon.clock + " " + metaText + "</span>" +
             "</div>" +
             '<div class="hero-tags">' + roleTags + "</div>" +
@@ -1189,6 +1190,13 @@
     return stepState.beat >= step.beats.length - 1 ? "К заданию" : "Дальше";
   }
 
+  function updateChatNav(step) {
+    const next = document.getElementById("chatNextBtn");
+    if (next) next.innerHTML = dialogueNextLabel(step) + " " + icon.arrow;
+    const back = document.getElementById("chatBackBtn");
+    if (back) back.disabled = stepState.beat <= 0;
+  }
+
   function renderDialoguePanel(char, step, quest) {
     return (
       stepMetaMarkup(char, quest, step) +
@@ -1198,6 +1206,7 @@
           chatMessagesMarkup(step, stepState.beat) +
         "</div>" +
         '<div class="chat-actions">' +
+          '<button class="btn btn-ghost chat-back" id="chatBackBtn" type="button" data-action="prev-beat"' + (stepState.beat <= 0 ? " disabled" : "") + '>' + icon.arrowLeft + " Назад</button>" +
           '<button class="btn btn-primary" id="chatNextBtn" type="button" data-action="next-beat">' + dialogueNextLabel(step) + " " + icon.arrow + "</button>" +
         "</div>" +
       "</div>"
@@ -1305,8 +1314,7 @@
       if (list) {
         list.insertAdjacentHTML("beforeend", chatMessageMarkup(step.beats[stepState.beat]));
       }
-      const button = document.getElementById("chatNextBtn");
-      if (button) button.innerHTML = dialogueNextLabel(step) + " " + icon.arrow;
+      updateChatNav(step);
       scrollChatToBottom();
       const beat = step.beats[stepState.beat];
       const speaker = getSpeaker(beat.speaker);
@@ -1318,6 +1326,31 @@
       refreshPanelInPlace(char, step, state.activeQuest);
       announce("Задание: " + stripTags(step.task.prompt) + ". " + stripTags(step.task.sub));
     }
+  }
+
+  function retreatBeat() {
+    if (!state.activeQuest || !stepState || stepState.phase !== "dialogue" || stepState.beat <= 0) return;
+    const char = getCharacter(state.activeQuest.charId);
+    const step = char.steps[state.activeQuest.stepIndex];
+    playSound("click");
+    stepState.beat -= 1;
+    refreshPanelInPlace(char, step, state.activeQuest);
+    scrollChatToBottom();
+    const beat = step.beats[stepState.beat];
+    const speaker = getSpeaker(beat.speaker);
+    announce("Назад. " + speaker.name + ": " + stripTags(beat.text));
+  }
+
+  function backToDialogue() {
+    if (!state.activeQuest || !stepState || stepState.phase !== "task") return;
+    const char = getCharacter(state.activeQuest.charId);
+    const step = char.steps[state.activeQuest.stepIndex];
+    playSound("click");
+    stepState.phase = "dialogue";
+    stepState.beat = step.beats.length - 1;
+    refreshPanelInPlace(char, step, state.activeQuest);
+    scrollChatToBottom();
+    announce("Вернулся к диалогу. Можно перечитать последнюю реплику.");
   }
 
   function initializeTaskState(step) {
@@ -1515,6 +1548,7 @@
     return (
       stepMetaMarkup(char, quest, step) +
       '<h2 class="quest-title">' + escapeHtml(step.title) + "</h2>" +
+      '<button class="icon-link task-back" type="button" data-action="back-dialogue">' + icon.arrowLeft + " К диалогу</button>" +
       '<div class="task-block">' +
         '<div class="task-eyebrow">Задание</div>' +
         '<h3 class="task-prompt">' + escapeHtml(task.prompt) + "</h3>" +
@@ -2126,8 +2160,9 @@
      Apply
      ------------------------------------------------------- */
 
-  function renderApply(charId) {
-    const char = getCharacter(charId) || (state.lastResult ? getCharacter(state.lastResult.charId) : null);
+  function renderApply(charId, options) {
+    const quick = Boolean(options && options.quick);
+    const char = getCharacter(charId) || (quick ? CHARACTERS[0] : (state.lastResult ? getCharacter(state.lastResult.charId) : null));
     if (!char) {
       renderCharacters();
       return;
@@ -2144,45 +2179,62 @@
         '<div class="apply-wrap">' +
           '<div class="apply-head">' +
             "<div>" +
-              '<div class="eyebrow">Последний шаг</div>' +
-              '<h1 class="display">Отклик<br><em>на смену.</em></h1>' +
+              '<div class="eyebrow">' + (quick ? "Без мини-игры" : "Последний шаг") + "</div>" +
+              '<h1 class="display">' + (quick ? "Сразу<br><em>к делу.</em>" : "Отклик<br><em>на смену.</em>") + "</h1>" +
             "</div>" +
-            '<button class="icon-link" type="button" data-action="back-result">' + icon.arrowLeft + " Назад к результату</button>" +
+            (quick
+              ? '<button class="icon-link" type="button" data-action="home">' + icon.arrowLeft + " На главную</button>"
+              : '<button class="icon-link" type="button" data-action="back-result">' + icon.arrowLeft + " Назад к результату</button>") +
           "</div>" +
-          '<div class="apply-grid">' +
-            '<aside class="vacancy-card">' +
-              '<div class="vacancy-card-top">' +
-                '<span class="vacancy-label">Вакансия открыта</span>' +
-                "<h2>" + escapeHtml(vacancy.title) + "</h2>" +
-                '<p class="vacancy-role">' + escapeHtml(vacancy.team) + "</p>" +
-                '<div class="vacancy-meta-list">' +
-                  '<div class="vacancy-meta-row"><span>Локация</span><b>' + escapeHtml(vacancy.location) + "</b></div>" +
-                  '<div class="vacancy-meta-row"><span>График</span><b>' + escapeHtml(vacancy.schedule) + "</b></div>" +
-                  '<div class="vacancy-meta-row"><span>Оплата</span><b>' + escapeHtml(vacancy.salary) + "</b></div>" +
-                "</div>" +
-              "</div>" +
-              '<div class="vacancy-card-section">' +
-                '<h3 class="vacancy-section-title">Что будешь делать</h3>' +
-                '<ul class="vacancy-list">' +
-                  responsibilities.map(function (item) { return "<li>" + escapeHtml(item) + "</li>"; }).join("") +
-                "</ul>" +
-              "</div>" +
-              '<div class="vacancy-card-bottom">' +
-                '<h3 class="vacancy-section-title">Условия</h3>' +
-                '<div class="vacancy-perks">' +
-                  vacancy.perks.map(function (perk) { return '<span class="vacancy-perk">' + escapeHtml(perk) + "</span>"; }).join("") +
-                "</div>" +
-                '<p class="vacancy-disclaimer">Условия и вакансия демонстрационные. Не публичная оферта.</p>' +
-              "</div>" +
-            "</aside>" +
+          '<div class="apply-grid' + (quick ? " is-quick" : "") + '">' +
+            (!quick
+              ? '<aside class="vacancy-card">' +
+                  '<div class="vacancy-card-top">' +
+                    '<span class="vacancy-label">Вакансия открыта</span>' +
+                    "<h2>" + escapeHtml(vacancy.title) + "</h2>" +
+                    '<p class="vacancy-role">' + escapeHtml(vacancy.team) + "</p>" +
+                    '<div class="vacancy-meta-list">' +
+                      '<div class="vacancy-meta-row"><span>Локация</span><b>' + escapeHtml(vacancy.location) + "</b></div>" +
+                      '<div class="vacancy-meta-row"><span>График</span><b>' + escapeHtml(vacancy.schedule) + "</b></div>" +
+                      '<div class="vacancy-meta-row"><span>Оплата</span><b>' + escapeHtml(vacancy.salary) + "</b></div>" +
+                    "</div>" +
+                  "</div>" +
+                  '<div class="vacancy-card-section">' +
+                    '<h3 class="vacancy-section-title">Что будешь делать</h3>' +
+                    '<ul class="vacancy-list">' +
+                      responsibilities.map(function (item) { return "<li>" + escapeHtml(item) + "</li>"; }).join("") +
+                    "</ul>" +
+                  "</div>" +
+                  '<div class="vacancy-card-bottom">' +
+                    '<h3 class="vacancy-section-title">Условия</h3>' +
+                    '<div class="vacancy-perks">' +
+                      vacancy.perks.map(function (perk) { return '<span class="vacancy-perk">' + escapeHtml(perk) + "</span>"; }).join("") +
+                    "</div>" +
+                    '<p class="vacancy-disclaimer">Условия и вакансия демонстрационные. Не публичная оферта.</p>' +
+                  "</div>" +
+                "</aside>"
+              : "") +
 
             '<div class="form-card">' +
               '<div class="form-head">' +
-                "<div><h2>Карточка стажёра</h2><p>Заполни карточку. Пара минут, и она уйдёт в HR. Резюме не нужно.</p></div>" +
+                "<div><h2>Карточка стажёра</h2><p>" + (quick
+                  ? "Без игры и тестов. Заполни карточку, и она уйдёт в HR. Резюме не нужно."
+                  : "Заполни карточку. Пара минут, и она уйдёт в HR. Резюме не нужно.") + "</p></div>" +
                 '<span class="form-step">Стажёр / 01</span>' +
               "</div>" +
-              '<form id="applyForm" data-char="' + char.id + '" novalidate>' +
+              '<form id="applyForm" data-char="' + char.id + '"' + (quick ? ' data-quick="true"' : "") + ' novalidate>' +
                 '<div class="form-grid">' +
+                  (quick
+                    ? '<div class="field is-full">' +
+                        '<label for="fieldRole">Направление <span class="req">*</span></label>' +
+                        '<select id="fieldRole" name="charId">' +
+                          CHARACTERS.map(function (item) {
+                            return '<option value="' + escapeHtml(item.id) + '">' + escapeHtml(item.vacancy.title) + " · " + escapeHtml(item.vacancy.team) + "</option>";
+                          }).join("") +
+                        "</select>" +
+                        '<span class="field-hint">Можно выбрать любое. Это не тест.</span>' +
+                      "</div>"
+                    : "") +
                   '<div class="field is-full">' +
                     '<label for="fieldName">ФИО <span class="req">*</span></label>' +
                     '<input id="fieldName" name="name" type="text" autocomplete="name" placeholder="Иванов Иван Иванович" maxlength="80">' +
@@ -2223,7 +2275,7 @@
                   "</div>" +
                   '<label class="consent" id="consentLabel">' +
                     '<input name="consent" type="checkbox">' +
-                    "<span>Согласен на обработку персональных данных. Это демо: ФИО, дата рождения и контакты останутся в этом браузере.</span>" +
+                    "<span>Согласен на обработку персональных данных. Это демо: карточка уйдёт в тестовую админку проекта.</span>" +
                   "</label>" +
                   '<div class="form-error-general" id="formError"></div>' +
                   '<div class="form-submit-row">' +
@@ -2378,7 +2430,7 @@
       announce("Форма не отправлена. Проверь отмеченные поля.");
       return;
     }
-    const charId = form.getAttribute("data-char");
+    const charId = form.elements.charId ? form.elements.charId.value : form.getAttribute("data-char");
     const char = getCharacter(charId);
     if (!char) return;
     const submit = form.querySelector('button[type="submit"]');
@@ -2640,6 +2692,14 @@
         advanceBeat();
         break;
 
+      case "prev-beat":
+        retreatBeat();
+        break;
+
+      case "back-dialogue":
+        backToDialogue();
+        break;
+
       case "game-back":
         currentScreen = "characters";
         renderCharacters();
@@ -2690,6 +2750,11 @@
       case "open-apply":
         playSound("click");
         renderApply(element.getAttribute("data-char"));
+        break;
+
+      case "quick-apply":
+        playSound("click");
+        renderApply(null, { quick: true });
         break;
 
       case "back-result":

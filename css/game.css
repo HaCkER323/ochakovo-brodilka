@@ -664,6 +664,11 @@
   padding-top: 4px;
 }
 
+.task-back {
+  align-self: flex-start;
+  margin: 2px 0 10px;
+}
+
 .task-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -2317,6 +2322,11 @@ input[type="range"].ph-range {
   align-items: start;
 }
 
+.apply-grid.is-quick {
+  grid-template-columns: minmax(0, 760px);
+  justify-content: center;
+}
+
 .vacancy-card {
   position: sticky;
   top: calc(var(--head-total) + 16px);
@@ -2540,6 +2550,7 @@ input[type="range"].ph-range {
 .field input[type="tel"],
 .field input[type="email"],
 .field input[type="url"],
+.field select,
 .field textarea {
   width: 100%;
   min-height: 42px;
@@ -2547,9 +2558,21 @@ input[type="range"].ph-range {
   border: 1px solid var(--line-strong);
   border-radius: 2px;
   background: #fffdf7;
+  color: var(--ink);
+  font-family: var(--font-body);
   font-size: 13px;
   line-height: 1.3;
   transition: border-color 0.16s, box-shadow 0.16s;
+}
+
+.field select {
+  appearance: none;
+  padding-right: 34px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position: calc(100% - 17px) 18px, calc(100% - 12px) 18px;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .field input[type="date"] {
@@ -2577,6 +2600,7 @@ input[type="range"].ph-range {
 }
 
 .field input:focus,
+.field select:focus,
 .field textarea:focus {
   border-color: var(--forest);
   outline: 0;
@@ -2584,6 +2608,7 @@ input[type="range"].ph-range {
 }
 
 .field.has-error input,
+.field.has-error select,
 .field.has-error textarea {
   border-color: #a93e1f;
   background: #fff4ef;
@@ -3850,9 +3875,15 @@ input[type="range"].ph-range {
 .chat-actions {
   display: flex;
   justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
   margin-top: auto;
   padding-top: 14px;
   border-top: 1px solid var(--line);
+}
+
+.chat-actions .chat-back {
+  margin-right: auto;
 }
 
 .chat-actions .btn {

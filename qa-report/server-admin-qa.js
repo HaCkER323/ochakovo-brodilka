@@ -46,7 +46,7 @@ async function main() {
       })()`,
       { awaitPromise: true }
     );
-    record("sw.v17", swInfo.count > 0 && Number((String(swInfo.version || "").match(/v(\d+)/) || [])[1] || 0) >= 17, swInfo);
+    record("sw.version", swInfo.count > 0 && Number((String(swInfo.version || "").match(/v(\d+)/) || [])[1] || 0) >= 17, swInfo);
 
     // Страница админки (noindex, без ссылок)
     await page.navigate(BASE + "/admin");

@@ -68,6 +68,10 @@ async function main() {
   // 1) Статика, скрытые пути, noindex
   const site = await request("GET", "/");
   record("site.index-200", site.status === 200 && /БРОДИЛКА/.test(site.text), site.status);
+  const swFile = (await request("GET", "/sw.js")).text;
+  const swMatch = swFile.match(/VERSION\s*=\s*["']brodilka-v(\d+)["']/);
+  const swNumber = swMatch ? Number(swMatch[1]) : 0;
+  record("site.sw-v18", swNumber >= 18, { version: swMatch ? "brodilka-v" + swNumber : null });
   const adminPage = await request("GET", "/admin");
   record("admin.page-200", adminPage.status === 200, adminPage.status);
   record("admin.noindex", /noindex/i.test(adminPage.headers.get("x-robots-tag") || "") && /noindex/i.test(adminPage.text), { header: adminPage.headers.get("x-robots-tag") });
