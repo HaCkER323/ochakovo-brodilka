@@ -4434,6 +4434,149 @@ function extractPdfJpeg(buffer) {
   return null;
 }
 
+async function v22FinalScenario(page, report, driver) {
+  await page.configureDownloads(DOWNLOADS_DIR);
+  const data = await driver.loadData();
+  const benefits = data.employerBenefits || [];
+  const mark = (data.characters || [])[0];
+
+  const benefitsInfo = async (selector) =>
+    page.eval(
+      `(() => {
+        const container = document.querySelector(${JSON.stringify(selector)});
+        const heading = container ? container.querySelector(".vacancy-section-title") : null;
+        const items = container ? Array.from(container.querySelectorAll(".benefits-list li")).map((li) => ({ title: (li.querySelector("b") || {}).textContent || "", text: (li.querySelector("span") || {}).textContent || "", scrollWidth: li.scrollWidth, clientWidth: li.clientWidth, height: Math.round(li.getBoundingClientRect().height) })) : [];
+        const disclaimer = container ? (container.querySelector(".vacancy-disclaimer") || {}).textContent || "" : "";
+        const parseRgb = (value) => { const m = String(value).match(/rgba?\\((\\d+),\\s*(\\d+),\\s*(\\d+)/); return m ? [Number(m[1]), Number(m[2]), Number(m[3])] : null; };
+        const luminance = (rgb) => { if (!rgb) return null; const values = rgb.map((v) => { const c = v / 255; return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }); return 0.2126 * values[0] + 0.7152 * values[1] + 0.0722 * values[2]; };
+        const background = (el) => { let node = el; while (node && node !== document.documentElement) { const bg = getComputedStyle(node).backgroundColor; if (!/rgba\\([^)]*,\\s*0(?:\\.0+)?\\)$/.test(bg)) { const rgba = parseRgb(bg); if (rgba) return rgba; } node = node.parentElement; } return [255, 255, 255]; };
+        const contrast = (a, b) => { const la = luminance(a); const lb = luminance(b); if (la === null || lb === null) return null; return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05); };
+        const headingStyle = heading ? getComputedStyle(heading) : null;
+        const headingRect = heading ? heading.getBoundingClientRect() : null;
+        const headingColor = headingStyle ? parseRgb(headingStyle.color) : null;
+        const headingBg = heading ? background(heading) : null;
+        const headingContrast = headingColor && headingBg ? contrast(headingColor, headingBg) : null;
+        const rect = (el) => { if (!el) return null; const r = el.getBoundingClientRect(); return { left: Math.round(r.left), top: Math.round(r.top), right: Math.round(r.right), bottom: Math.round(r.bottom), width: Math.round(r.width), height: Math.round(r.height) }; };
+        const containerRect = rect(container);
+        const roles = document.querySelector(".quick-role-list");
+        const formCard = document.querySelector(".form-card");
+        const form = document.querySelector("#applyForm");
+        const rolesRect = rect(roles); const formCardRect = rect(formCard); const formRect = rect(form);
+        const intersects = (a, b) => !!(a && b && a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top);
+        return {
+          present: !!container,
+          heading: heading ? (heading.textContent || "").trim() : null,
+          headingContrast,
+          headingColor: headingStyle ? headingStyle.color : null,
+          headingBg: headingBg ? "rgb(" + headingBg.join(", ") + ")" : null,
+          headingVisible: !!(headingRect && headingRect.width > 0 && headingRect.height > 0 && headingStyle.opacity !== "0" && headingStyle.visibility !== "hidden"),
+          items,
+          disclaimer,
+          count: items.length,
+          hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+          containerRect,
+          rolesRect,
+          formCardRect,
+          formRect,
+          overlapRoles: intersects(containerRect, rolesRect),
+          overlapForm: intersects(containerRect, formRect),
+          formBelow: !!(formRect && containerRect && formRect.top >= containerRect.bottom - 2),
+          clipped: items.some((item) => item.scrollWidth > item.clientWidth + 1) || (container ? container.scrollWidth > container.clientWidth + 1 : false),
+          longTitlesWrap: items.every((item) => item.height > 0)
+        };
+      })()`,
+      { awaitPromise: false }
+    );
+
+  const compareBenefits = (info, label) => {
+    const actual = info.items.map((item) => ({ title: item.title.trim(), text: item.text.trim() }));
+    const expected = benefits.map((item) => ({ title: item.title, text: item.text }));
+    report.check(`v22.${label}.heading`, info.heading === "Условия и бонусы от работодателя", info.heading);
+    report.check(`v22.${label}.heading-visible`, info.headingVisible && info.headingContrast !== null && info.headingContrast >= 3, { visible: info.headingVisible, contrast: info.headingContrast, color: info.headingColor, bg: info.headingBg });
+    report.check(`v22.${label}.count`, info.count === 6 && actual.length === expected.length, info.count);
+    report.check(`v22.${label}.items`, JSON.stringify(actual) === JSON.stringify(expected), { actual, expected });
+    report.check(`v22.${label}.disclaimer`, /Условия демонстрационные/i.test(info.disclaimer), info.disclaimer);
+    report.check(`v22.${label}.layout`, !info.hscroll && !info.clipped && !info.overlapRoles && !info.overlapForm && info.longTitlesWrap, info);
+    return actual;
+  };
+
+  const openQuick = async (viewport, design) => {
+    await page.setViewport(viewport);
+    await page.eval("try { localStorage.clear(); } catch (error) {}", { awaitPromise: false });
+    await page.navigate(page.baseUrl);
+    await page.waitScreen("landing");
+    if (design === "brodilka") {
+      await page.eval("window.scrollTo(0, document.body.scrollHeight)", { awaitPromise: false });
+      await page.click('[data-action="design-brodilka"]');
+      await sleep(250);
+      await page.eval("window.scrollTo(0, 0)", { awaitPromise: false });
+    }
+    await page.click('[data-action="quick-apply"]');
+    await page.waitScreen("apply");
+    await sleep(350);
+  };
+
+  const openNormal = async (viewport, design) => {
+    await page.setViewport(viewport);
+    await page.eval("try { localStorage.clear(); } catch (error) {}", { awaitPromise: false });
+    await page.navigate(page.baseUrl);
+    await page.waitScreen("landing");
+    if (design === "brodilka") {
+      await page.eval("window.scrollTo(0, document.body.scrollHeight)", { awaitPromise: false });
+      await page.click('[data-action="design-brodilka"]');
+      await sleep(250);
+      await page.eval("window.scrollTo(0, 0)", { awaitPromise: false });
+    }
+    await driver.completeRoute(mark.id);
+    await page.waitScreen("result");
+    await driver.openApplyFromResult();
+    await page.waitScreen("apply");
+    await sleep(350);
+  };
+
+  await openQuick({ width: 1440, height: 1000, mobile: false, dpr: 1 }, "brand");
+  const quickDesktop = await benefitsInfo(".quick-benefits");
+  const quickDesktopItems = compareBenefits(quickDesktop, "quick-desktop");
+  report.check("v22.quick-desktop.form-below", quickDesktop.formBelow && quickDesktop.rolesRect && quickDesktop.containerRect && quickDesktop.rolesRect.bottom <= quickDesktop.containerRect.top + 2, quickDesktop);
+  await report.shot(page, "v22-quick-benefits-desktop");
+
+  await openNormal({ width: 1440, height: 1000, mobile: false, dpr: 1 }, "brand");
+  const normalBrand = await benefitsInfo(".vacancy-card-bottom");
+  const normalBrandItems = compareBenefits(normalBrand, "normal-brand");
+  report.check("v22.lists-identical", JSON.stringify(quickDesktopItems) === JSON.stringify(normalBrandItems), { quick: quickDesktopItems, normal: normalBrandItems });
+  await report.shot(page, "v22-normal-benefits-brand");
+  await page.click('[data-action="back-result"]');
+  await page.waitScreen("result");
+  await page.eval("window.scrollTo(0, document.body.scrollHeight)", { awaitPromise: false });
+  await page.click('[data-action="design-brodilka"]');
+  await sleep(300);
+  await driver.openApplyFromResult();
+  await page.waitScreen("apply");
+  await sleep(350);
+  const normalBrodilka = await benefitsInfo(".vacancy-card-bottom");
+  compareBenefits(normalBrodilka, "normal-brodilka");
+  report.check("v22.lists-identical-themes", JSON.stringify(normalBrodilka.items.map((item) => item.title)) === JSON.stringify(normalBrand.items.map((item) => item.title)), { brand: normalBrand.items.map((item) => item.title), brodilka: normalBrodilka.items.map((item) => item.title) });
+  await report.shot(page, "v22-normal-benefits-brodilka");
+
+  for (const viewport of [
+    { width: 390, height: 844, label: "390", design: "brand" },
+    { width: 360, height: 740, label: "360", design: "brodilka" }
+  ]) {
+    await openQuick({ width: viewport.width, height: viewport.height, mobile: true, dpr: 3 }, viewport.design);
+    const quickMobile = await benefitsInfo(".quick-benefits");
+    compareBenefits(quickMobile, `quick-mobile-${viewport.label}`);
+    report.check(`v22.quick-mobile-${viewport.label}.one-column`, quickMobile.rolesRect && quickMobile.containerRect && quickMobile.formBelow, quickMobile);
+    await report.shot(page, `v22-quick-benefits-${viewport.design}-${viewport.label}`);
+
+    await openNormal({ width: viewport.width, height: viewport.height, mobile: true, dpr: 3 }, viewport.design);
+    const normalMobile = await benefitsInfo(".vacancy-card-bottom");
+    compareBenefits(normalMobile, `normal-mobile-${viewport.label}`);
+    await report.shot(page, `v22-normal-benefits-${viewport.design}-${viewport.label}`);
+  }
+
+  await checkConsole(page, report, "v22-final");
+}
+
 async function v19FinalScenario(page, report, driver) {
   await page.configureDownloads(DOWNLOADS_DIR);
   const data = await driver.loadData();
@@ -5399,6 +5542,12 @@ const SCENARIOS = [
     title: "v19: мобильный Пузырь в потоке, CTA «смену-квест»/«вакансии»/«или», 3 карточки ролей, PWA v19",
     viewport: "desktop",
     run: v19FinalScenario
+  },
+  {
+    id: "v22-final",
+    title: "v22: employer benefits 6 пунктов в обычном/быстром отклике, одинаковый заголовок/список, 1440/390/360, обе темы",
+    viewport: "desktop",
+    run: v22FinalScenario
   }
 ];
 

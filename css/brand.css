@@ -2413,3 +2413,19 @@ html[data-design="brand"] .quick-role-tag {
     margin-bottom: 0;
   }
 }
+
+html[data-design="brand"] .benefits-list li {
+  border-color: var(--brand-line);
+}
+
+html[data-design="brand"] .benefits-list b {
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .quick-benefits {
+  border-top-color: var(--brand-line);
+}
+
+html[data-design="brand"] .quick-benefits .vacancy-section-title {
+  color: var(--brand-ink);
+}

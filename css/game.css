@@ -2427,6 +2427,51 @@ input[type="range"].ph-range {
   -webkit-box-orient: vertical;
 }
 
+.benefits-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.benefits-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.benefits-list li:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.benefits-list b {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.benefits-list span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.quick-benefits {
+  margin: 18px 0 22px;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.quick-benefits .vacancy-section-title {
+  color: var(--ink);
+}
+
+.quick-benefits .vacancy-disclaimer {
+  margin-top: 10px;
+}
+
 .vacancy-card {
   position: sticky;
   top: calc(var(--head-total) + 16px);

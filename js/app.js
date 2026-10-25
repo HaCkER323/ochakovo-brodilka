@@ -5,6 +5,7 @@
   const INTRO = DATA.intro;
   const SPEAKERS = DATA.speakers;
   const CHARACTERS = DATA.characters;
+  const EMPLOYER_BENEFITS = Array.isArray(DATA.employerBenefits) ? DATA.employerBenefits : [];
   const STORAGE_KEY = "ochakovo-brodilka-v1";
   const DESIGN_KEY = "ochakovo-brodilka-design";
   const DESIGN_DEFAULT = "brand";
@@ -2161,6 +2162,19 @@
      Apply
      ------------------------------------------------------- */
 
+  function employerBenefitsMarkup() {
+    if (!EMPLOYER_BENEFITS.length) return "";
+    return (
+      '<h3 class="vacancy-section-title">Условия и бонусы от работодателя</h3>' +
+      '<ul class="benefits-list">' +
+        EMPLOYER_BENEFITS.map(function (item) {
+          return "<li><b>" + escapeHtml(item.title) + "</b><span>" + escapeHtml(item.text) + "</span></li>";
+        }).join("") +
+      "</ul>" +
+      '<p class="vacancy-disclaimer">Условия демонстрационные. Детали обсуждаем на интервью.</p>'
+    );
+  }
+
   function renderApply(charId, options) {
     const quick = Boolean(options && options.quick);
     const char = getCharacter(charId) || (quick ? CHARACTERS[0] : (state.lastResult ? getCharacter(state.lastResult.charId) : null));
@@ -2207,11 +2221,7 @@
                     "</ul>" +
                   "</div>" +
                   '<div class="vacancy-card-bottom">' +
-                    '<h3 class="vacancy-section-title">Условия</h3>' +
-                    '<div class="vacancy-perks">' +
-                      vacancy.perks.map(function (perk) { return '<span class="vacancy-perk">' + escapeHtml(perk) + "</span>"; }).join("") +
-                    "</div>" +
-                    '<p class="vacancy-disclaimer">Условия и вакансия демонстрационные. Не публичная оферта.</p>' +
+                    employerBenefitsMarkup() +
                   "</div>" +
                 "</aside>"
               : "") +
@@ -2237,6 +2247,9 @@
                       }).join("") +
                     "</div>" +
                   "</div>"
+                : "") +
+              (quick
+                ? '<div class="quick-benefits">' + employerBenefitsMarkup() + "</div>"
                 : "") +
               '<div class="form-head">' +
                 "<div><h2>Карточка стажёра</h2><p>" + (quick
