@@ -162,6 +162,10 @@ ochakovo-brodilka/
 - На iOS установка вручную через Safari: «Поделиться» → «На экран Домой». Автоматического промпта там нет.
 - Установку, системный back-gesture и скринридеры на реальных телефонах QA не проверяет: headless их не воспроизводит.
 
+## Печать
+
+Листовка A5, две стороны: [ochakovo-brodilka-flyer-a5.pdf](print/ochakovo-brodilka-flyer-a5.pdf). Внутри QR на `https://ochakovo-brodilka.onrender.com/`, преимущества работы и три направления. Исходник вёрстки и QR лежат в `print/`.
+
 ## Ссылки
 
 - Репозиторий: https://github.com/HaCkER323/ochakovo-brodilka

@@ -1,0 +1,514 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>БРОДИЛКА — листовка A5</title>
+  <style>
+    @page {
+      size: 148mm 210mm;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: #1a1a1a;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    }
+
+    .page {
+      position: relative;
+      width: 148mm;
+      height: 210mm;
+      overflow: hidden;
+      page-break-after: always;
+      background: #ffffff;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    .page-front {
+      background: #d50032;
+      color: #ffffff;
+      padding: 13mm 12mm 12mm;
+    }
+
+    .front-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8mm;
+    }
+
+    .logo-white {
+      display: block;
+      width: 43mm;
+      height: auto;
+    }
+
+    .brandmark {
+      padding-top: 1.5mm;
+      font-size: 2.6mm;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .front-kicker {
+      margin-top: 13mm;
+      font-size: 2.5mm;
+      font-weight: 700;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      opacity: 0.92;
+    }
+
+    h1.front-title {
+      margin: 4mm 0 0;
+      font-size: 18.2mm;
+      font-weight: 900;
+      line-height: 0.88;
+      letter-spacing: -0.045em;
+      text-transform: uppercase;
+    }
+
+    .front-title .line {
+      display: block;
+    }
+
+    .front-title .box {
+      display: inline-block;
+      margin-top: 1.8mm;
+      padding: 1.4mm 2.6mm 0.8mm;
+      background: #ffffff;
+      color: #d50032;
+      line-height: 0.93;
+    }
+
+    .front-sub {
+      width: 80mm;
+      margin: 7mm 0 0;
+      font-size: 4.3mm;
+      line-height: 1.28;
+      font-weight: 500;
+    }
+
+    .front-sub strong {
+      font-weight: 800;
+    }
+
+    .front-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8mm;
+      margin-top: 6mm;
+    }
+
+    .front-tag {
+      padding: 1.2mm 2.4mm;
+      border: 0.35mm solid rgba(255, 255, 255, 0.7);
+      font-size: 2.25mm;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .front-bottom {
+      position: absolute;
+      right: 12mm;
+      bottom: 15mm;
+      left: 12mm;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 7mm;
+    }
+
+    .guide {
+      width: 63mm;
+    }
+
+    .guide img {
+      display: block;
+      width: 24mm;
+      height: 24mm;
+      margin-bottom: 2.5mm;
+      border-radius: 50%;
+      background: #f3eedf;
+    }
+
+    .guide-note {
+      font-size: 3.15mm;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .guide-note small {
+      display: block;
+      margin-top: 1.4mm;
+      font-size: 2.2mm;
+      font-weight: 500;
+      line-height: 1.3;
+      opacity: 0.85;
+      letter-spacing: 0.02em;
+    }
+
+    .qr-card {
+      width: 45mm;
+      padding: 3.2mm 3mm 2.8mm;
+      background: #ffffff;
+      color: #1a1a1a;
+      text-align: center;
+    }
+
+    .qr-card .qr-label {
+      margin-bottom: 1.6mm;
+      color: #d50032;
+      font-size: 2.1mm;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .qr-card img {
+      display: block;
+      width: 36mm;
+      height: 36mm;
+      margin: 0 auto;
+    }
+
+    .qr-card .qr-url {
+      display: block;
+      margin-top: 2mm;
+      font-size: 1.9mm;
+      line-height: 1.25;
+      word-break: break-all;
+    }
+
+    .front-foot {
+      position: absolute;
+      right: 12mm;
+      bottom: 6mm;
+      left: 12mm;
+      display: flex;
+      justify-content: space-between;
+      border-top: 0.35mm solid rgba(255, 255, 255, 0.5);
+      padding-top: 2.2mm;
+      font-size: 2mm;
+      font-weight: 600;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    /* ---------- Back ---------- */
+
+    .page-back {
+      padding: 0 12mm 10mm;
+      background: #f4f4f4;
+    }
+
+    .back-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 15mm;
+      margin: 0 -12mm 8mm;
+      padding: 0 12mm;
+      background: #d50032;
+    }
+
+    .logo-red {
+      display: block;
+      width: 39mm;
+      height: auto;
+      filter: brightness(0) invert(1);
+    }
+
+    .back-topbar .brandmark {
+      color: #ffffff;
+      font-size: 2.2mm;
+    }
+
+    .back-kicker {
+      color: #d50032;
+      font-size: 2.3mm;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h2.back-title {
+      margin: 2.5mm 0 0;
+      font-size: 11.2mm;
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+    }
+
+    h2.back-title em {
+      color: #d50032;
+      font-style: normal;
+    }
+
+    .back-sub {
+      margin: 3mm 0 0;
+      max-width: 108mm;
+      color: #626262;
+      font-size: 3mm;
+      line-height: 1.35;
+    }
+
+    .perks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8mm;
+      margin-top: 4.5mm;
+    }
+
+    .perk {
+      min-height: 19mm;
+      padding: 2.3mm 2.6mm;
+      border-top: 0.8mm solid #d50032;
+      background: #ffffff;
+    }
+
+    .perk b {
+      display: block;
+      margin-bottom: 1.3mm;
+      font-size: 2.85mm;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .perk span {
+      display: block;
+      color: #626262;
+      font-size: 2.25mm;
+      line-height: 1.28;
+    }
+
+    .roles {
+      margin-top: 4mm;
+      border-top: 0.35mm solid #a2aaad;
+      padding-top: 2.5mm;
+    }
+
+    .roles-title {
+      margin: 0 0 1.6mm;
+      color: #626262;
+      font-size: 2.1mm;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .role-row {
+      display: flex;
+      align-items: baseline;
+      gap: 2.4mm;
+      padding: 1mm 0;
+      border-bottom: 0.25mm solid #d7d7d7;
+    }
+
+    .role-row .num {
+      width: 7mm;
+      flex: 0 0 auto;
+      color: #d50032;
+      font-size: 2.2mm;
+      font-weight: 800;
+    }
+
+    .role-row b {
+      width: 53mm;
+      flex: 0 0 auto;
+      font-size: 2.35mm;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .role-row span {
+      color: #626262;
+      font-size: 2.2mm;
+      line-height: 1.25;
+    }
+
+    .back-bottom {
+      position: absolute;
+      right: 12mm;
+      bottom: 9mm;
+      left: 12mm;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 5mm;
+      padding-top: 2.5mm;
+      border-top: 0.35mm solid #a2aaad;
+    }
+
+    .back-qr {
+      display: flex;
+      align-items: center;
+      gap: 3mm;
+    }
+
+    .back-qr img {
+      width: 21mm;
+      height: 21mm;
+    }
+
+    .back-qr b {
+      display: block;
+      font-size: 2.4mm;
+      line-height: 1.25;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .back-qr span {
+      display: block;
+      margin-top: 1mm;
+      color: #626262;
+      font-size: 1.9mm;
+      line-height: 1.25;
+      word-break: break-all;
+    }
+
+    .back-cta {
+      text-align: right;
+    }
+
+    .back-cta b {
+      display: block;
+      color: #d50032;
+      font-size: 4.1mm;
+      font-weight: 900;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .back-cta span {
+      display: block;
+      margin-top: 1.5mm;
+      color: #626262;
+      font-size: 2.1mm;
+    }
+
+    .disclaimer {
+      position: absolute;
+      right: 12mm;
+      bottom: 4mm;
+      left: 12mm;
+      color: #8a8a8a;
+      font-size: 1.55mm;
+      line-height: 1.25;
+    }
+  </style>
+</head>
+<body>
+  <section class="page page-front">
+    <div class="front-top">
+      <img class="logo-white" src="../assets/brand/ochakovo-logo-white.png" alt="Очаково">
+      <div class="brandmark">БРОДИЛКА</div>
+    </div>
+
+    <div class="front-kicker">Первая смена · Москва · Очаково</div>
+    <h1 class="front-title">
+      <span class="line">Зайди</span>
+      <span class="line">на завод.</span>
+      <span class="line box">Не на экскурсию.</span>
+    </h1>
+
+    <p class="front-sub">Пройди <strong>7-минутный квест</strong>, посмотри на завод изнутри и откликнись на вакансию — прямо с телефона.</p>
+
+    <div class="front-tags">
+      <span class="front-tag">Квас</span>
+      <span class="front-tag">Лимонады</span>
+      <span class="front-tag">Вода</span>
+    </div>
+
+    <div class="front-bottom">
+      <div class="guide">
+        <img src="../assets/mascot/mascot-face.png" alt="Пузырь">
+        <div class="guide-note">«Смена не ждёт. Смену проходишь ты».<small>Пузырь, дух завода с 1996 года</small></div>
+      </div>
+      <div class="qr-card">
+        <div class="qr-label">Наведи камеру</div>
+        <img src="qr.png" alt="QR-код на сайт БРОДИЛКА">
+        <span class="qr-url">ochakovo-brodilka.onrender.com</span>
+      </div>
+    </div>
+
+    <div class="front-foot">
+      <span>Очаково × Бродилка</span>
+      <span>Первая смена · 2026</span>
+    </div>
+  </section>
+
+  <section class="page page-back">
+    <div class="back-topbar">
+      <img class="logo-red" src="../assets/brand/ochakovo-logo.png" alt="Очаково">
+      <div class="brandmark">БРОДИЛКА</div>
+    </div>
+
+    <div class="back-kicker">Работа на заводе</div>
+    <h2 class="back-title">Почему<br><em>«Очаково».</em></h2>
+    <p class="back-sub">Три направления, реальное производство и команда, которая научит. Начни с первой смены — и посмотри, подходит ли тебе завод.</p>
+
+    <div class="perks">
+      <div class="perk"><b>Официальное оформление</b><span>Трудоустройство по ТК РФ с первого дня.</span></div>
+      <div class="perk"><b>ДМС</b><span>Полис и забота о здоровье.</span></div>
+      <div class="perk"><b>Столовая</b><span>Обед на территории завода.</span></div>
+      <div class="perk"><b>Общежитие в Москве</b><span>Помогаем иногородним.</span></div>
+      <div class="perk"><b>Обучим с нуля</b><span>Опыт не обязателен: покажем и научим.</span></div>
+      <div class="perk"><b>Сменный график 5/2</b><span>Москва · Очаково. Без вахты.</span></div>
+    </div>
+
+    <div class="roles">
+      <p class="roles-title">Кем можно начать</p>
+      <div class="role-row">
+        <span class="num">01</span>
+        <b>Машинист оборудования</b>
+        <span>Запуск линии, режимы, давление и температура.</span>
+      </div>
+      <div class="role-row">
+        <span class="num">02</span>
+        <b>Оператор линии розлива</b>
+        <span>Бракераж, остановка линии, паллеты по FIFO.</span>
+      </div>
+      <div class="role-row">
+        <span class="num">03</span>
+        <b>Лаборант контроля качества</b>
+        <span>Кислотность, пробы и вердикт по партии.</span>
+      </div>
+    </div>
+
+    <div class="back-bottom">
+      <div class="back-qr">
+        <img src="qr.png" alt="QR-код на сайт БРОДИЛКА">
+        <div>
+          <b>Наведи камеру</b>
+          <span>ochakovo-brodilka.onrender.com</span>
+        </div>
+      </div>
+      <div class="back-cta">
+        <b>Начать смену-квест</b>
+        <span>7 минут · с телефона</span>
+      </div>
+    </div>
+
+    <div class="disclaimer">Демо-концепт. Вакансии, условия и приз демонстрационные, не являются публичной офертой. Бренд «Очаково» принадлежит компании.</div>
+  </section>
+</body>
+</html>
