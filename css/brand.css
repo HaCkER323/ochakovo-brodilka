@@ -2429,3 +2429,27 @@ html[data-design="brand"] .quick-benefits {
 html[data-design="brand"] .quick-benefits .vacancy-section-title {
   color: var(--brand-ink);
 }
+
+html[data-design="brand"] .ticket-phone {
+  border-top-color: var(--brand-line);
+}
+
+html[data-design="brand"] .ticket-phone-row input {
+  border-color: var(--brand-silver);
+  border-radius: 0;
+  background: #ffffff;
+  color: var(--brand-ink);
+}
+
+html[data-design="brand"] .ticket-phone-row input:focus {
+  border-color: var(--brand-red);
+  box-shadow: 0 0 0 1px var(--brand-red);
+}
+
+html[data-design="brand"] .ticket-bound {
+  border-top-color: var(--brand-line);
+}
+
+html[data-design="brand"] .ticket-phone-change {
+  color: var(--brand-red);
+}

@@ -31,6 +31,7 @@
   let historyBooted = false;
   let suppressHistory = false;
   let lastHistoryScreen = null;
+  let phoneChallenge = null;
 
   /* -------------------------------------------------------
      Icons
@@ -63,10 +64,34 @@
       activeQuest: null,
       completed: {},
       prizes: [],
+      phone: "",
+      phoneVerified: false,
       applications: [],
       lastResult: null,
       lastApplication: null
     };
+  }
+
+  function normalizePhone(value) {
+    let digits = String(value || "").replace(/\D/g, "");
+    if (digits.length === 11 && digits.charAt(0) === "8") digits = "7" + digits.slice(1);
+    if (digits.length === 10) digits = "7" + digits;
+    if (digits.length !== 11 || digits.charAt(0) !== "7") return "";
+    return "+7 (" + digits.slice(1, 4) + ") " + digits.slice(4, 7) + "-" + digits.slice(7, 9) + "-" + digits.slice(9, 11);
+  }
+
+  function maskPhone(phone) {
+    const digits = String(phone || "").replace(/\D/g, "");
+    if (digits.length !== 11) return phone || "";
+    return "+7 (" + digits.slice(1, 4) + ") ***-**-" + digits.slice(9, 11);
+  }
+
+  function phoneCode() {
+    return String(Math.floor(1000 + Math.random() * 9000));
+  }
+
+  function ticketCount() {
+    return Object.keys(state.completed).length;
   }
 
   function getCharacter(id) {
@@ -184,10 +209,10 @@
   function generateCode(usedMap) {
     const used = usedMap || {};
     for (let attempt = 0; attempt < 24; attempt += 1) {
-      const candidate = "OCHK-" + randomCodePart(8);
+      const candidate = "БИЛЕТ-" + randomCodePart(8);
       if (!used[candidate]) return candidate;
     }
-    return "OCHK-" + randomCodePart(12);
+    return "БИЛЕТ-" + randomCodePart(12);
   }
 
   function generateTicket() {
@@ -290,6 +315,9 @@
       });
       merged.completed = completed;
       merged.prizes = prizes;
+      merged.phone = normalizePhone(merged.phone) || "";
+      if (!merged.phone) merged.phoneVerified = false;
+      else merged.phoneVerified = Boolean(merged.phoneVerified);
 
       merged.applications = Array.isArray(merged.applications)
         ? merged.applications.filter(function (entry) {
@@ -444,7 +472,7 @@
         html = '<div class="hs-row"><span class="hs-dot"></span><span>Смена ' + char.order + " · " + escapeHtml(char.name) + '</span><span class="hs-stars">' + starsHTML(state.activeQuest.stars) + "</span></div>";
       }
     } else if (currentScreen === "result") {
-      html = '<div class="hs-row"><span class="hs-dot"></span><span>Смена закрыта</span><span class="hs-strong">' + ((state.lastResult && state.lastResult.reward) || 150) + " баллов</span></div>";
+      html = '<div class="hs-row"><span class="hs-dot"></span><span>Смена закрыта</span><span class="hs-strong">билет в розыгрыше</span></div>';
     } else if (currentScreen === "apply") {
       html = '<div class="hs-row"><span class="hs-dot"></span><span>Отклик на вакансию</span><span class="hs-strong">HR</span></div>';
     } else if (currentScreen === "success") {
@@ -679,6 +707,10 @@
         '<div class="site-footer-left">' +
           "<span>Прогресс живёт в этом браузере</span>" +
           '<span class="footer-dot"></span>' +
+          (completedCount()
+            ? '<button class="footer-reset" type="button" data-action="open-tickets">Мои билеты · ' + ticketCount() + "</button>" +
+              '<span class="footer-dot"></span>'
+            : "") +
           '<button class="footer-reset" type="button" data-action="reset-progress">Сбросить прогресс</button>' +
         "</div>" +
         designSwitchMarkup() +
@@ -747,7 +779,7 @@
       .map(function (role) {
         return '<span class="hero-tag">#' + role.split(" ")[0] + "</span>";
       })
-      .join("") + '<span class="hero-tag">#приз за смену</span>';
+      .join("") + '<span class="hero-tag">#розыгрыш</span>';
     const rolesText = CHARACTERS.map(function (char) {
       return escapeHtml(String(char.role || "").toLowerCase());
     }).join(", ");
@@ -756,7 +788,7 @@
         CHARACTERS.map(function (char) {
           return "<span>Смена " + escapeHtml(char.order) + " · " + escapeHtml(char.role) + '</span><span class="star">✦</span>';
         }).join("") +
-        "<span>Приз: 150 баллов</span><span class=\"star\">✦</span>" +
+        "<span>Прими участие в розыгрыше</span><span class=\"star\">✦</span>" +
       "</div>";
 
     const html =
@@ -770,7 +802,7 @@
               '<span class="line">на завод<span style="color:var(--orange)">.</span></span>' +
               '<span class="accent">Не на<br>экскурсию.</span>' +
             "</h1>" +
-            '<p class="hero-sub">Три смены, три характера, один завод: квас, лимонады и вода. Выбери героя, пройди смену и забери приз. <strong>Без лекций и тестов.</strong></p>' +
+            '<p class="hero-sub">Три смены, три характера, один завод: квас, лимонады и вода. Выбери героя, пройди смену и получи билет в розыгрыш. <strong>Без лекций и тестов.</strong></p>' +
             '<div class="hero-actions">' +
               '<button class="btn btn-primary btn-lg" type="button" data-action="' + primaryAction + '">' + primaryLabel + " " + icon.arrow + "</button>" +
               '<span class="hero-or" aria-hidden="true">или</span>' +
@@ -799,7 +831,7 @@
           '<div class="how-head">' +
             '<div class="how-title-block">' +
               '<div class="eyebrow">Как это работает</div>' +
-              '<h2 class="display">Три шага<br><em>до приза.</em></h2>' +
+              '<h2 class="display">Три шага<br><em>до билета.</em></h2>' +
             "</div>" +
           "</div>" +
           '<div class="how-grid">' +
@@ -816,9 +848,9 @@
               '<div class="how-icon">' + icon.spark + "</div>" +
             "</article>" +
             '<article class="how-card">' +
-              '<div class="how-num">03 / ПРИЗ</div>' +
-              "<h3>Забери приз</h3>" +
-              "<p>150 баллов на продукцию Очаково на маркетплейсах. Захочешь, откликнешься на вакансию.</p>" +
+              '<div class="how-num">03 / БИЛЕТ</div>' +
+              "<h3>Получи билет</h3>" +
+              "<p>За каждую закрытую смену — один билет в розыгрыш. Чем больше смен, тем больше шансов.</p>" +
               '<div class="how-icon">' + icon.gift + "</div>" +
             "</article>" +
           "</div>" +
@@ -826,8 +858,8 @@
             '<div class="how-reward-left">' +
               '<span class="how-reward-icon">' + icon.gift + "</span>" +
               "<div>" +
-                "<h3>Приз за пройденную смену</h3>" +
-                "<p>150 баллов на продукцию Очаково. Промокод появится сразу после финала.</p>" +
+                "<h3>Билет за пройденную смену</h3>" +
+                "<p>Один квест — один билет. Номер билета привязывается к телефону после подтверждения.</p>" +
               "</div>" +
             "</div>" +
             '<button class="btn btn-dark" type="button" data-action="' + primaryAction + '">' + primaryLabel + " " + icon.arrow + "</button>" +
@@ -1010,7 +1042,7 @@
             '<img src="assets/mascot.svg" alt="">' +
             '<div class="character-guide-text">' +
               '<span class="character-guide-label">Совет Пузыря</span>' +
-              "<p>Порядок любой. Приз за каждую смену. Ошибки не страшно. Я видел много смен, волнуюсь всё равно. Ты не бери с меня пример.</p>" +
+              "<p>Порядок любой. Билет за каждую смену. Ошибки не страшно. Я видел много смен, волнуюсь всё равно. Ты не бери с меня пример.</p>" +
             "</div>" +
           "</div>" +
           (allDone
@@ -1459,25 +1491,25 @@
 
     const previous = state.completed[char.id];
     const bestStars = Math.max(previous ? previous.stars : 0, quest.stars);
-    const code = generateCode(collectUsedCodes(state));
+    const code = previous && previous.code ? previous.code : generateCode(collectUsedCodes(state));
     const completedAt = new Date().toISOString();
     const completion = {
       charId: char.id,
       stars: bestStars,
       lastStars: quest.stars,
       code: code,
-      completedAt: completedAt,
-      reward: 150
+      completedAt: completedAt
     };
     state.completed[char.id] = completion;
     state.prizes = Array.isArray(state.prizes) ? state.prizes : [];
-    state.prizes.push({
-      code: code,
-      charId: char.id,
-      stars: quest.stars,
-      reward: completion.reward,
-      createdAt: completedAt
-    });
+    if (!previous) {
+      state.prizes.push({
+        code: code,
+        charId: char.id,
+        stars: quest.stars,
+        createdAt: completedAt
+      });
+    }
     if (state.prizes.length > 100) state.prizes = state.prizes.slice(-100);
     state.lastResult = completion;
     state.activeQuest = null;
@@ -1486,7 +1518,53 @@
     saveState();
     playSound("win");
     renderResult();
-    announce("Смена закрыта. Промокод " + completion.code + ".");
+    announce("Смена закрыта. Билет " + completion.code + ".");
+  }
+
+  function requestPhoneCode(form) {
+    const error = document.getElementById("phoneError");
+    const phone = normalizePhone(form.elements.phone.value);
+    if (!phone) {
+      if (error) {
+        error.textContent = "Введи номер в формате +7 999 000-00-00.";
+        error.classList.add("is-visible");
+      }
+      announce("Проверь номер телефона.");
+      return;
+    }
+    phoneChallenge = { phone: phone, code: phoneCode() };
+    renderResult();
+    announce("Код подтверждения: " + phoneChallenge.code + ". Это демо-режим.");
+    showToast("Демо-код подтверждения: " + phoneChallenge.code);
+  }
+
+  function confirmPhoneCode(form) {
+    const error = document.getElementById("phoneError");
+    const entered = String(form.elements.code.value || "").replace(/\D/g, "");
+    if (!phoneChallenge || entered !== phoneChallenge.code) {
+      if (error) {
+        error.textContent = "Код не совпал. Попробуй ещё раз.";
+        error.classList.add("is-visible");
+      }
+      announce("Код не совпал.");
+      return;
+    }
+    state.phone = phoneChallenge.phone;
+    state.phoneVerified = true;
+    phoneChallenge = null;
+    saveState();
+    renderResult();
+    showToast("Телефон подтверждён. Билеты в розыгрыше.");
+    announce("Телефон подтверждён. Билеты привязаны к номеру.");
+  }
+
+  function resetPhone() {
+    state.phone = "";
+    state.phoneVerified = false;
+    phoneChallenge = null;
+    saveState();
+    renderResult();
+    showToast("Номер отвязан. Можно войти другим.");
   }
 
   /* -------------------------------------------------------
@@ -2067,8 +2145,40 @@
       return application.charId === char.id;
     });
     const completion = state.completed[char.id] || result;
-    const reward = completion.reward || 150;
+    const tickets = ticketCount();
+    const phoneVerified = Boolean(state.phoneVerified && state.phone);
     const totalSteps = char.steps.length;
+
+    let phoneBlock = "";
+    if (phoneVerified) {
+      phoneBlock =
+        '<div class="ticket-bound">' +
+          '<div><span>Билеты привязаны к номеру</span><b>' + escapeHtml(maskPhone(state.phone)) + "</b></div>" +
+          '<button class="ticket-phone-change" type="button" data-action="phone-change">Изменить</button>' +
+        "</div>";
+    } else if (phoneChallenge) {
+      phoneBlock =
+        '<form class="ticket-phone" id="phoneCodeForm" novalidate>' +
+          '<div class="ticket-phone-label">Подтверждение телефона</div>' +
+          '<p class="ticket-phone-hint">Код для ' + escapeHtml(maskPhone(phoneChallenge.phone)) + " · демо-код: <b>" + escapeHtml(phoneChallenge.code) + "</b></p>" +
+          '<div class="ticket-phone-row">' +
+            '<input name="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="4" placeholder="Код из SMS" aria-label="Код подтверждения">' +
+            '<button class="btn btn-primary" type="submit">Подтвердить</button>' +
+          "</div>" +
+          '<p class="ticket-phone-error" id="phoneError" role="alert"></p>' +
+        "</form>";
+    } else {
+      phoneBlock =
+        '<form class="ticket-phone" id="phoneForm" novalidate>' +
+          '<div class="ticket-phone-label">Вход по телефону</div>' +
+          '<p class="ticket-phone-hint">Один номер — все билеты. Пришлём код подтверждения. Пока это концепт.</p>' +
+          '<div class="ticket-phone-row">' +
+            '<input name="phone" type="tel" autocomplete="tel" maxlength="18" placeholder="+7 999 000-00-00" aria-label="Номер телефона">' +
+            '<button class="btn btn-primary" type="submit">Получить код</button>' +
+          "</div>" +
+          '<p class="ticket-phone-error" id="phoneError" role="alert"></p>' +
+        "</form>";
+    }
 
     const html =
       '<div class="bubble-scene" aria-hidden="true">' +
@@ -2092,11 +2202,11 @@
           '<div class="result-grid">' +
             '<div class="reward-ticket">' +
               '<div class="ticket-top">' +
-                '<span class="ticket-label">Промокод за смену</span>' +
+                '<span class="ticket-label">Билет розыгрыша</span>' +
                 '<span class="ticket-num">ОЧАКОВО × БРОДИЛКА</span>' +
               "</div>" +
-              '<div class="ticket-value"><strong>' + escapeHtml(reward) + '</strong><span>баллов на продукцию на маркетплейсах</span></div>' +
-              '<div class="ticket-code-label">Твой промокод</div>' +
+              '<div class="ticket-value"><strong>' + String(tickets).padStart(2, "0") + '</strong><span>билет за эту смену · всего ' + tickets + "</span></div>" +
+              '<div class="ticket-code-label">Номер билета</div>' +
               '<div class="promo-splat" id="promoSplat">' +
                 '<img class="promo-splat-img" src="assets/mascot/splat.svg" alt="">' +
                 '<div class="promo-splat-inner">' +
@@ -2106,7 +2216,8 @@
                   "</div>" +
                 "</div>" +
               "</div>" +
-              '<p class="ticket-note">' + icon.spark + " Пузырь не выдержал. Лопнул. Впервые с 1996 года. Буль. На месте осталась клякса, а в ней промокод. Баллы начисляются на продукцию Очаково.</p>" +
+              '<p class="ticket-note">' + icon.spark + " Один квест — один билет. Билеты привязываются к номеру телефона и участвуют в розыгрыше." + "</p>" +
+              phoneBlock +
             "</div>" +
 
             '<div class="result-info">' +
@@ -2117,7 +2228,7 @@
                 '<div class="result-stat-row">' +
                   '<span class="result-stat">Этапы <b>' + totalSteps + " / " + totalSteps + "</b></span>" +
                   '<span class="result-stat">Точность <b>' + completion.stars + " / 3</b></span>" +
-                  '<span class="result-stat">Приз <b>' + escapeHtml(reward) + " баллов</b></span>" +
+                  '<span class="result-stat">Билетов <b>' + tickets + " / " + CHARACTERS.length + "</b></span>" +
                 "</div>" +
               "</div>" +
               '<div class="vacancy-mini">' +
@@ -2140,7 +2251,7 @@
                 '<button class="btn btn-ghost result-share" type="button" data-action="share-result" data-char="' + char.id + '">' + icon.share + " Поделиться картинкой</button>" +
               "</div>" +
               (allDone
-                ? '<div class="all-complete">' + icon.spark + "<div><b>" + CHARACTERS.length + " из " + CHARACTERS.length + ". Свой человек.</b><span>Ты прошёл все " + CHARACTERS.length + " смены. Я же говорил: ты справишься. Не лопни от восторга.</span></div></div>"
+                ? '<div class="all-complete">' + icon.spark + "<div><b>" + CHARACTERS.length + " из " + CHARACTERS.length + ". Свой человек.</b><span>Ты прошёл все " + CHARACTERS.length + " смены. В розыгрыше " + tickets + " билета. Я же говорил: ты справишься. Не лопни от восторга.</span></div></div>"
                 : "") +
             "</div>" +
           "</div>" +
@@ -2809,7 +2920,7 @@
 
       case "copy-code":
         copyText(element.getAttribute("data-code") || "").then(function (ok) {
-          showToast(ok ? "Промокод скопирован" : "Не получилось скопировать. Выдели код вручную.");
+          showToast(ok ? "Номер билета скопирован" : "Не получилось скопировать. Выдели номер вручную.");
           if (!ok) return;
           const splat = element.closest(".promo-splat");
           if (!splat) return;
@@ -2827,11 +2938,31 @@
         break;
       }
 
+      case "open-tickets": {
+        const completed = Object.keys(state.completed).map(function (id) {
+          return state.completed[id];
+        }).sort(function (a, b) {
+          return String(a.completedAt || "").localeCompare(String(b.completedAt || ""));
+        });
+        const ticketResult = state.lastResult || completed[completed.length - 1];
+        if (ticketResult) {
+          currentResult = ticketResult;
+          renderResult();
+        } else {
+          renderLanding();
+        }
+        break;
+      }
+
+      case "phone-change":
+        resetPhone();
+        break;
+
       case "reset-progress":
         openModal({
           eyebrow: "Сброс прогресса",
           title: "Начать с нуля?",
-          text: "Пропадут все смены, промокоды и заявки. Отменить нельзя.",
+          text: "Пропадут все смены, билеты и заявки. Отменить нельзя.",
           cancelLabel: "Остаться",
           confirmLabel: "Сбросить",
           danger: true,
@@ -2845,6 +2976,7 @@
             stepState = null;
             currentResult = null;
             introIndex = 0;
+            phoneChallenge = null;
             saveState();
             renderLanding();
             showToast("Прогресс сброшен. Можно начать заново.");
@@ -2904,9 +3036,16 @@
   });
 
   document.addEventListener("submit", function (event) {
-    if (event.target && event.target.id === "applyForm") {
+    if (!event.target) return;
+    if (event.target.id === "applyForm") {
       event.preventDefault();
       handleApplySubmit(event.target);
+    } else if (event.target.id === "phoneForm") {
+      event.preventDefault();
+      requestPhoneCode(event.target);
+    } else if (event.target.id === "phoneCodeForm") {
+      event.preventDefault();
+      confirmPhoneCode(event.target);
     }
   });
 

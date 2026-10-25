@@ -1,9 +1,9 @@
 {
-  "runId": "2026-10-25T03-37-24",
-  "startedAt": "2026-10-25T03:37:24.214Z",
-  "finishedAt": "2026-10-25T03:38:27.305Z",
+  "runId": "2026-10-25T05-58-40",
+  "startedAt": "2026-10-25T05:58:40.204Z",
+  "finishedAt": "2026-10-25T05:59:31.990Z",
   "env": {
-    "runId": "2026-10-25T03-37-24",
+    "runId": "2026-10-25T05-58-40",
     "node": "v24.17.0",
     "platform": "win32",
     "browser": "Edg/156.0.4314.42",
@@ -12,651 +12,19 @@
     "headed": false
   },
   "summary": {
-    "scenarios": 4,
-    "checks": 130,
-    "passed": 129,
+    "scenarios": 1,
+    "checks": 27,
+    "passed": 27,
     "failed": 0,
     "warned": 0,
-    "skipped": 1,
+    "skipped": 0,
     "fatal": 0,
     "failures": []
   },
   "scenarios": [
     {
-      "id": "pwa",
-      "title": "PWA: манифест, SW, кэш, offline, meta/safe-area",
-      "viewport": {
-        "id": "mobile",
-        "width": 390,
-        "height": 844,
-        "dpr": 3,
-        "mobile": true
-      },
-      "startedAt": "2026-10-25T03:37:24.925Z",
-      "checks": [
-        {
-          "id": "pwa.manifest-link",
-          "status": "pass",
-          "details": [
-            {
-              "href": "http://127.0.0.1:4517/manifest.webmanifest",
-              "raw": "manifest.webmanifest"
-            }
-          ]
-        },
-        {
-          "id": "pwa.manifest-status",
-          "status": "pass",
-          "details": 200
-        },
-        {
-          "id": "pwa.manifest-json",
-          "status": "pass",
-          "details": "application/manifest+json; charset=utf-8"
-        },
-        {
-          "id": "pwa.cdp-manifest-errors",
-          "status": "pass",
-          "details": []
-        },
-        {
-          "id": "pwa.manifest-required-fields",
-          "status": "pass",
-          "details": {
-            "missing": [],
-            "display": "standalone"
-          }
-        },
-        {
-          "id": "pwa.manifest-display",
-          "status": "pass",
-          "details": "standalone"
-        },
-        {
-          "id": "pwa.manifest-icons-sizes",
-          "status": "pass",
-          "details": [
-            "192x192",
-            "512x512",
-            "512x512"
-          ]
-        },
-        {
-          "id": "pwa.manifest-maskable",
-          "status": "pass",
-          "details": [
-            "any",
-            "any",
-            "maskable"
-          ]
-        },
-        {
-          "id": "pwa.icons-load",
-          "status": "pass",
-          "details": [
-            {
-              "src": "assets/icon-192.png",
-              "sizes": "192x192",
-              "purpose": "any",
-              "status": 200,
-              "type": "image/png",
-              "bytes": 35208,
-              "width": 192,
-              "height": 192
-            },
-            {
-              "src": "assets/icon-512.png",
-              "sizes": "512x512",
-              "purpose": "any",
-              "status": 200,
-              "type": "image/png",
-              "bytes": 138468,
-              "width": 512,
-              "height": 512
-            },
-            {
-              "src": "assets/icon-maskable-512.png",
-              "sizes": "512x512",
-              "purpose": "maskable",
-              "status": 200,
-              "type": "image/png",
-              "bytes": 113714,
-              "width": 512,
-              "height": 512
-            }
-          ]
-        },
-        {
-          "id": "pwa.icons-dimensions",
-          "status": "pass",
-          "details": []
-        },
-        {
-          "id": "pwa.start-url",
-          "status": "pass",
-          "details": {
-            "url": "http://127.0.0.1:4517/index.html",
-            "status": 200
-          }
-        },
-        {
-          "id": "pwa.manifest-scope",
-          "status": "pass",
-          "details": "./"
-        },
-        {
-          "id": "pwa.apple-touch-icon-load",
-          "status": "pass",
-          "details": {
-            "href": "http://127.0.0.1:4517/assets/apple-touch-icon.png",
-            "status": 200,
-            "bytes": 36304,
-            "type": "image/png"
-          }
-        },
-        {
-          "id": "pwa.meta-theme-color",
-          "status": "pass",
-          "details": "#D50032"
-        },
-        {
-          "id": "pwa.meta-apple-capable",
-          "status": "pass",
-          "details": "yes"
-        },
-        {
-          "id": "pwa.meta-apple-status",
-          "status": "pass",
-          "details": "default"
-        },
-        {
-          "id": "pwa.meta-apple-icon",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "pwa.meta-viewport-fit",
-          "status": "pass",
-          "details": "width=device-width, initial-scale=1, viewport-fit=cover"
-        },
-        {
-          "id": "pwa.safe-area-css",
-          "status": "pass",
-          "details": [
-            "http://127.0.0.1:4517/css/styles.css"
-          ]
-        },
-        {
-          "id": "pwa.sw-supported",
-          "status": "pass",
-          "details": {
-            "supported": true,
-            "count": 1,
-            "registrations": [
-              {
-                "scope": "http://127.0.0.1:4517/",
-                "active": {
-                  "scriptURL": "http://127.0.0.1:4517/sw.js",
-                  "state": "activated"
-                },
-                "waiting": false,
-                "installing": false
-              }
-            ],
-            "controller": null,
-            "cacheKeys": [
-              "brodilka-v23-shell"
-            ]
-          }
-        },
-        {
-          "id": "pwa.sw-registered",
-          "status": "pass",
-          "details": {
-            "supported": true,
-            "count": 1,
-            "registrations": [
-              {
-                "scope": "http://127.0.0.1:4517/",
-                "active": {
-                  "scriptURL": "http://127.0.0.1:4517/sw.js",
-                  "state": "activated"
-                },
-                "waiting": false,
-                "installing": false
-              }
-            ],
-            "controller": null,
-            "cacheKeys": [
-              "brodilka-v23-shell"
-            ]
-          }
-        },
-        {
-          "id": "pwa.sw-active",
-          "status": "pass",
-          "details": [
-            {
-              "scope": "http://127.0.0.1:4517/",
-              "active": {
-                "scriptURL": "http://127.0.0.1:4517/sw.js",
-                "state": "activated"
-              },
-              "waiting": false,
-              "installing": false
-            }
-          ]
-        },
-        {
-          "id": "pwa.sw-script-200",
-          "status": "pass",
-          "details": {
-            "status": 200,
-            "contentType": "application/javascript; charset=utf-8"
-          }
-        },
-        {
-          "id": "pwa.sw-has-fetch",
-          "status": "pass",
-          "details": "/* =========================================================\n   Р‘Р РћР”РР›РљРђ вЂ” service worker\n   РљСЌС€РёСЂСѓРµС‚ "
-        },
-        {
-          "id": "pwa.sw-cache-strategy",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "pwa.sw-version",
-          "status": "pass",
-          "details": {
-            "version": "brodilka-v23",
-            "number": 23
-          }
-        },
-        {
-          "id": "pwa.sw-controller",
-          "status": "pass",
-          "details": {
-            "controller": "http://127.0.0.1:4517/sw.js",
-            "active": "http://127.0.0.1:4517/sw.js"
-          }
-        },
-        {
-          "id": "pwa.cache-populated",
-          "status": "pass",
-          "details": {
-            "keys": [
-              "brodilka-v23-shell",
-              "brodilka-v23-runtime"
-            ],
-            "details": [
-              {
-                "key": "brodilka-v23-shell",
-                "count": 31,
-                "urls": [
-                  "http://127.0.0.1:4517/",
-                  "http://127.0.0.1:4517/index.html",
-                  "http://127.0.0.1:4517/manifest.webmanifest",
-                  "http://127.0.0.1:4517/css/styles.css",
-                  "http://127.0.0.1:4517/css/game.css",
-                  "http://127.0.0.1:4517/css/brand.css",
-                  "http://127.0.0.1:4517/js/config.js",
-                  "http://127.0.0.1:4517/js/data.js",
-                  "http://127.0.0.1:4517/js/pdf.js",
-                  "http://127.0.0.1:4517/assets/share-promo.png",
-                  "http://127.0.0.1:4517/assets/brand/ochakovo-logo.png",
-                  "http://127.0.0.1:4517/js/app.js",
-                  "http://127.0.0.1:4517/assets/brand/ochakovo-logo-white.png",
-                  "http://127.0.0.1:4517/assets/brand/ochakovo-mark.svg",
-                  "http://127.0.0.1:4517/assets/brand/ornament.svg",
-                  "http://127.0.0.1:4517/assets/icon-192.png",
-                  "http://127.0.0.1:4517/assets/mascot/splat.svg",
-                  "http://127.0.0.1:4517/assets/mascot/pop.svg",
-                  "http://127.0.0.1:4517/assets/icon-512.png",
-                  "http://127.0.0.1:4517/assets/icon-maskable-512.png",
-                  "http://127.0.0.1:4517/assets/apple-touch-icon.png",
-                  "http://127.0.0.1:4517/assets/app-icon.svg",
-                  "http://127.0.0.1:4517/assets/mascot.svg",
-                  "http://127.0.0.1:4517/assets/chief.svg",
-                  "http://127.0.0.1:4517/assets/mark.svg",
-                  "http://127.0.0.1:4517/assets/dasha.svg",
-                  "http://127.0.0.1:4517/assets/lev.svg",
-                  "http://127.0.0.1:4517/assets/hero-can.svg",
-                  "http://127.0.0.1:4517/assets/scene-brew.svg",
-                  "http://127.0.0.1:4517/assets/scene-line.svg"
-                ]
-              },
-              {
-                "key": "brodilka-v23-runtime",
-                "count": 15,
-                "urls": [
-                  "http://127.0.0.1:4517/",
-                  "http://127.0.0.1:4517/css/styles.css",
-                  "http://127.0.0.1:4517/css/brand.css",
-                  "http://127.0.0.1:4517/css/game.css",
-                  "http://127.0.0.1:4517/js/config.js",
-                  "http://127.0.0.1:4517/assets/brand/ochakovo-logo.png",
-                  "http://127.0.0.1:4517/js/data.js",
-                  "http://127.0.0.1:4517/js/pdf.js",
-                  "http://127.0.0.1:4517/js/app.js",
-                  "http://127.0.0.1:4517/assets/brand/ochakovo-mark.svg",
-                  "http://127.0.0.1:4517/assets/brand/ochakovo-logo-white.png",
-                  "http://127.0.0.1:4517/assets/hero-can.svg",
-                  "http://127.0.0.1:4517/assets/mascot.svg",
-                  "http://127.0.0.1:4517/assets/brand/ornament.svg",
-                  "http://127.0.0.1:4517/assets/app-icon.svg"
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "id": "pwa.cache-version",
-          "status": "pass",
-          "details": {
-            "expected": "brodilka-v23",
-            "keys": [
-              "brodilka-v23-shell",
-              "brodilka-v23-runtime"
-            ]
-          }
-        },
-        {
-          "id": "pwa.cache-no-stale",
-          "status": "pass",
-          "details": [
-            "brodilka-v23-shell",
-            "brodilka-v23-runtime"
-          ]
-        },
-        {
-          "id": "pwa.cache-shell",
-          "status": "pass",
-          "details": [
-            "http://127.0.0.1:4517/",
-            "http://127.0.0.1:4517/index.html",
-            "http://127.0.0.1:4517/manifest.webmanifest",
-            "http://127.0.0.1:4517/css/styles.css",
-            "http://127.0.0.1:4517/css/game.css",
-            "http://127.0.0.1:4517/css/brand.css",
-            "http://127.0.0.1:4517/js/config.js",
-            "http://127.0.0.1:4517/js/data.js",
-            "http://127.0.0.1:4517/js/pdf.js",
-            "http://127.0.0.1:4517/assets/share-promo.png",
-            "http://127.0.0.1:4517/assets/brand/ochakovo-logo.png",
-            "http://127.0.0.1:4517/js/app.js",
-            "http://127.0.0.1:4517/assets/brand/ochakovo-logo-white.png",
-            "http://127.0.0.1:4517/assets/brand/ochakovo-mark.svg",
-            "http://127.0.0.1:4517/assets/brand/ornament.svg",
-            "http://127.0.0.1:4517/assets/icon-192.png",
-            "http://127.0.0.1:4517/assets/mascot/splat.svg",
-            "http://127.0.0.1:4517/assets/mascot/pop.svg",
-            "http://127.0.0.1:4517/assets/icon-512.png",
-            "http://127.0.0.1:4517/assets/icon-maskable-512.png"
-          ]
-        },
-        {
-          "id": "pwa.cache-pdf-script",
-          "status": "pass",
-          "details": [
-            "http://127.0.0.1:4517/js/config.js",
-            "http://127.0.0.1:4517/js/data.js",
-            "http://127.0.0.1:4517/js/pdf.js",
-            "http://127.0.0.1:4517/js/app.js",
-            "http://127.0.0.1:4517/js/config.js",
-            "http://127.0.0.1:4517/js/data.js",
-            "http://127.0.0.1:4517/js/pdf.js",
-            "http://127.0.0.1:4517/js/app.js"
-          ]
-        },
-        {
-          "id": "pwa.cache-share-image",
-          "status": "pass",
-          "details": [
-            "http://127.0.0.1:4517/assets/share-promo.png"
-          ]
-        },
-        {
-          "id": "pwa.offline-pdf-script",
-          "status": "pass",
-          "details": true
-        },
-        {
-          "id": "pwa.standalone-emulation",
-          "status": "skip",
-          "details": "браузер не применил эмуляцию display-mode (проверить вручную в установленном режиме); manifest.display проверен отдельно"
-        },
-        {
-          "id": "pwa.offline-reload-renders",
-          "status": "pass",
-          "details": {
-            "readyState": "complete",
-            "bodyText": "Перейти к игре\nПЕРВАЯ СМЕНА · 7 МИНУТ\nИНТЕРАКТИВНЫЙ КВЕСТ · ПЕРВАЯ СМЕНА\nЗАЙДИ\nНА ЗАВОД.\nНЕ НА\nЭКСКУРСИЮ.\n\nТри смены, три характера, один завод: квас, лимонады и вода. Выбери героя, пройди смену и заб",
-            "hasApp": true,
-            "h1": "ЗАЙДИ\nНА ЗАВОД.\nНЕ НА\nЭКСКУРСИЮ.",
-            "storageKeys": []
-          }
-        },
-        {
-          "id": "pwa.offline-navigation",
-          "status": "pass",
-          "details": "intro"
-        },
-        {
-          "id": "pwa.console-clean",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "pwa.network-clean",
-          "status": "pass",
-          "details": []
-        }
-      ],
-      "screenshots": [
-        "screens/2026-10-25T03-37-24/pwa/01-standalone.png",
-        "screens/2026-10-25T03-37-24/pwa/02-offline-landing.png",
-        "screens/2026-10-25T03-37-24/pwa/03-offline-navigation.png"
-      ],
-      "notes": [
-        "display-mode emulation: {\"standalone\":false,\"browser\":true,\"bodyWidth\":390,\"hscroll\":false}",
-        "Установочные критерии PWA: manifest + иконки 192/512 + SW с fetch. Полноценная установка через UI в headless не проверяется — см. ручной чек-лист."
-      ],
-      "fatal": null
-    },
-    {
-      "id": "pwa-fresh",
-      "title": "PWA на свежем профиле: unregister SW, installability, иконки 192/512/maskable/180",
-      "viewport": {
-        "id": "mobile",
-        "width": 390,
-        "height": 844,
-        "dpr": 3,
-        "mobile": true
-      },
-      "startedAt": "2026-10-25T03:37:31.830Z",
-      "checks": [
-        {
-          "id": "pwa-fresh.reset",
-          "status": "pass",
-          "details": {
-            "supported": true,
-            "registrations": 0,
-            "caches": 0
-          }
-        },
-        {
-          "id": "pwa-fresh.sw-reregister",
-          "status": "pass",
-          "details": {
-            "active": "http://127.0.0.1:4517/sw.js",
-            "installing": false,
-            "waiting": false
-          }
-        },
-        {
-          "id": "pwa-fresh.controller",
-          "status": "pass",
-          "details": {
-            "controller": "http://127.0.0.1:4517/sw.js",
-            "active": "http://127.0.0.1:4517/sw.js"
-          }
-        },
-        {
-          "id": "pwa-fresh.manifest-errors",
-          "status": "pass",
-          "details": []
-        },
-        {
-          "id": "pwa-fresh.installability-errors",
-          "status": "pass",
-          "details": []
-        },
-        {
-          "id": "pwa-fresh.icons-200",
-          "status": "pass",
-          "details": [
-            {
-              "url": "assets/icon-192.png",
-              "expect": 192,
-              "label": "192",
-              "status": 200,
-              "type": "image/png",
-              "bytes": 35208,
-              "width": 192,
-              "height": 192
-            },
-            {
-              "url": "assets/icon-512.png",
-              "expect": 512,
-              "label": "512",
-              "status": 200,
-              "type": "image/png",
-              "bytes": 138468,
-              "width": 512,
-              "height": 512
-            },
-            {
-              "url": "assets/icon-maskable-512.png",
-              "expect": 512,
-              "label": "maskable-512",
-              "status": 200,
-              "type": "image/png",
-              "bytes": 113714,
-              "width": 512,
-              "height": 512
-            },
-            {
-              "url": "assets/apple-touch-icon.png",
-              "expect": 180,
-              "label": "apple-180",
-              "status": 200,
-              "type": "image/png",
-              "bytes": 36304,
-              "width": 180,
-              "height": 180
-            }
-          ]
-        },
-        {
-          "id": "pwa-fresh.icons-dimensions",
-          "status": "pass",
-          "details": []
-        },
-        {
-          "id": "pwa-fresh.sw-version",
-          "status": "pass",
-          "details": {
-            "version": "brodilka-v23",
-            "number": 23
-          }
-        },
-        {
-          "id": "pwa-fresh.cache-version",
-          "status": "pass",
-          "details": {
-            "expected": "brodilka-v23",
-            "keys": [
-              "brodilka-v23-shell",
-              "brodilka-v23-runtime"
-            ]
-          }
-        },
-        {
-          "id": "pwa-fresh.no-stale-cache",
-          "status": "pass",
-          "details": [
-            "brodilka-v23-shell",
-            "brodilka-v23-runtime"
-          ]
-        },
-        {
-          "id": "pwa-fresh.cache-pdf-script",
-          "status": "pass",
-          "details": [
-            "http://127.0.0.1:4517/js/config.js",
-            "http://127.0.0.1:4517/js/data.js",
-            "http://127.0.0.1:4517/js/pdf.js",
-            "http://127.0.0.1:4517/js/app.js",
-            "http://127.0.0.1:4517/js/config.js",
-            "http://127.0.0.1:4517/js/data.js",
-            "http://127.0.0.1:4517/js/pdf.js",
-            "http://127.0.0.1:4517/js/app.js",
-            "http://127.0.0.1:4517/sw.js"
-          ]
-        },
-        {
-          "id": "pwa-fresh.cache-share-image",
-          "status": "pass",
-          "details": [
-            "http://127.0.0.1:4517/assets/share-promo.png"
-          ]
-        },
-        {
-          "id": "pwa-fresh.install-button",
-          "status": "pass",
-          "details": {
-            "present": true,
-            "hidden": false,
-            "text": "Установить"
-          }
-        },
-        {
-          "id": "pwa-fresh.offline-reload",
-          "status": "pass",
-          "details": {
-            "readyState": "complete",
-            "hasApp": true,
-            "body": "Перейти к игре\nПЕРВАЯ СМЕНА · 7 МИНУТ\nИНТЕРАКТИВНЫЙ КВЕСТ · ПЕРВАЯ СМЕНА\nЗАЙДИ\nНА ЗАВОД.\nНЕ НА\nЭКСКУРСИЮ.\n\nТри смены, тр"
-          }
-        },
-        {
-          "id": "pwa-fresh.offline-pdf-script",
-          "status": "pass",
-          "details": true
-        },
-        {
-          "id": "pwa-fresh.console-clean",
-          "status": "pass",
-          "details": null
-        },
-        {
-          "id": "pwa-fresh.network-clean",
-          "status": "pass",
-          "details": []
-        }
-      ],
-      "screenshots": [
-        "screens/2026-10-25T03-37-24/pwa-fresh/01-offline-fresh.png"
-      ],
-      "notes": [
-        "install-кнопка: {\"present\":true,\"hidden\":false,\"text\":\"Установить\"}"
-      ],
-      "fatal": null
-    },
-    {
-      "id": "v19-final",
-      "title": "v19: мобильный Пузырь в потоке, CTA «смену-квест»/«вакансии»/«или», 3 карточки ролей, PWA v19",
+      "id": "v24-final",
+      "title": "v24: розыгрыш/билеты, счётчик и повтор, вход по телефону (код/маска/reload/Изменить), 1440/390/360, обе темы",
       "viewport": {
         "id": "desktop",
         "width": 1440,
@@ -664,2621 +32,402 @@
         "dpr": 1,
         "mobile": false
       },
-      "startedAt": "2026-10-25T03:37:36.946Z",
+      "startedAt": "2026-10-25T05:58:40.912Z",
       "checks": [
         {
-          "id": "v19.landing-1440-brand.cta",
+          "id": "v24.copy-no-150-promo",
           "status": "pass",
           "details": {
-            "design": "brand",
-            "hscroll": false,
-            "primaryText": "Начать смену-квест",
-            "quickText": "Перейти к вакансиям",
-            "orText": "или",
-            "orVisible": true,
-            "primaryRect": {
+            "has150": false,
+            "hasPoints": false,
+            "hasPromo": false,
+            "hasRaffle": true,
+            "hasTicketWord": true,
+            "ticker": "Смена 01 · Машинист оборудования✦Смена 02 · Оператор линии розлива✦Смена 03 · Лаборант контроля качества✦Прими участие в розыгрыше✦Смена 01 · Машинист оборудова",
+            "how": "КАК ЭТО РАБОТАЕТ\nТРИ ШАГА\nДО БИЛЕТА.\n01 / ВЫБОР\nВЫБЕРИ ГЕРОЯ\n\nМашинист оборудования, оператор линии розлива, лаборант контроля качества. У каждого свой маршрут и свой взгляд на завод.\n\n02 / СМЕНА\nПРОЙДИ СМЕНУ\n\nКороткие диалоги, рабочие задачки и мини-игры. Лекций на сорок минут не будет.\n\n03 / БИЛЕТ\nПОЛУЧИ БИЛЕТ\n\nЗа каждую закрытую смену — один билет в розыгрыш. Чем больше смен, тем больше шансов.\n\nБИЛЕТ ЗА ПРОЙДЕННУЮ СМЕНУ\n\nОдин квест — один билет. Номер билета привязывается к телефону после подтверждения.\n\nНачать смену-квест"
+          }
+        },
+        {
+          "id": "v24.copy-how",
+          "status": "pass",
+          "details": "КАК ЭТО РАБОТАЕТ\nТРИ ШАГА\nДО БИЛЕТА.\n01 / ВЫБОР\nВЫБЕРИ ГЕРОЯ\n\nМашинист оборудования, оператор линии розлива, лаборант контроля качества. У каждого свой маршрут и свой взгляд на завод.\n\n02 / СМЕНА\nПРОЙДИ СМЕНУ\n\nКороткие диалоги, рабочие задачки и мини-игры. Лек"
+        },
+        {
+          "id": "v24.landing-ticker",
+          "status": "pass",
+          "details": "Смена 01 · Машинист оборудования✦Смена 02 · Оператор линии розлива✦Смена 03 · Лаборант контроля качества✦Прими участие в розыгрыше✦Смена 01 · Машинист оборудова"
+        },
+        {
+          "id": "v24.ticket-first",
+          "status": "pass",
+          "details": {
+            "label": "Билет розыгрыша",
+            "value": "01",
+            "total": "билет за эту смену · всего 1",
+            "code": "БИЛЕТ-8K5S5BUQ",
+            "codeClipped": false,
+            "footer": "Мои билеты · 1",
+            "stats": "Этапы 3 / 3Точность 3 / 3Билетов 1 / 3",
+            "ticketNote": " Один квест — один билет. Билеты привязываются к номеру телефона и участвуют в розыгрыше.",
+            "hasPhoneForm": true,
+            "hasCodeForm": false,
+            "hasBound": false,
+            "boundText": null,
+            "changeButton": false,
+            "phoneError": "",
+            "phoneInput": {
+              "width": 381,
+              "height": 40,
+              "tag": "INPUT",
+              "type": "tel",
+              "name": "phone",
+              "cls": "",
+              "computedHeight": "40px"
+            },
+            "codeInput": null,
+            "phoneErrorVisible": false,
+            "codeHint": null,
+            "phoneFormRect": {
+              "left": 91,
+              "top": 1133,
+              "right": 568,
+              "bottom": 1226,
+              "width": 476,
+              "height": 93
+            },
+            "ticketRect": {
               "left": 60,
-              "top": 816,
-              "right": 291,
-              "bottom": 874,
-              "width": 230,
-              "height": 58
+              "top": 559,
+              "right": 599,
+              "bottom": 1257,
+              "width": 538,
+              "height": 698
             },
-            "quickRect": {
-              "left": 363,
-              "top": 816,
-              "right": 578,
-              "bottom": 874,
-              "width": 215,
-              "height": 58
-            },
-            "orRect": {
-              "left": 315,
-              "top": 838,
-              "right": 339,
-              "bottom": 852,
-              "width": 24,
-              "height": 15
-            },
-            "ctaOverlap": false,
-            "noteRect": {
-              "left": 875,
-              "top": 776,
-              "right": 1129,
-              "bottom": 886,
-              "width": 254,
-              "height": 110
-            },
-            "guideRect": {
-              "left": 769,
-              "top": 776,
-              "right": 1129,
-              "bottom": 902,
-              "width": 360,
-              "height": 126
-            },
-            "artRect": {
-              "left": 775,
-              "top": 142,
-              "right": 1365,
-              "bottom": 917,
-              "width": 590,
-              "height": 775
-            },
-            "noteInArt": true,
-            "noteOverlapCta": false,
-            "noteInsideGuide": true,
-            "notePosition": "relative",
-            "viewport": 1425
+            "hscroll": false,
+            "has150": false,
+            "hasPoints": false,
+            "hasPromo": false
           }
         },
         {
-          "id": "v19.landing-1440-brand.no-hscroll",
+          "id": "v24.ticket-counter-1",
           "status": "pass",
           "details": {
-            "design": "brand",
-            "hscroll": false,
-            "primaryText": "Начать смену-квест",
-            "quickText": "Перейти к вакансиям",
-            "orText": "или",
-            "orVisible": true,
-            "primaryRect": {
+            "stats": "Этапы 3 / 3Точность 3 / 3Билетов 1 / 3",
+            "footer": "Мои билеты · 1",
+            "clipped": false
+          }
+        },
+        {
+          "id": "v24.ticket-note",
+          "status": "pass",
+          "details": " Один квест — один билет. Билеты привязываются к номеру телефона и участвуют в розыгрыше."
+        },
+        {
+          "id": "v24.copy-ticket",
+          "status": "pass",
+          "details": "Номер билета скопирован"
+        },
+        {
+          "id": "v24.phone-form",
+          "status": "pass",
+          "details": {
+            "label": "Билет розыгрыша",
+            "value": "01",
+            "total": "билет за эту смену · всего 1",
+            "code": "БИЛЕТ-8K5S5BUQ",
+            "codeClipped": false,
+            "footer": "Мои билеты · 1",
+            "stats": "Этапы 3 / 3Точность 3 / 3Билетов 1 / 3",
+            "ticketNote": " Один квест — один билет. Билеты привязываются к номеру телефона и участвуют в розыгрыше.",
+            "hasPhoneForm": true,
+            "hasCodeForm": false,
+            "hasBound": false,
+            "boundText": null,
+            "changeButton": false,
+            "phoneError": "",
+            "phoneInput": {
+              "width": 381,
+              "height": 40,
+              "tag": "INPUT",
+              "type": "tel",
+              "name": "phone",
+              "cls": "",
+              "computedHeight": "40px"
+            },
+            "codeInput": null,
+            "phoneErrorVisible": false,
+            "codeHint": null,
+            "phoneFormRect": {
+              "left": 91,
+              "top": 1133,
+              "right": 568,
+              "bottom": 1226,
+              "width": 476,
+              "height": 93
+            },
+            "ticketRect": {
               "left": 60,
-              "top": 816,
-              "right": 291,
-              "bottom": 874,
-              "width": 230,
-              "height": 58
+              "top": 559,
+              "right": 599,
+              "bottom": 1257,
+              "width": 538,
+              "height": 698
             },
-            "quickRect": {
-              "left": 363,
-              "top": 816,
-              "right": 578,
-              "bottom": 874,
-              "width": 215,
-              "height": 58
-            },
-            "orRect": {
-              "left": 315,
-              "top": 838,
-              "right": 339,
-              "bottom": 852,
-              "width": 24,
-              "height": 15
-            },
-            "ctaOverlap": false,
-            "noteRect": {
-              "left": 875,
-              "top": 776,
-              "right": 1129,
-              "bottom": 886,
-              "width": 254,
-              "height": 110
-            },
-            "guideRect": {
-              "left": 769,
-              "top": 776,
-              "right": 1129,
-              "bottom": 902,
-              "width": 360,
-              "height": 126
-            },
-            "artRect": {
-              "left": 775,
-              "top": 142,
-              "right": 1365,
-              "bottom": 917,
-              "width": 590,
-              "height": 775
-            },
-            "noteInArt": true,
-            "noteOverlapCta": false,
-            "noteInsideGuide": true,
-            "notePosition": "relative",
-            "viewport": 1425
+            "hscroll": false,
+            "has150": false,
+            "hasPoints": false,
+            "hasPromo": false
           }
         },
         {
-          "id": "v19.landing-390-brand.cta",
+          "id": "v24.phone-tap-target",
           "status": "pass",
           "details": {
-            "design": "brand",
+            "width": 381,
+            "height": 40,
+            "tag": "INPUT",
+            "type": "tel",
+            "name": "phone",
+            "cls": "",
+            "computedHeight": "40px"
+          }
+        },
+        {
+          "id": "v24.phone-empty-error",
+          "status": "pass",
+          "details": "Введи номер в формате +7 999 000-00-00."
+        },
+        {
+          "id": "v24.phone-invalid-error",
+          "status": "pass",
+          "details": "Введи номер в формате +7 999 000-00-00."
+        },
+        {
+          "id": "v24.phone-challenge",
+          "status": "pass",
+          "details": {
+            "hasCodeForm": true,
+            "demoCode": "2524"
+          }
+        },
+        {
+          "id": "v24.phone-code-tap-target",
+          "status": "pass",
+          "details": {
+            "width": 385,
+            "height": 40,
+            "tag": "INPUT",
+            "type": "text",
+            "name": "code",
+            "cls": "",
+            "computedHeight": "40px"
+          }
+        },
+        {
+          "id": "v24.phone-wrong-code",
+          "status": "pass",
+          "details": "Код не совпал. Попробуй ещё раз."
+        },
+        {
+          "id": "v24.phone-verified",
+          "status": "pass",
+          "details": "Билеты привязаны к номеру+7 (999) ***-**-67Изменить"
+        },
+        {
+          "id": "v24.phone-verified-mask",
+          "status": "pass",
+          "details": "Билеты привязаны к номеру+7 (999) ***-**-67Изменить"
+        },
+        {
+          "id": "v24.phone-persist",
+          "status": "pass",
+          "details": {
+            "bound": "Билеты привязаны к номеру+7 (999) ***-**-67Изменить",
+            "footer": "Мои билеты · 1"
+          }
+        },
+        {
+          "id": "v24.phone-change",
+          "status": "pass",
+          "details": {
+            "label": "Билет розыгрыша",
+            "value": "01",
+            "total": "билет за эту смену · всего 1",
+            "code": "БИЛЕТ-8K5S5BUQ",
+            "codeClipped": false,
+            "footer": "Мои билеты · 1",
+            "stats": "Этапы 3 / 3Точность 3 / 3Билетов 1 / 3",
+            "ticketNote": " Один квест — один билет. Билеты привязываются к номеру телефона и участвуют в розыгрыше.",
+            "hasPhoneForm": true,
+            "hasCodeForm": false,
+            "hasBound": false,
+            "boundText": null,
+            "changeButton": false,
+            "phoneError": "",
+            "phoneInput": {
+              "width": 381,
+              "height": 40,
+              "tag": "INPUT",
+              "type": "tel",
+              "name": "phone",
+              "cls": "",
+              "computedHeight": "40px"
+            },
+            "codeInput": null,
+            "phoneErrorVisible": false,
+            "codeHint": null,
+            "phoneFormRect": {
+              "left": 91,
+              "top": 1133,
+              "right": 568,
+              "bottom": 1226,
+              "width": 476,
+              "height": 93
+            },
+            "ticketRect": {
+              "left": 60,
+              "top": 560,
+              "right": 599,
+              "bottom": 1257,
+              "width": 538,
+              "height": 698
+            },
             "hscroll": false,
-            "primaryText": "Начать смену-квест",
-            "quickText": "Перейти к вакансиям",
-            "orText": "или",
-            "orVisible": true,
-            "primaryRect": {
+            "has150": false,
+            "hasPoints": false,
+            "hasPromo": false
+          }
+        },
+        {
+          "id": "v24.repeat-no-add",
+          "status": "pass",
+          "details": {
+            "code": "БИЛЕТ-8K5S5BUQ",
+            "firstCode": "БИЛЕТ-8K5S5BUQ",
+            "value": "01",
+            "total": "билет за эту смену · всего 1",
+            "stats": "Этапы 3 / 3Точность 3 / 3Билетов 1 / 3",
+            "footer": "Мои билеты · 1"
+          }
+        },
+        {
+          "id": "v24.second-ticket",
+          "status": "pass",
+          "details": {
+            "code": "БИЛЕТ-HCT6H9BX",
+            "value": "02",
+            "total": "билет за эту смену · всего 2",
+            "stats": "Этапы 3 / 3Точность 3 / 3Билетов 2 / 3",
+            "footer": "Мои билеты · 2"
+          }
+        },
+        {
+          "id": "v24.mobile-390",
+          "status": "pass",
+          "details": {
+            "hscroll": false,
+            "phoneRect": {
+              "left": 37,
+              "top": 849,
+              "right": 353,
+              "bottom": 1007,
+              "width": 316,
+              "height": 158
+            },
+            "ticketRect": {
               "left": 16,
-              "top": 561,
+              "top": 423,
               "right": 374,
-              "bottom": 619,
+              "bottom": 1028,
               "width": 358,
-              "height": 58
+              "height": 605
             },
-            "quickRect": {
+            "footer": "Мои билеты · 2"
+          }
+        },
+        {
+          "id": "v24.mobile-390.phone-input",
+          "status": "pass",
+          "details": {
+            "width": 316,
+            "height": 44,
+            "tag": "INPUT",
+            "type": "tel",
+            "name": "phone",
+            "cls": "",
+            "computedHeight": "44px"
+          }
+        },
+        {
+          "id": "v24.mobile-360",
+          "status": "pass",
+          "details": {
+            "hscroll": false,
+            "phoneRect": {
+              "left": 39,
+              "top": 804,
+              "right": 321,
+              "bottom": 961,
+              "width": 282,
+              "height": 158
+            },
+            "ticketRect": {
               "left": 16,
-              "top": 670,
-              "right": 374,
-              "bottom": 728,
-              "width": 358,
-              "height": 58
+              "top": 387,
+              "right": 344,
+              "bottom": 984,
+              "width": 328,
+              "height": 598
             },
-            "orRect": {
-              "left": 183,
-              "top": 637,
-              "right": 207,
-              "bottom": 652,
-              "width": 24,
-              "height": 15
-            },
-            "ctaOverlap": false,
-            "noteRect": {
-              "left": 108,
-              "top": 1179,
-              "right": 358,
-              "bottom": 1278,
-              "width": 250,
-              "height": 99
-            },
-            "guideRect": {
-              "left": 32,
-              "top": 1179,
-              "right": 358,
-              "bottom": 1278,
-              "width": 326,
-              "height": 99
-            },
-            "artRect": {
-              "left": 16,
-              "top": 875,
-              "right": 374,
-              "bottom": 1294,
-              "width": 358,
-              "height": 419
-            },
-            "noteInArt": true,
-            "noteOverlapCta": false,
-            "noteInsideGuide": true,
-            "notePosition": "relative",
+            "footer": "Мои билеты · 2"
+          }
+        },
+        {
+          "id": "v24.mobile-360.phone-input",
+          "status": "pass",
+          "details": {
+            "width": 282,
+            "height": 44,
+            "tag": "INPUT",
+            "type": "tel",
+            "name": "phone",
+            "cls": "",
+            "computedHeight": "44px"
+          }
+        },
+        {
+          "id": "v24.apply-form-390",
+          "status": "pass",
+          "details": {
+            "hscroll": false,
+            "formWidth": 328,
+            "cardWidth": 358,
             "viewport": 390
           }
         },
         {
-          "id": "v19.landing-390-brand.no-hscroll",
+          "id": "v24.apply-form-360",
           "status": "pass",
           "details": {
-            "design": "brand",
             "hscroll": false,
-            "primaryText": "Начать смену-квест",
-            "quickText": "Перейти к вакансиям",
-            "orText": "или",
-            "orVisible": true,
-            "primaryRect": {
-              "left": 16,
-              "top": 561,
-              "right": 374,
-              "bottom": 619,
-              "width": 358,
-              "height": 58
-            },
-            "quickRect": {
-              "left": 16,
-              "top": 670,
-              "right": 374,
-              "bottom": 728,
-              "width": 358,
-              "height": 58
-            },
-            "orRect": {
-              "left": 183,
-              "top": 637,
-              "right": 207,
-              "bottom": 652,
-              "width": 24,
-              "height": 15
-            },
-            "ctaOverlap": false,
-            "noteRect": {
-              "left": 108,
-              "top": 1179,
-              "right": 358,
-              "bottom": 1278,
-              "width": 250,
-              "height": 99
-            },
-            "guideRect": {
-              "left": 32,
-              "top": 1179,
-              "right": 358,
-              "bottom": 1278,
-              "width": 326,
-              "height": 99
-            },
-            "artRect": {
-              "left": 16,
-              "top": 875,
-              "right": 374,
-              "bottom": 1294,
-              "width": 358,
-              "height": 419
-            },
-            "noteInArt": true,
-            "noteOverlapCta": false,
-            "noteInsideGuide": true,
-            "notePosition": "relative",
-            "viewport": 390
-          }
-        },
-        {
-          "id": "v19.landing-390-brand.guide-in-flow",
-          "status": "pass",
-          "details": {
-            "design": "brand",
-            "hscroll": false,
-            "primaryText": "Начать смену-квест",
-            "quickText": "Перейти к вакансиям",
-            "orText": "или",
-            "orVisible": true,
-            "primaryRect": {
-              "left": 16,
-              "top": 561,
-              "right": 374,
-              "bottom": 619,
-              "width": 358,
-              "height": 58
-            },
-            "quickRect": {
-              "left": 16,
-              "top": 670,
-              "right": 374,
-              "bottom": 728,
-              "width": 358,
-              "height": 58
-            },
-            "orRect": {
-              "left": 183,
-              "top": 637,
-              "right": 207,
-              "bottom": 652,
-              "width": 24,
-              "height": 15
-            },
-            "ctaOverlap": false,
-            "noteRect": {
-              "left": 108,
-              "top": 1179,
-              "right": 358,
-              "bottom": 1278,
-              "width": 250,
-              "height": 99
-            },
-            "guideRect": {
-              "left": 32,
-              "top": 1179,
-              "right": 358,
-              "bottom": 1278,
-              "width": 326,
-              "height": 99
-            },
-            "artRect": {
-              "left": 16,
-              "top": 875,
-              "right": 374,
-              "bottom": 1294,
-              "width": 358,
-              "height": 419
-            },
-            "noteInArt": true,
-            "noteOverlapCta": false,
-            "noteInsideGuide": true,
-            "notePosition": "relative",
-            "viewport": 390
-          }
-        },
-        {
-          "id": "v19.landing-360-brodilka.cta",
-          "status": "pass",
-          "details": {
-            "design": "brodilka",
-            "hscroll": false,
-            "primaryText": "Начать смену-квест",
-            "quickText": "Перейти к вакансиям",
-            "orText": "или",
-            "orVisible": true,
-            "primaryRect": {
-              "left": 16,
-              "top": 185,
-              "right": 344,
-              "bottom": 243,
-              "width": 328,
-              "height": 58
-            },
-            "quickRect": {
-              "left": 16,
-              "top": 293,
-              "right": 344,
-              "bottom": 351,
-              "width": 328,
-              "height": 58
-            },
-            "orRect": {
-              "left": 171,
-              "top": 261,
-              "right": 189,
-              "bottom": 275,
-              "width": 19,
-              "height": 15
-            },
-            "ctaOverlap": false,
-            "noteRect": {
-              "left": 91,
-              "top": 836,
-              "right": 345,
-              "bottom": 944,
-              "width": 254,
-              "height": 107
-            },
-            "guideRect": {
-              "left": 16,
-              "top": 840,
-              "right": 344,
-              "bottom": 941,
-              "width": 328,
-              "height": 101
-            },
-            "artRect": {
-              "left": 16,
-              "top": 506,
-              "right": 344,
-              "bottom": 941,
-              "width": 328,
-              "height": 435
-            },
-            "noteInArt": true,
-            "noteOverlapCta": false,
-            "noteInsideGuide": true,
-            "notePosition": "relative",
+            "formWidth": 294,
+            "cardWidth": 328,
             "viewport": 360
           }
         },
         {
-          "id": "v19.landing-360-brodilka.no-hscroll",
-          "status": "pass",
-          "details": {
-            "design": "brodilka",
-            "hscroll": false,
-            "primaryText": "Начать смену-квест",
-            "quickText": "Перейти к вакансиям",
-            "orText": "или",
-            "orVisible": true,
-            "primaryRect": {
-              "left": 16,
-              "top": 185,
-              "right": 344,
-              "bottom": 243,
-              "width": 328,
-              "height": 58
-            },
-            "quickRect": {
-              "left": 16,
-              "top": 293,
-              "right": 344,
-              "bottom": 351,
-              "width": 328,
-              "height": 58
-            },
-            "orRect": {
-              "left": 171,
-              "top": 261,
-              "right": 189,
-              "bottom": 275,
-              "width": 19,
-              "height": 15
-            },
-            "ctaOverlap": false,
-            "noteRect": {
-              "left": 91,
-              "top": 836,
-              "right": 345,
-              "bottom": 944,
-              "width": 254,
-              "height": 107
-            },
-            "guideRect": {
-              "left": 16,
-              "top": 840,
-              "right": 344,
-              "bottom": 941,
-              "width": 328,
-              "height": 101
-            },
-            "artRect": {
-              "left": 16,
-              "top": 506,
-              "right": 344,
-              "bottom": 941,
-              "width": 328,
-              "height": 435
-            },
-            "noteInArt": true,
-            "noteOverlapCta": false,
-            "noteInsideGuide": true,
-            "notePosition": "relative",
-            "viewport": 360
-          }
-        },
-        {
-          "id": "v19.landing-360-brodilka.guide-in-flow",
-          "status": "pass",
-          "details": {
-            "design": "brodilka",
-            "hscroll": false,
-            "primaryText": "Начать смену-квест",
-            "quickText": "Перейти к вакансиям",
-            "orText": "или",
-            "orVisible": true,
-            "primaryRect": {
-              "left": 16,
-              "top": 185,
-              "right": 344,
-              "bottom": 243,
-              "width": 328,
-              "height": 58
-            },
-            "quickRect": {
-              "left": 16,
-              "top": 293,
-              "right": 344,
-              "bottom": 351,
-              "width": 328,
-              "height": 58
-            },
-            "orRect": {
-              "left": 171,
-              "top": 261,
-              "right": 189,
-              "bottom": 275,
-              "width": 19,
-              "height": 15
-            },
-            "ctaOverlap": false,
-            "noteRect": {
-              "left": 91,
-              "top": 836,
-              "right": 345,
-              "bottom": 944,
-              "width": 254,
-              "height": 107
-            },
-            "guideRect": {
-              "left": 16,
-              "top": 840,
-              "right": 344,
-              "bottom": 941,
-              "width": 328,
-              "height": 101
-            },
-            "artRect": {
-              "left": 16,
-              "top": 506,
-              "right": 344,
-              "bottom": 941,
-              "width": 328,
-              "height": 435
-            },
-            "noteInArt": true,
-            "noteOverlapCta": false,
-            "noteInsideGuide": true,
-            "notePosition": "relative",
-            "viewport": 360
-          }
-        },
-        {
-          "id": "v19.landing-landscape-brand.cta",
-          "status": "pass",
-          "details": {
-            "design": "brand",
-            "hscroll": false,
-            "primaryText": "Начать смену-квест",
-            "quickText": "Перейти к вакансиям",
-            "orText": "или",
-            "orVisible": true,
-            "primaryRect": {
-              "left": 35,
-              "top": 534,
-              "right": 266,
-              "bottom": 592,
-              "width": 230,
-              "height": 58
-            },
-            "quickRect": {
-              "left": 338,
-              "top": 534,
-              "right": 553,
-              "bottom": 592,
-              "width": 215,
-              "height": 58
-            },
-            "orRect": {
-              "left": 290,
-              "top": 556,
-              "right": 314,
-              "bottom": 571,
-              "width": 24,
-              "height": 15
-            },
-            "ctaOverlap": false,
-            "noteRect": {
-              "left": 241,
-              "top": 1020,
-              "right": 455,
-              "bottom": 1149,
-              "width": 214,
-              "height": 129
-            },
-            "guideRect": {
-              "left": 135,
-              "top": 1020,
-              "right": 455,
-              "bottom": 1165,
-              "width": 320,
-              "height": 145
-            },
-            "artRect": {
-              "left": 117,
-              "top": 674,
-              "right": 727,
-              "bottom": 1175,
-              "width": 610,
-              "height": 502
-            },
-            "noteInArt": true,
-            "noteOverlapCta": false,
-            "noteInsideGuide": true,
-            "notePosition": "relative",
-            "viewport": 844
-          }
-        },
-        {
-          "id": "v19.landing-landscape-brand.no-hscroll",
-          "status": "pass",
-          "details": {
-            "design": "brand",
-            "hscroll": false,
-            "primaryText": "Начать смену-квест",
-            "quickText": "Перейти к вакансиям",
-            "orText": "или",
-            "orVisible": true,
-            "primaryRect": {
-              "left": 35,
-              "top": 534,
-              "right": 266,
-              "bottom": 592,
-              "width": 230,
-              "height": 58
-            },
-            "quickRect": {
-              "left": 338,
-              "top": 534,
-              "right": 553,
-              "bottom": 592,
-              "width": 215,
-              "height": 58
-            },
-            "orRect": {
-              "left": 290,
-              "top": 556,
-              "right": 314,
-              "bottom": 571,
-              "width": 24,
-              "height": 15
-            },
-            "ctaOverlap": false,
-            "noteRect": {
-              "left": 241,
-              "top": 1020,
-              "right": 455,
-              "bottom": 1149,
-              "width": 214,
-              "height": 129
-            },
-            "guideRect": {
-              "left": 135,
-              "top": 1020,
-              "right": 455,
-              "bottom": 1165,
-              "width": 320,
-              "height": 145
-            },
-            "artRect": {
-              "left": 117,
-              "top": 674,
-              "right": 727,
-              "bottom": 1175,
-              "width": 610,
-              "height": 502
-            },
-            "noteInArt": true,
-            "noteOverlapCta": false,
-            "noteInsideGuide": true,
-            "notePosition": "relative",
-            "viewport": 844
-          }
-        },
-        {
-          "id": "v19.roles-three",
-          "status": "pass",
-          "details": {
-            "count": 3,
-            "cards": [
-              {
-                "value": "brewer",
-                "selected": true,
-                "aria": "true",
-                "text": "ТОЧНЫЙ НАСТРОЙ Марк · Машинист оборудования Ведёшь оборудование квасного цеха: запускаешь, держишь режимы и передаёшь партию на розлив. Следишь за состоянием линии. Опыт не обязателен: научим.",
-                "img": true,
-                "rect": {
-                  "left": 372,
-                  "top": 510,
-                  "right": 593,
-                  "bottom": 622,
-                  "width": 221,
-                  "height": 113
-                }
-              },
-              {
-                "value": "packer",
-                "selected": false,
-                "aria": "false",
-                "text": "ЛОВКАЯ РУКА Даша · Оператор линии розлива Отвечаешь за линию, бракераж и паллеты. Линия разгоняется до 1000 бутылок в минуту, так что важны внимательность и скорость. Остальному научим.",
-                "img": true,
-                "rect": {
-                  "left": 602,
-                  "top": 510,
-                  "right": 823,
-                  "bottom": 622,
-                  "width": 221,
-                  "height": 113
-                }
-              },
-              {
-                "value": "lab",
-                "selected": false,
-                "aria": "false",
-                "text": "КОНТРОЛЬНЫЙ Лев · Лаборант контроля качества Проверяешь сырьё и готовую продукцию: кислотность, плотность, микробиологию. Работаешь с приборами и журналом. Точность важнее скорости.",
-                "img": true,
-                "rect": {
-                  "left": 832,
-                  "top": 510,
-                  "right": 1053,
-                  "bottom": 622,
-                  "width": 221,
-                  "height": 113
-                }
-              }
-            ],
-            "hiddenType": "hidden",
-            "hiddenValue": "brewer",
-            "hiddenId": "fieldRole",
-            "selectPresent": false,
-            "formBelowRoles": true,
-            "hscroll": false,
-            "postcard": true
-          }
-        },
-        {
-          "id": "v19.roles-content",
-          "status": "pass",
-          "details": [
-            {
-              "value": "brewer",
-              "selected": true,
-              "aria": "true",
-              "text": "ТОЧНЫЙ НАСТРОЙ Марк · Машинист оборудования Ведёшь оборудование квасного цеха: запускаешь, держишь режимы и передаёшь партию на розлив. Следишь за состоянием линии. Опыт не обязателен: научим.",
-              "img": true,
-              "rect": {
-                "left": 372,
-                "top": 510,
-                "right": 593,
-                "bottom": 622,
-                "width": 221,
-                "height": 113
-              }
-            },
-            {
-              "value": "packer",
-              "selected": false,
-              "aria": "false",
-              "text": "ЛОВКАЯ РУКА Даша · Оператор линии розлива Отвечаешь за линию, бракераж и паллеты. Линия разгоняется до 1000 бутылок в минуту, так что важны внимательность и скорость. Остальному научим.",
-              "img": true,
-              "rect": {
-                "left": 602,
-                "top": 510,
-                "right": 823,
-                "bottom": 622,
-                "width": 221,
-                "height": 113
-              }
-            },
-            {
-              "value": "lab",
-              "selected": false,
-              "aria": "false",
-              "text": "КОНТРОЛЬНЫЙ Лев · Лаборант контроля качества Проверяешь сырьё и готовую продукцию: кислотность, плотность, микробиологию. Работаешь с приборами и журналом. Точность важнее скорости.",
-              "img": true,
-              "rect": {
-                "left": 832,
-                "top": 510,
-                "right": 1053,
-                "bottom": 622,
-                "width": 221,
-                "height": 113
-              }
-            }
-          ]
-        },
-        {
-          "id": "v19.roles-desktop-grid",
-          "status": "pass",
-          "details": {
-            "tops": [
-              510
-            ],
-            "lefts": [
-              372,
-              602,
-              832
-            ],
-            "hscroll": false,
-            "formBelow": true
-          }
-        },
-        {
-          "id": "v19.roles-select-1",
-          "status": "pass",
-          "details": {
-            "hidden": "packer",
-            "cards": [
-              false,
-              true,
-              false
-            ]
-          }
-        },
-        {
-          "id": "v19.roles-select-2",
-          "status": "pass",
-          "details": {
-            "hidden": "lab",
-            "cards": [
-              false,
-              false,
-              true
-            ]
-          }
-        },
-        {
-          "id": "v19.roles-radiogroup",
-          "status": "pass",
-          "details": {
-            "groupRole": "radiogroup",
-            "allRadio": true,
-            "checked": 1,
-            "tabIndexes": [
-              0,
-              0,
-              0
-            ]
-          }
-        },
-        {
-          "id": "v19.roles-keyboard-focus",
-          "status": "pass",
-          "details": {
-            "value": "brewer",
-            "focusVisible": true,
-            "outlineStyle": "solid",
-            "outlineWidth": "3px",
-            "outlineColor": "rgb(213, 0, 50)",
-            "disabled": false
-          }
-        },
-        {
-          "id": "v19.roles-keyboard-enter",
-          "status": "pass",
-          "details": {
-            "keyboard": "brewer",
-            "hidden": "brewer",
-            "cards": [
-              {
-                "value": "brewer",
-                "selected": true,
-                "aria": "true"
-              },
-              {
-                "value": "packer",
-                "selected": false,
-                "aria": "false"
-              },
-              {
-                "value": "lab",
-                "selected": false,
-                "aria": "false"
-              }
-            ]
-          }
-        },
-        {
-          "id": "v19.roles-success",
-          "status": "pass",
-          "details": {
-            "delivered": true,
-            "hasTicket": true,
-            "charId": "lab",
-            "vacancy": "Лаборант контроля качества",
-            "hscroll": false
-          }
-        },
-        {
-          "id": "v19.roles-data",
-          "status": "pass",
-          "details": {
-            "delivered": true,
-            "hasTicket": true,
-            "charId": "lab",
-            "vacancy": "Лаборант контроля качества",
-            "hscroll": false
-          }
-        },
-        {
-          "id": "v19.roles-pdf",
-          "status": "pass",
-          "details": {
-            "file": "ochakovo-zayavka-HR-26-5567.pdf",
-            "size": 161645,
-            "isPdf": true,
-            "hasEof": true,
-            "pages": 1,
-            "hasImage": true,
-            "hasJpeg": true,
-            "hasXref": true
-          }
-        },
-        {
-          "id": "v19.roles-mobile-390",
-          "status": "pass",
-          "details": {
-            "tops": [
-              426,
-              548,
-              669
-            ],
-            "hscroll": false,
-            "formBelow": true
-          }
-        },
-        {
-          "id": "v19.roles-mobile-390-select",
-          "status": "pass",
-          "details": {
-            "hidden": "packer",
-            "cards": [
-              {
-                "value": "brewer",
-                "selected": false,
-                "aria": "false"
-              },
-              {
-                "value": "packer",
-                "selected": true,
-                "aria": "true"
-              },
-              {
-                "value": "lab",
-                "selected": false,
-                "aria": "false"
-              }
-            ]
-          }
-        },
-        {
-          "id": "v19.roles-mobile-360",
-          "status": "pass",
-          "details": {
-            "tops": [
-              423,
-              545,
-              666
-            ],
-            "hscroll": false,
-            "formBelow": true
-          }
-        },
-        {
-          "id": "v19.roles-mobile-360-select",
-          "status": "pass",
-          "details": {
-            "hidden": "packer",
-            "cards": [
-              {
-                "value": "brewer",
-                "selected": false,
-                "aria": "false"
-              },
-              {
-                "value": "packer",
-                "selected": true,
-                "aria": "true"
-              },
-              {
-                "value": "lab",
-                "selected": false,
-                "aria": "false"
-              }
-            ]
-          }
-        },
-        {
-          "id": "v19-final.console-clean",
+          "id": "v24-final.console-clean",
           "status": "pass",
           "details": null
         }
       ],
       "screenshots": [
-        "screens/2026-10-25T03-37-24/v19-final/01-v19-landing-brand-1440.png",
-        "screens/2026-10-25T03-37-24/v19-final/02-v19-landing-brand-390.png",
-        "screens/2026-10-25T03-37-24/v19-final/03-v19-landing-brodilka-360.png",
-        "screens/2026-10-25T03-37-24/v19-final/04-v19-landing-brand-844.png",
-        "screens/2026-10-25T03-37-24/v19-final/05-v19-quick-roles-desktop.png",
-        "screens/2026-10-25T03-37-24/v19-final/06-v19-quick-roles-selected.png",
-        "screens/2026-10-25T03-37-24/v19-final/07-v19-quick-roles-keyboard.png",
-        "screens/2026-10-25T03-37-24/v19-final/08-v19-quick-success.png",
-        "screens/2026-10-25T03-37-24/v19-final/09-v19-quick-roles-brand-390.png",
-        "screens/2026-10-25T03-37-24/v19-final/10-v19-quick-roles-brodilka-360.png"
-      ],
-      "notes": [],
-      "fatal": null
-    },
-    {
-      "id": "v22-final",
-      "title": "v22: employer benefits 6 пунктов в обычном/быстром отклике, одинаковый заголовок/список, 1440/390/360, обе темы",
-      "viewport": {
-        "id": "desktop",
-        "width": 1440,
-        "height": 1000,
-        "dpr": 1,
-        "mobile": false
-      },
-      "startedAt": "2026-10-25T03:37:50.223Z",
-      "checks": [
-        {
-          "id": "v22.quick-desktop.heading",
-          "status": "pass",
-          "details": "Условия и бонусы от работодателя"
-        },
-        {
-          "id": "v22.quick-desktop.heading-visible",
-          "status": "pass",
-          "details": {
-            "visible": true,
-            "contrast": 17.40432753274219,
-            "color": "rgb(26, 26, 26)",
-            "bg": "rgb(255, 255, 255)"
-          }
-        },
-        {
-          "id": "v22.quick-desktop.count",
-          "status": "pass",
-          "details": 6
-        },
-        {
-          "id": "v22.quick-desktop.items",
-          "status": "pass",
-          "details": {
-            "actual": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления."
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии."
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство."
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве."
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников."
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью."
-              }
-            ],
-            "expected": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления."
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии."
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство."
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве."
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников."
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью."
-              }
-            ]
-          }
-        },
-        {
-          "id": "v22.quick-desktop.disclaimer",
-          "status": "pass",
-          "details": "Условия демонстрационные. Детали обсуждаем на интервью."
-        },
-        {
-          "id": "v22.quick-desktop.layout",
-          "status": "pass",
-          "details": {
-            "present": true,
-            "heading": "Условия и бонусы от работодателя",
-            "headingContrast": 17.40432753274219,
-            "headingColor": "rgb(26, 26, 26)",
-            "headingBg": "rgb(255, 255, 255)",
-            "headingVisible": true,
-            "items": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления.",
-                "scrollWidth": 682,
-                "clientWidth": 682,
-                "height": 50
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии.",
-                "scrollWidth": 682,
-                "clientWidth": 682,
-                "height": 49
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство.",
-                "scrollWidth": 682,
-                "clientWidth": 682,
-                "height": 49
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве.",
-                "scrollWidth": 682,
-                "clientWidth": 682,
-                "height": 49
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников.",
-                "scrollWidth": 682,
-                "clientWidth": 682,
-                "height": 49
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью.",
-                "scrollWidth": 682,
-                "clientWidth": 682,
-                "height": 49
-              }
-            ],
-            "disclaimer": "Условия демонстрационные. Детали обсуждаем на интервью.",
-            "count": 6,
-            "hscroll": false,
-            "containerRect": {
-              "left": 372,
-              "top": 667,
-              "right": 1054,
-              "bottom": 1018,
-              "width": 682,
-              "height": 351
-            },
-            "rolesRect": {
-              "left": 372,
-              "top": 510,
-              "right": 1054,
-              "bottom": 622,
-              "width": 682,
-              "height": 113
-            },
-            "formCardRect": {
-              "left": 333,
-              "top": 367,
-              "right": 1093,
-              "bottom": 1782,
-              "width": 760,
-              "height": 1415
-            },
-            "formRect": {
-              "left": 372,
-              "top": 1141,
-              "right": 1054,
-              "bottom": 1743,
-              "width": 682,
-              "height": 602
-            },
-            "overlapRoles": false,
-            "overlapForm": false,
-            "formBelow": true,
-            "clipped": false,
-            "longTitlesWrap": true
-          }
-        },
-        {
-          "id": "v22.quick-desktop.form-below",
-          "status": "pass",
-          "details": {
-            "present": true,
-            "heading": "Условия и бонусы от работодателя",
-            "headingContrast": 17.40432753274219,
-            "headingColor": "rgb(26, 26, 26)",
-            "headingBg": "rgb(255, 255, 255)",
-            "headingVisible": true,
-            "items": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления.",
-                "scrollWidth": 682,
-                "clientWidth": 682,
-                "height": 50
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии.",
-                "scrollWidth": 682,
-                "clientWidth": 682,
-                "height": 49
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство.",
-                "scrollWidth": 682,
-                "clientWidth": 682,
-                "height": 49
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве.",
-                "scrollWidth": 682,
-                "clientWidth": 682,
-                "height": 49
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников.",
-                "scrollWidth": 682,
-                "clientWidth": 682,
-                "height": 49
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью.",
-                "scrollWidth": 682,
-                "clientWidth": 682,
-                "height": 49
-              }
-            ],
-            "disclaimer": "Условия демонстрационные. Детали обсуждаем на интервью.",
-            "count": 6,
-            "hscroll": false,
-            "containerRect": {
-              "left": 372,
-              "top": 667,
-              "right": 1054,
-              "bottom": 1018,
-              "width": 682,
-              "height": 351
-            },
-            "rolesRect": {
-              "left": 372,
-              "top": 510,
-              "right": 1054,
-              "bottom": 622,
-              "width": 682,
-              "height": 113
-            },
-            "formCardRect": {
-              "left": 333,
-              "top": 367,
-              "right": 1093,
-              "bottom": 1782,
-              "width": 760,
-              "height": 1415
-            },
-            "formRect": {
-              "left": 372,
-              "top": 1141,
-              "right": 1054,
-              "bottom": 1743,
-              "width": 682,
-              "height": 602
-            },
-            "overlapRoles": false,
-            "overlapForm": false,
-            "formBelow": true,
-            "clipped": false,
-            "longTitlesWrap": true
-          }
-        },
-        {
-          "id": "v22.normal-brand.heading",
-          "status": "pass",
-          "details": "Условия и бонусы от работодателя"
-        },
-        {
-          "id": "v22.normal-brand.heading-visible",
-          "status": "pass",
-          "details": {
-            "visible": true,
-            "contrast": 21,
-            "color": "rgb(255, 255, 255)",
-            "bg": "rgb(0, 0, 0)"
-          }
-        },
-        {
-          "id": "v22.normal-brand.count",
-          "status": "pass",
-          "details": 6
-        },
-        {
-          "id": "v22.normal-brand.items",
-          "status": "pass",
-          "details": {
-            "actual": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления."
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии."
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство."
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве."
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников."
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью."
-              }
-            ],
-            "expected": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления."
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии."
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство."
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве."
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников."
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью."
-              }
-            ]
-          }
-        },
-        {
-          "id": "v22.normal-brand.disclaimer",
-          "status": "pass",
-          "details": "Условия демонстрационные. Детали обсуждаем на интервью."
-        },
-        {
-          "id": "v22.normal-brand.layout",
-          "status": "pass",
-          "details": {
-            "present": true,
-            "heading": "Условия и бонусы от работодателя",
-            "headingContrast": 21,
-            "headingColor": "rgb(255, 255, 255)",
-            "headingBg": "rgb(0, 0, 0)",
-            "headingVisible": true,
-            "items": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления.",
-                "scrollWidth": 453,
-                "clientWidth": 453,
-                "height": 50
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии.",
-                "scrollWidth": 453,
-                "clientWidth": 453,
-                "height": 49
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство.",
-                "scrollWidth": 453,
-                "clientWidth": 453,
-                "height": 49
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве.",
-                "scrollWidth": 453,
-                "clientWidth": 453,
-                "height": 49
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников.",
-                "scrollWidth": 453,
-                "clientWidth": 453,
-                "height": 49
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью.",
-                "scrollWidth": 453,
-                "clientWidth": 453,
-                "height": 49
-              }
-            ],
-            "disclaimer": "Условия демонстрационные. Детали обсуждаем на интервью.",
-            "count": 6,
-            "hscroll": false,
-            "containerRect": {
-              "left": 114,
-              "top": 828,
-              "right": 618,
-              "bottom": 1230,
-              "width": 505,
-              "height": 402
-            },
-            "rolesRect": null,
-            "formCardRect": {
-              "left": 641,
-              "top": 367,
-              "right": 1313,
-              "bottom": 1166,
-              "width": 671,
-              "height": 799
-            },
-            "formRect": {
-              "left": 680,
-              "top": 510,
-              "right": 1274,
-              "bottom": 1127,
-              "width": 593,
-              "height": 617
-            },
-            "overlapRoles": false,
-            "overlapForm": false,
-            "formBelow": false,
-            "clipped": false,
-            "longTitlesWrap": true
-          }
-        },
-        {
-          "id": "v22.lists-identical",
-          "status": "pass",
-          "details": {
-            "quick": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления."
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии."
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство."
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве."
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников."
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью."
-              }
-            ],
-            "normal": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления."
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии."
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство."
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве."
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников."
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью."
-              }
-            ]
-          }
-        },
-        {
-          "id": "v22.normal-brodilka.heading",
-          "status": "pass",
-          "details": "Условия и бонусы от работодателя"
-        },
-        {
-          "id": "v22.normal-brodilka.heading-visible",
-          "status": "pass",
-          "details": {
-            "visible": true,
-            "contrast": 16.860717614572973,
-            "color": "rgb(215, 243, 91)",
-            "bg": "rgb(0, 0, 0)"
-          }
-        },
-        {
-          "id": "v22.normal-brodilka.count",
-          "status": "pass",
-          "details": 6
-        },
-        {
-          "id": "v22.normal-brodilka.items",
-          "status": "pass",
-          "details": {
-            "actual": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления."
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии."
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство."
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве."
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников."
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью."
-              }
-            ],
-            "expected": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления."
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии."
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство."
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве."
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников."
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью."
-              }
-            ]
-          }
-        },
-        {
-          "id": "v22.normal-brodilka.disclaimer",
-          "status": "pass",
-          "details": "Условия демонстрационные. Детали обсуждаем на интервью."
-        },
-        {
-          "id": "v22.normal-brodilka.layout",
-          "status": "pass",
-          "details": {
-            "present": true,
-            "heading": "Условия и бонусы от работодателя",
-            "headingContrast": 16.860717614572973,
-            "headingColor": "rgb(215, 243, 91)",
-            "headingBg": "rgb(0, 0, 0)",
-            "headingVisible": true,
-            "items": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления.",
-                "scrollWidth": 453,
-                "clientWidth": 453,
-                "height": 50
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии.",
-                "scrollWidth": 453,
-                "clientWidth": 453,
-                "height": 49
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство.",
-                "scrollWidth": 453,
-                "clientWidth": 453,
-                "height": 49
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве.",
-                "scrollWidth": 453,
-                "clientWidth": 453,
-                "height": 49
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников.",
-                "scrollWidth": 453,
-                "clientWidth": 453,
-                "height": 49
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью.",
-                "scrollWidth": 453,
-                "clientWidth": 453,
-                "height": 49
-              }
-            ],
-            "disclaimer": "Условия демонстрационные. Детали обсуждаем на интервью.",
-            "count": 6,
-            "hscroll": false,
-            "containerRect": {
-              "left": 114,
-              "top": 818,
-              "right": 618,
-              "bottom": 1219,
-              "width": 505,
-              "height": 402
-            },
-            "rolesRect": null,
-            "formCardRect": {
-              "left": 641,
-              "top": 356,
-              "right": 1313,
-              "bottom": 1152,
-              "width": 671,
-              "height": 796
-            },
-            "formRect": {
-              "left": 680,
-              "top": 496,
-              "right": 1274,
-              "bottom": 1113,
-              "width": 593,
-              "height": 617
-            },
-            "overlapRoles": false,
-            "overlapForm": false,
-            "formBelow": false,
-            "clipped": false,
-            "longTitlesWrap": true
-          }
-        },
-        {
-          "id": "v22.lists-identical-themes",
-          "status": "pass",
-          "details": {
-            "brand": [
-              "Вертикальный и горизонтальный карьерный рост",
-              "Развитие карьерных навыков",
-              "Опытный коллектив",
-              "Социальный пакет и льготы",
-              "Наставники",
-              "Другие условия"
-            ],
-            "brodilka": [
-              "Вертикальный и горизонтальный карьерный рост",
-              "Развитие карьерных навыков",
-              "Опытный коллектив",
-              "Социальный пакет и льготы",
-              "Наставники",
-              "Другие условия"
-            ]
-          }
-        },
-        {
-          "id": "v22.quick-mobile-390.heading",
-          "status": "pass",
-          "details": "Условия и бонусы от работодателя"
-        },
-        {
-          "id": "v22.quick-mobile-390.heading-visible",
-          "status": "pass",
-          "details": {
-            "visible": true,
-            "contrast": 17.40432753274219,
-            "color": "rgb(26, 26, 26)",
-            "bg": "rgb(255, 255, 255)"
-          }
-        },
-        {
-          "id": "v22.quick-mobile-390.count",
-          "status": "pass",
-          "details": 6
-        },
-        {
-          "id": "v22.quick-mobile-390.items",
-          "status": "pass",
-          "details": {
-            "actual": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления."
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии."
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство."
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве."
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников."
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью."
-              }
-            ],
-            "expected": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления."
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии."
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство."
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве."
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников."
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью."
-              }
-            ]
-          }
-        },
-        {
-          "id": "v22.quick-mobile-390.disclaimer",
-          "status": "pass",
-          "details": "Условия демонстрационные. Детали обсуждаем на интервью."
-        },
-        {
-          "id": "v22.quick-mobile-390.layout",
-          "status": "pass",
-          "details": {
-            "present": true,
-            "heading": "Условия и бонусы от работодателя",
-            "headingContrast": 17.40432753274219,
-            "headingColor": "rgb(26, 26, 26)",
-            "headingBg": "rgb(255, 255, 255)",
-            "headingVisible": true,
-            "items": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления.",
-                "scrollWidth": 328,
-                "clientWidth": 328,
-                "height": 65
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии.",
-                "scrollWidth": 328,
-                "clientWidth": 328,
-                "height": 49
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство.",
-                "scrollWidth": 328,
-                "clientWidth": 328,
-                "height": 49
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве.",
-                "scrollWidth": 328,
-                "clientWidth": 328,
-                "height": 64
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников.",
-                "scrollWidth": 328,
-                "clientWidth": 328,
-                "height": 49
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью.",
-                "scrollWidth": 328,
-                "clientWidth": 328,
-                "height": 49
-              }
-            ],
-            "disclaimer": "Условия демонстрационные. Детали обсуждаем на интервью.",
-            "count": 6,
-            "hscroll": false,
-            "containerRect": {
-              "left": 31,
-              "top": 828,
-              "right": 359,
-              "bottom": 1227,
-              "width": 328,
-              "height": 399
-            },
-            "rolesRect": {
-              "left": 31,
-              "top": 426,
-              "right": 359,
-              "bottom": 783,
-              "width": 328,
-              "height": 357
-            },
-            "formCardRect": {
-              "left": 16,
-              "top": 293,
-              "right": 374,
-              "bottom": 2241,
-              "width": 358,
-              "height": 1948
-            },
-            "formRect": {
-              "left": 31,
-              "top": 1362,
-              "right": 359,
-              "bottom": 2222,
-              "width": 328,
-              "height": 859
-            },
-            "overlapRoles": false,
-            "overlapForm": false,
-            "formBelow": true,
-            "clipped": false,
-            "longTitlesWrap": true
-          }
-        },
-        {
-          "id": "v22.quick-mobile-390.one-column",
-          "status": "pass",
-          "details": {
-            "present": true,
-            "heading": "Условия и бонусы от работодателя",
-            "headingContrast": 17.40432753274219,
-            "headingColor": "rgb(26, 26, 26)",
-            "headingBg": "rgb(255, 255, 255)",
-            "headingVisible": true,
-            "items": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления.",
-                "scrollWidth": 328,
-                "clientWidth": 328,
-                "height": 65
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии.",
-                "scrollWidth": 328,
-                "clientWidth": 328,
-                "height": 49
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство.",
-                "scrollWidth": 328,
-                "clientWidth": 328,
-                "height": 49
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве.",
-                "scrollWidth": 328,
-                "clientWidth": 328,
-                "height": 64
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников.",
-                "scrollWidth": 328,
-                "clientWidth": 328,
-                "height": 49
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью.",
-                "scrollWidth": 328,
-                "clientWidth": 328,
-                "height": 49
-              }
-            ],
-            "disclaimer": "Условия демонстрационные. Детали обсуждаем на интервью.",
-            "count": 6,
-            "hscroll": false,
-            "containerRect": {
-              "left": 31,
-              "top": 828,
-              "right": 359,
-              "bottom": 1227,
-              "width": 328,
-              "height": 399
-            },
-            "rolesRect": {
-              "left": 31,
-              "top": 426,
-              "right": 359,
-              "bottom": 783,
-              "width": 328,
-              "height": 357
-            },
-            "formCardRect": {
-              "left": 16,
-              "top": 293,
-              "right": 374,
-              "bottom": 2241,
-              "width": 358,
-              "height": 1948
-            },
-            "formRect": {
-              "left": 31,
-              "top": 1362,
-              "right": 359,
-              "bottom": 2222,
-              "width": 328,
-              "height": 859
-            },
-            "overlapRoles": false,
-            "overlapForm": false,
-            "formBelow": true,
-            "clipped": false,
-            "longTitlesWrap": true
-          }
-        },
-        {
-          "id": "v22.normal-mobile-390.heading",
-          "status": "pass",
-          "details": "Условия и бонусы от работодателя"
-        },
-        {
-          "id": "v22.normal-mobile-390.heading-visible",
-          "status": "pass",
-          "details": {
-            "visible": true,
-            "contrast": 21,
-            "color": "rgb(255, 255, 255)",
-            "bg": "rgb(0, 0, 0)"
-          }
-        },
-        {
-          "id": "v22.normal-mobile-390.count",
-          "status": "pass",
-          "details": 6
-        },
-        {
-          "id": "v22.normal-mobile-390.items",
-          "status": "pass",
-          "details": {
-            "actual": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления."
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии."
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство."
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве."
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников."
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью."
-              }
-            ],
-            "expected": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления."
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии."
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство."
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве."
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников."
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью."
-              }
-            ]
-          }
-        },
-        {
-          "id": "v22.normal-mobile-390.disclaimer",
-          "status": "pass",
-          "details": "Условия демонстрационные. Детали обсуждаем на интервью."
-        },
-        {
-          "id": "v22.normal-mobile-390.layout",
-          "status": "pass",
-          "details": {
-            "present": true,
-            "heading": "Условия и бонусы от работодателя",
-            "headingContrast": 21,
-            "headingColor": "rgb(255, 255, 255)",
-            "headingBg": "rgb(0, 0, 0)",
-            "headingVisible": true,
-            "items": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления.",
-                "scrollWidth": 324,
-                "clientWidth": 324,
-                "height": 65
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии.",
-                "scrollWidth": 324,
-                "clientWidth": 324,
-                "height": 49
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство.",
-                "scrollWidth": 324,
-                "clientWidth": 324,
-                "height": 49
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве.",
-                "scrollWidth": 324,
-                "clientWidth": 324,
-                "height": 64
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников.",
-                "scrollWidth": 324,
-                "clientWidth": 324,
-                "height": 49
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью.",
-                "scrollWidth": 324,
-                "clientWidth": 324,
-                "height": 49
-              }
-            ],
-            "disclaimer": "Условия демонстрационные. Детали обсуждаем на интервью.",
-            "count": 6,
-            "hscroll": false,
-            "containerRect": {
-              "left": 17,
-              "top": 732,
-              "right": 373,
-              "bottom": 1167,
-              "width": 356,
-              "height": 436
-            },
-            "rolesRect": null,
-            "formCardRect": {
-              "left": 16,
-              "top": 1190,
-              "right": 374,
-              "bottom": 2204,
-              "width": 358,
-              "height": 1014
-            },
-            "formRect": {
-              "left": 31,
-              "top": 1326,
-              "right": 359,
-              "bottom": 2185,
-              "width": 328,
-              "height": 859
-            },
-            "overlapRoles": false,
-            "overlapForm": false,
-            "formBelow": true,
-            "clipped": false,
-            "longTitlesWrap": true
-          }
-        },
-        {
-          "id": "v22.quick-mobile-360.heading",
-          "status": "pass",
-          "details": "Условия и бонусы от работодателя"
-        },
-        {
-          "id": "v22.quick-mobile-360.heading-visible",
-          "status": "pass",
-          "details": {
-            "visible": true,
-            "contrast": 15.184228752292102,
-            "color": "rgb(16, 37, 26)",
-            "bg": "rgb(251, 248, 238)"
-          }
-        },
-        {
-          "id": "v22.quick-mobile-360.count",
-          "status": "pass",
-          "details": 6
-        },
-        {
-          "id": "v22.quick-mobile-360.items",
-          "status": "pass",
-          "details": {
-            "actual": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления."
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии."
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство."
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве."
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников."
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью."
-              }
-            ],
-            "expected": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления."
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии."
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство."
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве."
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников."
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью."
-              }
-            ]
-          }
-        },
-        {
-          "id": "v22.quick-mobile-360.disclaimer",
-          "status": "pass",
-          "details": "Условия демонстрационные. Детали обсуждаем на интервью."
-        },
-        {
-          "id": "v22.quick-mobile-360.layout",
-          "status": "pass",
-          "details": {
-            "present": true,
-            "heading": "Условия и бонусы от работодателя",
-            "headingContrast": 15.184228752292102,
-            "headingColor": "rgb(16, 37, 26)",
-            "headingBg": "rgb(251, 248, 238)",
-            "headingVisible": true,
-            "items": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления.",
-                "scrollWidth": 294,
-                "clientWidth": 294,
-                "height": 79
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии.",
-                "scrollWidth": 294,
-                "clientWidth": 294,
-                "height": 49
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство.",
-                "scrollWidth": 294,
-                "clientWidth": 294,
-                "height": 49
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве.",
-                "scrollWidth": 294,
-                "clientWidth": 294,
-                "height": 64
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников.",
-                "scrollWidth": 294,
-                "clientWidth": 294,
-                "height": 49
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью.",
-                "scrollWidth": 294,
-                "clientWidth": 294,
-                "height": 49
-              }
-            ],
-            "disclaimer": "Условия демонстрационные. Детали обсуждаем на интервью.",
-            "count": 6,
-            "hscroll": false,
-            "containerRect": {
-              "left": 33,
-              "top": 839,
-              "right": 327,
-              "bottom": 1252,
-              "width": 294,
-              "height": 413
-            },
-            "rolesRect": {
-              "left": 33,
-              "top": 423,
-              "right": 327,
-              "bottom": 794,
-              "width": 294,
-              "height": 371
-            },
-            "formCardRect": {
-              "left": 16,
-              "top": 290,
-              "right": 344,
-              "bottom": 2300,
-              "width": 328,
-              "height": 2010
-            },
-            "formRect": {
-              "left": 33,
-              "top": 1387,
-              "right": 327,
-              "bottom": 2279,
-              "width": 294,
-              "height": 892
-            },
-            "overlapRoles": false,
-            "overlapForm": false,
-            "formBelow": true,
-            "clipped": false,
-            "longTitlesWrap": true
-          }
-        },
-        {
-          "id": "v22.quick-mobile-360.one-column",
-          "status": "pass",
-          "details": {
-            "present": true,
-            "heading": "Условия и бонусы от работодателя",
-            "headingContrast": 15.184228752292102,
-            "headingColor": "rgb(16, 37, 26)",
-            "headingBg": "rgb(251, 248, 238)",
-            "headingVisible": true,
-            "items": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления.",
-                "scrollWidth": 294,
-                "clientWidth": 294,
-                "height": 79
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии.",
-                "scrollWidth": 294,
-                "clientWidth": 294,
-                "height": 49
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство.",
-                "scrollWidth": 294,
-                "clientWidth": 294,
-                "height": 49
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве.",
-                "scrollWidth": 294,
-                "clientWidth": 294,
-                "height": 64
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников.",
-                "scrollWidth": 294,
-                "clientWidth": 294,
-                "height": 49
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью.",
-                "scrollWidth": 294,
-                "clientWidth": 294,
-                "height": 49
-              }
-            ],
-            "disclaimer": "Условия демонстрационные. Детали обсуждаем на интервью.",
-            "count": 6,
-            "hscroll": false,
-            "containerRect": {
-              "left": 33,
-              "top": 839,
-              "right": 327,
-              "bottom": 1252,
-              "width": 294,
-              "height": 413
-            },
-            "rolesRect": {
-              "left": 33,
-              "top": 423,
-              "right": 327,
-              "bottom": 794,
-              "width": 294,
-              "height": 371
-            },
-            "formCardRect": {
-              "left": 16,
-              "top": 290,
-              "right": 344,
-              "bottom": 2300,
-              "width": 328,
-              "height": 2010
-            },
-            "formRect": {
-              "left": 33,
-              "top": 1387,
-              "right": 327,
-              "bottom": 2279,
-              "width": 294,
-              "height": 892
-            },
-            "overlapRoles": false,
-            "overlapForm": false,
-            "formBelow": true,
-            "clipped": false,
-            "longTitlesWrap": true
-          }
-        },
-        {
-          "id": "v22.normal-mobile-360.heading",
-          "status": "pass",
-          "details": "Условия и бонусы от работодателя"
-        },
-        {
-          "id": "v22.normal-mobile-360.heading-visible",
-          "status": "pass",
-          "details": {
-            "visible": true,
-            "contrast": 16.860717614572973,
-            "color": "rgb(215, 243, 91)",
-            "bg": "rgb(0, 0, 0)"
-          }
-        },
-        {
-          "id": "v22.normal-mobile-360.count",
-          "status": "pass",
-          "details": 6
-        },
-        {
-          "id": "v22.normal-mobile-360.items",
-          "status": "pass",
-          "details": {
-            "actual": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления."
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии."
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство."
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве."
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников."
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью."
-              }
-            ],
-            "expected": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления."
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии."
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство."
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве."
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников."
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью."
-              }
-            ]
-          }
-        },
-        {
-          "id": "v22.normal-mobile-360.disclaimer",
-          "status": "pass",
-          "details": "Условия демонстрационные. Детали обсуждаем на интервью."
-        },
-        {
-          "id": "v22.normal-mobile-360.layout",
-          "status": "pass",
-          "details": {
-            "present": true,
-            "heading": "Условия и бонусы от работодателя",
-            "headingContrast": 16.860717614572973,
-            "headingColor": "rgb(215, 243, 91)",
-            "headingBg": "rgb(0, 0, 0)",
-            "headingVisible": true,
-            "items": [
-              {
-                "title": "Вертикальный и горизонтальный карьерный рост",
-                "text": "Можно расти в профессии и переходить в смежные направления.",
-                "scrollWidth": 290,
-                "clientWidth": 290,
-                "height": 79
-              },
-              {
-                "title": "Развитие карьерных навыков",
-                "text": "Обучение, новые задачи и поддержка в развитии.",
-                "scrollWidth": 290,
-                "clientWidth": 290,
-                "height": 49
-              },
-              {
-                "title": "Опытный коллектив",
-                "text": "Рядом люди, которые знают производство.",
-                "scrollWidth": 290,
-                "clientWidth": 290,
-                "height": 49
-              },
-              {
-                "title": "Социальный пакет и льготы",
-                "text": "Официальное оформление, ДМС, столовая, общежитие в Москве.",
-                "scrollWidth": 290,
-                "clientWidth": 290,
-                "height": 64
-              },
-              {
-                "title": "Наставники",
-                "text": "Можно перенять опыт у опытных сотрудников.",
-                "scrollWidth": 290,
-                "clientWidth": 290,
-                "height": 49
-              },
-              {
-                "title": "Другие условия",
-                "text": "Детали обсуждаем на интервью.",
-                "scrollWidth": 290,
-                "clientWidth": 290,
-                "height": 49
-              }
-            ],
-            "disclaimer": "Условия демонстрационные. Детали обсуждаем на интервью.",
-            "count": 6,
-            "hscroll": false,
-            "containerRect": {
-              "left": 17,
-              "top": 756,
-              "right": 343,
-              "bottom": 1210,
-              "width": 326,
-              "height": 454
-            },
-            "rolesRect": null,
-            "formCardRect": {
-              "left": 16,
-              "top": 1233,
-              "right": 344,
-              "bottom": 2280,
-              "width": 328,
-              "height": 1048
-            },
-            "formRect": {
-              "left": 33,
-              "top": 1367,
-              "right": 327,
-              "bottom": 2259,
-              "width": 294,
-              "height": 892
-            },
-            "overlapRoles": false,
-            "overlapForm": false,
-            "formBelow": true,
-            "clipped": false,
-            "longTitlesWrap": true
-          }
-        },
-        {
-          "id": "v22-final.console-clean",
-          "status": "pass",
-          "details": null
-        }
-      ],
-      "screenshots": [
-        "screens/2026-10-25T03-37-24/v22-final/01-v22-quick-benefits-desktop.png",
-        "screens/2026-10-25T03-37-24/v22-final/02-v22-normal-benefits-brand.png",
-        "screens/2026-10-25T03-37-24/v22-final/03-v22-normal-benefits-brodilka.png",
-        "screens/2026-10-25T03-37-24/v22-final/04-v22-quick-benefits-brand-390.png",
-        "screens/2026-10-25T03-37-24/v22-final/05-v22-normal-benefits-brand-390.png",
-        "screens/2026-10-25T03-37-24/v22-final/06-v22-quick-benefits-brodilka-360.png",
-        "screens/2026-10-25T03-37-24/v22-final/07-v22-normal-benefits-brodilka-360.png"
+        "screens/2026-10-25T05-58-40/v24-final/01-v24-result-first-ticket.png",
+        "screens/2026-10-25T05-58-40/v24-final/02-v24-phone-change.png",
+        "screens/2026-10-25T05-58-40/v24-final/03-v24-result-second-ticket.png",
+        "screens/2026-10-25T05-58-40/v24-final/04-v24-result-brand-390.png",
+        "screens/2026-10-25T05-58-40/v24-final/05-v24-result-brodilka-360.png"
       ],
       "notes": [],
       "fatal": null

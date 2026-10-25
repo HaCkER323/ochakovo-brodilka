@@ -1492,7 +1492,7 @@ class GameDriver {
           stars: starsOn,
           starsOff,
           hasResultScreen: !!document.querySelector(".result-screen") || !!document.querySelector('[data-action="open-apply"]'),
-          bodyHasPrize: /балл/i.test(text) && /промокод/i.test(text),
+          bodyHasPrize: /билет|розыгрыш/i.test(text) && !/150|балл|промокод/i.test(text),
           ticketVisible: ticket ? ticket.getBoundingClientRect().width > 0 : false
         };
       })()`,
@@ -1848,7 +1848,7 @@ async function surveyScenario(page, report, driver, { viewportKey, screenshotTag
       title: document.title,
       h1: (document.querySelector("h1") || {}).innerText || "",
       cta: Array.from(document.querySelectorAll('[data-action="start-quest"], [data-action="resume-quest"]')).map((button) => ({ action: button.getAttribute("data-action"), text: button.textContent.trim() })),
-      prize: /балл|приз|промокод/i.test(document.body.innerText || ""),
+      prize: /билет|розыгрыш/i.test(document.body.innerText || "") && !/150|балл|промокод/i.test(document.body.innerText || ""),
       footerReset: !!document.querySelector('[data-action="reset-progress"]')
     }))()`,
     { awaitPromise: false }
@@ -1952,7 +1952,7 @@ async function desktopFullScenario(page, report, driver) {
   const result = await driver.resultInfo();
   report.check("result.screen", result.hasResultScreen);
   report.check("result.promo-code", !!result.code && result.code.length >= 4, result.code);
-  report.check("result.promo-format", /^[A-Z0-9-]+$/i.test(result.code || ""), result.code);
+  report.check("result.promo-format", /^БИЛЕТ-[A-Z0-9]{8,12}$/i.test(result.code || ""), result.code);
   report.check("result.stars-3", result.stars === 3, { on: result.stars, off: result.starsOff });
   report.check("result.prize-copy", result.bodyHasPrize);
   await checkLayout(page, report, "result", { fullPage: true });
@@ -2069,8 +2069,8 @@ async function desktopFullScenario(page, report, driver) {
   const stateAfterReplay = await page.storage();
   const completionAfter = stateAfterReplay.state && stateAfterReplay.state.completed && stateAfterReplay.state.completed[brewer.id];
   report.check(
-    "replay.code-unique",
-    !!completionAfter && !!completionBefore && completionAfter.code !== completionBefore.code && String(completionAfter.code || "").length >= 6,
+    "replay.same-ticket-no-add",
+    !!completionAfter && !!completionBefore && completionAfter.code === completionBefore.code && String(completionAfter.code || "").length >= 6,
     { before: completionBefore && completionBefore.code, after: completionAfter && completionAfter.code }
   );
   report.check("replay.applications-stable", (stateAfterReplay.state.applications || []).length === applicationsBefore, { before: applicationsBefore, after: (stateAfterReplay.state.applications || []).length });
@@ -3838,7 +3838,7 @@ async function sharePdfScenario(page, report, driver) {
   const secondCode = await page.text("#promoCode");
   const stateSecond = await page.storage();
   const codeSecondStorage = stateSecond.state && stateSecond.state.completed && stateSecond.state.completed[brewer.id] && stateSecond.state.completed[brewer.id].code;
-  report.check("share-pdf.code-unique", !!firstCode && !!secondCode && firstCode !== secondCode && codeFirstStorage !== codeSecondStorage, { first: firstCode, second: secondCode });
+  report.check("share-pdf.repeat-same-ticket", !!firstCode && !!secondCode && firstCode === secondCode && codeFirstStorage === codeSecondStorage, { first: firstCode, second: secondCode });
   report.check("share-pdf.code-length", String(secondCode || "").length >= 6, secondCode);
   const appSource = await page.eval(`fetch("js/app.js", { cache: "no-store" }).then((response) => response.text())`, { awaitPromise: true });
   report.check("share-pdf.crypto-random", /getRandomValues|crypto\.randomUUID/.test(appSource), (appSource.match(/getRandomValues|crypto\.randomUUID/g) || []).slice(0, 3));
@@ -4432,6 +4432,215 @@ function extractPdfJpeg(buffer) {
     if (buffer[index] === 0xff && buffer[index + 1] === 0xd9) return buffer.subarray(start, index + 2);
   }
   return null;
+}
+
+async function v24FinalScenario(page, report, driver) {
+  await page.configureDownloads(DOWNLOADS_DIR);
+  const data = await driver.loadData();
+  const characters = data.characters || [];
+  const first = characters[0];
+  const second = characters[1] || characters[0];
+  let firstCode = null;
+
+  const landingCopy = () =>
+    page.eval(
+      `(() => {
+        const text = document.body.innerText;
+        return {
+          has150: /150/.test(text),
+          hasPoints: /балл/i.test(text),
+          hasPromo: /промокод/i.test(text),
+          hasRaffle: /Прими участие в розыгрыше/i.test(text),
+          hasTicketWord: /билет/i.test(text),
+          ticker: (() => { const marquee = document.querySelector(".marquee"); return marquee ? (marquee.textContent || "").replace(/\\s+/g, " ").trim().slice(0, 160) : null; })(),
+          how: (document.querySelector(".how") || {}).innerText || ""
+        };
+      })()`,
+      { awaitPromise: false }
+    );
+
+  const resultInfo = async () =>
+    page.eval(
+      `(() => {
+        const text = document.body.innerText;
+        const code = document.querySelector("#promoCode");
+        const footer = document.querySelector('[data-action="open-tickets"]');
+        const phone = document.querySelector(".ticket-phone");
+        const bound = document.querySelector(".ticket-bound");
+        const error = document.getElementById("phoneError");
+        const reward = document.querySelector(".reward-ticket");
+        const rect = (el) => { if (!el) return null; const r = el.getBoundingClientRect(); return { left: Math.round(r.left), top: Math.round(r.top), right: Math.round(r.right), bottom: Math.round(r.bottom), width: Math.round(r.width), height: Math.round(r.height) }; };
+        return {
+          label: (document.querySelector(".ticket-label") || {}).textContent || "",
+          value: (document.querySelector(".ticket-value strong") || {}).textContent || "",
+          total: (document.querySelector(".ticket-value span") || {}).textContent || "",
+          code: code ? code.textContent.trim() : null,
+          codeClipped: code ? code.scrollWidth > code.clientWidth + 1 : null,
+          footer: footer ? (footer.textContent || "").replace(/\\s+/g, " ").trim() : null,
+          stats: (document.querySelector(".result-stat-row") || {}).textContent || "",
+          ticketNote: (document.querySelector(".ticket-note") || {}).textContent || "",
+          hasPhoneForm: !!document.getElementById("phoneForm"),
+          hasCodeForm: !!document.getElementById("phoneCodeForm"),
+          hasBound: !!bound,
+          boundText: bound ? (bound.textContent || "").replace(/\\s+/g, " ").trim() : null,
+          changeButton: !!document.querySelector('[data-action="phone-change"]'),
+          phoneError: error ? (error.textContent || "").trim() : null,
+          phoneInput: (() => { const el = document.querySelector('#phoneForm input[name="phone"]'); if (!el) return null; const r = el.getBoundingClientRect(); return { width: Math.round(r.width), height: Math.round(r.height), tag: el.tagName, type: el.type, name: el.name, cls: el.className, computedHeight: getComputedStyle(el).height }; })(),
+          codeInput: (() => { const el = document.querySelector('#phoneCodeForm input[name="code"]'); if (!el) return null; const r = el.getBoundingClientRect(); return { width: Math.round(r.width), height: Math.round(r.height), tag: el.tagName, type: el.type, name: el.name, cls: el.className, computedHeight: getComputedStyle(el).height }; })(),
+          phoneErrorVisible: error ? error.classList.contains("is-visible") : false,
+          codeHint: (document.querySelector(".ticket-phone-hint b") || {}).textContent || null,
+          phoneFormRect: rect(phone),
+          ticketRect: rect(reward),
+          hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+          has150: /150/.test(text),
+          hasPoints: /балл/i.test(text),
+          hasPromo: /промокод/i.test(text)
+        };
+      })()`,
+      { awaitPromise: false }
+    );
+
+  const submitPhone = async (value) => {
+    await page.fill('#phoneForm input[name="phone"]', value);
+    await page.click('#phoneForm button[type="submit"]');
+    await sleep(350);
+  };
+  const submitCode = async (value) => {
+    await page.fill('#phoneCodeForm input[name="code"]', value);
+    await page.click('#phoneCodeForm button[type="submit"]');
+    await sleep(350);
+  };
+
+  // 1) Копирайт лендинга
+  await page.setViewport({ width: 1440, height: 1000, mobile: false, dpr: 1 });
+  await page.eval("try { localStorage.clear(); } catch (error) {}", { awaitPromise: false });
+  await page.navigate(page.baseUrl);
+  await page.waitScreen("landing");
+  await sleep(500);
+  const copy = await landingCopy();
+  report.check("v24.copy-no-150-promo", !copy.has150 && !copy.hasPoints && !copy.hasPromo && copy.hasRaffle && copy.hasTicketWord, copy);
+  report.check("v24.copy-how", /до билета/i.test(copy.how) && /03 \/ БИЛЕТ/i.test(copy.how) && /Получи билет/i.test(copy.how) && /Билет за пройденную смену/i.test(copy.how), copy.how.slice(0, 260));
+  report.check("v24.landing-ticker", /Прими участие в розыгрыше/i.test(String(copy.ticker || "")), copy.ticker);
+
+  // 2) Первый маршрут → билет
+  await driver.completeRoute(first.id);
+  await page.waitScreen("result");
+  await sleep(1800);
+  let info = await resultInfo();
+  firstCode = info.code;
+  report.check("v24.ticket-first", info.label === "Билет розыгрыша" && /^БИЛЕТ-[A-Z0-9]{8,12}$/.test(info.code || "") && info.value === "01" && /всего 1$/i.test(info.total.trim()) && !info.has150 && !info.hasPoints && !info.hasPromo, info);
+  report.check("v24.ticket-counter-1", /Билетов\s*1\s*\/\s*3/i.test(info.stats) && /Мои билеты · 1/.test(info.footer || "") && !info.codeClipped, { stats: info.stats, footer: info.footer, clipped: info.codeClipped });
+  report.check("v24.ticket-note", /Один квест — один билет/i.test(info.ticketNote), info.ticketNote);
+  await report.shot(page, "v24-result-first-ticket");
+  await page.click('[data-action="copy-code"]');
+  await sleep(400);
+  report.check("v24.copy-ticket", /Номер билета скопирован/i.test(String(await page.text("#toast"))), await page.text("#toast"));
+
+  // 3) Вход по телефону
+  report.check("v24.phone-form", info.hasPhoneForm && !info.hasBound, info);
+  report.check("v24.phone-tap-target", !info.phoneInput || (info.phoneInput.height >= 40 && info.phoneInput.width >= 120), info.phoneInput);
+  await page.click('#phoneForm button[type="submit"]');
+  await sleep(300);
+  info = await resultInfo();
+  report.check("v24.phone-empty-error", info.phoneErrorVisible && /Введи номер/i.test(info.phoneError || ""), info.phoneError);
+  await submitPhone("123");
+  info = await resultInfo();
+  report.check("v24.phone-invalid-error", info.phoneErrorVisible && /Введи номер/i.test(info.phoneError || ""), info.phoneError);
+  await submitPhone("8 999 123-45-67");
+  info = await resultInfo();
+  const demoCode = info.codeHint;
+  report.check("v24.phone-challenge", info.hasCodeForm && /^\d{4}$/.test(String(demoCode || "")), { hasCodeForm: info.hasCodeForm, demoCode });
+  report.check("v24.phone-code-tap-target", !info.codeInput || info.codeInput.height >= 40, info.codeInput);
+  const wrongCode = String(demoCode) === "0000" ? "1111" : "0000";
+  await submitCode(wrongCode);
+  info = await resultInfo();
+  report.check("v24.phone-wrong-code", info.phoneErrorVisible && /Код не совпал/i.test(info.phoneError || ""), info.phoneError);
+  await submitCode(String(demoCode));
+  info = await resultInfo();
+  report.check("v24.phone-verified", info.hasBound && info.changeButton && /\+7 \(999\) \*\*\*-\*\*-67/.test(info.boundText || "") && !info.hasPhoneForm, info.boundText);
+  report.check("v24.phone-verified-mask", /Билеты привязаны к номеру\s*\+7 \(999\) \*\*\*-\*\*-67\s*Изменить/i.test(info.boundText || ""), info.boundText);
+
+  // 4) Reload → телефон/билет сохраняются
+  await page.reload();
+  await page.waitScreen("landing").catch(() => {});
+  await page.click('[data-action="open-tickets"]');
+  await page.waitScreen("result");
+  await sleep(1800);
+  info = await resultInfo();
+  report.check("v24.phone-persist", info.hasBound && /\+7 \(999\) \*\*\*-\*\*-67/.test(info.boundText || "") && /Мои билеты · 1/.test(info.footer || ""), { bound: info.boundText, footer: info.footer });
+  await page.click('[data-action="phone-change"]');
+  await sleep(300);
+  info = await resultInfo();
+  report.check("v24.phone-change", info.hasPhoneForm && !info.hasBound && /Мои билеты · 1/.test(info.footer || ""), info);
+  await report.shot(page, "v24-phone-change");
+
+  // 5) Повтор маршрута не добавляет билет
+  await page.click('[data-action="go-characters"]');
+  await page.waitScreen("characters");
+  await driver.completeRoute(first.id);
+  await page.waitScreen("result");
+  await sleep(1800);
+  info = await resultInfo();
+  report.check("v24.repeat-no-add", info.code === firstCode && info.value === "01" && /всего 1$/i.test(info.total.trim()) && /Билетов\s*1\s*\/\s*3/i.test(info.stats) && /Мои билеты · 1/.test(info.footer || ""), { code: info.code, firstCode, value: info.value, total: info.total, stats: info.stats, footer: info.footer });
+
+  // 6) Второй маршрут → второй билет
+  await page.click('[data-action="go-characters"]');
+  await page.waitScreen("characters");
+  await driver.completeRoute(second.id);
+  await page.waitScreen("result");
+  await sleep(1800);
+  info = await resultInfo();
+  report.check("v24.second-ticket", /^БИЛЕТ-[A-Z0-9]{8,12}$/.test(info.code || "") && info.code !== firstCode && info.value === "02" && /всего 2$/i.test(info.total.trim()) && /Билетов\s*2\s*\/\s*3/i.test(info.stats) && /Мои билеты · 2/.test(info.footer || ""), { code: info.code, value: info.value, total: info.total, stats: info.stats, footer: info.footer });
+  await report.shot(page, "v24-result-second-ticket");
+
+  // 7) Мобильные 390/360, обе темы
+  for (const viewport of [
+    { width: 390, height: 844, label: "390", design: "brand" },
+    { width: 360, height: 740, label: "360", design: "brodilka" }
+  ]) {
+    await page.setViewport({ width: viewport.width, height: viewport.height, mobile: true, dpr: 3 });
+    await page.reload();
+    await page.waitScreen("landing").catch(() => {});
+    if (viewport.design === "brodilka") {
+      await page.eval("window.scrollTo(0, document.body.scrollHeight)", { awaitPromise: false });
+      await page.click('[data-action="design-brodilka"]');
+      await sleep(250);
+      await page.eval("window.scrollTo(0, 0)", { awaitPromise: false });
+    }
+    await page.click('[data-action="open-tickets"]');
+    await page.waitScreen("result");
+    await sleep(1800);
+    const mobile = await resultInfo();
+    const phoneFits = !mobile.phoneFormRect || (mobile.phoneFormRect.left >= 0 && mobile.phoneFormRect.right <= viewport.width + 1);
+    report.check(`v24.mobile-${viewport.label}`, !mobile.hscroll && /Мои билеты · 2/.test(mobile.footer || "") && phoneFits && !!mobile.ticketRect, { hscroll: mobile.hscroll, phoneRect: mobile.phoneFormRect, ticketRect: mobile.ticketRect, footer: mobile.footer });
+    report.check(`v24.mobile-${viewport.label}.phone-input`, !mobile.phoneInput || mobile.phoneInput.height >= 40, mobile.phoneInput);
+    await page.scrollIntoView(".ticket-phone").catch(() => {});
+    await sleep(200);
+    await report.shot(page, `v24-result-${viewport.design}-${viewport.label}`);
+  }
+
+  // 8) Форма отклика в карточке на мобиле без hscroll
+  for (const viewport of [
+    { width: 390, height: 844, label: "390", design: "brand" },
+    { width: 360, height: 740, label: "360", design: "brodilka" }
+  ]) {
+    await page.setViewport({ width: viewport.width, height: viewport.height, mobile: true, dpr: 3 });
+    await page.eval("try { localStorage.clear(); } catch (error) {}", { awaitPromise: false });
+    await page.navigate(page.baseUrl);
+    await page.waitScreen("landing");
+    if (viewport.design === "brodilka") {
+      await page.eval("window.scrollTo(0, document.body.scrollHeight)", { awaitPromise: false });
+      await page.click('[data-action="design-brodilka"]');
+      await sleep(250);
+    }
+    await page.click('[data-action="quick-apply"]');
+    await page.waitScreen("apply");
+    await sleep(300);
+    const formInfo = await page.eval(`(() => { const form = document.getElementById("applyForm"); const card = document.querySelector(".form-card"); return { hscroll: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1, formWidth: form ? Math.round(form.getBoundingClientRect().width) : null, cardWidth: card ? Math.round(card.getBoundingClientRect().width) : null, viewport: document.documentElement.clientWidth }; })()`, { awaitPromise: false });
+    report.check(`v24.apply-form-${viewport.label}`, !formInfo.hscroll && formInfo.formWidth <= viewport.width, formInfo);
+  }
+
+  await checkConsole(page, report, "v24-final");
 }
 
 async function v22FinalScenario(page, report, driver) {
@@ -5104,7 +5313,7 @@ async function v14FinalScenario(page, report, driver, context) {
   report.check("v14.result-pop-scene", splatInfo.scenePresent && splatInfo.popLoaded, splatInfo);
   report.check("v14.result-no-overlap", splatInfo.copyHit === true && splatInfo.openApplyHit === true && splatInfo.starsHit === true, splatInfo);
   report.check("v14.result-promo", !!splatInfo.code && splatInfo.code.length >= 6 && splatInfo.codeClipped === false, splatInfo);
-  report.check("v14.result-stars-reward", /3\s*\/\s*3/.test(String(splatInfo.stars)) && /150/.test(String(splatInfo.rewardText)), splatInfo);
+  report.check("v14.result-stars-reward", /3\s*\/\s*3/.test(String(splatInfo.stars)) && /01/.test(String(splatInfo.rewardText)), splatInfo);
   await report.shot(page, "v14-result-brand");
   await mascotAudit("v14-result-brand", { requireSome: false });
   const codeBeforeCopy = splatInfo.code;
@@ -5548,6 +5757,12 @@ const SCENARIOS = [
     title: "v22: employer benefits 6 пунктов в обычном/быстром отклике, одинаковый заголовок/список, 1440/390/360, обе темы",
     viewport: "desktop",
     run: v22FinalScenario
+  },
+  {
+    id: "v24-final",
+    title: "v24: розыгрыш/билеты, счётчик и повтор, вход по телефону (код/маска/reload/Изменить), 1440/390/360, обе темы",
+    viewport: "desktop",
+    run: v24FinalScenario
   }
 ];
 

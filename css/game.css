@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    БРОДИЛКА — игровой экран, задания, финал, отклик
    ========================================================= */
 
@@ -5495,5 +5495,126 @@ input[type="range"].ph-range {
 
   .quick-role-body > span:last-child {
     -webkit-line-clamp: 4;
+  }
+}
+
+/* --- Билет розыгрыша: вход по телефону --- */
+.ticket-phone {
+  margin-top: 14px;
+  padding-top: 13px;
+  border-top: 1px solid rgba(16, 37, 26, 0.18);
+}
+
+.ticket-phone-label {
+  margin-bottom: 6px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ticket-phone-hint {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.ticket-phone-hint b {
+  color: var(--ink);
+}
+
+.ticket-phone-row {
+  display: flex;
+  align-items: stretch;
+  gap: 7px;
+}
+
+.ticket-phone-row input {
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  background: #fffdf7;
+  color: var(--ink);
+  font: 12px/1 var(--font-body);
+}
+
+.ticket-phone-row input:focus {
+  border-color: var(--forest);
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(12, 59, 40, 0.1);
+}
+
+.ticket-phone-row .btn {
+  min-height: 40px;
+  padding: 0 12px;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.ticket-phone-error {
+  min-height: 13px;
+  margin: 5px 0 0;
+  color: var(--orange);
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+.ticket-phone-error:not(.is-visible) {
+  display: none;
+}
+
+.ticket-bound {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(16, 37, 26, 0.18);
+}
+
+.ticket-bound span {
+  display: block;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ticket-bound b {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+}
+
+.ticket-phone-change {
+  border: 0;
+  background: none;
+  color: var(--forest);
+  font: 11px/1 var(--font-body);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .ticket-phone-row {
+    flex-direction: column;
+  }
+
+  .ticket-phone-row input {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 44px;
+    min-height: 44px;
+  }
+
+  .ticket-phone-row .btn {
+    width: 100%;
   }
 }
